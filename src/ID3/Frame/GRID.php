@@ -2,6 +2,8 @@
 /**
  * PHP Reader Library
  *
+ * Copyright (c) 2008 The PHP Reader Project Workgroup. All rights reserved.
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -10,7 +12,7 @@
  *  - Redistributions in binary form must reproduce the above copyright notice,
  *    this list of conditions and the following disclaimer in the documentation
  *    and/or other materials provided with the distribution.
- *  - Neither the name of the BEHR Software Systems nor the names of its
+ *  - Neither the name of the project workgroup nor the names of its
  *    contributors may be used to endorse or promote products derived from this
  *    software without specific prior written permission.
  *
@@ -28,9 +30,9 @@
  *
  * @package    php-reader
  * @subpackage ID3
- * @copyright  Copyright (c) 2008 BEHR Software Systems
- * @license    http://www.opensource.org/licenses/bsd-license.php New BSD License
- * @version    $Id: GRID.php 11 2008-03-12 12:06:41Z svollbehr $
+ * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
+ * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
+ * @version    $Id: GRID.php 65 2008-04-02 15:22:46Z svollbehr $
  */
 
 /**#@+ @ignore */
@@ -51,17 +53,17 @@ require_once("ID3/Frame.php");
  * The group symbol contains a value that associates the frame with this group
  * throughout the whole tag, in the range $80-F0. All other values are reserved.
  * The group symbol may optionally be followed by some group specific data, e.g.
- * a digital signature. There may be several "GRID" frames in a tag but only one
+ * a digital signature. There may be several GRID frames in a tag but only one
  * containing the same symbol and only one containing the same owner identifier.
  * The group symbol must be used somewhere in the tag. See
  * {@link ID3_Frame#GROUPING_IDENTITY} for more information.
  * 
  * @package    php-reader
  * @subpackage ID3
- * @author     Sven Vollbehr <sven.vollbehr@behrss.eu>
- * @copyright  Copyright (c) 2008 BEHR Software Systems
- * @license    http://www.opensource.org/licenses/bsd-license.php New BSD License
- * @version    $Rev: 11 $
+ * @author     Sven Vollbehr <svollbehr@gmail.com>
+ * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
+ * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
+ * @version    $Rev: 65 $
  */
 final class ID3_Frame_GRID extends ID3_Frame
 {
@@ -71,18 +73,24 @@ final class ID3_Frame_GRID extends ID3_Frame
   /** @var integer */
   private $_group;
   
+  /** @var string */
+  private $_groupData;
+  
   /**
    * Constructs the class with given parameters and parses object related data.
    *
    * @param Reader $reader The reader object.
    */
-  public function __construct($reader)
+  public function __construct($reader = null)
   {
     parent::__construct($reader);
+    
+    if ($reader === null)
+      return;
 
     list($this->_id, $this->_data) = preg_split("/\\x00/", $this->_data, 2);
-    $this->_group = substr($this->_data, 0, 1);
-    $this->_data = substr($this->_data, 1);
+    $this->_group = Transform::fromInt8($this->_data[0]);
+    $this->_groupData = substr($this->_data, 1);
   }
 
   /**
@@ -93,6 +101,13 @@ final class ID3_Frame_GRID extends ID3_Frame
   public function getIdentifier() { return $this->_id; }
 
   /**
+   * Sets the owner identifier string.
+   * 
+   * @param string $id The owner identifier string.
+   */
+  public function setIdentifier($id) { $this->_id = $id; }
+
+  /**
    * Returns the group symbol.
    * 
    * @return integer
@@ -100,9 +115,36 @@ final class ID3_Frame_GRID extends ID3_Frame
   public function getGroup() { return $this->_group; }
 
   /**
+   * Sets the group symbol.
+   * 
+   * @param integer $group The group symbol.
+   */
+  public function setGroup($group) { $this->_group = $group; }
+
+  /**
    * Returns the group dependent data.
    * 
    * @return string
    */
-  public function getData() { return $this->_data; }
+  public function getData() { return $this->_groupData; }
+  
+  /**
+   * Sets the group dependent data.
+   * 
+   * @param string $groupData The data.
+   */
+  public function setData($groupData) { $this->_groupData = $groupData; }
+  
+  /**
+   * Returns the frame raw data.
+   *
+   * @return string
+   */
+  public function __toString()
+  {
+    parent::setData
+      ($this->_id . "\0" . Transform::toInt8($this->_group) .
+       $this->_groupData);
+    return parent::__toString();
+  }
 }

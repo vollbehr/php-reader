@@ -2,6 +2,9 @@
 /**
  * PHP Reader Library
  *
+ * Copyright (c) 2006-2008 The PHP Reader Project Workgroup. All rights
+ * reserved.
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -10,7 +13,7 @@
  *  - Redistributions in binary form must reproduce the above copyright notice,
  *    this list of conditions and the following disclaimer in the documentation
  *    and/or other materials provided with the distribution.
- *  - Neither the name of the BEHR Software Systems nor the names of its
+ *  - Neither the name of the project workgroup nor the names of its
  *    contributors may be used to endorse or promote products derived from this
  *    software without specific prior written permission.
  *
@@ -28,10 +31,9 @@
  *
  * @package    php-reader
  * @subpackage ASF
- * @copyright  Copyright (c) 2006, 2007 The Bearpaw Project Work Group
- * @copyright  Copyright (c) 2007, 2008 BEHR Software Systems
- * @license    http://www.opensource.org/licenses/bsd-license.php New BSD License
- * @version    $Id: Object.php 10 2008-03-12 11:59:45Z svollbehr $
+ * @copyright  Copyright (c) 2006-2008 The PHP Reader Project Workgroup
+ * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
+ * @version    $Id: Object.php 39 2008-03-26 17:27:22Z svollbehr $
  */
 
 /**
@@ -39,11 +41,10 @@
  *
  * @package    php-reader
  * @subpackage ASF
- * @author     Sven Vollbehr <sven.vollbehr@behrss.eu>
- * @copyright  Copyright (c) 2006, 2007 The Bearpaw Project Work Group
- * @copyright  Copyright (c) 2007, 2008 BEHR Software Systems
- * @license    http://www.opensource.org/licenses/bsd-license.php New BSD License
- * @version    $Rev: 10 $
+ * @author     Sven Vollbehr <svollbehr@gmail.com>
+ * @copyright  Copyright (c) 2006-2008 The PHP Reader Project Workgroup
+ * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
+ * @version    $Rev: 39 $
  */
 class ASF_Object
 {

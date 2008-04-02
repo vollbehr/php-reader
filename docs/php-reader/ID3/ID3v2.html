@@ -285,6 +285,7 @@
 	    &nbsp;&nbsp;		<a href="../../php-reader/ID3/ID3_Frame_RVRB.html">ID3_Frame_RVRB</a><br />
 	    &nbsp;&nbsp;		<a href="../../php-reader/ID3/ID3_Frame_SEEK.html">ID3_Frame_SEEK</a><br />
 	    &nbsp;&nbsp;		<a href="../../php-reader/ID3/ID3_Frame_SIGN.html">ID3_Frame_SIGN</a><br />
+	    &nbsp;&nbsp;		<a href="../../php-reader/ID3/ID3_Frame_SYLT.html">ID3_Frame_SYLT</a><br />
 	    &nbsp;&nbsp;		<a href="../../php-reader/ID3/ID3_Frame_SYTC.html">ID3_Frame_SYTC</a><br />
 	    &nbsp;&nbsp;		<a href="../../php-reader/ID3/ID3_Frame_TALB.html">ID3_Frame_TALB</a><br />
 	    &nbsp;&nbsp;		<a href="../../php-reader/ID3/ID3_Frame_TBPM.html">ID3_Frame_TBPM</a><br />
@@ -374,7 +375,7 @@ Source Location: /ID3v2.php<br /><br />
 <div class="description">This class represents a file containing ID3v2 headers as described in  <a href="http://www.id3.org/id3v2.4.0-structure">ID3v2 structure document</a>.</div><br /><br />
 <h4>Author(s):</h4>
 <ul>
-          <li>Sven Vollbehr &lt;<a href="mailto:sven.vollbehr@behrss.eu">sven.vollbehr@behrss.eu</a>&gt;</li>
+          <li>Sven Vollbehr &lt;<a href="mailto:svollbehr@gmail.com">svollbehr@gmail.com</a>&gt;</li>
                         </ul>
 
 
@@ -385,12 +386,12 @@ Source Location: /ID3v2.php<br /><br />
       
 <h4>Version:</h4>
 <ul>
-  <li>$Rev: 11 $</li>
+  <li>$Rev: 65 $</li>
 </ul>
 
 <h4>Copyright:</h4>
 <ul>
-  <li>Copyright (c) 2008 BEHR Software Systems</li>
+  <li>Copyright (c) 2008 The PHP Reader Project Workgroup</li>
 </ul>
         
 </td>
@@ -401,13 +402,22 @@ Source Location: /ID3v2.php<br /><br />
 <h3><a href="#class_methods">Methods</a></h3>
 <ul>
     <li><a href="../../php-reader/ID3/ID3v2.html#method__construct">__construct</a></li>
+    <li><a href="../../php-reader/ID3/ID3v2.html#methodaddFrame">addFrame</a></li>
     <li><a href="../../php-reader/ID3/ID3v2.html#methodgetExtendedHeader">getExtendedHeader</a></li>
     <li><a href="../../php-reader/ID3/ID3v2.html#methodgetFooter">getFooter</a></li>
+    <li><a href="../../php-reader/ID3/ID3v2.html#methodgetFrames">getFrames</a></li>
+    <li><a href="../../php-reader/ID3/ID3v2.html#methodgetFramesByIdentifier">getFramesByIdentifier</a></li>
     <li><a href="../../php-reader/ID3/ID3v2.html#methodgetHeader">getHeader</a></li>
     <li><a href="../../php-reader/ID3/ID3v2.html#methodhasExtendedHeader">hasExtendedHeader</a></li>
     <li><a href="../../php-reader/ID3/ID3v2.html#methodhasFooter">hasFooter</a></li>
+    <li><a href="../../php-reader/ID3/ID3v2.html#methodhasFrame">hasFrame</a></li>
     <li><a href="../../php-reader/ID3/ID3v2.html#methodhasFrames">hasFrames</a></li>
     <li><a href="../../php-reader/ID3/ID3v2.html#methodnextFrame">nextFrame</a></li>
+    <li><a href="../../php-reader/ID3/ID3v2.html#methodsetExtendedHeader">setExtendedHeader</a></li>
+    <li><a href="../../php-reader/ID3/ID3v2.html#methodsetFooter">setFooter</a></li>
+    <li><a href="../../php-reader/ID3/ID3v2.html#methodwrite">write</a></li>
+    <li><a href="../../php-reader/ID3/ID3v2.html#method__get">__get</a></li>
+    <li><a href="../../php-reader/ID3/ID3v2.html#method__toString">__toString</a></li>
   </ul>
 </td>
 
@@ -428,7 +438,7 @@ Source Location: /ID3v2.php<br /><br />
 <h3>Class Details</h3>
 <div class="tags">
 [line 90]<br />
-This class represents a file containing ID3v2 headers as described in  <a href="http://www.id3.org/id3v2.4.0-structure">ID3v2 structure document</a>.<br /><br /><p>ID3v2 is a general tagging format for audio, which makes it possible to store  meta data about the audio inside the audio file itself. The ID3 tag is mainly  targeted at files encoded with MPEG-1/2 layer I, MPEG-1/2 layer II, MPEG-1/2  layer III and MPEG-2.5, but may work with other types of encoded audio or as  a stand alone format for audio meta data.</p><p>ID3v2 is designed to be as flexible and expandable as possible to meet new  meta information needs that might arise. To achieve that ID3v2 is constructed  as a container for several information blocks, called frames, whose format  need not be known to the software that encounters them. At the start of every  frame is an unique and predefined identifier, a size descriptor that allows  software to skip unknown frames and a flags field. The flags describes  encoding details and if the frame should remain in the tag, should it be  unknown to the software, if the file is altered.</p><p>Overall tag structure:</p><p><pre>   +-----------------------------+
+This class represents a file containing ID3v2 headers as described in  <a href="http://www.id3.org/id3v2.4.0-structure">ID3v2 structure document</a>.<br /><br /><p>ID3v2 is a general tagging format for audio, which makes it possible to store  meta data about the audio inside the audio file itself. The ID3 tag is mainly  targeted at files encoded with MPEG-1/2 layer I, MPEG-1/2 layer II, MPEG-1/2  layer III and MPEG-2.5, but may work with other types of encoded audio or as  a stand alone format for audio meta data.</p><p>ID3v2 is designed to be as flexible and expandable as possible to meet new  meta information needs that might arise. To achieve that ID3v2 is constructed  as a container for several information blocks, called frames, whose format  need not be known to the software that encounters them. Each frame has an  unique and predefined identifier which allows software to skip unknown  frames.</p><p>Overall tag structure:</p><p><pre>   +-----------------------------+
    |      Header (10 bytes)      |
    +-----------------------------+
    |       Extended Header       |
@@ -445,16 +455,16 @@ This class represents a file containing ID3v2 headers as described in  <a href="
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td><b>author:</b>&nbsp;&nbsp;</td><td>Sven Vollbehr &lt;<a href="mailto:sven.vollbehr@behrss.eu">sven.vollbehr@behrss.eu</a>&gt;</td>
+    <td><b>author:</b>&nbsp;&nbsp;</td><td>Sven Vollbehr &lt;<a href="mailto:svollbehr@gmail.com">svollbehr@gmail.com</a>&gt;</td>
   </tr>
   <tr>
-    <td><b>version:</b>&nbsp;&nbsp;</td><td>$Rev: 11 $</td>
+    <td><b>version:</b>&nbsp;&nbsp;</td><td>$Rev: 65 $</td>
   </tr>
   <tr>
-    <td><b>copyright:</b>&nbsp;&nbsp;</td><td>Copyright (c) 2008 BEHR Software Systems</td>
+    <td><b>copyright:</b>&nbsp;&nbsp;</td><td>Copyright (c) 2008 The PHP Reader Project Workgroup</td>
   </tr>
   <tr>
-    <td><b>license:</b>&nbsp;&nbsp;</td><td><a href="http://www.opensource.org/licenses/bsd-license.php">New BSD License</a></td>
+    <td><b>license:</b>&nbsp;&nbsp;</td><td><a href="http://code.google.com/p/php-reader/wiki/License">New BSD License</a></td>
   </tr>
 </table>
 </div>
@@ -469,22 +479,29 @@ This class represents a file containing ID3v2 headers as described in  <a href="
 
   <hr />
 	<a name="method__construct"></a>
-	<h3>constructor __construct <span class="smalllinenumber">[line 110]</span></h3>
+	<h3>constructor __construct <span class="smalllinenumber">[line 119]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
 		<code>ID3v2 __construct(
-string
-$filename)</code>
+[string
+$filename = false], [Array
+$options = array()])</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Constructs the ID3v2 class with given file.<br /><br /><br /><br />
+		Constructs the ID3v2 class with given file and options.<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td><b>todo:</b>&nbsp;&nbsp;</td><td>Only limited subset of flags are processed.</td>
+  </tr>
+  <tr>
+    <td><b>todo:</b>&nbsp;&nbsp;</td><td>Utilize the SEEK frame and search for a footer to find the tag</td>
+  </tr>
+  <tr>
+    <td><b>todo:</b>&nbsp;&nbsp;</td><td>Utilize the LINK frame to fetch frames from other sources</td>
   </tr>
   <tr>
     <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
@@ -502,13 +519,54 @@ $filename)</code>
         <td><b>$filename</b>&nbsp;&nbsp;</td>
         <td>The path to the file.</td>
       </tr>
+          <tr>
+        <td class="type">Array&nbsp;&nbsp;</td>
+        <td><b>$options</b>&nbsp;&nbsp;</td>
+        <td>The options array.</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodaddFrame"></a>
+	<h3>method addFrame <span class="smalllinenumber">[line 300]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code><a href="../../php-reader/ID3/ID3_Frame.html">ID3_Frame</a> addFrame(
+<a href="../../php-reader/ID3/ID3_Frame.html">ID3_Frame</a>
+$frame)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Adds a new frame to the tag and returns it.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type"><a href="../../php-reader/ID3/ID3_Frame.html">ID3_Frame</a>&nbsp;&nbsp;</td>
+        <td><b>$frame</b>&nbsp;&nbsp;</td>
+        <td>The frame to add.</td>
+      </tr>
         </table>
     </div><br />
         <div class="top">[ <a href="#top">Top</a> ]</div>
   </div>
   <hr />
 	<a name="methodgetExtendedHeader"></a>
-	<h3>method getExtendedHeader <span class="smalllinenumber">[line 155]</span></h3>
+	<h3>method getExtendedHeader <span class="smalllinenumber">[line 178]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -533,7 +591,7 @@ $filename)</code>
   </div>
   <hr />
 	<a name="methodgetFooter"></a>
-	<h3>method getFooter <span class="smalllinenumber">[line 224]</span></h3>
+	<h3>method getFooter <span class="smalllinenumber">[line 323]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -557,8 +615,69 @@ $filename)</code>
         <div class="top">[ <a href="#top">Top</a> ]</div>
   </div>
   <hr />
+	<a name="methodgetFrames"></a>
+	<h3>method getFrames <span class="smalllinenumber">[line 263]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>Array getFrames(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Returns all the frames the tag contains as an associate array. The frame  identifiers work as keys having an array of frames as associated value.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodgetFramesByIdentifier"></a>
+	<h3>method getFramesByIdentifier <span class="smalllinenumber">[line 282]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>Array getFramesByIdentifier(
+
+$identifier)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Returns an array of frames matching the given identifier or an empty array  if no frames matched the identifier.<br /><br /><p>The identifier may contain wildcard characters &quot;*&quot; and &quot;?&quot;. The asterisk  matches against zero or more characters, and the question mark matches any  single character.</p><p>Please note that one may also use the shorthand $obj-&gt;identifier to access  the first frame with the identifier given. Wildcards cannot be used with  the shorthand.</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">&nbsp;&nbsp;</td>
+        <td><b>$identifier</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
 	<a name="methodgetHeader"></a>
-	<h3>method getHeader <span class="smalllinenumber">[line 136]</span></h3>
+	<h3>method getHeader <span class="smalllinenumber">[line 158]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -583,7 +702,7 @@ $filename)</code>
   </div>
   <hr />
 	<a name="methodhasExtendedHeader"></a>
-	<h3>method hasExtendedHeader <span class="smalllinenumber">[line 144]</span></h3>
+	<h3>method hasExtendedHeader <span class="smalllinenumber">[line 166]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -608,7 +727,7 @@ $filename)</code>
   </div>
   <hr />
 	<a name="methodhasFooter"></a>
-	<h3>method hasFooter <span class="smalllinenumber">[line 214]</span></h3>
+	<h3>method hasFooter <span class="smalllinenumber">[line 313]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -632,8 +751,44 @@ $filename)</code>
         <div class="top">[ <a href="#top">Top</a> ]</div>
   </div>
   <hr />
+	<a name="methodhasFrame"></a>
+	<h3>method hasFrame <span class="smalllinenumber">[line 252]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>boolean hasFrame(
+
+$identifier)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Checks whether there is a frame given as an argument defined in the tag.<br /><br /><p>Returns <var>true</var> if one ore more frames are present,  <var>false</var> otherwise.</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">&nbsp;&nbsp;</td>
+        <td><b>$identifier</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
 	<a name="methodhasFrames"></a>
-	<h3>method hasFrames <span class="smalllinenumber">[line 168]</span></h3>
+	<h3>method hasFrames <span class="smalllinenumber">[line 205]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -647,7 +802,7 @@ $filename)</code>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>protected</td>
   </tr>
 </table>
 </div>
@@ -658,7 +813,7 @@ $filename)</code>
   </div>
   <hr />
 	<a name="methodnextFrame"></a>
-	<h3>method nextFrame <span class="smalllinenumber">[line 190]</span></h3>
+	<h3>method nextFrame <span class="smalllinenumber">[line 227]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -668,6 +823,175 @@ $filename)</code>
     </td></tr></table><br />
 	
 		Returns the next ID3 frame or <var>false</var> if end of tag has been  reached. Returned objects are of the type ID3_Frame or of any of its child  types.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodsetExtendedHeader"></a>
+	<h3>method setExtendedHeader <span class="smalllinenumber">[line 190]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void setExtendedHeader(
+<a href="../../php-reader/ID3/ID3_ExtendedHeader.html">ID3_ExtendedHeader</a>
+$extendedHeader)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Sets the extended header object.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type"><a href="../../php-reader/ID3/ID3_ExtendedHeader.html">ID3_ExtendedHeader</a>&nbsp;&nbsp;</td>
+        <td><b>$extendedHeader</b>&nbsp;&nbsp;</td>
+        <td>The header object</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodsetFooter"></a>
+	<h3>method setFooter <span class="smalllinenumber">[line 335]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void setFooter(
+boolean
+$useFooter)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Sets whether the tag should have a footer defined.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">boolean&nbsp;&nbsp;</td>
+        <td><b>$useFooter</b>&nbsp;&nbsp;</td>
+        <td>Whether the tag should have a footer</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodwrite"></a>
+	<h3>method write <span class="smalllinenumber">[line 364]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void write(
+[string
+$filename = false])</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Writes the possibly altered ID3v2 tag back to the file where it was read.<br /><br /><p>If the class was constructed without a file name, one can be provided here  as an argument. Regardless, the write operation will override previous  tag information, if found.</p><p>If write is called without setting any frames to the tag, the tag is  removed from the file.</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$filename</b>&nbsp;&nbsp;</td>
+        <td>The optional path to the file.</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="method__get"></a>
+	<h3>method __get <span class="smalllinenumber">[line 409]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>mixed __get(
+string
+$name)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Magic function so that $obj-&gt;value will work. The method will attempt to  return the first frame that matches the identifier.<br /><br /><p>If there is no frame or field with given name, the method will attempt to  create a frame with given identifier.</p><p>If none of these work, an exception is thrown.</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$name</b>&nbsp;&nbsp;</td>
+        <td>The frame or field name.</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="method__toString"></a>
+	<h3>method __toString <span class="smalllinenumber">[line 427]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>string __toString(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Returns the tag raw data.<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -686,7 +1010,7 @@ $filename)</code>
 
         <div class="credit">
 		    <hr />
-		    Documentation generated on Mon, 17 Mar 2008 15:35:30 +0200 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.1</a>
+		    Documentation generated on Wed, 02 Apr 2008 18:35:18 +0300 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.1</a>
 	      </div>
       </td></tr></table>
     </td>

@@ -2,6 +2,8 @@
 /**
  * PHP Reader Library
  *
+ * Copyright (c) 2008 The PHP Reader Project Workgroup. All rights reserved.
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -10,7 +12,7 @@
  *  - Redistributions in binary form must reproduce the above copyright notice,
  *    this list of conditions and the following disclaimer in the documentation
  *    and/or other materials provided with the distribution.
- *  - Neither the name of the BEHR Software Systems nor the names of its
+ *  - Neither the name of the project workgroup nor the names of its
  *    contributors may be used to endorse or promote products derived from this
  *    software without specific prior written permission.
  *
@@ -28,9 +30,9 @@
  *
  * @package    php-reader
  * @subpackage ID3
- * @copyright  Copyright (c) 2008 BEHR Software Systems
- * @license    http://www.opensource.org/licenses/bsd-license.php New BSD License
- * @version    $Id: SYTC.php 12 2008-03-17 12:54:34Z svollbehr $
+ * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
+ * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
+ * @version    $Id: SYTC.php 65 2008-04-02 15:22:46Z svollbehr $
  */
 
 /**#@+ @ignore */
@@ -54,32 +56,39 @@ require_once("ID3/Timing.php");
  * music changes, a tempo descriptor may indicate this for the player. All tempo
  * descriptors must be sorted in chronological order. The first beat-stroke in
  * a time-period is at the same time as the beat description occurs. There may
- * only be one "SYTC" frame in each tag.
+ * only be one SYTC frame in each tag.
  *
+ * @todo       The data could be parsed further; data samples needed
  * @package    php-reader
  * @subpackage ID3
- * @author     Sven Vollbehr <sven.vollbehr@behrss.eu>
- * @copyright  Copyright (c) 2008 BEHR Software Systems
- * @license    http://www.opensource.org/licenses/bsd-license.php New BSD License
- * @version    $Rev: 12 $
+ * @author     Sven Vollbehr <svollbehr@gmail.com>
+ * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
+ * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
+ * @version    $Rev: 65 $
  */
 final class ID3_Frame_SYTC extends ID3_Frame
   implements ID3_Timing
 {
   /** @var integer */
-  private $_format;
+  private $_format = 1;
+  
+  /** @var string */
+  private $_tempoData;
   
   /**
    * Constructs the class with given parameters and parses object related data.
    *
    * @param Reader $reader The reader object.
    */
-  public function __construct($reader)
+  public function __construct($reader = null)
   {
     parent::__construct($reader);
+    
+    if ($reader === null)
+      return;
 
-    $this->_format = ord($this->_data{0});
-    $this->_data = substr($this->_data, 1); // FIXME: Better parsing of data
+    $this->_format = Transform::fromInt8($this->_data[0]);
+    $this->_tempoData = substr($this->_data, 1); // FIXME: Better parsing of data
   }
   
   /**
@@ -90,9 +99,35 @@ final class ID3_Frame_SYTC extends ID3_Frame
   public function getFormat() { return $this->_format; }
 
   /**
+   * Sets the timing format.
+   * 
+   * @see ID3_Timing
+   * @param integer $format The timing format.
+   */
+  public function setFormat($format) { $this->_format = $format; }
+  
+  /**
    * Returns the tempo data.
    * 
    * @return string
    */
-  public function getData() { return $this->_data; }
+  public function getData() { return $this->_tempoData; }
+  
+  /**
+   * Sets the tempo data.
+   * 
+   * @param string $data The data string.
+   */
+  public function setData($tempoData) { $this->_tempoData = $tempoData; }
+
+  /**
+   * Returns the frame raw data.
+   *
+   * @return string
+   */
+  public function __toString()
+  {
+    parent::setData(Transform::toInt8($this->_format) . $this->_tempoData);
+    return parent::__toString();
+  }
 }

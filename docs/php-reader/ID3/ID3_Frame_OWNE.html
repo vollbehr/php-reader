@@ -285,6 +285,7 @@
 	    &nbsp;&nbsp;		<a href="../../php-reader/ID3/ID3_Frame_RVRB.html">ID3_Frame_RVRB</a><br />
 	    &nbsp;&nbsp;		<a href="../../php-reader/ID3/ID3_Frame_SEEK.html">ID3_Frame_SEEK</a><br />
 	    &nbsp;&nbsp;		<a href="../../php-reader/ID3/ID3_Frame_SIGN.html">ID3_Frame_SIGN</a><br />
+	    &nbsp;&nbsp;		<a href="../../php-reader/ID3/ID3_Frame_SYLT.html">ID3_Frame_SYLT</a><br />
 	    &nbsp;&nbsp;		<a href="../../php-reader/ID3/ID3_Frame_SYTC.html">ID3_Frame_SYTC</a><br />
 	    &nbsp;&nbsp;		<a href="../../php-reader/ID3/ID3_Frame_TALB.html">ID3_Frame_TALB</a><br />
 	    &nbsp;&nbsp;		<a href="../../php-reader/ID3/ID3_Frame_TBPM.html">ID3_Frame_TBPM</a><br />
@@ -378,7 +379,7 @@ Source Location: /ID3/Frame/OWNE.php<br /><br />
 <div class="description">The <em>Ownership frame</em> might be used as a reminder of a made transaction  or, if signed, as proof. Note that the <a href="../../php-reader/ID3/ID3_Frame_USER.html">ID3_Frame_USER</a> and  <a href="../../php-reader/ID3/ID3_Frame_TOWN.html">ID3_Frame_TOWN</a> frames are good to use in conjunction with this one.</div><br /><br />
 <h4>Author(s):</h4>
 <ul>
-          <li>Sven Vollbehr &lt;<a href="mailto:sven.vollbehr@behrss.eu">sven.vollbehr@behrss.eu</a>&gt;</li>
+          <li>Sven Vollbehr &lt;<a href="mailto:svollbehr@gmail.com">svollbehr@gmail.com</a>&gt;</li>
                         </ul>
 
 
@@ -389,12 +390,12 @@ Source Location: /ID3/Frame/OWNE.php<br /><br />
       
 <h4>Version:</h4>
 <ul>
-  <li>$Rev: 12 $</li>
+  <li>$Rev: 65 $</li>
 </ul>
 
 <h4>Copyright:</h4>
 <ul>
-  <li>Copyright (c) 2008 BEHR Software Systems</li>
+  <li>Copyright (c) 2008 The PHP Reader Project Workgroup</li>
 </ul>
                 <p class="implements">
             Implements interfaces:
@@ -415,6 +416,12 @@ Source Location: /ID3/Frame/OWNE.php<br /><br />
     <li><a href="../../php-reader/ID3/ID3_Frame_OWNE.html#methodgetEncoding">getEncoding</a></li>
     <li><a href="../../php-reader/ID3/ID3_Frame_OWNE.html#methodgetPrice">getPrice</a></li>
     <li><a href="../../php-reader/ID3/ID3_Frame_OWNE.html#methodgetSeller">getSeller</a></li>
+    <li><a href="../../php-reader/ID3/ID3_Frame_OWNE.html#methodsetCurrency">setCurrency</a></li>
+    <li><a href="../../php-reader/ID3/ID3_Frame_OWNE.html#methodsetDate">setDate</a></li>
+    <li><a href="../../php-reader/ID3/ID3_Frame_OWNE.html#methodsetEncoding">setEncoding</a></li>
+    <li><a href="../../php-reader/ID3/ID3_Frame_OWNE.html#methodsetPrice">setPrice</a></li>
+    <li><a href="../../php-reader/ID3/ID3_Frame_OWNE.html#methodsetSeller">setSeller</a></li>
+    <li><a href="../../php-reader/ID3/ID3_Frame_OWNE.html#method__toString">__toString</a></li>
   </ul>
 </td>
 
@@ -499,6 +506,12 @@ Source Location: /ID3/Frame/OWNE.php<br /><br />
 <h4>Class: <a href="../../php-reader/ID3/ID3_Object.html">ID3_Object</a></h4>
 <dl>
 <dt>
+  <a href="../../php-reader/ID3/ID3_Object.html#var$_options">ID3_Object::$_options</a>
+  </dt>
+<dd>
+   
+</dd>
+<dt>
   <a href="../../php-reader/ID3/ID3_Object.html#var$_reader">ID3_Object::$_reader</a>
   </dt>
 <dd>
@@ -520,6 +533,12 @@ Source Location: /ID3/Frame/OWNE.php<br /><br />
     Constructs the class with given parameters and reads object related data  from the ID3v2 tag.
   </dd>
     <dt>
+    <a href="../../php-reader/ID3/ID3_Frame.html#methodgetFlags">ID3_Frame::getFlags()</a>
+  </dt>
+  <dd>
+    Returns the frame flags byte.
+  </dd>
+    <dt>
     <a href="../../php-reader/ID3/ID3_Frame.html#methodgetIdentifier">ID3_Frame::getIdentifier()</a>
   </dt>
   <dd>
@@ -536,6 +555,30 @@ Source Location: /ID3/Frame/OWNE.php<br /><br />
   </dt>
   <dd>
     Checks whether or not the flag is set. Returns <var>true</var> if the flag  is set, <var>false</var> otherwise.
+  </dd>
+    <dt>
+    <a href="../../php-reader/ID3/ID3_Frame.html#methodsetData">ID3_Frame::setData()</a>
+  </dt>
+  <dd>
+    Sets the frame raw data.
+  </dd>
+    <dt>
+    <a href="../../php-reader/ID3/ID3_Frame.html#methodsetFlags">ID3_Frame::setFlags()</a>
+  </dt>
+  <dd>
+    Sets the frame flags byte.
+  </dd>
+    <dt>
+    <a href="../../php-reader/ID3/ID3_Frame.html#methodsetIdentifier">ID3_Frame::setIdentifier()</a>
+  </dt>
+  <dd>
+    Sets the frame identifier.
+  </dd>
+    <dt>
+    <a href="../../php-reader/ID3/ID3_Frame.html#method__toString">ID3_Frame::__toString()</a>
+  </dt>
+  <dd>
+    Returns the frame raw data.
   </dd>
   </dl>
 <h4>Class: <a href="../../php-reader/ID3/ID3_Object.html">ID3_Object</a></h4>
@@ -558,6 +601,18 @@ Source Location: /ID3/Frame/OWNE.php<br /><br />
   <dd>
     Encodes the given 32-bit integer to 28-bit synchsafe integer, where the  most significant bit of each byte is zero, making seven bits out of eight  available.
   </dd>
+    <dt>
+    <a href="../../php-reader/ID3/ID3_Object.html#method__get">ID3_Object::__get()</a>
+  </dt>
+  <dd>
+    Magic function so that $obj-&gt;value will work.
+  </dd>
+    <dt>
+    <a href="../../php-reader/ID3/ID3_Object.html#method__set">ID3_Object::__set()</a>
+  </dt>
+  <dd>
+    Magic function so that assignments with $obj-&gt;value will work.
+  </dd>
   </dl>
 </div>
 </td>
@@ -568,22 +623,22 @@ Source Location: /ID3/Frame/OWNE.php<br /><br />
 <a name="class_details"></a>
 <h3>Class Details</h3>
 <div class="tags">
-[line 55]<br />
+[line 57]<br />
 The <em>Ownership frame</em> might be used as a reminder of a made transaction  or, if signed, as proof. Note that the <a href="../../php-reader/ID3/ID3_Frame_USER.html">ID3_Frame_USER</a> and  <a href="../../php-reader/ID3/ID3_Frame_TOWN.html">ID3_Frame_TOWN</a> frames are good to use in conjunction with this one.<br /><br /><p>There may only be one OWNE frame in a tag.</p><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td><b>author:</b>&nbsp;&nbsp;</td><td>Sven Vollbehr &lt;<a href="mailto:sven.vollbehr@behrss.eu">sven.vollbehr@behrss.eu</a>&gt;</td>
+    <td><b>author:</b>&nbsp;&nbsp;</td><td>Sven Vollbehr &lt;<a href="mailto:svollbehr@gmail.com">svollbehr@gmail.com</a>&gt;</td>
   </tr>
   <tr>
-    <td><b>version:</b>&nbsp;&nbsp;</td><td>$Rev: 12 $</td>
+    <td><b>version:</b>&nbsp;&nbsp;</td><td>$Rev: 65 $</td>
   </tr>
   <tr>
-    <td><b>copyright:</b>&nbsp;&nbsp;</td><td>Copyright (c) 2008 BEHR Software Systems</td>
+    <td><b>copyright:</b>&nbsp;&nbsp;</td><td>Copyright (c) 2008 The PHP Reader Project Workgroup</td>
   </tr>
   <tr>
-    <td><b>license:</b>&nbsp;&nbsp;</td><td><a href="http://www.opensource.org/licenses/bsd-license.php">New BSD License</a></td>
+    <td><b>license:</b>&nbsp;&nbsp;</td><td><a href="http://code.google.com/p/php-reader/wiki/License">New BSD License</a></td>
   </tr>
 </table>
 </div>
@@ -598,13 +653,13 @@ The <em>Ownership frame</em> might be used as a reminder of a made transaction  
 
   <hr />
 	<a name="method__construct"></a>
-	<h3>constructor __construct <span class="smalllinenumber">[line 78]</span></h3>
+	<h3>constructor __construct <span class="smalllinenumber">[line 80]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
 		<code>ID3_Frame_OWNE __construct(
-<a href="../../php-reader/Reader.html">Reader</a>
-$reader)</code>
+[<a href="../../php-reader/Reader.html">Reader</a>
+$reader = null])</code>
     </td></tr></table>
     </td></tr></table><br />
 	
@@ -634,7 +689,7 @@ $reader)</code>
   </div>
   <hr />
 	<a name="methodgetCurrency"></a>
-	<h3>method getCurrency <span class="smalllinenumber">[line 119]</span></h3>
+	<h3>method getCurrency <span class="smalllinenumber">[line 129]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -659,7 +714,7 @@ $reader)</code>
   </div>
   <hr />
 	<a name="methodgetDate"></a>
-	<h3>method getDate <span class="smalllinenumber">[line 133]</span></h3>
+	<h3>method getDate <span class="smalllinenumber">[line 162]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -684,7 +739,7 @@ $reader)</code>
   </div>
   <hr />
 	<a name="methodgetEncoding"></a>
-	<h3>method getEncoding <span class="smalllinenumber">[line 110]</span></h3>
+	<h3>method getEncoding <span class="smalllinenumber">[line 112]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -715,7 +770,7 @@ $reader)</code>
   </div>
   <hr />
 	<a name="methodgetPrice"></a>
-	<h3>method getPrice <span class="smalllinenumber">[line 126]</span></h3>
+	<h3>method getPrice <span class="smalllinenumber">[line 145]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -740,7 +795,7 @@ $reader)</code>
   </div>
   <hr />
 	<a name="methodgetSeller"></a>
-	<h3>method getSeller <span class="smalllinenumber">[line 140]</span></h3>
+	<h3>method getSeller <span class="smalllinenumber">[line 177]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -763,12 +818,232 @@ $reader)</code>
 	
         <div class="top">[ <a href="#top">Top</a> ]</div>
   </div>
+  <hr />
+	<a name="methodsetCurrency"></a>
+	<h3>method setCurrency <span class="smalllinenumber">[line 138]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void setCurrency(
+string
+$currency)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Sets the currency used in transaction, encoded according to  <a href="http://www.iso.org/iso/support/faqs/faqs_widely_used_standards/widely_used_standards_other/currency_codes/currency_codes_list-1.htm">ISO 4217</a> alphabetic currency code.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$currency</b>&nbsp;&nbsp;</td>
+        <td>The currency code.</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodsetDate"></a>
+	<h3>method setDate <span class="smalllinenumber">[line 170]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void setDate(
+string
+$date)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Sets the date of purchase. The date must be an 8 character date string  (YYYYMMDD).<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$date</b>&nbsp;&nbsp;</td>
+        <td>The date string.</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodsetEncoding"></a>
+	<h3>method setEncoding <span class="smalllinenumber">[line 120]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void setEncoding(
+integer
+$encoding)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Sets the text encoding.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>see:</b>&nbsp;&nbsp;</td><td><a href="../../php-reader/ID3/ID3_Encoding.html">ID3_Encoding</a></td>
+  </tr>
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+			<hr class="separator" />
+		<div class="notes">Implementation of:</div>
+			<dl>
+			<dt><a href="../../php-reader/ID3/ID3_Encoding.html#methodsetEncoding">ID3_Encoding::setEncoding()</a></dt>
+						<dd>Sets the text encoding.</dd>
+					</dl>
+		
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">integer&nbsp;&nbsp;</td>
+        <td><b>$encoding</b>&nbsp;&nbsp;</td>
+        <td>The text encoding.</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodsetPrice"></a>
+	<h3>method setPrice <span class="smalllinenumber">[line 152]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void setPrice(
+integer
+$price)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Sets the price.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">integer&nbsp;&nbsp;</td>
+        <td><b>$price</b>&nbsp;&nbsp;</td>
+        <td>The price.</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodsetSeller"></a>
+	<h3>method setSeller <span class="smalllinenumber">[line 185]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void setSeller(
+string
+$seller, [integer
+$encoding = false])</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Sets the name of the seller using given encoding.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$seller</b>&nbsp;&nbsp;</td>
+        <td>The name of the seller.</td>
+      </tr>
+          <tr>
+        <td class="type">integer&nbsp;&nbsp;</td>
+        <td><b>$encoding</b>&nbsp;&nbsp;</td>
+        <td>The text encoding.</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="method__toString"></a>
+	<h3>method __toString <span class="smalllinenumber">[line 197]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>string __toString(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Returns the frame raw data.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	Overrides <a href="../../php-reader/ID3/ID3_Frame.html#method__toString">ID3_Frame::__toString()</a> (Returns the frame raw data.)<br /><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
 </div><br />
 
 
         <div class="credit">
 		    <hr />
-		    Documentation generated on Mon, 17 Mar 2008 15:35:32 +0200 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.1</a>
+		    Documentation generated on Wed, 02 Apr 2008 18:35:24 +0300 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.1</a>
 	      </div>
       </td></tr></table>
     </td>

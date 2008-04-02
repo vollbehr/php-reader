@@ -285,6 +285,7 @@
 	    &nbsp;&nbsp;		<a href="../../php-reader/ID3/ID3_Frame_RVRB.html">ID3_Frame_RVRB</a><br />
 	    &nbsp;&nbsp;		<a href="../../php-reader/ID3/ID3_Frame_SEEK.html">ID3_Frame_SEEK</a><br />
 	    &nbsp;&nbsp;		<a href="../../php-reader/ID3/ID3_Frame_SIGN.html">ID3_Frame_SIGN</a><br />
+	    &nbsp;&nbsp;		<a href="../../php-reader/ID3/ID3_Frame_SYLT.html">ID3_Frame_SYLT</a><br />
 	    &nbsp;&nbsp;		<a href="../../php-reader/ID3/ID3_Frame_SYTC.html">ID3_Frame_SYTC</a><br />
 	    &nbsp;&nbsp;		<a href="../../php-reader/ID3/ID3_Frame_TALB.html">ID3_Frame_TALB</a><br />
 	    &nbsp;&nbsp;		<a href="../../php-reader/ID3/ID3_Frame_TBPM.html">ID3_Frame_TBPM</a><br />
@@ -376,24 +377,23 @@ Source Location: /ASF/FilePropertiesObject.php<br /><br />
 <div class="description">The <em>ASF_File_Properties_Object</em> object implementation. This object  contains various information about the ASF file.</div><br /><br />
 <h4>Author(s):</h4>
 <ul>
-          <li>Sven Vollbehr &lt;<a href="mailto:sven.vollbehr@behrss.eu">sven.vollbehr@behrss.eu</a>&gt;</li>
-                              </ul>
+          <li>Sven Vollbehr &lt;<a href="mailto:svollbehr@gmail.com">svollbehr@gmail.com</a>&gt;</li>
+                        </ul>
 
 
 
 
         
           
-        
       
 <h4>Version:</h4>
 <ul>
-  <li>$Rev: 10 $</li>
+  <li>$Rev: 39 $</li>
 </ul>
 
 <h4>Copyright:</h4>
 <ul>
-  <li>Copyright (c) 2007, 2008 BEHR Software Systems</li>
+  <li>Copyright (c) 2006-2008 The PHP Reader Project Workgroup</li>
 </ul>
         
 </td>
@@ -474,25 +474,22 @@ Source Location: /ASF/FilePropertiesObject.php<br /><br />
 <a name="class_details"></a>
 <h3>Class Details</h3>
 <div class="tags">
-[line 53]<br />
+[line 54]<br />
 The <em>ASF_File_Properties_Object</em> object implementation. This object  contains various information about the ASF file.<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td><b>author:</b>&nbsp;&nbsp;</td><td>Sven Vollbehr &lt;<a href="mailto:sven.vollbehr@behrss.eu">sven.vollbehr@behrss.eu</a>&gt;</td>
+    <td><b>author:</b>&nbsp;&nbsp;</td><td>Sven Vollbehr &lt;<a href="mailto:svollbehr@gmail.com">svollbehr@gmail.com</a>&gt;</td>
   </tr>
   <tr>
-    <td><b>version:</b>&nbsp;&nbsp;</td><td>$Rev: 10 $</td>
+    <td><b>version:</b>&nbsp;&nbsp;</td><td>$Rev: 39 $</td>
   </tr>
   <tr>
-    <td><b>copyright:</b>&nbsp;&nbsp;</td><td>Copyright (c) 2006, 2007 The Bearpaw Project Work Group</td>
+    <td><b>copyright:</b>&nbsp;&nbsp;</td><td>Copyright (c) 2006-2008 The PHP Reader Project Workgroup</td>
   </tr>
   <tr>
-    <td><b>copyright:</b>&nbsp;&nbsp;</td><td>Copyright (c) 2007, 2008 BEHR Software Systems</td>
-  </tr>
-  <tr>
-    <td><b>license:</b>&nbsp;&nbsp;</td><td><a href="http://www.opensource.org/licenses/bsd-license.php">New BSD License</a></td>
+    <td><b>license:</b>&nbsp;&nbsp;</td><td><a href="http://code.google.com/p/php-reader/wiki/License">New BSD License</a></td>
   </tr>
 </table>
 </div>
@@ -507,7 +504,7 @@ The <em>ASF_File_Properties_Object</em> object implementation. This object  cont
 
   <hr />
 	<a name="method__construct"></a>
-	<h3>constructor __construct <span class="smalllinenumber">[line 96]</span></h3>
+	<h3>constructor __construct <span class="smalllinenumber">[line 97]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -555,7 +552,7 @@ $size)</code>
   </div>
   <hr />
 	<a name="methodgetCreationDate"></a>
-	<h3>method getCreationDate <span class="smalllinenumber">[line 149]</span></h3>
+	<h3>method getCreationDate <span class="smalllinenumber">[line 150]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -580,7 +577,7 @@ $size)</code>
   </div>
   <hr />
 	<a name="methodgetDataPacketsCount"></a>
-	<h3>method getDataPacketsCount <span class="smalllinenumber">[line 156]</span></h3>
+	<h3>method getDataPacketsCount <span class="smalllinenumber">[line 157]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -605,7 +602,7 @@ $size)</code>
   </div>
   <hr />
 	<a name="methodgetFileId"></a>
-	<h3>method getFileId <span class="smalllinenumber">[line 135]</span></h3>
+	<h3>method getFileId <span class="smalllinenumber">[line 136]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -630,7 +627,7 @@ $size)</code>
   </div>
   <hr />
 	<a name="methodgetFileSize"></a>
-	<h3>method getFileSize <span class="smalllinenumber">[line 142]</span></h3>
+	<h3>method getFileSize <span class="smalllinenumber">[line 143]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -655,7 +652,7 @@ $size)</code>
   </div>
   <hr />
 	<a name="methodgetFlags"></a>
-	<h3>method getFlags <span class="smalllinenumber">[line 184]</span></h3>
+	<h3>method getFlags <span class="smalllinenumber">[line 185]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -680,7 +677,7 @@ $size)</code>
   </div>
   <hr />
 	<a name="methodgetMaximumBitrate"></a>
-	<h3>method getMaximumBitrate <span class="smalllinenumber">[line 211]</span></h3>
+	<h3>method getMaximumBitrate <span class="smalllinenumber">[line 212]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -705,7 +702,7 @@ $size)</code>
   </div>
   <hr />
 	<a name="methodgetMaximumDataPacketSize"></a>
-	<h3>method getMaximumDataPacketSize <span class="smalllinenumber">[line 201]</span></h3>
+	<h3>method getMaximumDataPacketSize <span class="smalllinenumber">[line 202]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -730,7 +727,7 @@ $size)</code>
   </div>
   <hr />
 	<a name="methodgetMinimumDataPacketSize"></a>
-	<h3>method getMinimumDataPacketSize <span class="smalllinenumber">[line 191]</span></h3>
+	<h3>method getMinimumDataPacketSize <span class="smalllinenumber">[line 192]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -755,7 +752,7 @@ $size)</code>
   </div>
   <hr />
 	<a name="methodgetPlayDuration"></a>
-	<h3>method getPlayDuration <span class="smalllinenumber">[line 163]</span></h3>
+	<h3>method getPlayDuration <span class="smalllinenumber">[line 164]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -780,7 +777,7 @@ $size)</code>
   </div>
   <hr />
 	<a name="methodgetPreroll"></a>
-	<h3>method getPreroll <span class="smalllinenumber">[line 177]</span></h3>
+	<h3>method getPreroll <span class="smalllinenumber">[line 178]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -805,7 +802,7 @@ $size)</code>
   </div>
   <hr />
 	<a name="methodgetSendDuration"></a>
-	<h3>method getSendDuration <span class="smalllinenumber">[line 170]</span></h3>
+	<h3>method getSendDuration <span class="smalllinenumber">[line 171]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -833,7 +830,7 @@ $size)</code>
 
         <div class="credit">
 		    <hr />
-		    Documentation generated on Mon, 17 Mar 2008 15:35:27 +0200 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.1</a>
+		    Documentation generated on Wed, 02 Apr 2008 18:35:11 +0300 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.1</a>
 	      </div>
       </td></tr></table>
     </td>

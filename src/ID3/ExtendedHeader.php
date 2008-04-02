@@ -2,6 +2,8 @@
 /**
  * PHP Reader Library
  *
+ * Copyright (c) 2008 The PHP Reader Project Workgroup. All rights reserved.
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -10,7 +12,7 @@
  *  - Redistributions in binary form must reproduce the above copyright notice,
  *    this list of conditions and the following disclaimer in the documentation
  *    and/or other materials provided with the distribution.
- *  - Neither the name of the BEHR Software Systems nor the names of its
+ *  - Neither the name of the project workgroup nor the names of its
  *    contributors may be used to endorse or promote products derived from this
  *    software without specific prior written permission.
  *
@@ -28,13 +30,13 @@
  *
  * @package    php-reader
  * @subpackage ID3
- * @copyright  Copyright (c) 2008 BEHR Software Systems
- * @license    http://www.opensource.org/licenses/bsd-license.php New BSD License
- * @version    $Id: ExtendedHeader.php 11 2008-03-12 12:06:41Z svollbehr $
+ * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
+ * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
+ * @version    $Id: ExtendedHeader.php 65 2008-04-02 15:22:46Z svollbehr $
  */
 
 /**#@+ @ignore */
-require_once("Object.php");
+require_once("ID3/Object.php");
 /**#@-*/
 
 /**
@@ -44,10 +46,10 @@ require_once("Object.php");
  *
  * @package    php-reader
  * @subpackage ID3
- * @author     Sven Vollbehr <sven.vollbehr@behrss.eu>
- * @copyright  Copyright (c) 2008 BEHR Software Systems
- * @license    http://www.opensource.org/licenses/bsd-license.php New BSD License
- * @version    $Rev: 11 $
+ * @author     Sven Vollbehr <svollbehr@gmail.com>
+ * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
+ * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
+ * @version    $Rev: 65 $
  */
 final class ID3_ExtendedHeader extends ID3_Object
 {
@@ -76,13 +78,13 @@ final class ID3_ExtendedHeader extends ID3_Object
   private $_size;
 
   /** @var integer */
-  private $_flags;
+  private $_flags = 0;
   
   /** @var integer */
   private $_crc;
   
   /** @var integer */
-  private $_restrictions;
+  private $_restrictions = 0;
   
   /**
    * Constructs the class with given parameters and reads object related data
@@ -90,26 +92,29 @@ final class ID3_ExtendedHeader extends ID3_Object
    *
    * @param Reader $reader The reader object.
    */
-  public function __construct($reader)
+  public function __construct($reader = null)
   {
     parent::__construct($reader);
+    
+    if ($reader === null)
+      return;
 
     $offset = $this->_reader->getOffset();
-    $this->_size = $this->decodeSynchsafe32($this->_reader->getUInt32BE());
+    $this->_size = $this->decodeSynchsafe32($this->_reader->readUInt32BE());
     $this->_reader->skip(1);
-    $this->_flags = $this->_reader->getInt8();
+    $this->_flags = $this->_reader->readInt8();
     
     if ($this->hasFlag(self::UPDATE))
       $this->_reader->skip(1);
     if ($this->hasFlag(self::CRC32)) {
       $this->_reader->skip(1);
-      $this->_crc = Transform::getInt32BE
-        (($this->_reader->read(1) << 4) &
-         $this->decodeSynchsafe32($this->_reader->read(4)));
+      $this->_crc =
+        Transform::fromInt8($this->_reader->read(1)) * (0xfffffff + 1) +
+        decodeSynchsafe32(Transform::fromUInt32BE($this->_reader->read(4)));
     }
     if ($this->hasFlag(self::RESTRICTED)) {
       $this->_reader->skip(1);
-      $this->_restrictions = $this->_reader->getInt8(1);
+      $this->_restrictions = $this->_reader->readInt8(1);
     }
     
     $this->_reader->skip($this->_size - $this->_reader->getOffset() - $offset);
@@ -132,11 +137,57 @@ final class ID3_ExtendedHeader extends ID3_Object
   public function hasFlag($flag) { return ($this->_flags & $flag) == $flag; }
   
   /**
+   * Returns the flags byte.
+   * 
+   * @return integer
+   */
+  public function getFlags($flags) { return $this->_flags; }
+  
+  /**
+   * Sets the flags byte.
+   * 
+   * @param integer $flags The flags byte.
+   */
+  public function setFlags($flags) { $this->_flags = $flags; }
+  
+  /**
    * Returns the CRC-32 data.
    * 
    * @return integer
    */
-  public function getCRC() { return $this->_crc; }
+  public function getCrc()
+  {
+    if ($this->hasFlag(self::CRC32))
+      return $this->_crc;
+    return false;
+  }
+  
+  /**
+   * Sets whether the CRC-32 should be generated upon tag write.
+   *
+   * @param boolean $useCrc Whether CRC-32 should be generated.
+   */
+  public function useCrc($useCrc)
+  {
+    if ($useCrc)
+      $this->setFlags($this->getFlags() | self::CRC32);
+    else
+      $this->setFlags($this->getFlags() & ~self::CRC32);
+  }
+  
+  /**
+   * Sets the CRC-32. The CRC-32 value is calculated of all the frames in the
+   * tag and includes padding.
+   *
+   * @param integer $crc The 32-bit CRC value.
+   */
+  public function setCrc($crc)
+  {
+    if (is_bool($crc))
+      $this->useCrc($crc);
+    else
+      $this->_crc = $crc;
+  }
   
   /**
    * Returns the restrictions. For some applications it might be desired to
@@ -187,4 +238,31 @@ final class ID3_ExtendedHeader extends ID3_Object
    * @return integer
    */
   public function getRestrictions() { return $this->_restrictions; }
+  
+  /**
+   * Sets the restrictions byte. See {@link #getRestrictions} for more.
+   *
+   * @param integer $restrictions The restrictions byte.
+   */
+  public function setRestrictions($restrictions)
+  {
+    $this->_restrictions = $restrictions;
+  }
+  
+  /**
+   * Returns the header raw data.
+   *
+   * @return string
+   */
+  public function toString()
+  {
+    return Transform::toUInt32BE($this->encodeSynchsafe32($this->_size)) .
+      Transform::toInt8(1) . Transform::toInt8($this->_flags) .
+      ($this->hasFlag(self::UPDATE) ? "\0" : "") .
+      ($this->hasFlag(self::CRC32) ? Transform::toInt8(5) .
+       Transform::toInt8($this->_crc & 0xf0000000 >> 28 & 0xf /* eq >>> 28 */) .
+       Transform::toUInt32BE(encodeSynchsafe32($this->_crc)) : "") .
+      ($this->hasFlag(self::RESTRICTED) ? 
+         Transform::toInt8(1) . Transform::toInt8($this->_restrictions) : "");
+  }
 }

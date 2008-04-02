@@ -2,6 +2,8 @@
 /**
  * PHP Reader Library
  *
+ * Copyright (c) 2008 The PHP Reader Project Workgroup. All rights reserved.
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -10,7 +12,7 @@
  *  - Redistributions in binary form must reproduce the above copyright notice,
  *    this list of conditions and the following disclaimer in the documentation
  *    and/or other materials provided with the distribution.
- *  - Neither the name of the BEHR Software Systems nor the names of its
+ *  - Neither the name of the project workgroup nor the names of its
  *    contributors may be used to endorse or promote products derived from this
  *    software without specific prior written permission.
  *
@@ -28,9 +30,9 @@
  *
  * @package    php-reader
  * @subpackage ID3
- * @copyright  Copyright (c) 2008 BEHR Software Systems
- * @license    http://www.opensource.org/licenses/bsd-license.php New BSD License
- * @version    $Id: RBUF.php 11 2008-03-12 12:06:41Z svollbehr $
+ * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
+ * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
+ * @version    $Id: RBUF.php 65 2008-04-02 15:22:46Z svollbehr $
  */
 
 /**#@+ @ignore */
@@ -58,15 +60,15 @@ require_once("ID3/Frame.php");
  * is connected to a arbitrary point in the stream, such as radio or multicast,
  * then the recommended buffer size frame should be included in every tag.
  *
- * The buffer size should be kept to a minimum. There may only be one "RBUF"
+ * The buffer size should be kept to a minimum. There may only be one RBUF
  * frame in each tag.
  *
  * @package    php-reader
  * @subpackage ID3
- * @author     Sven Vollbehr <sven.vollbehr@behrss.eu>
- * @copyright  Copyright (c) 2008 BEHR Software Systems
- * @license    http://www.opensource.org/licenses/bsd-license.php New BSD License
- * @version    $Rev: 11 $
+ * @author     Sven Vollbehr <svollbehr@gmail.com>
+ * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
+ * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
+ * @version    $Rev: 65 $
  */
 final class ID3_Frame_RBUF extends ID3_Frame
 {
@@ -90,22 +92,32 @@ final class ID3_Frame_RBUF extends ID3_Frame
    *
    * @param Reader $reader The reader object.
    */
-  public function __construct($reader)
+  public function __construct($reader = null)
   {
     parent::__construct($reader);
+    
+    if ($reader === null)
+      return;
 
-    $this->_size = Transform::getInt32BE(substr($this->_data, 0, 3));
-    $this->_flags = substr($this->_data, 3, 1);
-    $this->_offset = Transform::getInt32BE(substr($this->_data, 4, 4));
+    $this->_size = Transform::fromInt32BE(substr($this->_data, 0, 3));
+    $this->_flags = Transform::fromInt8($this->_data[3]);
+    $this->_offset = Transform::fromInt32BE(substr($this->_data, 4, 4));
   }
-
+  
   /**
    * Returns the buffer size.
    * 
    * @return integer
    */
   public function getSize() { return $this->_size; }
-
+  
+  /**
+   * Sets the buffer size.
+   * 
+   * @param integer $size The buffer size.
+   */
+  public function setSize($size) { $this->_size = $size; }
+  
   /**
    * Checks whether or not the flag is set. Returns <var>true</var> if the flag
    * is set, <var>false</var> otherwise.
@@ -116,9 +128,43 @@ final class ID3_Frame_RBUF extends ID3_Frame
   public function hasFlag($flag) { return ($this->_flags & $flag) == $flag; }
   
   /**
+   * Returns the flags byte.
+   * 
+   * @return integer
+   */
+  public function getFlags($flags) { return $this->_flags; }
+  
+  /**
+   * Sets the flags byte.
+   * 
+   * @param string $flags The flags byte.
+   */
+  public function setFlags($flags) { $this->_flags = $flags; }
+  
+  /**
    * Returns the offset to next tag.
    * 
    * @return integer
    */
-  public function getOffset() { return $this->_size; }
+  public function getOffset() { return $this->_offset; }
+  
+  /**
+   * Sets the offset to next tag.
+   * 
+   * @param integer $offset The offset.
+   */
+  public function setOffset($offset) { $this->_offset = $offset; }
+  
+  /**
+   * Returns the frame raw data.
+   *
+   * @return string
+   */
+  public function __toString()
+  {
+    $this->setData
+      (substr(Transform::toInt32BE($this->_size) << 8, 0, 3) .
+       Transform::toInt8($this->_flags) . Transform::toInt32BE($this->_offset));
+    return parent::__toString();
+  }
 }

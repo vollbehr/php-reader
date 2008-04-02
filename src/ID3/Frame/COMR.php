@@ -2,6 +2,8 @@
 /**
  * PHP Reader Library
  *
+ * Copyright (c) 2008 The PHP Reader Project Workgroup. All rights reserved.
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -10,7 +12,7 @@
  *  - Redistributions in binary form must reproduce the above copyright notice,
  *    this list of conditions and the following disclaimer in the documentation
  *    and/or other materials provided with the distribution.
- *  - Neither the name of the BEHR Software Systems nor the names of its
+ *  - Neither the name of the project workgroup nor the names of its
  *    contributors may be used to endorse or promote products derived from this
  *    software without specific prior written permission.
  *
@@ -28,9 +30,9 @@
  *
  * @package    php-reader
  * @subpackage ID3
- * @copyright  Copyright (c) 2008 BEHR Software Systems
- * @license    http://www.opensource.org/licenses/bsd-license.php New BSD License
- * @version    $Id: COMR.php 12 2008-03-17 12:54:34Z svollbehr $
+ * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
+ * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
+ * @version    $Id: COMR.php 65 2008-04-02 15:22:46Z svollbehr $
  */
 
 /**#@+ @ignore */
@@ -49,10 +51,10 @@ require_once("ID3/Encoding.php");
  *
  * @package    php-reader
  * @subpackage ID3
- * @author     Sven Vollbehr <sven.vollbehr@behrss.eu>
- * @copyright  Copyright (c) 2008 BEHR Software Systems
- * @license    http://www.opensource.org/licenses/bsd-license.php New BSD License
- * @version    $Rev: 12 $
+ * @author     Sven Vollbehr <svollbehr@gmail.com>
+ * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
+ * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
+ * @version    $Rev: 65 $
  */
 final class ID3_Frame_COMR extends ID3_Frame
   implements ID3_Encoding
@@ -69,10 +71,10 @@ final class ID3_Frame_COMR extends ID3_Frame
      "Non-musical merchandise");
 
   /** @var integer */
-  private $_encoding;
+  private $_encoding = ID3_Encoding::UTF8;
   
   /** @var string */
-  private $_currency;
+  private $_currency = "EUR";
 
   /** @var string */
   private $_price;
@@ -84,7 +86,7 @@ final class ID3_Frame_COMR extends ID3_Frame
   private $_contact;
 
   /** @var integer */
-  private $_delivery;
+  private $_delivery = 0;
 
   /** @var string */
   private $_seller;
@@ -95,16 +97,22 @@ final class ID3_Frame_COMR extends ID3_Frame
   /** @var string */
   private $_mimeType = false;
   
+  /** @var string */
+  private $_imageData;
+  
   /**
    * Constructs the class with given parameters and parses object related data.
    *
    * @param Reader $reader The reader object.
    */
-  public function __construct($reader)
+  public function __construct($reader = null)
   {
     parent::__construct($reader);
+    
+    if ($reader === null)
+      return;
 
-    $this->_encoding = ord($this->_data{0});
+    $this->_encoding = Transform::fromInt8($this->_data[0]);
     list($pricing, $this->_data) =
       preg_split("/\\x00/", substr($this->_data, 1), 2);
     $this->_currency = substr($pricing, 0, 3);
@@ -112,38 +120,34 @@ final class ID3_Frame_COMR extends ID3_Frame
     $this->_date = substr($this->_data, 0, 8);
     list($this->_contact, $this->_data) =
       preg_split("/\\x00/", substr($this->_data, 8), 2);
-    $this->_delivery = ord($this->_data{0});
+    $this->_delivery = Transform::fromInt8($this->_data[0]);
     $this->_data = substr($this->_data, 1);
     
     switch ($this->_encoding) {
     case self::UTF16:
-      $bom = substr($this->_data, 0, 2);
-      $this->_data = substr($this->_data, 2);
-      if ($bom == 0xfffe) {
-        list ($this->_seller, $this->_description, $this->_data) =
-          preg_split("/\\x00\\x00/", $this->_data, 3);
-        $this->_seller = Transform::getString16LE($this->_seller);
-        $this->_description = Transform::getString16LE($this->_description);
-        break;
-      }
+      list ($this->_seller, $this->_description, $this->_data) =
+        preg_split("/\\x00\\x00/", $this->_data, 3);
+      $this->_seller = Transform::fromString16($this->_seller);
+      $this->_description = Transform::fromString16($this->_description);
+      break;
     case self::UTF16BE:
       list ($this->_seller, $this->_description, $this->_data) =
         preg_split("/\\x00\\x00/", $this->_data, 3);
-      $this->_seller = Transform::getString16BE($this->_seller);
-      $this->_description = Transform::getString16BE($this->_description);
+      $this->_seller = Transform::fromString16BE($this->_seller);
+      $this->_description = Transform::fromString16BE($this->_description);
       break;
     default:
       list ($this->_seller, $this->_description, $this->_data) =
         preg_split("/\\x00/", $this->_data, 3);
-      $this->_seller = Transform::getString8($this->_seller);
-      $this->_description = Transform::getString8($this->_description);
+      $this->_seller = Transform::fromString8($this->_seller);
+      $this->_description = Transform::fromString8($this->_description);
     }
     
     if (strlen($this->_data) == 0)
       return;
     
-    list($this->_mimeType, $this->_data) =
-      preg_split("/\\x00/", $this->_data, 2);
+    list($this->_mimeType, $this->_imageData) =
+      preg_split("/\\x00/", $this->_imageData, 2);
   }
   
   /**
@@ -154,6 +158,14 @@ final class ID3_Frame_COMR extends ID3_Frame
   public function getEncoding() { return $this->_encoding; }
 
   /**
+   * Sets the text encoding.
+   * 
+   * @see ID3_Encoding
+   * @param integer $encoding The text encoding.
+   */
+  public function setEncoding($encoding) { $this->_encoding = $encoding; }
+  
+  /**
    * Returns the currency code, encoded according to
    * {@link http://www.iso.org/iso/support/faqs/faqs_widely_used_standards/widely_used_standards_other/currency_codes/currency_codes_list-1.htm
    * ISO 4217} alphabetic currency code.
@@ -161,6 +173,15 @@ final class ID3_Frame_COMR extends ID3_Frame
    * @return string
    */
   public function getCurrency() { return $this->_currency; }
+  
+  /**
+   * Sets the currency used in transaction, encoded according to
+   * {@link http://www.iso.org/iso/support/faqs/faqs_widely_used_standards/widely_used_standards_other/currency_codes/currency_codes_list-1.htm
+   * ISO 4217} alphabetic currency code.
+   * 
+   * @param string $currency The currency code.
+   */
+  public function setCurrency($currency) { $this->_currency = $currency; }
   
   /**
    * Returns the price as a numerical string using "." as the decimal separator.
@@ -173,6 +194,17 @@ final class ID3_Frame_COMR extends ID3_Frame
   public function getPrice() { return $this->_price; }
   
   /**
+   * Sets the price. The price must use "." as the decimal separator and have
+   * multiple values be separated by a "/" character.
+   * 
+   * @param string $price The price.
+   */
+  public function setPrice($price)
+  {
+    $this->_price = $price;
+  }
+  
+  /**
    * Returns the date as an 8 character date string (YYYYMMDD), describing for
    * how long the price is valid.
    * 
@@ -181,11 +213,26 @@ final class ID3_Frame_COMR extends ID3_Frame
   public function getDate() { return $this->_price; }
 
   /**
+   * Sets the date describing for how long the price is valid for. The date must
+   * be an 8 character date string (YYYYMMDD).
+   * 
+   * @param string $date The date string.
+   */
+  public function setDate($date) { $this->_date = $date; }
+  
+  /**
    * Returns the contact URL, with which the user can contact the seller.
    * 
    * @return string
    */
   public function getContact() { return $this->_contact; }
+  
+  /**
+   * Sets the contact URL, with which the user can contact the seller.
+   * 
+   * @param string $contact The contact URL.
+   */
+  public function setContact($contact) { $this->_contact = $contact; }
 
   /**
    * Returns the delivery type with whitch the audio was delivered when bought.
@@ -195,12 +242,33 @@ final class ID3_Frame_COMR extends ID3_Frame
   public function getDelivery() { return $this->_delivery; }
 
   /**
+   * Sets the delivery type with whitch the audio was delivered when bought.
+   * 
+   * @param integer $delivery The delivery type code.
+   */
+  public function setDelivery($delivery) { $this->_delivery = $delivery; }
+
+  /**
    * Returns the name of the seller.
    * 
    * @return string
    */
   public function getSeller() { return $this->_seller; }
-
+  
+  /**
+   * Sets the name of the seller using given encoding. The seller text encoding
+   * must be that of the description text.
+   * 
+   * @param string $seller The name of the seller.
+   * @param integer $encoding The text encoding.
+   */
+  public function setSeller($seller, $encoding = false)
+  {
+    $this->_seller = $seller;
+    if ($encoding !== false)
+      $this->_encoding = $encoding;
+  }
+  
   /**
    * Returns the short description of the product.
    * 
@@ -209,6 +277,20 @@ final class ID3_Frame_COMR extends ID3_Frame
   public function getDescription() { return $this->_description; }
 
   /**
+   * Sets the content description text using given encoding. The description
+   * encoding must be that of the seller text.
+   * 
+   * @param string $description The content description text.
+   * @param integer $encoding The text encoding.
+   */
+  public function setDescription($description, $encoding = false)
+  {
+    $this->_description = $description;
+    if ($encoding !== false)
+      $this->_encoding = $encoding;
+  }
+  
+  /**
    * Returns the MIME type of the seller's company logo, if attached, or
    * <var>false</var> otherwise. Currently only "image/png" and "image/jpeg"
    * are allowed.
@@ -216,11 +298,58 @@ final class ID3_Frame_COMR extends ID3_Frame
    * @return string
    */
   public function getMimeType() { return $this->_mimeType; }
-
+  
+  /**
+   * Sets the MIME type. Currently only "image/png" and "image/jpeg" are
+   * allowed. The MIME type is always ISO-8859-1 encoded.
+   * 
+   * @param string $mimeType The MIME type.
+   */
+  public function setMimeType($mimeType) { $this->_mimeType = $mimeType; }
+  
   /**
    * Returns the embedded image binary data.
    * 
    * @return string
    */
-  public function getData() { return $this->_data; }
+  public function getData() { return $this->_imageData; }
+  
+  /**
+   * Sets the embedded image data.
+   * 
+   * @param string $imageData The image data.
+   */
+  public function setData($imageData) { $this->_imageData = $imageData; }
+  
+  /**
+   * Returns the frame raw data.
+   *
+   * @return string
+   */
+  public function __toString()
+  {
+    $data = Transform::toInt8($this->_encoding) . $this->_price . "\0" .
+      $this->_date . $this->_contact . "\0" .
+      Transform::toInt8($this->_delivery);
+    switch ($this->_encoding) {
+    case self::UTF16:
+      $data .= Transform::toString16($this->_seller) . "\0\0" .
+        Transform::toString16($this->_description) . "\0\0";
+      break;
+    case self::UTF16BE:
+      $data .= Transform::toString16BE($this->_seller) . "\0\0";
+        Transform::toString16($this->_description) . "\0\0";
+      break;
+    case self::UTF16LE:
+      $data .= Transform::toString16LE($this->_seller) . "\0\0";
+        Transform::toString16($this->_description) . "\0\0";
+      break;
+    default:
+      $data .= $this->_seller . "\0" . $this->_description . "\0";
+    }
+    parent::setData
+      ($data . ($this->_mimeType ?
+                $this->_mimeType . "\0" . $this->_imageData : 0));
+    return parent::__toString();
+  }
 }

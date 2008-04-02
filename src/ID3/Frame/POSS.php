@@ -2,6 +2,8 @@
 /**
  * PHP Reader Library
  *
+ * Copyright (c) 2008 The PHP Reader Project Workgroup. All rights reserved.
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -10,7 +12,7 @@
  *  - Redistributions in binary form must reproduce the above copyright notice,
  *    this list of conditions and the following disclaimer in the documentation
  *    and/or other materials provided with the distribution.
- *  - Neither the name of the BEHR Software Systems nor the names of its
+ *  - Neither the name of the project workgroup nor the names of its
  *    contributors may be used to endorse or promote products derived from this
  *    software without specific prior written permission.
  *
@@ -28,9 +30,9 @@
  *
  * @package    php-reader
  * @subpackage ID3
- * @copyright  Copyright (c) 2008 BEHR Software Systems
- * @license    http://www.opensource.org/licenses/bsd-license.php New BSD License
- * @version    $Id: POSS.php 12 2008-03-17 12:54:34Z svollbehr $
+ * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
+ * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
+ * @version    $Id: POSS.php 65 2008-04-02 15:22:46Z svollbehr $
  */
 
 /**#@+ @ignore */
@@ -46,16 +48,16 @@ require_once("ID3/Timing.php");
  *
  * @package    php-reader
  * @subpackage ID3
- * @author     Sven Vollbehr <sven.vollbehr@behrss.eu>
- * @copyright  Copyright (c) 2008 BEHR Software Systems
- * @license    http://www.opensource.org/licenses/bsd-license.php New BSD License
- * @version    $Rev: 12 $
+ * @author     Sven Vollbehr <svollbehr@gmail.com>
+ * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
+ * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
+ * @version    $Rev: 65 $
  */
 final class ID3_Frame_POSS extends ID3_Frame
   implements ID3_Timing
 {
   /** @var integer */
-  private $_format;
+  private $_format = 1;
   
   /** @var string */
   private $_position;
@@ -65,12 +67,15 @@ final class ID3_Frame_POSS extends ID3_Frame
    *
    * @param Reader $reader The reader object.
    */
-  public function __construct($reader)
+  public function __construct($reader = null)
   {
     parent::__construct($reader);
+    
+    if ($reader === null)
+      return;
 
-    $this->_format = ord($this->_data{0});
-    $this->_position = Transform::getInt32BE(substr($this->_data, 1, 4));
+    $this->_format = Transform::fromInt8($this->_data[0]);
+    $this->_position = Transform::fromUInt32BE(substr($this->_data, 1, 4));
   }
 
   /**
@@ -81,10 +86,45 @@ final class ID3_Frame_POSS extends ID3_Frame
   public function getFormat() { return $this->_format; }
 
   /**
+   * Sets the timing format.
+   * 
+   * @see ID3_Timing
+   * @param integer $format The timing format.
+   */
+  public function setFormat($format) { $this->_format = $format; }
+  
+  /**
    * Returns the position where in the audio the listener starts to receive,
    * i.e. the beginning of the next frame.
    * 
    * @return integer
    */
   public function getPosition() { return $this->_position; }
+  
+  /**
+   * Sets the position where in the audio the listener starts to receive,
+   * i.e. the beginning of the next frame, using given format.
+   * 
+   * @param integer $position The position.
+   * @param integer $format The timing format.
+   */
+  public function setPosition($position, $format = false)
+  {
+    $this->_position = $position;
+    if ($format !== false)
+      $this->_format = $format;
+  }
+  
+  /**
+   * Returns the frame raw data.
+   *
+   * @return string
+   */
+  public function __toString()
+  {
+    $this->setData
+      (Transform::toInt8($this->_format) .
+       Transform::toUInt32($this->_position));
+    return parent::__toString();
+  }
 }

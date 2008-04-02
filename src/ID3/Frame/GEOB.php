@@ -2,6 +2,8 @@
 /**
  * PHP Reader Library
  *
+ * Copyright (c) 2008 The PHP Reader Project Workgroup. All rights reserved.
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -10,7 +12,7 @@
  *  - Redistributions in binary form must reproduce the above copyright notice,
  *    this list of conditions and the following disclaimer in the documentation
  *    and/or other materials provided with the distribution.
- *  - Neither the name of the BEHR Software Systems nor the names of its
+ *  - Neither the name of the project workgroup nor the names of its
  *    contributors may be used to endorse or promote products derived from this
  *    software without specific prior written permission.
  *
@@ -28,9 +30,9 @@
  *
  * @package    php-reader
  * @subpackage ID3
- * @copyright  Copyright (c) 2008 BEHR Software Systems
- * @license    http://www.opensource.org/licenses/bsd-license.php New BSD License
- * @version    $Id: GEOB.php 12 2008-03-17 12:54:34Z svollbehr $
+ * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
+ * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
+ * @version    $Id: GEOB.php 65 2008-04-02 15:22:46Z svollbehr $
  */
 
 /**#@+ @ignore */
@@ -44,16 +46,16 @@ require_once("ID3/Encoding.php");
  *
  * @package    php-reader
  * @subpackage ID3
- * @author     Sven Vollbehr <sven.vollbehr@behrss.eu>
- * @copyright  Copyright (c) 2008 BEHR Software Systems
- * @license    http://www.opensource.org/licenses/bsd-license.php New BSD License
- * @version    $Rev: 12 $
+ * @author     Sven Vollbehr <svollbehr@gmail.com>
+ * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
+ * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
+ * @version    $Rev: 65 $
  */
 final class ID3_Frame_GEOB extends ID3_Frame
   implements ID3_Encoding
 {
   /** @var integer */
-  private $_encoding;
+  private $_encoding = ID3_Encoding::UTF8;
   
   /** @var string */
   private $_mimeType;
@@ -64,42 +66,44 @@ final class ID3_Frame_GEOB extends ID3_Frame
   /** @var string */
   private $_description;
   
+  /** @var string */
+  private $_objectData;
+  
   /**
    * Constructs the class with given parameters and parses object related data.
    *
    * @param Reader $reader The reader object.
    */
-  public function __construct($reader)
+  public function __construct($reader = null)
   {
     parent::__construct($reader);
+    
+    if ($reader === null)
+      return;
 
-    $this->_encoding = ord($this->_data{0});
+    $this->_encoding = Transform::fromInt8($this->_data[0]);
     $this->_mimeType = substr
       ($this->_data, 1, ($pos = strpos($this->_data, "\0", 1)) - 1);
     $this->_data = substr($this->_data, $pos);
     
     switch ($this->_encoding) {
     case self::UTF16:
-      $bom = substr($this->_data, 0, 2);
-      $this->_data = substr($this->_data, 2);
-      if ($bom == 0xfffe) {
-        list ($this->_filename, $this->_description, $this->_data) =
-          preg_split("/\\x00\\x00/", $this->_data, 3);
-        $this->_filename = Transform::getString16LE($this->_filename);
-        $this->_description = Transform::getString16LE($this->_description);
-        break;
-      }
+      list ($this->_filename, $this->_description, $this->_data) =
+        preg_split("/\\x00\\x00/", $this->_data, 3);
+      $this->_filename = Transform::fromString16($this->_filename);
+      $this->_description = Transform::fromString16($this->_description);
+      break;
     case self::UTF16BE:
       list ($this->_filename, $this->_description, $this->_data) =
         preg_split("/\\x00\\x00/", $this->_data, 3);
-      $this->_filename = Transform::getString16BE($this->_filename);
-      $this->_description = Transform::getString16BE($this->_description);
+      $this->_filename = Transform::fromString16BE($this->_filename);
+      $this->_description = Transform::fromString16BE($this->_description);
       break;
     default:
       list ($this->_filename, $this->_description, $this->_data) =
         preg_split("/\\x00/", $this->_data, 3);
-      $this->_filename = Transform::getString8($this->_filename);
-      $this->_description = Transform::getString8($this->_description);
+      $this->_filename = Transform::fromString8($this->_filename);
+      $this->_description = Transform::fromString8($this->_description);
     }
   }
   
@@ -109,32 +113,110 @@ final class ID3_Frame_GEOB extends ID3_Frame
    * @return integer
    */
   public function getEncoding() { return $this->_encoding; }
-
+  
+  /**
+   * Sets the text encoding.
+   * 
+   * @see ID3_Encoding
+   * @param integer $encoding The text encoding.
+   */
+  public function setEncoding($encoding) { $this->_encoding = $encoding; }
+  
   /**
    * Returns the MIME type. The MIME type is always encoded with ISO-8859-1.
    * 
    * @return string
    */
   public function getMimeType() { return $this->_mimeType; }
-
+  
+  /**
+   * Sets the MIME type. The MIME type is always ISO-8859-1 encoded.
+   * 
+   * @param string $mimeType The MIME type.
+   */
+  public function setMimeType($mimeType) { $this->_mimeType = $mimeType; }
+  
   /**
    * Returns the file name.
    * 
    * @return string
    */
   public function getFilename() { return $this->_filename; }
-
+  
+  /**
+   * Sets the file name using given encoding. The file name encoding must be
+   * that of the description text.
+   * 
+   * @param string $description The file description text.
+   * @param integer $encoding The text encoding.
+   */
+  public function setFilename($filename, $encoding = false)
+  {
+    $this->_filename = $filename;
+    if ($encoding !== false)
+      $this->_encoding = $encoding;
+  }
+  
   /**
    * Returns the file description.
    * 
    * @return string
    */
   public function getDescription() { return $this->_description; }
-
+  
+  /**
+   * Sets the file description text using given encoding. The description
+   * encoding must be that of the file name.
+   * 
+   * @param string $description The file description text.
+   * @param integer $encoding The text encoding.
+   */
+  public function setDescription($description, $encoding = false)
+  {
+    $this->_description = $description;
+    if ($encoding !== false)
+      $this->_encoding = $encoding;
+  }
+  
   /**
    * Returns the embedded object binary data.
    * 
    * @return string
    */
-  public function getData() { return $this->_data; }
+  public function getData() { return $this->_objectData; }
+  
+  /**
+   * Sets the embedded object binary data.
+   * 
+   * @param string $objectData The object data.
+   */
+  public function setData($objectData) { $this->_objectData = $objectData; }
+  
+  /**
+   * Returns the frame raw data.
+   *
+   * @return string
+   */
+  public function __toString()
+  {
+    $data = Transform::toInt8($this->_encoding) . $this->_mimeType . "\0";
+    switch ($this->_encoding) {
+    case self::UTF16:
+      $data .= Transform::toString16($this->_filename) . "\0\0" .
+        Transform::toString16($this->_description) . "\0\0";
+      break;
+    case self::UTF16BE:
+      $data .= Transform::toString16BE($this->_filename) . "\0\0" .
+        Transform::toString16BE($this->_description) . "\0\0";
+      break;
+    case self::UTF16LE:
+      $data .= Transform::toString16LE($this->_filename) . "\0\0" .
+        Transform::toString16LE($this->_description) . "\0\0";
+      break;
+    default:
+      $data .= $this->_filename . "\0" . $this->_description . "\0";
+    }
+    $this->setData($data . $this->_objectData);
+    return parent::__toString();
+  }
 }

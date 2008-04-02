@@ -285,6 +285,7 @@
 	    &nbsp;&nbsp;		<a href="../../php-reader/ID3/ID3_Frame_RVRB.html">ID3_Frame_RVRB</a><br />
 	    &nbsp;&nbsp;		<a href="../../php-reader/ID3/ID3_Frame_SEEK.html">ID3_Frame_SEEK</a><br />
 	    &nbsp;&nbsp;		<a href="../../php-reader/ID3/ID3_Frame_SIGN.html">ID3_Frame_SIGN</a><br />
+	    &nbsp;&nbsp;		<a href="../../php-reader/ID3/ID3_Frame_SYLT.html">ID3_Frame_SYLT</a><br />
 	    &nbsp;&nbsp;		<a href="../../php-reader/ID3/ID3_Frame_SYTC.html">ID3_Frame_SYTC</a><br />
 	    &nbsp;&nbsp;		<a href="../../php-reader/ID3/ID3_Frame_TALB.html">ID3_Frame_TALB</a><br />
 	    &nbsp;&nbsp;		<a href="../../php-reader/ID3/ID3_Frame_TBPM.html">ID3_Frame_TBPM</a><br />
@@ -374,24 +375,23 @@ Source Location: /ASF.php<br /><br />
 <div class="description">This class represents a file in Advanced Systems Format (ASF) as described in</div><br /><br />
 <h4>Author(s):</h4>
 <ul>
-          <li>Sven Vollbehr &lt;<a href="mailto:sven.vollbehr@behrss.eu">sven.vollbehr@behrss.eu</a>&gt;</li>
-                              </ul>
+          <li>Sven Vollbehr &lt;<a href="mailto:svollbehr@gmail.com">svollbehr@gmail.com</a>&gt;</li>
+                        </ul>
 
 
 
 
         
           
-        
       
 <h4>Version:</h4>
 <ul>
-  <li>$Rev: 10 $</li>
+  <li>$Rev: 39 $</li>
 </ul>
 
 <h4>Copyright:</h4>
 <ul>
-  <li>Copyright (c) 2007, 2008 BEHR Software Systems</li>
+  <li>Copyright (c) 2006-2008 The PHP Reader Project Workgroup</li>
 </ul>
         
 </td>
@@ -423,26 +423,23 @@ Source Location: /ASF.php<br /><br />
 <a name="class_details"></a>
 <h3>Class Details</h3>
 <div class="tags">
-[line 69]<br />
+[line 70]<br />
 This class represents a file in Advanced Systems Format (ASF) as described in<br /><br /><p><a href="http://go.microsoft.com/fwlink/?LinkId=31334">The Advanced Systems
  Format (ASF) Specification</a>. It is a file format that can contain various  types of information ranging from audio and video to script commands and  developer defined custom streams.</p><p>This is hardly a full implementation of a ASF reader but provides you with  the ability to read metadata out of an ASF based file (WMA, WMV, etc).</p><p>The ASF file consists of code blocks that are called content objects. Each  of these objects have a format of their own. They may contain other objects  or other specific data. Each supported object has been implemented as their  own classes to ease the correct use of the information.</p><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td><b>author:</b>&nbsp;&nbsp;</td><td>Sven Vollbehr &lt;<a href="mailto:sven.vollbehr@behrss.eu">sven.vollbehr@behrss.eu</a>&gt;</td>
+    <td><b>author:</b>&nbsp;&nbsp;</td><td>Sven Vollbehr &lt;<a href="mailto:svollbehr@gmail.com">svollbehr@gmail.com</a>&gt;</td>
   </tr>
   <tr>
-    <td><b>version:</b>&nbsp;&nbsp;</td><td>$Rev: 10 $</td>
+    <td><b>version:</b>&nbsp;&nbsp;</td><td>$Rev: 39 $</td>
   </tr>
   <tr>
-    <td><b>copyright:</b>&nbsp;&nbsp;</td><td>Copyright (c) 2006, 2007 The Bearpaw Project Work Group</td>
+    <td><b>copyright:</b>&nbsp;&nbsp;</td><td>Copyright (c) 2006-2008 The PHP Reader Project Workgroup</td>
   </tr>
   <tr>
-    <td><b>copyright:</b>&nbsp;&nbsp;</td><td>Copyright (c) 2007, 2008 BEHR Software Systems</td>
-  </tr>
-  <tr>
-    <td><b>license:</b>&nbsp;&nbsp;</td><td><a href="http://www.opensource.org/licenses/bsd-license.php">New BSD License</a></td>
+    <td><b>license:</b>&nbsp;&nbsp;</td><td><a href="http://code.google.com/p/php-reader/wiki/License">New BSD License</a></td>
   </tr>
 </table>
 </div>
@@ -457,7 +454,7 @@ This class represents a file in Advanced Systems Format (ASF) as described in<br
 
   <hr />
 	<a name="method__construct"></a>
-	<h3>constructor __construct <span class="smalllinenumber">[line 79]</span></h3>
+	<h3>constructor __construct <span class="smalllinenumber">[line 80]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -493,7 +490,7 @@ $filename)</code>
   </div>
   <hr />
 	<a name="methodhasObjects"></a>
-	<h3>method hasObjects <span class="smalllinenumber">[line 91]</span></h3>
+	<h3>method hasObjects <span class="smalllinenumber">[line 92]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -518,7 +515,7 @@ $filename)</code>
   </div>
   <hr />
 	<a name="methodnextObject"></a>
-	<h3>method nextObject <span class="smalllinenumber">[line 104]</span></h3>
+	<h3>method nextObject <span class="smalllinenumber">[line 105]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -549,7 +546,7 @@ $filename)</code>
 
         <div class="credit">
 		    <hr />
-		    Documentation generated on Mon, 17 Mar 2008 15:35:23 +0200 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.1</a>
+		    Documentation generated on Wed, 02 Apr 2008 18:34:58 +0300 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.1</a>
 	      </div>
       </td></tr></table>
     </td>

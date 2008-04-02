@@ -2,6 +2,8 @@
 /**
  * PHP Reader Library
  *
+ * Copyright (c) 2008 The PHP Reader Project Workgroup. All rights reserved.
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -10,7 +12,7 @@
  *  - Redistributions in binary form must reproduce the above copyright notice,
  *    this list of conditions and the following disclaimer in the documentation
  *    and/or other materials provided with the distribution.
- *  - Neither the name of the BEHR Software Systems nor the names of its
+ *  - Neither the name of the project workgroup nor the names of its
  *    contributors may be used to endorse or promote products derived from this
  *    software without specific prior written permission.
  *
@@ -28,9 +30,10 @@
  *
  * @package    php-reader
  * @subpackage ID3
- * @copyright  Copyright (c) 2008 BEHR Software Systems
- * @license    http://www.opensource.org/licenses/bsd-license.php New BSD License
- * @version    $Id: SEEK.php 11 2008-03-12 12:06:41Z svollbehr $
+ * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
+ * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
+ * @version    $Id: SEEK.php 65 2008-04-02 15:22:46Z svollbehr $
+ * @since      ID3v2.4.0
  */
 
 /**#@+ @ignore */
@@ -44,10 +47,11 @@ require_once("ID3/Frame.php");
  * 
  * @package    php-reader
  * @subpackage ID3
- * @author     Sven Vollbehr <sven.vollbehr@behrss.eu>
- * @copyright  Copyright (c) 2008 BEHR Software Systems
- * @license    http://www.opensource.org/licenses/bsd-license.php New BSD License
- * @version    $Rev: 11 $
+ * @author     Sven Vollbehr <svollbehr@gmail.com>
+ * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
+ * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
+ * @version    $Rev: 65 $
+ * @since      ID3v2.4.0
  */
 final class ID3_Frame_SEEK extends ID3_Frame
 {
@@ -59,17 +63,41 @@ final class ID3_Frame_SEEK extends ID3_Frame
    *
    * @param Reader $reader The reader object.
    */
-  public function __construct($reader)
+  public function __construct($reader = null)
   {
     parent::__construct($reader);
+    
+    if ($reader === null)
+      return;
 
-    $this->_minOffset = Transform::getInt32BE($this->_data);
+    $this->_minOffset = Transform::fromInt32BE($this->_data);
   }
-
+  
   /**
    * Returns the minimum offset to next tag in bytes.
    * 
    * @return integer
    */
   public function getMinimumOffset() { return $this->_minOffset; }
+  
+  /**
+   * Sets the minimum offset to next tag in bytes.
+   * 
+   * @param integer $minOffset The minimum offset.
+   */
+  public function setMinimumOffset($minOffset)
+  {
+    $this->_minOffset = $minOffset;
+  }
+  
+  /**
+   * Returns the frame raw data.
+   *
+   * @return string
+   */
+  public function __toString()
+  {
+    $this->setData(Transform::toInt32BE($this->_minOffset));
+    return parent::__toString();
+  }
 }

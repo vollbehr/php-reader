@@ -285,6 +285,7 @@
 	    &nbsp;&nbsp;		<a href="../../php-reader/ID3/ID3_Frame_RVRB.html">ID3_Frame_RVRB</a><br />
 	    &nbsp;&nbsp;		<a href="../../php-reader/ID3/ID3_Frame_SEEK.html">ID3_Frame_SEEK</a><br />
 	    &nbsp;&nbsp;		<a href="../../php-reader/ID3/ID3_Frame_SIGN.html">ID3_Frame_SIGN</a><br />
+	    &nbsp;&nbsp;		<a href="../../php-reader/ID3/ID3_Frame_SYLT.html">ID3_Frame_SYLT</a><br />
 	    &nbsp;&nbsp;		<a href="../../php-reader/ID3/ID3_Frame_SYTC.html">ID3_Frame_SYTC</a><br />
 	    &nbsp;&nbsp;		<a href="../../php-reader/ID3/ID3_Frame_TALB.html">ID3_Frame_TALB</a><br />
 	    &nbsp;&nbsp;		<a href="../../php-reader/ID3/ID3_Frame_TBPM.html">ID3_Frame_TBPM</a><br />
@@ -376,7 +377,7 @@ Source Location: /ID3/ExtendedHeader.php<br /><br />
 <div class="description">The extended header contains information that can provide further insight in  the structure of the tag, but is not vital to the correct parsing of the tag  information; hence the extended header is optional.</div><br /><br />
 <h4>Author(s):</h4>
 <ul>
-          <li>Sven Vollbehr &lt;<a href="mailto:sven.vollbehr@behrss.eu">sven.vollbehr@behrss.eu</a>&gt;</li>
+          <li>Sven Vollbehr &lt;<a href="mailto:svollbehr@gmail.com">svollbehr@gmail.com</a>&gt;</li>
                         </ul>
 
 
@@ -387,12 +388,12 @@ Source Location: /ID3/ExtendedHeader.php<br /><br />
       
 <h4>Version:</h4>
 <ul>
-  <li>$Rev: 11 $</li>
+  <li>$Rev: 65 $</li>
 </ul>
 
 <h4>Copyright:</h4>
 <ul>
-  <li>Copyright (c) 2008 BEHR Software Systems</li>
+  <li>Copyright (c) 2008 The PHP Reader Project Workgroup</li>
 </ul>
         
 </td>
@@ -411,10 +412,16 @@ Source Location: /ID3/ExtendedHeader.php<br /><br />
 <h3><a href="#class_methods">Methods</a></h3>
 <ul>
     <li><a href="../../php-reader/ID3/ID3_ExtendedHeader.html#method__construct">__construct</a></li>
-    <li><a href="../../php-reader/ID3/ID3_ExtendedHeader.html#methodgetCRC">getCRC</a></li>
+    <li><a href="../../php-reader/ID3/ID3_ExtendedHeader.html#methodgetCrc">getCrc</a></li>
+    <li><a href="../../php-reader/ID3/ID3_ExtendedHeader.html#methodgetFlags">getFlags</a></li>
     <li><a href="../../php-reader/ID3/ID3_ExtendedHeader.html#methodgetRestrictions">getRestrictions</a></li>
     <li><a href="../../php-reader/ID3/ID3_ExtendedHeader.html#methodgetSize">getSize</a></li>
     <li><a href="../../php-reader/ID3/ID3_ExtendedHeader.html#methodhasFlag">hasFlag</a></li>
+    <li><a href="../../php-reader/ID3/ID3_ExtendedHeader.html#methodsetCrc">setCrc</a></li>
+    <li><a href="../../php-reader/ID3/ID3_ExtendedHeader.html#methodsetFlags">setFlags</a></li>
+    <li><a href="../../php-reader/ID3/ID3_ExtendedHeader.html#methodsetRestrictions">setRestrictions</a></li>
+    <li><a href="../../php-reader/ID3/ID3_ExtendedHeader.html#methodtoString">toString</a></li>
+    <li><a href="../../php-reader/ID3/ID3_ExtendedHeader.html#methoduseCrc">useCrc</a></li>
   </ul>
 </td>
 
@@ -431,6 +438,12 @@ Source Location: /ID3/ExtendedHeader.php<br /><br />
 <div class="tags">
 <h4>Class: <a href="../../php-reader/ID3/ID3_Object.html">ID3_Object</a></h4>
 <dl>
+<dt>
+  <a href="../../php-reader/ID3/ID3_Object.html#var$_options">ID3_Object::$_options</a>
+  </dt>
+<dd>
+   
+</dd>
 <dt>
   <a href="../../php-reader/ID3/ID3_Object.html#var$_reader">ID3_Object::$_reader</a>
   </dt>
@@ -464,6 +477,18 @@ Source Location: /ID3/ExtendedHeader.php<br /><br />
   <dd>
     Encodes the given 32-bit integer to 28-bit synchsafe integer, where the  most significant bit of each byte is zero, making seven bits out of eight  available.
   </dd>
+    <dt>
+    <a href="../../php-reader/ID3/ID3_Object.html#method__get">ID3_Object::__get()</a>
+  </dt>
+  <dd>
+    Magic function so that $obj-&gt;value will work.
+  </dd>
+    <dt>
+    <a href="../../php-reader/ID3/ID3_Object.html#method__set">ID3_Object::__set()</a>
+  </dt>
+  <dd>
+    Magic function so that assignments with $obj-&gt;value will work.
+  </dd>
   </dl>
 </div>
 </td>
@@ -474,22 +499,22 @@ Source Location: /ID3/ExtendedHeader.php<br /><br />
 <a name="class_details"></a>
 <h3>Class Details</h3>
 <div class="tags">
-[line 52]<br />
+[line 54]<br />
 The extended header contains information that can provide further insight in  the structure of the tag, but is not vital to the correct parsing of the tag  information; hence the extended header is optional.<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td><b>author:</b>&nbsp;&nbsp;</td><td>Sven Vollbehr &lt;<a href="mailto:sven.vollbehr@behrss.eu">sven.vollbehr@behrss.eu</a>&gt;</td>
+    <td><b>author:</b>&nbsp;&nbsp;</td><td>Sven Vollbehr &lt;<a href="mailto:svollbehr@gmail.com">svollbehr@gmail.com</a>&gt;</td>
   </tr>
   <tr>
-    <td><b>version:</b>&nbsp;&nbsp;</td><td>$Rev: 11 $</td>
+    <td><b>version:</b>&nbsp;&nbsp;</td><td>$Rev: 65 $</td>
   </tr>
   <tr>
-    <td><b>copyright:</b>&nbsp;&nbsp;</td><td>Copyright (c) 2008 BEHR Software Systems</td>
+    <td><b>copyright:</b>&nbsp;&nbsp;</td><td>Copyright (c) 2008 The PHP Reader Project Workgroup</td>
   </tr>
   <tr>
-    <td><b>license:</b>&nbsp;&nbsp;</td><td><a href="http://www.opensource.org/licenses/bsd-license.php">New BSD License</a></td>
+    <td><b>license:</b>&nbsp;&nbsp;</td><td><a href="http://code.google.com/p/php-reader/wiki/License">New BSD License</a></td>
   </tr>
 </table>
 </div>
@@ -504,13 +529,13 @@ The extended header contains information that can provide further insight in  th
 
   <hr />
 	<a name="method__construct"></a>
-	<h3>constructor __construct <span class="smalllinenumber">[line 93]</span></h3>
+	<h3>constructor __construct <span class="smalllinenumber">[line 95]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
 		<code>ID3_ExtendedHeader __construct(
-<a href="../../php-reader/Reader.html">Reader</a>
-$reader)</code>
+[<a href="../../php-reader/Reader.html">Reader</a>
+$reader = null])</code>
     </td></tr></table>
     </td></tr></table><br />
 	
@@ -539,12 +564,12 @@ $reader)</code>
         <div class="top">[ <a href="#top">Top</a> ]</div>
   </div>
   <hr />
-	<a name="methodgetCRC"></a>
-	<h3>method getCRC <span class="smalllinenumber">[line 139]</span></h3>
+	<a name="methodgetCrc"></a>
+	<h3>method getCrc <span class="smalllinenumber">[line 158]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>integer getCRC(
+		<code>integer getCrc(
 )</code>
     </td></tr></table>
     </td></tr></table><br />
@@ -564,8 +589,44 @@ $reader)</code>
         <div class="top">[ <a href="#top">Top</a> ]</div>
   </div>
   <hr />
+	<a name="methodgetFlags"></a>
+	<h3>method getFlags <span class="smalllinenumber">[line 144]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>integer getFlags(
+
+$flags)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Returns the flags byte.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">&nbsp;&nbsp;</td>
+        <td><b>$flags</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
 	<a name="methodgetRestrictions"></a>
-	<h3>method getRestrictions <span class="smalllinenumber">[line 189]</span></h3>
+	<h3>method getRestrictions <span class="smalllinenumber">[line 240]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -625,7 +686,7 @@ $reader)</code>
   </div>
   <hr />
 	<a name="methodgetSize"></a>
-	<h3>method getSize <span class="smalllinenumber">[line 123]</span></h3>
+	<h3>method getSize <span class="smalllinenumber">[line 128]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -650,7 +711,7 @@ $reader)</code>
   </div>
   <hr />
 	<a name="methodhasFlag"></a>
-	<h3>method hasFlag <span class="smalllinenumber">[line 132]</span></h3>
+	<h3>method hasFlag <span class="smalllinenumber">[line 137]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -684,6 +745,175 @@ $flag)</code>
     </div><br />
         <div class="top">[ <a href="#top">Top</a> ]</div>
   </div>
+  <hr />
+	<a name="methodsetCrc"></a>
+	<h3>method setCrc <span class="smalllinenumber">[line 184]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void setCrc(
+integer
+$crc)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Sets the CRC-32. The CRC-32 value is calculated of all the frames in the  tag and includes padding.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">integer&nbsp;&nbsp;</td>
+        <td><b>$crc</b>&nbsp;&nbsp;</td>
+        <td>The 32-bit CRC value.</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodsetFlags"></a>
+	<h3>method setFlags <span class="smalllinenumber">[line 151]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void setFlags(
+integer
+$flags)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Sets the flags byte.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">integer&nbsp;&nbsp;</td>
+        <td><b>$flags</b>&nbsp;&nbsp;</td>
+        <td>The flags byte.</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodsetRestrictions"></a>
+	<h3>method setRestrictions <span class="smalllinenumber">[line 247]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void setRestrictions(
+integer
+$restrictions)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Sets the restrictions byte. See #getRestrictions for more.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">integer&nbsp;&nbsp;</td>
+        <td><b>$restrictions</b>&nbsp;&nbsp;</td>
+        <td>The restrictions byte.</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodtoString"></a>
+	<h3>method toString <span class="smalllinenumber">[line 257]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>string toString(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Returns the header raw data.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methoduseCrc"></a>
+	<h3>method useCrc <span class="smalllinenumber">[line 170]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void useCrc(
+boolean
+$useCrc)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Sets whether the CRC-32 should be generated upon tag write.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">boolean&nbsp;&nbsp;</td>
+        <td><b>$useCrc</b>&nbsp;&nbsp;</td>
+        <td>Whether CRC-32 should be generated.</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
 </div><br />
 
 <hr />
@@ -693,21 +923,21 @@ $flag)</code>
 	<a name="constCRC32"></a>
 	<p></p>
 	<h4>CRC32 = <span class="value">&nbsp;64</span></h4>
-	<p>[line 70]</p>
+	<p>[line 72]</p>
   A flag to denote that a CRC-32 data is included in the extended header.<br /><br /><p>The CRC is calculated on all the data between the header and footer as  indicated by the header's tag length field, minus the extended header. Note  that this includes the padding (if there is any), but excludes the footer.  The CRC-32 is stored as an 35 bit synchsafe integer, leaving the upper four  bits always zeroed.</p><br />
   <br />
 	<div class="top">[ <a href="#top">Top</a> ]</div><br />
 	<a name="constRESTRICTED"></a>
 	<p></p>
 	<h4>RESTRICTED = <span class="value">&nbsp;32</span></h4>
-	<p>[line 73]</p>
+	<p>[line 75]</p>
   A flag to denote whether or not the tag has restrictions applied on it.<br /><br />
   <br />
 	<div class="top">[ <a href="#top">Top</a> ]</div><br />
 	<a name="constUPDATE"></a>
 	<p></p>
 	<h4>UPDATE = <span class="value">&nbsp;128</span></h4>
-	<p>[line 60]</p>
+	<p>[line 62]</p>
   A flag to denote that the present tag is an update of a tag found earlier  in the present file or stream. If frames defined as unique are found in  the present tag, they are to override any corresponding ones found in the  earlier tag. This flag has no corresponding data.<br /><br />
   <br />
 	<div class="top">[ <a href="#top">Top</a> ]</div><br />
@@ -715,7 +945,7 @@ $flag)</code>
 
         <div class="credit">
 		    <hr />
-		    Documentation generated on Mon, 17 Mar 2008 15:35:27 +0200 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.1</a>
+		    Documentation generated on Wed, 02 Apr 2008 18:35:10 +0300 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.1</a>
 	      </div>
       </td></tr></table>
     </td>

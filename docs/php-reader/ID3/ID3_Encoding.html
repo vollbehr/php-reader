@@ -285,6 +285,7 @@
 	    &nbsp;&nbsp;		<a href="../../php-reader/ID3/ID3_Frame_RVRB.html">ID3_Frame_RVRB</a><br />
 	    &nbsp;&nbsp;		<a href="../../php-reader/ID3/ID3_Frame_SEEK.html">ID3_Frame_SEEK</a><br />
 	    &nbsp;&nbsp;		<a href="../../php-reader/ID3/ID3_Frame_SIGN.html">ID3_Frame_SIGN</a><br />
+	    &nbsp;&nbsp;		<a href="../../php-reader/ID3/ID3_Frame_SYLT.html">ID3_Frame_SYLT</a><br />
 	    &nbsp;&nbsp;		<a href="../../php-reader/ID3/ID3_Frame_SYTC.html">ID3_Frame_SYTC</a><br />
 	    &nbsp;&nbsp;		<a href="../../php-reader/ID3/ID3_Frame_TALB.html">ID3_Frame_TALB</a><br />
 	    &nbsp;&nbsp;		<a href="../../php-reader/ID3/ID3_Frame_TBPM.html">ID3_Frame_TBPM</a><br />
@@ -374,7 +375,7 @@ Source Location: /ID3/Encoding.php<br /><br />
 <div class="description">The <var>Encoding</var> interface implies that the ID3v2 frame supports  content encoding.</div><br /><br />
 <h4>Author(s):</h4>
 <ul>
-          <li>Sven Vollbehr &lt;<a href="mailto:sven.vollbehr@behrss.eu">sven.vollbehr@behrss.eu</a>&gt;</li>
+          <li>Sven Vollbehr &lt;<a href="mailto:svollbehr@gmail.com">svollbehr@gmail.com</a>&gt;</li>
                         </ul>
 
 
@@ -385,12 +386,12 @@ Source Location: /ID3/Encoding.php<br /><br />
       
 <h4>Version:</h4>
 <ul>
-  <li>$Rev: 12 $</li>
+  <li>$Rev: 64 $</li>
 </ul>
 
 <h4>Copyright:</h4>
 <ul>
-  <li>Copyright (c) 2008 BEHR Software Systems</li>
+  <li>Copyright (c) 2008 The PHP Reader Project Workgroup</li>
 </ul>
         
 </td>
@@ -403,6 +404,7 @@ Source Location: /ID3/Encoding.php<br /><br />
     <li><a href="../../php-reader/ID3/ID3_Encoding.html#constUTF8">UTF8</a></li>
     <li><a href="../../php-reader/ID3/ID3_Encoding.html#constUTF16">UTF16</a></li>
     <li><a href="../../php-reader/ID3/ID3_Encoding.html#constUTF16BE">UTF16BE</a></li>
+    <li><a href="../../php-reader/ID3/ID3_Encoding.html#constUTF16LE">UTF16LE</a></li>
   </ul>
 </td>
 
@@ -410,6 +412,7 @@ Source Location: /ID3/Encoding.php<br /><br />
 <h3><a href="#class_methods">Methods</a></h3>
 <ul>
     <li><a href="../../php-reader/ID3/ID3_Encoding.html#methodgetEncoding">getEncoding</a></li>
+    <li><a href="../../php-reader/ID3/ID3_Encoding.html#methodsetEncoding">setEncoding</a></li>
   </ul>
 </td>
 
@@ -429,22 +432,22 @@ Source Location: /ID3/Encoding.php<br /><br />
 <a name="class_details"></a>
 <h3>Class Details</h3>
 <div class="tags">
-[line 47]<br />
+[line 49]<br />
 The <var>Encoding</var> interface implies that the ID3v2 frame supports  content encoding.<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td><b>author:</b>&nbsp;&nbsp;</td><td>Sven Vollbehr &lt;<a href="mailto:sven.vollbehr@behrss.eu">sven.vollbehr@behrss.eu</a>&gt;</td>
+    <td><b>author:</b>&nbsp;&nbsp;</td><td>Sven Vollbehr &lt;<a href="mailto:svollbehr@gmail.com">svollbehr@gmail.com</a>&gt;</td>
   </tr>
   <tr>
-    <td><b>version:</b>&nbsp;&nbsp;</td><td>$Rev: 12 $</td>
+    <td><b>version:</b>&nbsp;&nbsp;</td><td>$Rev: 64 $</td>
   </tr>
   <tr>
-    <td><b>copyright:</b>&nbsp;&nbsp;</td><td>Copyright (c) 2008 BEHR Software Systems</td>
+    <td><b>copyright:</b>&nbsp;&nbsp;</td><td>Copyright (c) 2008 The PHP Reader Project Workgroup</td>
   </tr>
   <tr>
-    <td><b>license:</b>&nbsp;&nbsp;</td><td><a href="http://www.opensource.org/licenses/bsd-license.php">New BSD License</a></td>
+    <td><b>license:</b>&nbsp;&nbsp;</td><td><a href="http://code.google.com/p/php-reader/wiki/License">New BSD License</a></td>
   </tr>
 </table>
 </div>
@@ -459,7 +462,7 @@ The <var>Encoding</var> interface implies that the ID3v2 frame supports  content
 
   <hr />
 	<a name="methodgetEncoding"></a>
-	<h3>method getEncoding <span class="smalllinenumber">[line 66]</span></h3>
+	<h3>method getEncoding <span class="smalllinenumber">[line 71]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -482,6 +485,42 @@ The <var>Encoding</var> interface implies that the ID3v2 frame supports  content
 	
         <div class="top">[ <a href="#top">Top</a> ]</div>
   </div>
+  <hr />
+	<a name="methodsetEncoding"></a>
+	<h3>method setEncoding <span class="smalllinenumber">[line 78]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void setEncoding(
+integer
+$encoding)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Sets the text encoding.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">integer&nbsp;&nbsp;</td>
+        <td><b>$encoding</b>&nbsp;&nbsp;</td>
+        <td>The text encoding.</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
 </div><br />
 
 <hr />
@@ -491,36 +530,43 @@ The <var>Encoding</var> interface implies that the ID3v2 frame supports  content
 	<a name="constISO88591"></a>
 	<p></p>
 	<h4>ISO88591 = <span class="value">&nbsp;0</span></h4>
-	<p>[line 50]</p>
+	<p>[line 52]</p>
   The ISO-8859-1 encoding.<br /><br />
   <br />
 	<div class="top">[ <a href="#top">Top</a> ]</div><br />
 	<a name="constUTF8"></a>
 	<p></p>
 	<h4>UTF8 = <span class="value">&nbsp;3</span></h4>
-	<p>[line 59]</p>
+	<p>[line 64]</p>
   The UTF-8 Unicode encoding.<br /><br />
   <br />
 	<div class="top">[ <a href="#top">Top</a> ]</div><br />
 	<a name="constUTF16"></a>
 	<p></p>
 	<h4>UTF16 = <span class="value">&nbsp;1</span></h4>
-	<p>[line 53]</p>
+	<p>[line 55]</p>
   The UTF-16 Unicode encoding with BOM.<br /><br />
   <br />
 	<div class="top">[ <a href="#top">Top</a> ]</div><br />
 	<a name="constUTF16BE"></a>
 	<p></p>
 	<h4>UTF16BE = <span class="value">&nbsp;2</span></h4>
-	<p>[line 56]</p>
+	<p>[line 61]</p>
   The UTF-16BE Unicode encoding without BOM.<br /><br />
+  <br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
+	<a name="constUTF16LE"></a>
+	<p></p>
+	<h4>UTF16LE = <span class="value">&nbsp;1</span></h4>
+	<p>[line 58]</p>
+  The UTF-16 Unicode encoding with BOM.<br /><br />
   <br />
 	<div class="top">[ <a href="#top">Top</a> ]</div><br />
 </div><br />
 
         <div class="credit">
 		    <hr />
-		    Documentation generated on Mon, 17 Mar 2008 15:35:24 +0200 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.1</a>
+		    Documentation generated on Wed, 02 Apr 2008 18:35:03 +0300 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.1</a>
 	      </div>
       </td></tr></table>
     </td>

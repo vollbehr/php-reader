@@ -285,6 +285,7 @@
 	    &nbsp;&nbsp;		<a href="../../php-reader/ID3/ID3_Frame_RVRB.html">ID3_Frame_RVRB</a><br />
 	    &nbsp;&nbsp;		<a href="../../php-reader/ID3/ID3_Frame_SEEK.html">ID3_Frame_SEEK</a><br />
 	    &nbsp;&nbsp;		<a href="../../php-reader/ID3/ID3_Frame_SIGN.html">ID3_Frame_SIGN</a><br />
+	    &nbsp;&nbsp;		<a href="../../php-reader/ID3/ID3_Frame_SYLT.html">ID3_Frame_SYLT</a><br />
 	    &nbsp;&nbsp;		<a href="../../php-reader/ID3/ID3_Frame_SYTC.html">ID3_Frame_SYTC</a><br />
 	    &nbsp;&nbsp;		<a href="../../php-reader/ID3/ID3_Frame_TALB.html">ID3_Frame_TALB</a><br />
 	    &nbsp;&nbsp;		<a href="../../php-reader/ID3/ID3_Frame_TBPM.html">ID3_Frame_TBPM</a><br />
@@ -378,23 +379,23 @@ Source Location: /ID3/Frame/MLLT.php<br /><br />
 <div class="description">To increase performance and accuracy of jumps within a MPEG audio file,  frames with time codes in different locations in the file might be useful.</div><br /><br />
 <h4>Author(s):</h4>
 <ul>
-          <li>Sven Vollbehr &lt;<a href="mailto:sven.vollbehr@behrss.eu">sven.vollbehr@behrss.eu</a>&gt;</li>
-                        </ul>
+          <li>Sven Vollbehr &lt;<a href="mailto:svollbehr@gmail.com">svollbehr@gmail.com</a>&gt;</li>
+                              </ul>
 
 
 
 
         
           
-      
+          
 <h4>Version:</h4>
 <ul>
-  <li>$Rev: 12 $</li>
+  <li>$Rev: 65 $</li>
 </ul>
 
 <h4>Copyright:</h4>
 <ul>
-  <li>Copyright (c) 2008 BEHR Software Systems</li>
+  <li>Copyright (c) 2008 The PHP Reader Project Workgroup</li>
 </ul>
         
 </td>
@@ -409,6 +410,10 @@ Source Location: /ID3/Frame/MLLT.php<br /><br />
     <li><a href="../../php-reader/ID3/ID3_Frame_MLLT.html#methodgetDeviation">getDeviation</a></li>
     <li><a href="../../php-reader/ID3/ID3_Frame_MLLT.html#methodgetFrames">getFrames</a></li>
     <li><a href="../../php-reader/ID3/ID3_Frame_MLLT.html#methodgetMilliseconds">getMilliseconds</a></li>
+    <li><a href="../../php-reader/ID3/ID3_Frame_MLLT.html#methodsetBytes">setBytes</a></li>
+    <li><a href="../../php-reader/ID3/ID3_Frame_MLLT.html#methodsetDeviation">setDeviation</a></li>
+    <li><a href="../../php-reader/ID3/ID3_Frame_MLLT.html#methodsetFrames">setFrames</a></li>
+    <li><a href="../../php-reader/ID3/ID3_Frame_MLLT.html#methodsetMilliseconds">setMilliseconds</a></li>
   </ul>
 </td>
 
@@ -493,6 +498,12 @@ Source Location: /ID3/Frame/MLLT.php<br /><br />
 <h4>Class: <a href="../../php-reader/ID3/ID3_Object.html">ID3_Object</a></h4>
 <dl>
 <dt>
+  <a href="../../php-reader/ID3/ID3_Object.html#var$_options">ID3_Object::$_options</a>
+  </dt>
+<dd>
+   
+</dd>
+<dt>
   <a href="../../php-reader/ID3/ID3_Object.html#var$_reader">ID3_Object::$_reader</a>
   </dt>
 <dd>
@@ -514,6 +525,12 @@ Source Location: /ID3/Frame/MLLT.php<br /><br />
     Constructs the class with given parameters and reads object related data  from the ID3v2 tag.
   </dd>
     <dt>
+    <a href="../../php-reader/ID3/ID3_Frame.html#methodgetFlags">ID3_Frame::getFlags()</a>
+  </dt>
+  <dd>
+    Returns the frame flags byte.
+  </dd>
+    <dt>
     <a href="../../php-reader/ID3/ID3_Frame.html#methodgetIdentifier">ID3_Frame::getIdentifier()</a>
   </dt>
   <dd>
@@ -530,6 +547,30 @@ Source Location: /ID3/Frame/MLLT.php<br /><br />
   </dt>
   <dd>
     Checks whether or not the flag is set. Returns <var>true</var> if the flag  is set, <var>false</var> otherwise.
+  </dd>
+    <dt>
+    <a href="../../php-reader/ID3/ID3_Frame.html#methodsetData">ID3_Frame::setData()</a>
+  </dt>
+  <dd>
+    Sets the frame raw data.
+  </dd>
+    <dt>
+    <a href="../../php-reader/ID3/ID3_Frame.html#methodsetFlags">ID3_Frame::setFlags()</a>
+  </dt>
+  <dd>
+    Sets the frame flags byte.
+  </dd>
+    <dt>
+    <a href="../../php-reader/ID3/ID3_Frame.html#methodsetIdentifier">ID3_Frame::setIdentifier()</a>
+  </dt>
+  <dd>
+    Sets the frame identifier.
+  </dd>
+    <dt>
+    <a href="../../php-reader/ID3/ID3_Frame.html#method__toString">ID3_Frame::__toString()</a>
+  </dt>
+  <dd>
+    Returns the frame raw data.
   </dd>
   </dl>
 <h4>Class: <a href="../../php-reader/ID3/ID3_Object.html">ID3_Object</a></h4>
@@ -552,6 +593,18 @@ Source Location: /ID3/Frame/MLLT.php<br /><br />
   <dd>
     Encodes the given 32-bit integer to 28-bit synchsafe integer, where the  most significant bit of each byte is zero, making seven bits out of eight  available.
   </dd>
+    <dt>
+    <a href="../../php-reader/ID3/ID3_Object.html#method__get">ID3_Object::__get()</a>
+  </dt>
+  <dd>
+    Magic function so that $obj-&gt;value will work.
+  </dd>
+    <dt>
+    <a href="../../php-reader/ID3/ID3_Object.html#method__set">ID3_Object::__set()</a>
+  </dt>
+  <dd>
+    Magic function so that assignments with $obj-&gt;value will work.
+  </dd>
   </dl>
 </div>
 </td>
@@ -562,22 +615,25 @@ Source Location: /ID3/Frame/MLLT.php<br /><br />
 <a name="class_details"></a>
 <h3>Class Details</h3>
 <div class="tags">
-[line 67]<br />
+[line 70]<br />
 To increase performance and accuracy of jumps within a MPEG audio file,  frames with time codes in different locations in the file might be useful.<br /><br /><p>The <em>MPEG location lookup table</em> frame includes references that the  software can use to calculate positions in the file.</p><p>The MPEG frames between reference describes how much the frame counter should  be increased for every reference. If this value is two then the first  reference points out the second frame, the 2nd reference the 4th frame, the  3rd reference the 6th frame etc. In a similar way the bytes between reference  and milliseconds between reference points out bytes and milliseconds  respectively.</p><p>Each reference consists of two parts; a certain number of bits that describes  the difference between what is said in bytes between reference and the  reality and a certain number of bits that describes the difference between  what is said in milliseconds between reference and the reality.</p><p>There may only be one MLLT frame in each tag.</p><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td><b>author:</b>&nbsp;&nbsp;</td><td>Sven Vollbehr &lt;<a href="mailto:sven.vollbehr@behrss.eu">sven.vollbehr@behrss.eu</a>&gt;</td>
+    <td><b>author:</b>&nbsp;&nbsp;</td><td>Sven Vollbehr &lt;<a href="mailto:svollbehr@gmail.com">svollbehr@gmail.com</a>&gt;</td>
   </tr>
   <tr>
-    <td><b>version:</b>&nbsp;&nbsp;</td><td>$Rev: 12 $</td>
+    <td><b>version:</b>&nbsp;&nbsp;</td><td>$Rev: 65 $</td>
   </tr>
   <tr>
-    <td><b>copyright:</b>&nbsp;&nbsp;</td><td>Copyright (c) 2008 BEHR Software Systems</td>
+    <td><b>copyright:</b>&nbsp;&nbsp;</td><td>Copyright (c) 2008 The PHP Reader Project Workgroup</td>
   </tr>
   <tr>
-    <td><b>license:</b>&nbsp;&nbsp;</td><td><a href="http://www.opensource.org/licenses/bsd-license.php">New BSD License</a></td>
+    <td><b>todo:</b>&nbsp;&nbsp;</td><td>Data parsing and write support</td>
+  </tr>
+  <tr>
+    <td><b>license:</b>&nbsp;&nbsp;</td><td><a href="http://code.google.com/p/php-reader/wiki/License">New BSD License</a></td>
   </tr>
 </table>
 </div>
@@ -592,13 +648,13 @@ To increase performance and accuracy of jumps within a MPEG audio file,  frames 
 
   <hr />
 	<a name="method__construct"></a>
-	<h3>constructor __construct <span class="smalllinenumber">[line 86]</span></h3>
+	<h3>constructor __construct <span class="smalllinenumber">[line 89]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
 		<code>ID3_Frame_MLLT __construct(
-<a href="../../php-reader/Reader.html">Reader</a>
-$reader)</code>
+[<a href="../../php-reader/Reader.html">Reader</a>
+$reader = null])</code>
     </td></tr></table>
     </td></tr></table><br />
 	
@@ -628,7 +684,7 @@ $reader)</code>
   </div>
   <hr />
 	<a name="methodgetBytes"></a>
-	<h3>method getBytes <span class="smalllinenumber">[line 112]</span></h3>
+	<h3>method getBytes <span class="smalllinenumber">[line 125]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -653,7 +709,7 @@ $reader)</code>
   </div>
   <hr />
 	<a name="methodgetDeviation"></a>
-	<h3>method getDeviation <span class="smalllinenumber">[line 128]</span></h3>
+	<h3>method getDeviation <span class="smalllinenumber">[line 158]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -678,7 +734,7 @@ $reader)</code>
   </div>
   <hr />
 	<a name="methodgetFrames"></a>
-	<h3>method getFrames <span class="smalllinenumber">[line 105]</span></h3>
+	<h3>method getFrames <span class="smalllinenumber">[line 111]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -703,7 +759,7 @@ $reader)</code>
   </div>
   <hr />
 	<a name="methodgetMilliseconds"></a>
-	<h3>method getMilliseconds <span class="smalllinenumber">[line 119]</span></h3>
+	<h3>method getMilliseconds <span class="smalllinenumber">[line 139]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -726,12 +782,156 @@ $reader)</code>
 	
         <div class="top">[ <a href="#top">Top</a> ]</div>
   </div>
+  <hr />
+	<a name="methodsetBytes"></a>
+	<h3>method setBytes <span class="smalllinenumber">[line 132]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void setBytes(
+integer
+$bytes)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Sets the number of bytes between reference.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">integer&nbsp;&nbsp;</td>
+        <td><b>$bytes</b>&nbsp;&nbsp;</td>
+        <td>The number of bytes.</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodsetDeviation"></a>
+	<h3>method setDeviation <span class="smalllinenumber">[line 167]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void setDeviation(
+Array
+$deviation)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Sets the deviations array. The array must consist of arrays, each of which  having two values, the deviation in bytes, and the deviation in  milliseconds, respectively.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">Array&nbsp;&nbsp;</td>
+        <td><b>$deviation</b>&nbsp;&nbsp;</td>
+        <td>The deviations array.</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodsetFrames"></a>
+	<h3>method setFrames <span class="smalllinenumber">[line 118]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void setFrames(
+integer
+$frames)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Sets the number of MPEG frames between reference.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">integer&nbsp;&nbsp;</td>
+        <td><b>$frames</b>&nbsp;&nbsp;</td>
+        <td>The number of MPEG frames.</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodsetMilliseconds"></a>
+	<h3>method setMilliseconds <span class="smalllinenumber">[line 146]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void setMilliseconds(
+integer
+$milliseconds)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Sets the number of milliseconds between references.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">integer&nbsp;&nbsp;</td>
+        <td><b>$milliseconds</b>&nbsp;&nbsp;</td>
+        <td>The number of milliseconds.</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
 </div><br />
 
 
         <div class="credit">
 		    <hr />
-		    Documentation generated on Mon, 17 Mar 2008 15:35:31 +0200 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.1</a>
+		    Documentation generated on Wed, 02 Apr 2008 18:35:22 +0300 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.1</a>
 	      </div>
       </td></tr></table>
     </td>

@@ -285,6 +285,7 @@
 	    &nbsp;&nbsp;		<a href="../../php-reader/ID3/ID3_Frame_RVRB.html">ID3_Frame_RVRB</a><br />
 	    &nbsp;&nbsp;		<a href="../../php-reader/ID3/ID3_Frame_SEEK.html">ID3_Frame_SEEK</a><br />
 	    &nbsp;&nbsp;		<a href="../../php-reader/ID3/ID3_Frame_SIGN.html">ID3_Frame_SIGN</a><br />
+	    &nbsp;&nbsp;		<a href="../../php-reader/ID3/ID3_Frame_SYLT.html">ID3_Frame_SYLT</a><br />
 	    &nbsp;&nbsp;		<a href="../../php-reader/ID3/ID3_Frame_SYTC.html">ID3_Frame_SYTC</a><br />
 	    &nbsp;&nbsp;		<a href="../../php-reader/ID3/ID3_Frame_TALB.html">ID3_Frame_TALB</a><br />
 	    &nbsp;&nbsp;		<a href="../../php-reader/ID3/ID3_Frame_TBPM.html">ID3_Frame_TBPM</a><br />
@@ -378,7 +379,7 @@ Source Location: /ID3/Frame/MCDI.php<br /><br />
 <div class="description">This frame is intended for music that comes from a CD, so that the CD can be</div><br /><br />
 <h4>Author(s):</h4>
 <ul>
-          <li>Sven Vollbehr &lt;<a href="mailto:sven.vollbehr@behrss.eu">sven.vollbehr@behrss.eu</a>&gt;</li>
+          <li>Sven Vollbehr &lt;<a href="mailto:svollbehr@gmail.com">svollbehr@gmail.com</a>&gt;</li>
                         </ul>
 
 
@@ -389,12 +390,12 @@ Source Location: /ID3/Frame/MCDI.php<br /><br />
       
 <h4>Version:</h4>
 <ul>
-  <li>$Rev: 11 $</li>
+  <li>$Rev: 65 $</li>
 </ul>
 
 <h4>Copyright:</h4>
 <ul>
-  <li>Copyright (c) 2008 BEHR Software Systems</li>
+  <li>Copyright (c) 2008 The PHP Reader Project Workgroup</li>
 </ul>
         
 </td>
@@ -405,6 +406,7 @@ Source Location: /ID3/Frame/MCDI.php<br /><br />
 <h3><a href="#class_methods">Methods</a></h3>
 <ul>
     <li><a href="../../php-reader/ID3/ID3_Frame_MCDI.html#methodgetData">getData</a></li>
+    <li><a href="../../php-reader/ID3/ID3_Frame_MCDI.html#methodsetData">setData</a></li>
   </ul>
 </td>
 
@@ -489,6 +491,12 @@ Source Location: /ID3/Frame/MCDI.php<br /><br />
 <h4>Class: <a href="../../php-reader/ID3/ID3_Object.html">ID3_Object</a></h4>
 <dl>
 <dt>
+  <a href="../../php-reader/ID3/ID3_Object.html#var$_options">ID3_Object::$_options</a>
+  </dt>
+<dd>
+   
+</dd>
+<dt>
   <a href="../../php-reader/ID3/ID3_Object.html#var$_reader">ID3_Object::$_reader</a>
   </dt>
 <dd>
@@ -510,6 +518,12 @@ Source Location: /ID3/Frame/MCDI.php<br /><br />
     Constructs the class with given parameters and reads object related data  from the ID3v2 tag.
   </dd>
     <dt>
+    <a href="../../php-reader/ID3/ID3_Frame.html#methodgetFlags">ID3_Frame::getFlags()</a>
+  </dt>
+  <dd>
+    Returns the frame flags byte.
+  </dd>
+    <dt>
     <a href="../../php-reader/ID3/ID3_Frame.html#methodgetIdentifier">ID3_Frame::getIdentifier()</a>
   </dt>
   <dd>
@@ -526,6 +540,30 @@ Source Location: /ID3/Frame/MCDI.php<br /><br />
   </dt>
   <dd>
     Checks whether or not the flag is set. Returns <var>true</var> if the flag  is set, <var>false</var> otherwise.
+  </dd>
+    <dt>
+    <a href="../../php-reader/ID3/ID3_Frame.html#methodsetData">ID3_Frame::setData()</a>
+  </dt>
+  <dd>
+    Sets the frame raw data.
+  </dd>
+    <dt>
+    <a href="../../php-reader/ID3/ID3_Frame.html#methodsetFlags">ID3_Frame::setFlags()</a>
+  </dt>
+  <dd>
+    Sets the frame flags byte.
+  </dd>
+    <dt>
+    <a href="../../php-reader/ID3/ID3_Frame.html#methodsetIdentifier">ID3_Frame::setIdentifier()</a>
+  </dt>
+  <dd>
+    Sets the frame identifier.
+  </dd>
+    <dt>
+    <a href="../../php-reader/ID3/ID3_Frame.html#method__toString">ID3_Frame::__toString()</a>
+  </dt>
+  <dd>
+    Returns the frame raw data.
   </dd>
   </dl>
 <h4>Class: <a href="../../php-reader/ID3/ID3_Object.html">ID3_Object</a></h4>
@@ -548,6 +586,18 @@ Source Location: /ID3/Frame/MCDI.php<br /><br />
   <dd>
     Encodes the given 32-bit integer to 28-bit synchsafe integer, where the  most significant bit of each byte is zero, making seven bits out of eight  available.
   </dd>
+    <dt>
+    <a href="../../php-reader/ID3/ID3_Object.html#method__get">ID3_Object::__get()</a>
+  </dt>
+  <dd>
+    Magic function so that $obj-&gt;value will work.
+  </dd>
+    <dt>
+    <a href="../../php-reader/ID3/ID3_Object.html#method__set">ID3_Object::__set()</a>
+  </dt>
+  <dd>
+    Magic function so that assignments with $obj-&gt;value will work.
+  </dd>
   </dl>
 </div>
 </td>
@@ -558,22 +608,22 @@ Source Location: /ID3/Frame/MCDI.php<br /><br />
 <a name="class_details"></a>
 <h3>Class Details</h3>
 <div class="tags">
-[line 61]<br />
+[line 63]<br />
 This frame is intended for music that comes from a CD, so that the CD can be<br /><br /><p>identified in databases such as the CDDB. The frame consists of a binary dump  of the Table Of Contents, TOC, from the CD, which is a header of 4 bytes and  then 8 bytes/track on the CD plus 8 bytes for the lead out, making a  maximum of 804 bytes. The offset to the beginning of every track on the CD  should be described with a four bytes absolute CD-frame address per track,  and not with absolute time. When this frame is used the presence of a valid  <a href="../../php-reader/ID3/ID3_Frame_TRCK.html">ID3_Frame_TRCK</a> frame is required, even if the CD's only got one  track. It is recommended that this frame is always added to tags originating  from CDs.</p><p>There may only be one MCDI frame in each tag.</p><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td><b>author:</b>&nbsp;&nbsp;</td><td>Sven Vollbehr &lt;<a href="mailto:sven.vollbehr@behrss.eu">sven.vollbehr@behrss.eu</a>&gt;</td>
+    <td><b>author:</b>&nbsp;&nbsp;</td><td>Sven Vollbehr &lt;<a href="mailto:svollbehr@gmail.com">svollbehr@gmail.com</a>&gt;</td>
   </tr>
   <tr>
-    <td><b>version:</b>&nbsp;&nbsp;</td><td>$Rev: 11 $</td>
+    <td><b>version:</b>&nbsp;&nbsp;</td><td>$Rev: 65 $</td>
   </tr>
   <tr>
-    <td><b>copyright:</b>&nbsp;&nbsp;</td><td>Copyright (c) 2008 BEHR Software Systems</td>
+    <td><b>copyright:</b>&nbsp;&nbsp;</td><td>Copyright (c) 2008 The PHP Reader Project Workgroup</td>
   </tr>
   <tr>
-    <td><b>license:</b>&nbsp;&nbsp;</td><td><a href="http://www.opensource.org/licenses/bsd-license.php">New BSD License</a></td>
+    <td><b>license:</b>&nbsp;&nbsp;</td><td><a href="http://code.google.com/p/php-reader/wiki/License">New BSD License</a></td>
   </tr>
 </table>
 </div>
@@ -588,7 +638,7 @@ This frame is intended for music that comes from a CD, so that the CD can be<br 
 
   <hr />
 	<a name="methodgetData"></a>
-	<h3>method getData <span class="smalllinenumber">[line 68]</span></h3>
+	<h3>method getData <span class="smalllinenumber">[line 70]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -611,12 +661,48 @@ This frame is intended for music that comes from a CD, so that the CD can be<br 
 	
         <div class="top">[ <a href="#top">Top</a> ]</div>
   </div>
+  <hr />
+	<a name="methodsetData"></a>
+	<h3>method setData <span class="smalllinenumber">[line 77]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void setData(
+string
+$data)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Sets the CD TOC binary dump.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	Overrides <a href="../../php-reader/ID3/ID3_Frame.html#methodsetData">ID3_Frame::setData()</a> (Sets the frame raw data.)<br /><br />
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$data</b>&nbsp;&nbsp;</td>
+        <td>The CD TOC binary dump string.</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
 </div><br />
 
 
         <div class="credit">
 		    <hr />
-		    Documentation generated on Mon, 17 Mar 2008 15:35:30 +0200 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.1</a>
+		    Documentation generated on Wed, 02 Apr 2008 18:35:21 +0300 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.1</a>
 	      </div>
       </td></tr></table>
     </td>

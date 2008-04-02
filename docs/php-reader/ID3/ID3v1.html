@@ -285,6 +285,7 @@
 	    &nbsp;&nbsp;		<a href="../../php-reader/ID3/ID3_Frame_RVRB.html">ID3_Frame_RVRB</a><br />
 	    &nbsp;&nbsp;		<a href="../../php-reader/ID3/ID3_Frame_SEEK.html">ID3_Frame_SEEK</a><br />
 	    &nbsp;&nbsp;		<a href="../../php-reader/ID3/ID3_Frame_SIGN.html">ID3_Frame_SIGN</a><br />
+	    &nbsp;&nbsp;		<a href="../../php-reader/ID3/ID3_Frame_SYLT.html">ID3_Frame_SYLT</a><br />
 	    &nbsp;&nbsp;		<a href="../../php-reader/ID3/ID3_Frame_SYTC.html">ID3_Frame_SYTC</a><br />
 	    &nbsp;&nbsp;		<a href="../../php-reader/ID3/ID3_Frame_TALB.html">ID3_Frame_TALB</a><br />
 	    &nbsp;&nbsp;		<a href="../../php-reader/ID3/ID3_Frame_TBPM.html">ID3_Frame_TBPM</a><br />
@@ -374,7 +375,7 @@ Source Location: /ID3v1.php<br /><br />
 <div class="description">This class represents a file containing ID3v1 headers as described in  <a href="http://www.id3.org/id3v2-00">The ID3-Tag Specification Appendix</a>.</div><br /><br />
 <h4>Author(s):</h4>
 <ul>
-          <li>Sven Vollbehr &lt;<a href="mailto:sven.vollbehr@behrss.eu">sven.vollbehr@behrss.eu</a>&gt;</li>
+          <li>Sven Vollbehr &lt;<a href="mailto:svollbehr@gmail.com">svollbehr@gmail.com</a>&gt;</li>
                         </ul>
 
 
@@ -385,12 +386,12 @@ Source Location: /ID3v1.php<br /><br />
       
 <h4>Version:</h4>
 <ul>
-  <li>$Rev: 10 $</li>
+  <li>$Rev: 64 $</li>
 </ul>
 
 <h4>Copyright:</h4>
 <ul>
-  <li>Copyright (c) 2008 BEHR Software Systems</li>
+  <li>Copyright (c) 2008 The PHP Reader Project Workgroup</li>
 </ul>
         
 </td>
@@ -414,7 +415,16 @@ Source Location: /ID3v1.php<br /><br />
     <li><a href="../../php-reader/ID3/ID3v1.html#methodgetTitle">getTitle</a></li>
     <li><a href="../../php-reader/ID3/ID3v1.html#methodgetTrack">getTrack</a></li>
     <li><a href="../../php-reader/ID3/ID3v1.html#methodgetYear">getYear</a></li>
+    <li><a href="../../php-reader/ID3/ID3v1.html#methodsetAlbum">setAlbum</a></li>
+    <li><a href="../../php-reader/ID3/ID3v1.html#methodsetArtist">setArtist</a></li>
+    <li><a href="../../php-reader/ID3/ID3v1.html#methodsetComment">setComment</a></li>
+    <li><a href="../../php-reader/ID3/ID3v1.html#methodsetGenre">setGenre</a></li>
+    <li><a href="../../php-reader/ID3/ID3v1.html#methodsetTitle">setTitle</a></li>
+    <li><a href="../../php-reader/ID3/ID3v1.html#methodsetTrack">setTrack</a></li>
+    <li><a href="../../php-reader/ID3/ID3v1.html#methodsetYear">setYear</a></li>
+    <li><a href="../../php-reader/ID3/ID3v1.html#methodwrite">write</a></li>
     <li><a href="../../php-reader/ID3/ID3v1.html#method__get">__get</a></li>
+    <li><a href="../../php-reader/ID3/ID3v1.html#method__set">__set</a></li>
   </ul>
 </td>
 
@@ -434,22 +444,22 @@ Source Location: /ID3v1.php<br /><br />
 <a name="class_details"></a>
 <h3>Class Details</h3>
 <div class="tags">
-[line 51]<br />
+[line 54]<br />
 This class represents a file containing ID3v1 headers as described in  <a href="http://www.id3.org/id3v2-00">The ID3-Tag Specification Appendix</a>.<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td><b>author:</b>&nbsp;&nbsp;</td><td>Sven Vollbehr &lt;<a href="mailto:sven.vollbehr@behrss.eu">sven.vollbehr@behrss.eu</a>&gt;</td>
+    <td><b>author:</b>&nbsp;&nbsp;</td><td>Sven Vollbehr &lt;<a href="mailto:svollbehr@gmail.com">svollbehr@gmail.com</a>&gt;</td>
   </tr>
   <tr>
-    <td><b>version:</b>&nbsp;&nbsp;</td><td>$Rev: 10 $</td>
+    <td><b>version:</b>&nbsp;&nbsp;</td><td>$Rev: 64 $</td>
   </tr>
   <tr>
-    <td><b>copyright:</b>&nbsp;&nbsp;</td><td>Copyright (c) 2008 BEHR Software Systems</td>
+    <td><b>copyright:</b>&nbsp;&nbsp;</td><td>Copyright (c) 2008 The PHP Reader Project Workgroup</td>
   </tr>
   <tr>
-    <td><b>license:</b>&nbsp;&nbsp;</td><td><a href="http://www.opensource.org/licenses/bsd-license.php">New BSD License</a></td>
+    <td><b>license:</b>&nbsp;&nbsp;</td><td><a href="http://code.google.com/p/php-reader/wiki/License">New BSD License</a></td>
   </tr>
 </table>
 </div>
@@ -472,7 +482,7 @@ This class represents a file containing ID3v1 headers as described in  <a href="
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;AlternRock&quot;,&nbsp;&quot;Bass&quot;,&nbsp;&quot;Soul&quot;,&nbsp;&quot;Punk&quot;,&nbsp;&quot;Space&quot;,&nbsp;&quot;Meditative&quot;,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;Instrumental&nbsp;Pop&quot;,&nbsp;&quot;Instrumental&nbsp;Rock&quot;,&nbsp;&quot;Ethnic&quot;,&nbsp;&quot;Gothic&quot;,&nbsp;&quot;Darkwave&quot;,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;Techno-Industrial&quot;,&nbsp;&quot;Electronic&quot;,&nbsp;&quot;Pop-Folk&quot;,&nbsp;&quot;Eurodance&quot;,&nbsp;&quot;Dream&quot;,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;Southern&nbsp;Rock&quot;,&nbsp;&quot;Comedy&quot;,&nbsp;&quot;Cult&quot;,&nbsp;&quot;Gangsta&quot;,&nbsp;&quot;Top&nbsp;&quot;,&nbsp;&quot;Christian&nbsp;Rap&quot;,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;Southern&nbsp;Rock&quot;,&nbsp;&quot;Comedy&quot;,&nbsp;&quot;Cult&quot;,&nbsp;&quot;Gangsta&quot;,&nbsp;&quot;Top&nbsp;40&quot;,&nbsp;&quot;Christian&nbsp;Rap&quot;,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;Pop/Funk&quot;,&nbsp;&quot;Jungle&quot;,&nbsp;&quot;Native&nbsp;American&quot;,&nbsp;&quot;Cabaret&quot;,&nbsp;&quot;New&nbsp;Wave&quot;,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;Psychadelic&quot;,&nbsp;&quot;Rave&quot;,&nbsp;&quot;Showtunes&quot;,&nbsp;&quot;Trailer&quot;,&nbsp;&quot;Lo-Fi&quot;,&nbsp;&quot;Tribal&quot;,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;Acid&nbsp;Punk&quot;,&nbsp;&quot;Acid&nbsp;Jazz&quot;,&nbsp;&quot;Polka&quot;,&nbsp;&quot;Retro&quot;,&nbsp;&quot;Musical&quot;,&nbsp;&quot;Rock&nbsp;&amp;&nbsp;Roll&quot;,<br>
@@ -484,8 +494,8 @@ This class represents a file containing ID3v1 headers as described in  <a href="
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;Booty&nbsp;Bass&quot;,&nbsp;&quot;Primus&quot;,&nbsp;&quot;Porn&nbsp;Groove&quot;,&nbsp;&quot;Satire&quot;,&nbsp;&quot;Slow&nbsp;Jam&quot;,&nbsp;&quot;Club&quot;,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;Tango&quot;,&nbsp;&quot;Samba&quot;,&nbsp;&quot;Folklore&quot;,&nbsp;&quot;Ballad&quot;,&nbsp;&quot;Power&nbsp;Ballad&quot;,&nbsp;&quot;Rhythmic&nbsp;Soul&quot;,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;Freestyle&quot;,&nbsp;&quot;Duet&quot;,&nbsp;&quot;Punk&nbsp;Rock&quot;,&nbsp;&quot;Drum&nbsp;Solo&quot;,&nbsp;&quot;A&nbsp;capella&quot;,&nbsp;&quot;Euro-House&quot;,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;Dance&nbsp;Hall&quot;,&nbsp;&quot;Unknown&quot;)</span></h4>
-	<p>[line 79]</p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;Dance&nbsp;Hall&quot;,&nbsp;255&nbsp;=&gt;&nbsp;&quot;Unknown&quot;)</span></h4>
+	<p>[line 82]</p>
   The genre list.<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
@@ -515,17 +525,17 @@ This class represents a file containing ID3v1 headers as described in  <a href="
 
   <hr />
 	<a name="method__construct"></a>
-	<h3>constructor __construct <span class="smalllinenumber">[line 111]</span></h3>
+	<h3>constructor __construct <span class="smalllinenumber">[line 119]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
 		<code>ID3v1 __construct(
-string
-$filename)</code>
+[string
+$filename = false])</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Constructs the ID3v1 class with given file.<br /><br /><br /><br />
+		Constructs the ID3v1 class with given file. The file is not mandatory  argument and may be omitted. A new tag can be written to a file also by  giving the filename to the #write method of this class.<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -551,7 +561,7 @@ $filename)</code>
   </div>
   <hr />
 	<a name="methodgetAlbum"></a>
-	<h3>method getAlbum <span class="smalllinenumber">[line 154]</span></h3>
+	<h3>method getAlbum <span class="smalllinenumber">[line 186]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -576,7 +586,7 @@ $filename)</code>
   </div>
   <hr />
 	<a name="methodgetArtist"></a>
-	<h3>method getArtist <span class="smalllinenumber">[line 147]</span></h3>
+	<h3>method getArtist <span class="smalllinenumber">[line 171]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -601,7 +611,7 @@ $filename)</code>
   </div>
   <hr />
 	<a name="methodgetComment"></a>
-	<h3>method getComment <span class="smalllinenumber">[line 168]</span></h3>
+	<h3>method getComment <span class="smalllinenumber">[line 216]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -626,7 +636,7 @@ $filename)</code>
   </div>
   <hr />
 	<a name="methodgetGenre"></a>
-	<h3>method getGenre <span class="smalllinenumber">[line 183]</span></h3>
+	<h3>method getGenre <span class="smalllinenumber">[line 248]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -651,7 +661,7 @@ $filename)</code>
   </div>
   <hr />
 	<a name="methodgetTitle"></a>
-	<h3>method getTitle <span class="smalllinenumber">[line 140]</span></h3>
+	<h3>method getTitle <span class="smalllinenumber">[line 156]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -676,7 +686,7 @@ $filename)</code>
   </div>
   <hr />
 	<a name="methodgetTrack"></a>
-	<h3>method getTrack <span class="smalllinenumber">[line 176]</span></h3>
+	<h3>method getTrack <span class="smalllinenumber">[line 232]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -704,7 +714,7 @@ $filename)</code>
   </div>
   <hr />
 	<a name="methodgetYear"></a>
-	<h3>method getYear <span class="smalllinenumber">[line 161]</span></h3>
+	<h3>method getYear <span class="smalllinenumber">[line 201]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -728,8 +738,299 @@ $filename)</code>
         <div class="top">[ <a href="#top">Top</a> ]</div>
   </div>
   <hr />
+	<a name="methodsetAlbum"></a>
+	<h3>method setAlbum <span class="smalllinenumber">[line 194]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void setAlbum(
+string
+$album)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Sets a new value for the album field. The field cannot exceed 30  characters in length.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$album</b>&nbsp;&nbsp;</td>
+        <td>The album.</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodsetArtist"></a>
+	<h3>method setArtist <span class="smalllinenumber">[line 179]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void setArtist(
+string
+$artist)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Sets a new value for the artist field. The field cannot exceed 30  characters in length.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$artist</b>&nbsp;&nbsp;</td>
+        <td>The artist.</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodsetComment"></a>
+	<h3>method setComment <span class="smalllinenumber">[line 224]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void setComment(
+string
+$comment)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Sets a new value for the comment field. The field cannot exceed 30  characters in length.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$comment</b>&nbsp;&nbsp;</td>
+        <td>The comment.</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodsetGenre"></a>
+	<h3>method setGenre <span class="smalllinenumber">[line 265]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void setGenre(
+integer
+$genre)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Sets a new value for the genre field. The value may either be a numerical  code representing one of the genres, or its string variant.<br /><br /><p>The genre is set to unknown (code 255) in case the string is not found from  the static <a href="../../php-reader/ID3/ID3v1.html#var$genres">$genres</a> array of this class.</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">integer&nbsp;&nbsp;</td>
+        <td><b>$genre</b>&nbsp;&nbsp;</td>
+        <td>The genre.</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodsetTitle"></a>
+	<h3>method setTitle <span class="smalllinenumber">[line 164]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void setTitle(
+string
+$title)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Sets a new value for the title field. The field cannot exceed 30  characters in length.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$title</b>&nbsp;&nbsp;</td>
+        <td>The title.</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodsetTrack"></a>
+	<h3>method setTrack <span class="smalllinenumber">[line 241]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void setTrack(
+integer
+$track)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Sets a new value for the track field. By setting this field you enforce the  1.1 version to be used.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>since:</b>&nbsp;&nbsp;</td><td>ID3v1.1</td>
+  </tr>
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">integer&nbsp;&nbsp;</td>
+        <td><b>$track</b>&nbsp;&nbsp;</td>
+        <td>The track number.</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodsetYear"></a>
+	<h3>method setYear <span class="smalllinenumber">[line 209]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void setYear(
+string
+$year)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Sets a new value for the year field. The field cannot exceed 4  characters in length.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$year</b>&nbsp;&nbsp;</td>
+        <td>The year.</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodwrite"></a>
+	<h3>method write <span class="smalllinenumber">[line 282]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void write(
+[string
+$filename = false])</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Writes the possibly altered ID3v1 tag back to the file where it was read.<br /><br /><p>If the class was constructed without a file name, one can be provided here  as an argument. Regardless, the write operation will override previous  tag information, if found.</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$filename</b>&nbsp;&nbsp;</td>
+        <td>The optional path to the file.</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
 	<a name="method__get"></a>
-	<h3>method __get <span class="smalllinenumber">[line 196]</span></h3>
+	<h3>method __get <span class="smalllinenumber">[line 303]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -763,12 +1064,54 @@ $name)</code>
     </div><br />
         <div class="top">[ <a href="#top">Top</a> ]</div>
   </div>
+  <hr />
+	<a name="method__set"></a>
+	<h3>method __set <span class="smalllinenumber">[line 317]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>mixed __set(
+string
+$name, string
+$value)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Magic function so that assignments with $obj-&gt;value will work.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$name</b>&nbsp;&nbsp;</td>
+        <td>The field name.</td>
+      </tr>
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$value</b>&nbsp;&nbsp;</td>
+        <td>The field value.</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
 </div><br />
 
 
         <div class="credit">
 		    <hr />
-		    Documentation generated on Mon, 17 Mar 2008 15:35:29 +0200 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.1</a>
+		    Documentation generated on Wed, 02 Apr 2008 18:35:17 +0300 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.1</a>
 	      </div>
       </td></tr></table>
     </td>

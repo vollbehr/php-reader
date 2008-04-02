@@ -285,6 +285,7 @@
 	    &nbsp;&nbsp;		<a href="../../php-reader/ID3/ID3_Frame_RVRB.html">ID3_Frame_RVRB</a><br />
 	    &nbsp;&nbsp;		<a href="../../php-reader/ID3/ID3_Frame_SEEK.html">ID3_Frame_SEEK</a><br />
 	    &nbsp;&nbsp;		<a href="../../php-reader/ID3/ID3_Frame_SIGN.html">ID3_Frame_SIGN</a><br />
+	    &nbsp;&nbsp;		<a href="../../php-reader/ID3/ID3_Frame_SYLT.html">ID3_Frame_SYLT</a><br />
 	    &nbsp;&nbsp;		<a href="../../php-reader/ID3/ID3_Frame_SYTC.html">ID3_Frame_SYTC</a><br />
 	    &nbsp;&nbsp;		<a href="../../php-reader/ID3/ID3_Frame_TALB.html">ID3_Frame_TALB</a><br />
 	    &nbsp;&nbsp;		<a href="../../php-reader/ID3/ID3_Frame_TBPM.html">ID3_Frame_TBPM</a><br />
@@ -378,23 +379,23 @@ Source Location: /ID3/Frame/EQU2.php<br /><br />
 <div class="description">The <em>Equalisation (2)</em> is another subjective, alignment frame. It allows  the user to predefine an equalisation curve within the audio file. There may  be more than one EQU2 frame in each tag, but only one with the same  identification string.</div><br /><br />
 <h4>Author(s):</h4>
 <ul>
-          <li>Sven Vollbehr &lt;<a href="mailto:sven.vollbehr@behrss.eu">sven.vollbehr@behrss.eu</a>&gt;</li>
-                        </ul>
+          <li>Sven Vollbehr &lt;<a href="mailto:svollbehr@gmail.com">svollbehr@gmail.com</a>&gt;</li>
+                              </ul>
 
 
 
 
         
           
-      
+          
 <h4>Version:</h4>
 <ul>
-  <li>$Rev: 11 $</li>
+  <li>$Rev: 65 $</li>
 </ul>
 
 <h4>Copyright:</h4>
 <ul>
-  <li>Copyright (c) 2008 BEHR Software Systems</li>
+  <li>Copyright (c) 2008 The PHP Reader Project Workgroup</li>
 </ul>
         
 </td>
@@ -411,10 +412,14 @@ Source Location: /ID3/Frame/EQU2.php<br /><br />
 <td valign="top">
 <h3><a href="#class_methods">Methods</a></h3>
 <ul>
-    <li><a href="../../php-reader/ID3/ID3_Frame_EQU2.html#method__construct">__construct</a></li>
+    <li><a href="../../php-reader/ID3/ID3_Frame_EQU2.html#methodaddAdjustment">addAdjustment</a></li>
     <li><a href="../../php-reader/ID3/ID3_Frame_EQU2.html#methodgetAdjustments">getAdjustments</a></li>
     <li><a href="../../php-reader/ID3/ID3_Frame_EQU2.html#methodgetDevice">getDevice</a></li>
     <li><a href="../../php-reader/ID3/ID3_Frame_EQU2.html#methodgetInterpolation">getInterpolation</a></li>
+    <li><a href="../../php-reader/ID3/ID3_Frame_EQU2.html#method__construct">__construct</a></li>
+    <li><a href="../../php-reader/ID3/ID3_Frame_EQU2.html#methodsetAdjustments">setAdjustments</a></li>
+    <li><a href="../../php-reader/ID3/ID3_Frame_EQU2.html#methodsetDevice">setDevice</a></li>
+    <li><a href="../../php-reader/ID3/ID3_Frame_EQU2.html#methodsetInterpolation">setInterpolation</a></li>
   </ul>
 </td>
 
@@ -499,6 +504,12 @@ Source Location: /ID3/Frame/EQU2.php<br /><br />
 <h4>Class: <a href="../../php-reader/ID3/ID3_Object.html">ID3_Object</a></h4>
 <dl>
 <dt>
+  <a href="../../php-reader/ID3/ID3_Object.html#var$_options">ID3_Object::$_options</a>
+  </dt>
+<dd>
+   
+</dd>
+<dt>
   <a href="../../php-reader/ID3/ID3_Object.html#var$_reader">ID3_Object::$_reader</a>
   </dt>
 <dd>
@@ -520,6 +531,12 @@ Source Location: /ID3/Frame/EQU2.php<br /><br />
     Constructs the class with given parameters and reads object related data  from the ID3v2 tag.
   </dd>
     <dt>
+    <a href="../../php-reader/ID3/ID3_Frame.html#methodgetFlags">ID3_Frame::getFlags()</a>
+  </dt>
+  <dd>
+    Returns the frame flags byte.
+  </dd>
+    <dt>
     <a href="../../php-reader/ID3/ID3_Frame.html#methodgetIdentifier">ID3_Frame::getIdentifier()</a>
   </dt>
   <dd>
@@ -536,6 +553,30 @@ Source Location: /ID3/Frame/EQU2.php<br /><br />
   </dt>
   <dd>
     Checks whether or not the flag is set. Returns <var>true</var> if the flag  is set, <var>false</var> otherwise.
+  </dd>
+    <dt>
+    <a href="../../php-reader/ID3/ID3_Frame.html#methodsetData">ID3_Frame::setData()</a>
+  </dt>
+  <dd>
+    Sets the frame raw data.
+  </dd>
+    <dt>
+    <a href="../../php-reader/ID3/ID3_Frame.html#methodsetFlags">ID3_Frame::setFlags()</a>
+  </dt>
+  <dd>
+    Sets the frame flags byte.
+  </dd>
+    <dt>
+    <a href="../../php-reader/ID3/ID3_Frame.html#methodsetIdentifier">ID3_Frame::setIdentifier()</a>
+  </dt>
+  <dd>
+    Sets the frame identifier.
+  </dd>
+    <dt>
+    <a href="../../php-reader/ID3/ID3_Frame.html#method__toString">ID3_Frame::__toString()</a>
+  </dt>
+  <dd>
+    Returns the frame raw data.
   </dd>
   </dl>
 <h4>Class: <a href="../../php-reader/ID3/ID3_Object.html">ID3_Object</a></h4>
@@ -558,6 +599,18 @@ Source Location: /ID3/Frame/EQU2.php<br /><br />
   <dd>
     Encodes the given 32-bit integer to 28-bit synchsafe integer, where the  most significant bit of each byte is zero, making seven bits out of eight  available.
   </dd>
+    <dt>
+    <a href="../../php-reader/ID3/ID3_Object.html#method__get">ID3_Object::__get()</a>
+  </dt>
+  <dd>
+    Magic function so that $obj-&gt;value will work.
+  </dd>
+    <dt>
+    <a href="../../php-reader/ID3/ID3_Object.html#method__set">ID3_Object::__set()</a>
+  </dt>
+  <dd>
+    Magic function so that assignments with $obj-&gt;value will work.
+  </dd>
   </dl>
 </div>
 </td>
@@ -568,22 +621,25 @@ Source Location: /ID3/Frame/EQU2.php<br /><br />
 <a name="class_details"></a>
 <h3>Class Details</h3>
 <div class="tags">
-[line 53]<br />
+[line 57]<br />
 The <em>Equalisation (2)</em> is another subjective, alignment frame. It allows  the user to predefine an equalisation curve within the audio file. There may  be more than one EQU2 frame in each tag, but only one with the same  identification string.<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td><b>author:</b>&nbsp;&nbsp;</td><td>Sven Vollbehr &lt;<a href="mailto:sven.vollbehr@behrss.eu">sven.vollbehr@behrss.eu</a>&gt;</td>
+    <td><b>author:</b>&nbsp;&nbsp;</td><td>Sven Vollbehr &lt;<a href="mailto:svollbehr@gmail.com">svollbehr@gmail.com</a>&gt;</td>
   </tr>
   <tr>
-    <td><b>version:</b>&nbsp;&nbsp;</td><td>$Rev: 11 $</td>
+    <td><b>version:</b>&nbsp;&nbsp;</td><td>$Rev: 65 $</td>
   </tr>
   <tr>
-    <td><b>copyright:</b>&nbsp;&nbsp;</td><td>Copyright (c) 2008 BEHR Software Systems</td>
+    <td><b>copyright:</b>&nbsp;&nbsp;</td><td>Copyright (c) 2008 The PHP Reader Project Workgroup</td>
   </tr>
   <tr>
-    <td><b>license:</b>&nbsp;&nbsp;</td><td><a href="http://www.opensource.org/licenses/bsd-license.php">New BSD License</a></td>
+    <td><b>since:</b>&nbsp;&nbsp;</td><td>ID3v2.4.0</td>
+  </tr>
+  <tr>
+    <td><b>license:</b>&nbsp;&nbsp;</td><td><a href="http://code.google.com/p/php-reader/wiki/License">New BSD License</a></td>
   </tr>
 </table>
 </div>
@@ -597,14 +653,131 @@ The <em>Equalisation (2)</em> is another subjective, alignment frame. It allows 
 <div class="tags">
 
   <hr />
+	<a name="methodaddAdjustment"></a>
+	<h3>method addAdjustment <span class="smalllinenumber">[line 156]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>Array addAdjustment(
+
+$frequency, 
+$adjustment)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Adds a volume adjustment setting for given frequency. The frequency can  have a value from 0 to 32767 Hz, and the adjustment +/- 64 dB with a  precision of 0.001953125 dB.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">&nbsp;&nbsp;</td>
+        <td><b>$frequency</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+          <tr>
+        <td class="type">&nbsp;&nbsp;</td>
+        <td><b>$adjustment</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodgetAdjustments"></a>
+	<h3>method getAdjustments <span class="smalllinenumber">[line 147]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>Array getAdjustments(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Returns the array containing adjustments having frequencies as keys and  their corresponding adjustments as values.<br /><br /><p>Adjustment points are ordered by frequency.</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodgetDevice"></a>
+	<h3>method getDevice <span class="smalllinenumber">[line 130]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>string getDevice(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Returns the device where the adjustments should apply.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodgetInterpolation"></a>
+	<h3>method getInterpolation <span class="smalllinenumber">[line 111]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>integer getInterpolation(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Returns the interpolation method. The interpolation method describes which  method is preferred when an interpolation between the adjustment point that  follows.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
 	<a name="method__construct"></a>
-	<h3>constructor __construct <span class="smalllinenumber">[line 82]</span></h3>
+	<h3>constructor __construct <span class="smalllinenumber">[line 86]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
 		<code>ID3_Frame_EQU2 __construct(
-<a href="../../php-reader/Reader.html">Reader</a>
-$reader)</code>
+[<a href="../../php-reader/Reader.html">Reader</a>
+$reader = null])</code>
     </td></tr></table>
     </td></tr></table><br />
 	
@@ -633,17 +806,18 @@ $reader)</code>
         <div class="top">[ <a href="#top">Top</a> ]</div>
   </div>
   <hr />
-	<a name="methodgetAdjustments"></a>
-	<h3>method getAdjustments <span class="smalllinenumber">[line 129]</span></h3>
+	<a name="methodsetAdjustments"></a>
+	<h3>method setAdjustments <span class="smalllinenumber">[line 170]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>Array getAdjustments(
-)</code>
+		<code>void setAdjustments(
+Array
+$adjustments)</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Returns the array containing adjustments having fequencies as keys and  their corresponding adjustments as values.<br /><br /><p>The frequency is stored in units of 1/2 Hz, giving it a range from 0 to  32767 Hz.</p><p>The volume adjustment is encoded as a fixed point decibel value, 16 bit  signed integer representing (adjustment*512), giving +/- 64 dB with a  precision of 0.001953125 dB. E.g. +2 dB is stored as $04 00 and -2 dB is  $FC 00.</p><p>Adjustment points are ordered by frequency and one frequency is described  once in the frame.</p><br /><br /><br />
+		Sets the adjustments array. The array must have frequencies as keys and  their corresponding adjustments as values. The frequency can have a value  from 0 to 32767 Hz, and the adjustment +/- 64 dB with a precision of  0.001953125 dB. One frequency should only be described once in the frame.<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -655,20 +829,31 @@ $reader)</code>
 <br /><br />
 
 	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">Array&nbsp;&nbsp;</td>
+        <td><b>$adjustments</b>&nbsp;&nbsp;</td>
+        <td>The adjustments array.</td>
+      </tr>
+        </table>
+    </div><br />
         <div class="top">[ <a href="#top">Top</a> ]</div>
   </div>
   <hr />
-	<a name="methodgetDevice"></a>
-	<h3>method getDevice <span class="smalllinenumber">[line 110]</span></h3>
+	<a name="methodsetDevice"></a>
+	<h3>method setDevice <span class="smalllinenumber">[line 137]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>string getDevice(
-)</code>
+		<code>void setDevice(
+string
+$device)</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Returns the device where the adjustments should apply.<br /><br /><br /><br />
+		Sets the device where the adjustments should apply.<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -680,20 +865,31 @@ $reader)</code>
 <br /><br />
 
 	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$device</b>&nbsp;&nbsp;</td>
+        <td>The device.</td>
+      </tr>
+        </table>
+    </div><br />
         <div class="top">[ <a href="#top">Top</a> ]</div>
   </div>
   <hr />
-	<a name="methodgetInterpolation"></a>
-	<h3>method getInterpolation <span class="smalllinenumber">[line 103]</span></h3>
+	<a name="methodsetInterpolation"></a>
+	<h3>method setInterpolation <span class="smalllinenumber">[line 120]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>integer getInterpolation(
-)</code>
+		<code>void setInterpolation(
+integer
+$interpolation)</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Returns the interpolation method. The interpolation method describes which  method is preferred when an interpolation between the adjustment point that  follows.<br /><br /><br /><br />
+		Sets the interpolation method. The interpolation method describes which  method is preferred when an interpolation between the adjustment point that  follows.<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -705,6 +901,16 @@ $reader)</code>
 <br /><br />
 
 	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">integer&nbsp;&nbsp;</td>
+        <td><b>$interpolation</b>&nbsp;&nbsp;</td>
+        <td>The interpolation method code.</td>
+      </tr>
+        </table>
+    </div><br />
         <div class="top">[ <a href="#top">Top</a> ]</div>
   </div>
 </div><br />
@@ -715,15 +921,15 @@ $reader)</code>
 <div class="tags">
 	<a name="constBAND"></a>
 	<p></p>
-	<h4>BAND = <span class="value">&nbsp;0x00</span></h4>
-	<p>[line 60]</p>
+	<h4>BAND = <span class="value">&nbsp;0</span></h4>
+	<p>[line 64]</p>
   Interpolation type that defines that no interpolation is made. A jump from  one adjustment level to another occurs in the middle between two adjustment  points.<br /><br />
   <br />
 	<div class="top">[ <a href="#top">Top</a> ]</div><br />
 	<a name="constLINEAR"></a>
 	<p></p>
-	<h4>LINEAR = <span class="value">&nbsp;0x01</span></h4>
-	<p>[line 66]</p>
+	<h4>LINEAR = <span class="value">&nbsp;1</span></h4>
+	<p>[line 70]</p>
   Interpolation type that defines that interpolation between adjustment  points is linear.<br /><br />
   <br />
 	<div class="top">[ <a href="#top">Top</a> ]</div><br />
@@ -731,7 +937,7 @@ $reader)</code>
 
         <div class="credit">
 		    <hr />
-		    Documentation generated on Mon, 17 Mar 2008 15:35:25 +0200 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.1</a>
+		    Documentation generated on Wed, 02 Apr 2008 18:35:05 +0300 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.1</a>
 	      </div>
       </td></tr></table>
     </td>

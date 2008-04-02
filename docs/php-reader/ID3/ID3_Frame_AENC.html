@@ -285,6 +285,7 @@
 	    &nbsp;&nbsp;		<a href="../../php-reader/ID3/ID3_Frame_RVRB.html">ID3_Frame_RVRB</a><br />
 	    &nbsp;&nbsp;		<a href="../../php-reader/ID3/ID3_Frame_SEEK.html">ID3_Frame_SEEK</a><br />
 	    &nbsp;&nbsp;		<a href="../../php-reader/ID3/ID3_Frame_SIGN.html">ID3_Frame_SIGN</a><br />
+	    &nbsp;&nbsp;		<a href="../../php-reader/ID3/ID3_Frame_SYLT.html">ID3_Frame_SYLT</a><br />
 	    &nbsp;&nbsp;		<a href="../../php-reader/ID3/ID3_Frame_SYTC.html">ID3_Frame_SYTC</a><br />
 	    &nbsp;&nbsp;		<a href="../../php-reader/ID3/ID3_Frame_TALB.html">ID3_Frame_TALB</a><br />
 	    &nbsp;&nbsp;		<a href="../../php-reader/ID3/ID3_Frame_TBPM.html">ID3_Frame_TBPM</a><br />
@@ -378,7 +379,7 @@ Source Location: /ID3/Frame/AENC.php<br /><br />
 <div class="description">The <em>Audio encryption</em> indicates if the actual audio stream is  encrypted, and by whom.</div><br /><br />
 <h4>Author(s):</h4>
 <ul>
-          <li>Sven Vollbehr &lt;<a href="mailto:sven.vollbehr@behrss.eu">sven.vollbehr@behrss.eu</a>&gt;</li>
+          <li>Sven Vollbehr &lt;<a href="mailto:svollbehr@gmail.com">svollbehr@gmail.com</a>&gt;</li>
                         </ul>
 
 
@@ -389,12 +390,12 @@ Source Location: /ID3/Frame/AENC.php<br /><br />
       
 <h4>Version:</h4>
 <ul>
-  <li>$Rev: 11 $</li>
+  <li>$Rev: 65 $</li>
 </ul>
 
 <h4>Copyright:</h4>
 <ul>
-  <li>Copyright (c) 2008 BEHR Software Systems</li>
+  <li>Copyright (c) 2008 The PHP Reader Project Workgroup</li>
 </ul>
         
 </td>
@@ -405,10 +406,15 @@ Source Location: /ID3/Frame/AENC.php<br /><br />
 <h3><a href="#class_methods">Methods</a></h3>
 <ul>
     <li><a href="../../php-reader/ID3/ID3_Frame_AENC.html#method__construct">__construct</a></li>
-    <li><a href="../../php-reader/ID3/ID3_Frame_AENC.html#methodgetData">getData</a></li>
+    <li><a href="../../php-reader/ID3/ID3_Frame_AENC.html#methodgetEncryptionInfo">getEncryptionInfo</a></li>
     <li><a href="../../php-reader/ID3/ID3_Frame_AENC.html#methodgetIdentifier">getIdentifier</a></li>
     <li><a href="../../php-reader/ID3/ID3_Frame_AENC.html#methodgetPreviewLength">getPreviewLength</a></li>
     <li><a href="../../php-reader/ID3/ID3_Frame_AENC.html#methodgetPreviewStart">getPreviewStart</a></li>
+    <li><a href="../../php-reader/ID3/ID3_Frame_AENC.html#methodsetEncryptionInfo">setEncryptionInfo</a></li>
+    <li><a href="../../php-reader/ID3/ID3_Frame_AENC.html#methodsetIdentifier">setIdentifier</a></li>
+    <li><a href="../../php-reader/ID3/ID3_Frame_AENC.html#methodsetPreviewLength">setPreviewLength</a></li>
+    <li><a href="../../php-reader/ID3/ID3_Frame_AENC.html#methodsetPreviewStart">setPreviewStart</a></li>
+    <li><a href="../../php-reader/ID3/ID3_Frame_AENC.html#method__toString">__toString</a></li>
   </ul>
 </td>
 
@@ -493,6 +499,12 @@ Source Location: /ID3/Frame/AENC.php<br /><br />
 <h4>Class: <a href="../../php-reader/ID3/ID3_Object.html">ID3_Object</a></h4>
 <dl>
 <dt>
+  <a href="../../php-reader/ID3/ID3_Object.html#var$_options">ID3_Object::$_options</a>
+  </dt>
+<dd>
+   
+</dd>
+<dt>
   <a href="../../php-reader/ID3/ID3_Object.html#var$_reader">ID3_Object::$_reader</a>
   </dt>
 <dd>
@@ -514,6 +526,12 @@ Source Location: /ID3/Frame/AENC.php<br /><br />
     Constructs the class with given parameters and reads object related data  from the ID3v2 tag.
   </dd>
     <dt>
+    <a href="../../php-reader/ID3/ID3_Frame.html#methodgetFlags">ID3_Frame::getFlags()</a>
+  </dt>
+  <dd>
+    Returns the frame flags byte.
+  </dd>
+    <dt>
     <a href="../../php-reader/ID3/ID3_Frame.html#methodgetIdentifier">ID3_Frame::getIdentifier()</a>
   </dt>
   <dd>
@@ -530,6 +548,30 @@ Source Location: /ID3/Frame/AENC.php<br /><br />
   </dt>
   <dd>
     Checks whether or not the flag is set. Returns <var>true</var> if the flag  is set, <var>false</var> otherwise.
+  </dd>
+    <dt>
+    <a href="../../php-reader/ID3/ID3_Frame.html#methodsetData">ID3_Frame::setData()</a>
+  </dt>
+  <dd>
+    Sets the frame raw data.
+  </dd>
+    <dt>
+    <a href="../../php-reader/ID3/ID3_Frame.html#methodsetFlags">ID3_Frame::setFlags()</a>
+  </dt>
+  <dd>
+    Sets the frame flags byte.
+  </dd>
+    <dt>
+    <a href="../../php-reader/ID3/ID3_Frame.html#methodsetIdentifier">ID3_Frame::setIdentifier()</a>
+  </dt>
+  <dd>
+    Sets the frame identifier.
+  </dd>
+    <dt>
+    <a href="../../php-reader/ID3/ID3_Frame.html#method__toString">ID3_Frame::__toString()</a>
+  </dt>
+  <dd>
+    Returns the frame raw data.
   </dd>
   </dl>
 <h4>Class: <a href="../../php-reader/ID3/ID3_Object.html">ID3_Object</a></h4>
@@ -552,6 +594,18 @@ Source Location: /ID3/Frame/AENC.php<br /><br />
   <dd>
     Encodes the given 32-bit integer to 28-bit synchsafe integer, where the  most significant bit of each byte is zero, making seven bits out of eight  available.
   </dd>
+    <dt>
+    <a href="../../php-reader/ID3/ID3_Object.html#method__get">ID3_Object::__get()</a>
+  </dt>
+  <dd>
+    Magic function so that $obj-&gt;value will work.
+  </dd>
+    <dt>
+    <a href="../../php-reader/ID3/ID3_Object.html#method__set">ID3_Object::__set()</a>
+  </dt>
+  <dd>
+    Magic function so that assignments with $obj-&gt;value will work.
+  </dd>
   </dl>
 </div>
 </td>
@@ -562,22 +616,22 @@ Source Location: /ID3/Frame/AENC.php<br /><br />
 <a name="class_details"></a>
 <h3>Class Details</h3>
 <div class="tags">
-[line 58]<br />
+[line 60]<br />
 The <em>Audio encryption</em> indicates if the actual audio stream is  encrypted, and by whom.<br /><br /><p>The identifier is a URL containing an email address, or a link to a location  where an email address can be found, that belongs to the organisation  responsible for this specific encrypted audio file. Questions regarding the  encrypted audio should be sent to the email address specified. There may be  more than one AENC frame in a tag, but only one with the same owner  identifier.</p><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td><b>author:</b>&nbsp;&nbsp;</td><td>Sven Vollbehr &lt;<a href="mailto:sven.vollbehr@behrss.eu">sven.vollbehr@behrss.eu</a>&gt;</td>
+    <td><b>author:</b>&nbsp;&nbsp;</td><td>Sven Vollbehr &lt;<a href="mailto:svollbehr@gmail.com">svollbehr@gmail.com</a>&gt;</td>
   </tr>
   <tr>
-    <td><b>version:</b>&nbsp;&nbsp;</td><td>$Rev: 11 $</td>
+    <td><b>version:</b>&nbsp;&nbsp;</td><td>$Rev: 65 $</td>
   </tr>
   <tr>
-    <td><b>copyright:</b>&nbsp;&nbsp;</td><td>Copyright (c) 2008 BEHR Software Systems</td>
+    <td><b>copyright:</b>&nbsp;&nbsp;</td><td>Copyright (c) 2008 The PHP Reader Project Workgroup</td>
   </tr>
   <tr>
-    <td><b>license:</b>&nbsp;&nbsp;</td><td><a href="http://www.opensource.org/licenses/bsd-license.php">New BSD License</a></td>
+    <td><b>license:</b>&nbsp;&nbsp;</td><td><a href="http://code.google.com/p/php-reader/wiki/License">New BSD License</a></td>
   </tr>
 </table>
 </div>
@@ -592,13 +646,13 @@ The <em>Audio encryption</em> indicates if the actual audio stream is  encrypted
 
   <hr />
 	<a name="method__construct"></a>
-	<h3>constructor __construct <span class="smalllinenumber">[line 74]</span></h3>
+	<h3>constructor __construct <span class="smalllinenumber">[line 79]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
 		<code>ID3_Frame_AENC __construct(
-<a href="../../php-reader/Reader.html">Reader</a>
-$reader)</code>
+[<a href="../../php-reader/Reader.html">Reader</a>
+$reader = null])</code>
     </td></tr></table>
     </td></tr></table><br />
 	
@@ -627,12 +681,12 @@ $reader)</code>
         <div class="top">[ <a href="#top">Top</a> ]</div>
   </div>
   <hr />
-	<a name="methodgetData"></a>
-	<h3>method getData <span class="smalllinenumber">[line 110]</span></h3>
+	<a name="methodgetEncryptionInfo"></a>
+	<h3>method getEncryptionInfo <span class="smalllinenumber">[line 145]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>string getData(
+		<code>string getEncryptionInfo(
 )</code>
     </td></tr></table>
     </td></tr></table><br />
@@ -653,7 +707,7 @@ $reader)</code>
   </div>
   <hr />
 	<a name="methodgetIdentifier"></a>
-	<h3>method getIdentifier <span class="smalllinenumber">[line 89]</span></h3>
+	<h3>method getIdentifier <span class="smalllinenumber">[line 97]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -678,7 +732,7 @@ $reader)</code>
   </div>
   <hr />
 	<a name="methodgetPreviewLength"></a>
-	<h3>method getPreviewLength <span class="smalllinenumber">[line 103]</span></h3>
+	<h3>method getPreviewLength <span class="smalllinenumber">[line 128]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -703,7 +757,7 @@ $reader)</code>
   </div>
   <hr />
 	<a name="methodgetPreviewStart"></a>
-	<h3>method getPreviewStart <span class="smalllinenumber">[line 96]</span></h3>
+	<h3>method getPreviewStart <span class="smalllinenumber">[line 111]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -726,12 +780,181 @@ $reader)</code>
 	
         <div class="top">[ <a href="#top">Top</a> ]</div>
   </div>
+  <hr />
+	<a name="methodsetEncryptionInfo"></a>
+	<h3>method setEncryptionInfo <span class="smalllinenumber">[line 152]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void setEncryptionInfo(
+string
+$encryptionInfo)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Sets the encryption info binary string.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$encryptionInfo</b>&nbsp;&nbsp;</td>
+        <td>The data string.</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodsetIdentifier"></a>
+	<h3>method setIdentifier <span class="smalllinenumber">[line 104]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void setIdentifier(
+string
+$id)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Sets the owner identifier string.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	Overrides <a href="../../php-reader/ID3/ID3_Frame.html#methodsetIdentifier">ID3_Frame::setIdentifier()</a> (Sets the frame identifier.)<br /><br />
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$id</b>&nbsp;&nbsp;</td>
+        <td>The owner identifier string.</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodsetPreviewLength"></a>
+	<h3>method setPreviewLength <span class="smalllinenumber">[line 135]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void setPreviewLength(
+integer
+$previewLength)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Sets the length of the preview in frames.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">integer&nbsp;&nbsp;</td>
+        <td><b>$previewLength</b>&nbsp;&nbsp;</td>
+        <td>The length of the preview.</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodsetPreviewStart"></a>
+	<h3>method setPreviewStart <span class="smalllinenumber">[line 118]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void setPreviewStart(
+integer
+$previewStart)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Sets the pointer to an unencrypted part of the audio in frames.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">integer&nbsp;&nbsp;</td>
+        <td><b>$previewStart</b>&nbsp;&nbsp;</td>
+        <td>The pointer to an unencrypted part.</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="method__toString"></a>
+	<h3>method __toString <span class="smalllinenumber">[line 162]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>string __toString(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Returns the frame raw data.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	Overrides <a href="../../php-reader/ID3/ID3_Frame.html#method__toString">ID3_Frame::__toString()</a> (Returns the frame raw data.)<br /><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
 </div><br />
 
 
         <div class="credit">
 		    <hr />
-		    Documentation generated on Mon, 17 Mar 2008 15:35:22 +0200 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.1</a>
+		    Documentation generated on Wed, 02 Apr 2008 18:34:56 +0300 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.1</a>
 	      </div>
       </td></tr></table>
     </td>

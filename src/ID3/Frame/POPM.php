@@ -2,6 +2,8 @@
 /**
  * PHP Reader Library
  *
+ * Copyright (c) 2008 The PHP Reader Project Workgroup. All rights reserved.
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -10,7 +12,7 @@
  *  - Redistributions in binary form must reproduce the above copyright notice,
  *    this list of conditions and the following disclaimer in the documentation
  *    and/or other materials provided with the distribution.
- *  - Neither the name of the BEHR Software Systems nor the names of its
+ *  - Neither the name of the project workgroup nor the names of its
  *    contributors may be used to endorse or promote products derived from this
  *    software without specific prior written permission.
  *
@@ -28,9 +30,9 @@
  *
  * @package    php-reader
  * @subpackage ID3
- * @copyright  Copyright (c) 2008 BEHR Software Systems
- * @license    http://www.opensource.org/licenses/bsd-license.php New BSD License
- * @version    $Id: POPM.php 11 2008-03-12 12:06:41Z svollbehr $
+ * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
+ * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
+ * @version    $Id: POPM.php 65 2008-04-02 15:22:46Z svollbehr $
  */
 
 /**#@+ @ignore */
@@ -55,10 +57,10 @@ require_once("ID3/Frame.php");
  *
  * @package    php-reader
  * @subpackage ID3
- * @author     Sven Vollbehr <sven.vollbehr@behrss.eu>
- * @copyright  Copyright (c) 2008 BEHR Software Systems
- * @license    http://www.opensource.org/licenses/bsd-license.php New BSD License
- * @version    $Rev: 11 $
+ * @author     Sven Vollbehr <svollbehr@gmail.com>
+ * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
+ * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
+ * @version    $Rev: 65 $
  */
 final class ID3_Frame_POPM extends ID3_Frame
 {
@@ -66,42 +68,47 @@ final class ID3_Frame_POPM extends ID3_Frame
   private $_id;
   
   /** @var integer */
-  private $_rating;
+  private $_rating = 0;
   
   /** @var integer */
-  private $_counter;
+  private $_counter = 0;
   
   /**
    * Constructs the class with given parameters and parses object related data.
    *
    * @param Reader $reader The reader object.
    */
-  public function __construct($reader)
+  public function __construct($reader = null)
   {
     parent::__construct($reader);
+    
+    if ($reader === null)
+      return;
 
     list($this->_id, $this->_data) = preg_split("/\\x00/", $this->_data, 2);
-    $this->_rating = substr($this->_data, 0, 1);
+    $this->_rating = Transform::fromInt8($this->_data[0]);
     $this->_data = substr($this->_data, 1);
     
-    switch (strlen($this->_data)) {
-    case 8:
-      $this->_counter = Transform::getInt64BE($this->_data);
-      break;
-    case 4:
-      $this->_counter = Transform::getInt32BE($this->_data);
-      break;
-    }
+    if (strlen($this->_data) > 4)
+      $this->_counter = Transform::fromInt64BE($this->_data);
+    else if (strlen($this->_data) > 0)
+      $this->_counter = Transform::fromUInt32BE($this->_data);
   }
-
+  
   /**
    * Returns the user identifier string.
    * 
    * @return string
    */
   public function getIdentifier() { return $this->_id; }
-
-
+  
+  /**
+   * Sets the user identifier string.
+   * 
+   * @param string $id The user identifier string.
+   */
+  public function setIdentifier($id) { return $this->_id = $id; }
+  
   /**
    * Returns the user rating.
    * 
@@ -110,9 +117,43 @@ final class ID3_Frame_POPM extends ID3_Frame
   public function getRating() { return $this->_rating; }
   
   /**
+   * Sets the user rating.
+   * 
+   * @param integer $rating The user rating.
+   */
+  public function setRating($rating) { $this->_rating = $rating; }
+  
+  /**
    * Returns the counter.
    * 
    * @return integer
    */
   public function getCounter() { return $this->_counter; }
+  
+  /**
+   * Adds counter by one.
+   */
+  public function addCounter() { $this->_counter++; }
+  
+  /**
+   * Sets the counter value.
+   * 
+   * @param integer $counter The counter value.
+   */
+  public function setCounter($counter) { $this->_counter = $counter; }
+  
+  /**
+   * Returns the frame raw data.
+   *
+   * @return string
+   */
+  public function __toString()
+  {
+    $this->setData
+      ($this->_id . "\0" . Transform::toInt8($this->_rating) .
+       ($this->_counter > 4294967295 ?
+        Transform::toInt64BE($this->_counter) :
+        ($this->_counter > 0 ? Transform::toInt32BE($this->_counter) : 0)));
+    return parent::__toString();
+  }
 }

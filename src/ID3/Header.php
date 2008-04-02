@@ -2,6 +2,8 @@
 /**
  * PHP Reader Library
  *
+ * Copyright (c) 2008 The PHP Reader Project Workgroup. All rights reserved.
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -10,7 +12,7 @@
  *  - Redistributions in binary form must reproduce the above copyright notice,
  *    this list of conditions and the following disclaimer in the documentation
  *    and/or other materials provided with the distribution.
- *  - Neither the name of the BEHR Software Systems nor the names of its
+ *  - Neither the name of the project workgroup nor the names of its
  *    contributors may be used to endorse or promote products derived from this
  *    software without specific prior written permission.
  *
@@ -28,13 +30,13 @@
  *
  * @package    php-reader
  * @subpackage ID3
- * @copyright  Copyright (c) 2008 BEHR Software Systems
- * @license    http://www.opensource.org/licenses/bsd-license.php New BSD License
- * @version    $Id: Header.php 11 2008-03-12 12:06:41Z svollbehr $
+ * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
+ * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
+ * @version    $Id: Header.php 64 2008-04-01 10:38:12Z svollbehr $
  */
 
 /**#@+ @ignore */
-require_once("Object.php");
+require_once("ID3/Object.php");
 /**#@-*/
 
 /**
@@ -47,10 +49,10 @@ require_once("Object.php");
  *
  * @package    php-reader
  * @subpackage ID3
- * @author     Sven Vollbehr <sven.vollbehr@behrss.eu>
- * @copyright  Copyright (c) 2008 BEHR Software Systems
- * @license    http://www.opensource.org/licenses/bsd-license.php New BSD License
- * @version    $Rev: 11 $
+ * @author     Sven Vollbehr <svollbehr@gmail.com>
+ * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
+ * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
+ * @version    $Rev: 64 $
  */
 final class ID3_Header extends ID3_Object
 {
@@ -70,13 +72,13 @@ final class ID3_Header extends ID3_Object
   const FOOTER = 32;
 
   /** @var integer */
-  private $_version;
+  private $_version = 4;
   
   /** @var integer */
-  private $_revision;
+  private $_revision = 0;
   
   /** @var integer */
-  private $_flags;
+  private $_flags = 0;
   
   /** @var integer */
   private $_size;
@@ -87,14 +89,17 @@ final class ID3_Header extends ID3_Object
    *
    * @param Reader $reader The reader object.
    */
-  public function __construct($reader)
+  public function __construct($reader = null)
   {
     parent::__construct($reader);
-
-    $this->_version = ord($this->_reader->getInt8());
-    $this->_revision = ord($this->_reader->getInt8());
-    $this->_flags = $this->_reader->getInt8();
-    $this->_size = $this->decodeSynchsafe32($this->_reader->getUInt32BE());
+    
+    if ($reader === null)
+      return;
+    
+    $this->_version = $this->_reader->readInt8();
+    $this->_revision = $this->_reader->readInt8();
+    $this->_flags = $this->_reader->readInt8();
+    $this->_size = $this->decodeSynchsafe32($this->_reader->readUInt32BE());
   }
   
   /**
@@ -121,9 +126,44 @@ final class ID3_Header extends ID3_Object
   public function hasFlag($flag) { return ($this->_flags & $flag) == $flag; }
   
   /**
+   * Returns the flags byte.
+   * 
+   * @return integer
+   */
+  public function getFlags($flags) { return $this->_flags; }
+  
+  /**
+   * Sets the flags byte.
+   * 
+   * @param string $flags The flags byte.
+   */
+  public function setFlags($flags) { $this->_flags = $flags; }
+  
+  /**
    * Returns the tag size, excluding the header and the footer.
    * 
    * @return integer
    */
   public function getSize() { return $this->_size; }
+  
+  /**
+   * Sets the tag size, excluding the header and the footer. Called
+   * automatically upon tag generation to adjust the tag size.
+   * 
+   * @param integer $size The size of the tag, in bytes.
+   */
+  public function setSize($size) { $this->_size = $size; }
+  
+  /**
+   * Returns the header/footer raw data without the identifier.
+   *
+   * @return string
+   */
+  protected function __toString()
+  {
+    return Transform::toInt8($this->_version) .
+      Transform::toInt8($this->_revision) .
+      Transform::toInt8($this->_flags) .
+      Transform::toUInt32BE($this->encodeSynchsafe32($this->_size));
+  }
 }

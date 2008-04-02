@@ -2,6 +2,8 @@
 /**
  * PHP Reader Library
  *
+ * Copyright (c) 2008 The PHP Reader Project Workgroup. All rights reserved.
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -10,7 +12,7 @@
  *  - Redistributions in binary form must reproduce the above copyright notice,
  *    this list of conditions and the following disclaimer in the documentation
  *    and/or other materials provided with the distribution.
- *  - Neither the name of the BEHR Software Systems nor the names of its
+ *  - Neither the name of the project workgroup nor the names of its
  *    contributors may be used to endorse or promote products derived from this
  *    software without specific prior written permission.
  *
@@ -28,15 +30,16 @@
  *
  * @package    php-reader
  * @subpackage ID3
- * @copyright  Copyright (c) 2008 BEHR Software Systems
- * @license    http://www.opensource.org/licenses/bsd-license.php New BSD License
- * @version    $Id: COMM.php 12 2008-03-17 12:54:34Z svollbehr $
+ * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
+ * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
+ * @version    $Id: COMM.php 65 2008-04-02 15:22:46Z svollbehr $
  */
 
 /**#@+ @ignore */
 require_once("ID3/Frame.php");
 require_once("ID3/Encoding.php");
 require_once("ID3/Language.php");
+require_once("ID3/Exception.php");
 /**#@-*/
 
 /**
@@ -49,19 +52,19 @@ require_once("ID3/Language.php");
  *
  * @package    php-reader
  * @subpackage ID3
- * @author     Sven Vollbehr <sven.vollbehr@behrss.eu>
- * @copyright  Copyright (c) 2008 BEHR Software Systems
- * @license    http://www.opensource.org/licenses/bsd-license.php New BSD License
- * @version    $Rev: 12 $
+ * @author     Sven Vollbehr <svollbehr@gmail.com>
+ * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
+ * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
+ * @version    $Rev: 65 $
  */
 final class ID3_Frame_COMM extends ID3_Frame
   implements ID3_Encoding, ID3_Language
 {
   /** @var integer */
-  private $_encoding;
+  private $_encoding = ID3_Encoding::UTF8;
   
   /** @var string */
-  private $_language;
+  private $_language = "eng";
   
   /** @var string */
   private $_description;
@@ -74,36 +77,35 @@ final class ID3_Frame_COMM extends ID3_Frame
    *
    * @param Reader $reader The reader object.
    */
-  public function __construct($reader)
+  public function __construct($reader = null)
   {
     parent::__construct($reader);
 
-    $this->_encoding = ord($this->_data{0});
+    if ($reader === null)
+      return;
+    
+    $this->_encoding = Transform::fromInt8($this->_data[0]);
     $this->_language = substr($this->_data, 1, 3);
     $this->_data = substr($this->_data, 4);
     
     switch ($this->_encoding) {
     case self::UTF16:
-      $bom = substr($this->_data, 0, 2);
-      $this->_data = substr($this->_data, 2);
-      if ($bom == 0xfffe) {
-        list ($this->_description, $this->_text) =
-          preg_split("/\\x00\\x00/", $this->_data, 2);
-        $this->_description = Transform::getString16LE($this->_description);
-        $this->_text = Transform::getString16LE($this->_text);
-        break;
-      }
+      list ($this->_description, $this->_text) =
+        preg_split("/\\x00\\x00/", $this->_data, 2);
+      $this->_description = Transform::fromString16($this->_description);
+      $this->_text = Transform::fromString16($this->_text);
+      break;
     case self::UTF16BE:
       list ($this->_description, $this->_text) =
         preg_split("/\\x00\\x00/", $this->_data, 2);
-      $this->_description = Transform::getString16BE($this->_description);
-      $this->_text = Transform::getString16BE($this->_text);
+      $this->_description = Transform::fromString16BE($this->_description);
+      $this->_text = Transform::fromString16BE($this->_text);
       break;
     default:
       list ($this->_description, $this->_text) =
         preg_split("/\\x00/", $this->_data, 2);
-      $this->_description = Transform::getString8($this->_description);
-      $this->_text = Transform::getString8($this->_text);
+      $this->_description = Transform::fromString8($this->_description);
+      $this->_text = Transform::fromString8($this->_text);
     }
   }
   
@@ -113,27 +115,106 @@ final class ID3_Frame_COMM extends ID3_Frame
    * @return integer
    */
   public function getEncoding() { return $this->_encoding; }
-
+  
+  /**
+   * Sets the text encoding.
+   * 
+   * @see ID3_Encoding
+   * @param integer $encoding The text encoding.
+   */
+  public function setEncoding($encoding) { $this->_encoding = $encoding; }
+  
   /**
    * Returns the language code as specified in the
    * {@link http://www.loc.gov/standards/iso639-2/ ISO-639-2} standard.
    * 
-   * @see ID3_Language#ISO_639_2
    * @return string
    */
   public function getLanguage() { return $this->_language; }
-
+  
+  /**
+   * Sets the text language code as specified in the
+   * {@link http://www.loc.gov/standards/iso639-2/ ISO-639-2} standard.
+   * 
+   * @see ID3_Language
+   * @param string $language The language code.
+   */
+  public function setLanguage($language) { $this->_language = $language; }
+  
   /**
    * Returns the short content description.
    * 
    * @return string
    */
   public function getDescription() { return $this->_description; }
-
+  
+  /**
+   * Sets the content description text using given encoding. The description
+   * language and encoding must be that of the actual text.
+   * 
+   * @param string $description The content description text.
+   * @param string $language The language code.
+   * @param integer $encoding The text encoding.
+   */
+  public function setDescription($description, $language = false,
+                                 $encoding = false)
+  {
+    $this->_description = $description;
+    if ($language !== false)
+      $this->_language = $language;
+    if ($encoding !== false)
+      $this->_encoding = $encoding;
+  }
+  
   /**
    * Returns the comment text.
    * 
    * @return string
    */
   public function getText() { return $this->_text; }
+  
+  /**
+   * Sets the text using given encoding. The text language and encoding must be
+   * that of the description text.
+   * 
+   * @param mixed $text The test string.
+   * @param string $language The language code.
+   * @param integer $encoding The text encoding.
+   */
+  public function setText($text, $language = false, $encoding = false)
+  {
+    $this->_text = $text;
+    if ($language !== false)
+      $this->_language = $language;
+    if ($encoding !== false)
+      $this->_encoding = $encoding;
+  }
+  
+  /**
+   * Returns the frame raw data.
+   *
+   * @return string
+   */
+  public function __toString()
+  {
+    $data = Transform::toInt8($this->_encoding) . $this->_language;
+    switch ($this->_encoding) {
+    case self::UTF16:
+      $data .= Transform::toString16($this->_description) . "\0\0" .
+        Transform::toString16($this->_text);
+      break;
+    case self::UTF16BE:
+      $data .= Transform::toString16BE($this->_description) . "\0\0" .
+        Transform::toString16BE($this->_text);
+      break;
+    case self::UTF16LE:
+      $data .= Transform::toString16LE($this->_description) . "\0\0" .
+        Transform::toString16LE($this->_text);
+      break;
+    default:
+      $data .= $this->_description . "\0" . $this->_text;
+    }
+    $this->setData($data);
+    return parent::__toString();
+  }
 }

@@ -2,6 +2,8 @@
 /**
  * PHP Reader Library
  *
+ * Copyright (c) 2008 The PHP Reader Project Workgroup. All rights reserved.
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -10,7 +12,7 @@
  *  - Redistributions in binary form must reproduce the above copyright notice,
  *    this list of conditions and the following disclaimer in the documentation
  *    and/or other materials provided with the distribution.
- *  - Neither the name of the BEHR Software Systems nor the names of its
+ *  - Neither the name of the project workgroup nor the names of its
  *    contributors may be used to endorse or promote products derived from this
  *    software without specific prior written permission.
  *
@@ -28,9 +30,9 @@
  *
  * @package    php-reader
  * @subpackage ID3
- * @copyright  Copyright (c) 2008 BEHR Software Systems
- * @license    http://www.opensource.org/licenses/bsd-license.php New BSD License
- * @version    $Id: AbstractText.php 12 2008-03-17 12:54:34Z svollbehr $
+ * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
+ * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
+ * @version    $Id: AbstractText.php 65 2008-04-02 15:22:46Z svollbehr $
  */
 
 /**#@+ @ignore */
@@ -43,16 +45,16 @@ require_once("ID3/Encoding.php");
  * 
  * @package    php-reader
  * @subpackage ID3
- * @author     Sven Vollbehr <sven.vollbehr@behrss.eu>
- * @copyright  Copyright (c) 2008 BEHR Software Systems
- * @license    http://www.opensource.org/licenses/bsd-license.php New BSD License
- * @version    $Rev: 12 $
+ * @author     Sven Vollbehr <svollbehr@gmail.com>
+ * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
+ * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
+ * @version    $Rev: 65 $
  */
 abstract class ID3_Frame_AbstractText extends ID3_Frame
   implements ID3_Encoding
 {
   /** @var integer */
-  private $_encoding;
+  private $_encoding = ID3_Encoding::UTF8;
   
   /** @var string */
   private $_text;
@@ -62,27 +64,27 @@ abstract class ID3_Frame_AbstractText extends ID3_Frame
    *
    * @param Reader $reader The reader object.
    */
-  public function __construct($reader)
+  public function __construct($reader = null)
   {
     parent::__construct($reader);
-
-    $this->_encoding = ord($this->_data{0});
+    
+    if ($reader === null)
+      return;
+    
+    $this->_encoding = Transform::fromInt8($this->_data[0]);
     $this->_data = substr($this->_data, 1);
     switch ($this->_encoding) {
     case self::UTF16:
-      $bom = substr($this->_data, 0, 2);
-      $this->_data = substr($this->_data, 2);
-      if ($bom == 0xfffe) {
-        $this->_text =
-          preg_split("/\\x00\\x00/", Transform::getString16LE($this->_data));
-        break;
-      }
+      $this->_text =
+        preg_split("/\\x00\\x00/", Transform::fromString16($this->_data));
+      break;
     case self::UTF16BE:
       $this->_text =
-        preg_split("/\\x00\\x00/", Transform::getString16BE($this->_data));
+        preg_split("/\\x00\\x00/", Transform::fromString16BE($this->_data));
       break;
     default:
-      $this->_text = preg_split("/\\x00/", Transform::getString8($this->_data));
+      $this->_text =
+        preg_split("/\\x00/", Transform::fromString8($this->_data));
     }
   }
   
@@ -92,11 +94,64 @@ abstract class ID3_Frame_AbstractText extends ID3_Frame
    * @return integer
    */
   public function getEncoding() { return $this->_encoding; }
-
+  
+  /**
+   * Sets the text encoding.
+   * 
+   * @see ID3_Encoding
+   * @param integer $encoding The text encoding.
+   */
+  public function setEncoding($encoding) { $this->_encoding = $encoding; }
+  
+  /**
+   * Returns the first text chunk the frame contains.
+   * 
+   * @return string
+   */
+  public function getText() { return $this->_text[0]; }
+  
   /**
    * Returns an array of texts the frame contains.
    * 
    * @return Array
    */
-  public function getText() { return $this->_text; }
+  public function getTexts() { return $this->_text; }
+  
+  /**
+   * Sets the text using given encoding.
+   * 
+   * @param mixed $text The test string or an array of strings.
+   * @param integer $encoding The text encoding.
+   */
+  public function setText($text, $encoding = false)
+  {
+    $this->_text = is_array($text) ? $text : array($text);
+    if ($encoding !== false)
+      $this->_encoding = $encoding;
+  }
+  
+  /**
+   * Returns the frame raw data.
+   *
+   * @return string
+   */
+  public function __toString()
+  {
+    $data = Transform::toInt8($this->_encoding);
+    switch ($this->_encoding) {
+    case self::UTF16:
+      $data .= Transform::toString16(implode("\0\0", $this->_text));
+      break;
+    case self::UTF16BE:
+      $data .= Transform::toString16BE(implode("\0\0", $this->_text));
+      break;
+    case self::UTF16LE:
+      $data .= Transform::toString16LE(implode("\0\0", $this->_text));
+      break;
+    default:
+      $data .= implode("\0", $this->_text);
+    }
+    $this->setData($data);
+    return parent::__toString();
+  }
 }

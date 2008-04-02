@@ -285,6 +285,7 @@
 	    &nbsp;&nbsp;		<a href="php-reader/ID3/ID3_Frame_RVRB.html">ID3_Frame_RVRB</a><br />
 	    &nbsp;&nbsp;		<a href="php-reader/ID3/ID3_Frame_SEEK.html">ID3_Frame_SEEK</a><br />
 	    &nbsp;&nbsp;		<a href="php-reader/ID3/ID3_Frame_SIGN.html">ID3_Frame_SIGN</a><br />
+	    &nbsp;&nbsp;		<a href="php-reader/ID3/ID3_Frame_SYLT.html">ID3_Frame_SYLT</a><br />
 	    &nbsp;&nbsp;		<a href="php-reader/ID3/ID3_Frame_SYTC.html">ID3_Frame_SYTC</a><br />
 	    &nbsp;&nbsp;		<a href="php-reader/ID3/ID3_Frame_TALB.html">ID3_Frame_TALB</a><br />
 	    &nbsp;&nbsp;		<a href="php-reader/ID3/ID3_Frame_TBPM.html">ID3_Frame_TBPM</a><br />
@@ -396,6 +397,10 @@
 				<dd>in file Reader.php, method <a href="php-reader/Reader.html#method__construct">Reader::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructs the Reader class with given file.</dd>
 							<dt><b>__destruct</b></dt>
 				<dd>in file Reader.php, method <a href="php-reader/Reader.html#method__destruct">Reader::__destruct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Closes the file.</dd>
+							<dt><b>__get</b></dt>
+				<dd>in file Reader.php, method <a href="php-reader/Reader.html#method__get">Reader::__get()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Magic function so that $obj-&gt;value will work.</dd>
+							<dt><b>__set</b></dt>
+				<dd>in file Reader.php, method <a href="php-reader/Reader.html#method__set">Reader::__set()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Magic function so that assignments with $obj-&gt;value will work.</dd>
 							<dt><b>$_reader</b></dt>
 				<dd>in file Object.php, variable <a href="php-reader/ASF/ASF_Object.html#var$_reader">ASF_Object::$_reader</a><br>&nbsp;&nbsp;&nbsp;&nbsp;The reader object.</dd>
 							<dt><b>$_size</b></dt>
@@ -413,81 +418,151 @@
 							<dt><b>__construct</b></dt>
 				<dd>in file ASF.php, method <a href="php-reader/ASF/ASF.html#method__construct">ASF::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructs the ASF class with given file.</dd>
 							<dt><b>$_data</b></dt>
-				<dd>in file Frame.php, variable <a href="php-reader/ID3/ID3_Frame.html#var$_data">ID3_Frame::$_data</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Raw content read from the frame.</dd>
+				<dd>in file Frame.php, variable <a href="php-reader/ID3/ID3_Frame.html#var$_data">ID3_Frame::$_data</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Raw content of the frame.</dd>
 							<dt><b>$_link</b></dt>
 				<dd>in file AbstractLink.php, variable <a href="php-reader/ID3/ID3_Frame_AbstractLink.html#var$_link">ID3_Frame_AbstractLink::$_link</a></dd>
+							<dt><b>$_options</b></dt>
+				<dd>in file Object.php, variable <a href="php-reader/ID3/ID3_Object.html#var$_options">ID3_Object::$_options</a><br>&nbsp;&nbsp;&nbsp;&nbsp;The options array.</dd>
 							<dt><b>$_reader</b></dt>
 				<dd>in file Object.php, variable <a href="php-reader/ID3/ID3_Object.html#var$_reader">ID3_Object::$_reader</a><br>&nbsp;&nbsp;&nbsp;&nbsp;The reader object.</dd>
 							<dt><b>__construct</b></dt>
-				<dd>in file POPM.php, method <a href="php-reader/ID3/ID3_Frame_POPM.html#method__construct">ID3_Frame_POPM::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructs the class with given parameters and parses object related data.</dd>
-							<dt><b>__construct</b></dt>
-				<dd>in file POSS.php, method <a href="php-reader/ID3/ID3_Frame_POSS.html#method__construct">ID3_Frame_POSS::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructs the class with given parameters and parses object related data.</dd>
-							<dt><b>__construct</b></dt>
-				<dd>in file PCNT.php, method <a href="php-reader/ID3/ID3_Frame_PCNT.html#method__construct">ID3_Frame_PCNT::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructs the class with given parameters and parses object related data.</dd>
-							<dt><b>__construct</b></dt>
-				<dd>in file Object.php, method <a href="php-reader/ID3/ID3_Object.html#method__construct">ID3_Object::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructs the class with given parameters and reads object related data  from the ID3v2 tag.</dd>
-							<dt><b>__construct</b></dt>
-				<dd>in file MLLT.php, method <a href="php-reader/ID3/ID3_Frame_MLLT.html#method__construct">ID3_Frame_MLLT::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructs the class with given parameters and parses object related data.</dd>
-							<dt><b>__construct</b></dt>
-				<dd>in file PRIV.php, method <a href="php-reader/ID3/ID3_Frame_PRIV.html#method__construct">ID3_Frame_PRIV::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructs the class with given parameters and parses object related data.</dd>
-							<dt><b>__construct</b></dt>
-				<dd>in file OWNE.php, method <a href="php-reader/ID3/ID3_Frame_OWNE.html#method__construct">ID3_Frame_OWNE::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructs the class with given parameters and parses object related data.</dd>
-							<dt><b>__construct</b></dt>
-				<dd>in file RBUF.php, method <a href="php-reader/ID3/ID3_Frame_RBUF.html#method__construct">ID3_Frame_RBUF::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructs the class with given parameters and parses object related data.</dd>
-							<dt><b>__construct</b></dt>
-				<dd>in file SYLT.php, method <a href="php-reader/ID3/ID3_Frame_USER.html#method__construct">ID3_Frame_USER::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructs the class with given parameters and parses object related data.</dd>
-							<dt><b>__construct</b></dt>
-				<dd>in file SYTC.php, method <a href="php-reader/ID3/ID3_Frame_SYTC.html#method__construct">ID3_Frame_SYTC::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructs the class with given parameters and parses object related data.</dd>
-							<dt><b>__construct</b></dt>
-				<dd>in file USLT.php, method <a href="php-reader/ID3/ID3_Frame_USLT.html#method__construct">ID3_Frame_USLT::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructs the class with given parameters and parses object related data.</dd>
-							<dt><b>__construct</b></dt>
-				<dd>in file SIGN.php, method <a href="php-reader/ID3/ID3_Frame_SIGN.html#method__construct">ID3_Frame_SIGN::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructs the class with given parameters and parses object related data.</dd>
-							<dt><b>__construct</b></dt>
-				<dd>in file SEEK.php, method <a href="php-reader/ID3/ID3_Frame_SEEK.html#method__construct">ID3_Frame_SEEK::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructs the class with given parameters and parses object related data.</dd>
-							<dt><b>__construct</b></dt>
-				<dd>in file RVA2.php, method <a href="php-reader/ID3/ID3_Frame_RVA2.html#method__construct">ID3_Frame_RVA2::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructs the class with given parameters and parses object related data.</dd>
-							<dt><b>__construct</b></dt>
-				<dd>in file RVRB.php, method <a href="php-reader/ID3/ID3_Frame_RVRB.html#method__construct">ID3_Frame_RVRB::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructs the class with given parameters and parses object related data.</dd>
-							<dt><b>__construct</b></dt>
-				<dd>in file LINK.php, method <a href="php-reader/ID3/ID3_Frame_LINK.html#method__construct">ID3_Frame_LINK::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructs the class with given parameters and parses object related data.</dd>
-							<dt><b>__construct</b></dt>
-				<dd>in file ID3v2.php, method <a href="php-reader/ID3/ID3v2.html#method__construct">ID3v2::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructs the ID3v2 class with given file.</dd>
-							<dt><b>__construct</b></dt>
-				<dd>in file COMR.php, method <a href="php-reader/ID3/ID3_Frame_COMR.html#method__construct">ID3_Frame_COMR::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructs the class with given parameters and parses object related data.</dd>
-							<dt><b>__construct</b></dt>
-				<dd>in file ENCR.php, method <a href="php-reader/ID3/ID3_Frame_ENCR.html#method__construct">ID3_Frame_ENCR::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructs the class with given parameters and parses object related data.</dd>
-							<dt><b>__construct</b></dt>
-				<dd>in file EQU2.php, method <a href="php-reader/ID3/ID3_Frame_EQU2.html#method__construct">ID3_Frame_EQU2::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructs the class with given parameters and parses object related data.</dd>
-							<dt><b>__construct</b></dt>
-				<dd>in file COMM.php, method <a href="php-reader/ID3/ID3_Frame_COMM.html#method__construct">ID3_Frame_COMM::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructs the class with given parameters and parses object related data.</dd>
-							<dt><b>__construct</b></dt>
-				<dd>in file ASPI.php, method <a href="php-reader/ID3/ID3_Frame_ASPI.html#method__construct">ID3_Frame_ASPI::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructs the class with given parameters and parses object related data.</dd>
-							<dt><b>__construct</b></dt>
-				<dd>in file AENC.php, method <a href="php-reader/ID3/ID3_Frame_AENC.html#method__construct">ID3_Frame_AENC::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructs the class with given parameters and parses object related data.</dd>
-							<dt><b>__construct</b></dt>
-				<dd>in file APIC.php, method <a href="php-reader/ID3/ID3_Frame_APIC.html#method__construct">ID3_Frame_APIC::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructs the class with given parameters and parses object related data.</dd>
-							<dt><b>__construct</b></dt>
-				<dd>in file ETCO.php, method <a href="php-reader/ID3/ID3_Frame_ETCO.html#method__construct">ID3_Frame_ETCO::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructs the class with given parameters and parses object related data.</dd>
-							<dt><b>__construct</b></dt>
-				<dd>in file ExtendedHeader.php, method <a href="php-reader/ID3/ID3_ExtendedHeader.html#method__construct">ID3_ExtendedHeader::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructs the class with given parameters and reads object related data  from the ID3v2 tag.</dd>
+				<dd>in file Frame.php, method <a href="php-reader/ID3/ID3_Frame.html#method__construct">ID3_Frame::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructs the class with given parameters and reads object related data  from the ID3v2 tag.</dd>
 							<dt><b>__construct</b></dt>
 				<dd>in file Header.php, method <a href="php-reader/ID3/ID3_Header.html#method__construct">ID3_Header::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructs the class with given parameters and reads object related data  from the ID3v2 tag.</dd>
 							<dt><b>__construct</b></dt>
-				<dd>in file ID3v1.php, method <a href="php-reader/ID3/ID3v1.html#method__construct">ID3v1::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructs the ID3v1 class with given file.</dd>
-							<dt><b>__construct</b></dt>
-				<dd>in file WXXX.php, method <a href="php-reader/ID3/ID3_Frame_WXXX.html#method__construct">ID3_Frame_WXXX::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructs the class with given parameters and parses object related data.</dd>
-							<dt><b>__construct</b></dt>
-				<dd>in file GRID.php, method <a href="php-reader/ID3/ID3_Frame_GRID.html#method__construct">ID3_Frame_GRID::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructs the class with given parameters and parses object related data.</dd>
+				<dd>in file SIGN.php, method <a href="php-reader/ID3/ID3_Frame_SIGN.html#method__construct">ID3_Frame_SIGN::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructs the class with given parameters and parses object related data.</dd>
 							<dt><b>__construct</b></dt>
 				<dd>in file GEOB.php, method <a href="php-reader/ID3/ID3_Frame_GEOB.html#method__construct">ID3_Frame_GEOB::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructs the class with given parameters and parses object related data.</dd>
 							<dt><b>__construct</b></dt>
-				<dd>in file AbstractLink.php, method <a href="php-reader/ID3/ID3_Frame_AbstractLink.html#method__construct">ID3_Frame_AbstractLink::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructs the class with given parameters and parses object related data.</dd>
+				<dd>in file RVRB.php, method <a href="php-reader/ID3/ID3_Frame_RVRB.html#method__construct">ID3_Frame_RVRB::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructs the class with given parameters and parses object related data.</dd>
 							<dt><b>__construct</b></dt>
-				<dd>in file Frame.php, method <a href="php-reader/ID3/ID3_Frame.html#method__construct">ID3_Frame::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructs the class with given parameters and reads object related data  from the ID3v2 tag.</dd>
+				<dd>in file ID3v1.php, method <a href="php-reader/ID3/ID3v1.html#method__construct">ID3v1::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructs the ID3v1 class with given file. The file is not mandatory  argument and may be omitted. A new tag can be written to a file also by  giving the filename to the #write method of this class.</dd>
+							<dt><b>__construct</b></dt>
+				<dd>in file SYLT.php, method <a href="php-reader/ID3/ID3_Frame_SYLT.html#method__construct">ID3_Frame_SYLT::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructs the class with given parameters and parses object related data.</dd>
+							<dt><b>__construct</b></dt>
+				<dd>in file GRID.php, method <a href="php-reader/ID3/ID3_Frame_GRID.html#method__construct">ID3_Frame_GRID::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructs the class with given parameters and parses object related data.</dd>
+							<dt><b>__construct</b></dt>
+				<dd>in file LINK.php, method <a href="php-reader/ID3/ID3_Frame_LINK.html#method__construct">ID3_Frame_LINK::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructs the class with given parameters and parses object related data.</dd>
+							<dt><b>__construct</b></dt>
+				<dd>in file SEEK.php, method <a href="php-reader/ID3/ID3_Frame_SEEK.html#method__construct">ID3_Frame_SEEK::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructs the class with given parameters and parses object related data.</dd>
+							<dt><b>__construct</b></dt>
+				<dd>in file PCNT.php, method <a href="php-reader/ID3/ID3_Frame_PCNT.html#method__construct">ID3_Frame_PCNT::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructs the class with given parameters and parses object related data.</dd>
+							<dt><b>__construct</b></dt>
+				<dd>in file OWNE.php, method <a href="php-reader/ID3/ID3_Frame_OWNE.html#method__construct">ID3_Frame_OWNE::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructs the class with given parameters and parses object related data.</dd>
+							<dt><b>__construct</b></dt>
+				<dd>in file Object.php, method <a href="php-reader/ID3/ID3_Object.html#method__construct">ID3_Object::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructs the class with given parameters and reads object related data  from the ID3v2 tag.</dd>
+							<dt><b>__construct</b></dt>
+				<dd>in file POPM.php, method <a href="php-reader/ID3/ID3_Frame_POPM.html#method__construct">ID3_Frame_POPM::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructs the class with given parameters and parses object related data.</dd>
+							<dt><b>__construct</b></dt>
+				<dd>in file MLLT.php, method <a href="php-reader/ID3/ID3_Frame_MLLT.html#method__construct">ID3_Frame_MLLT::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructs the class with given parameters and parses object related data.</dd>
+							<dt><b>__construct</b></dt>
+				<dd>in file ID3v2.php, method <a href="php-reader/ID3/ID3v2.html#method__construct">ID3v2::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructs the ID3v2 class with given file and options.</dd>
+							<dt><b>__construct</b></dt>
+				<dd>in file POSS.php, method <a href="php-reader/ID3/ID3_Frame_POSS.html#method__construct">ID3_Frame_POSS::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructs the class with given parameters and parses object related data.</dd>
+							<dt><b>__construct</b></dt>
+				<dd>in file COMM.php, method <a href="php-reader/ID3/ID3_Frame_COMM.html#method__construct">ID3_Frame_COMM::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructs the class with given parameters and parses object related data.</dd>
+							<dt><b>__construct</b></dt>
+				<dd>in file ExtendedHeader.php, method <a href="php-reader/ID3/ID3_ExtendedHeader.html#method__construct">ID3_ExtendedHeader::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructs the class with given parameters and reads object related data  from the ID3v2 tag.</dd>
+							<dt><b>__construct</b></dt>
+				<dd>in file PRIV.php, method <a href="php-reader/ID3/ID3_Frame_PRIV.html#method__construct">ID3_Frame_PRIV::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructs the class with given parameters and parses object related data.</dd>
+							<dt><b>__construct</b></dt>
+				<dd>in file ASPI.php, method <a href="php-reader/ID3/ID3_Frame_ASPI.html#method__construct">ID3_Frame_ASPI::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructs the class with given parameters and parses object related data.</dd>
+							<dt><b>__construct</b></dt>
+				<dd>in file USLT.php, method <a href="php-reader/ID3/ID3_Frame_USLT.html#method__construct">ID3_Frame_USLT::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructs the class with given parameters and parses object related data.</dd>
+							<dt><b>__construct</b></dt>
+				<dd>in file AENC.php, method <a href="php-reader/ID3/ID3_Frame_AENC.html#method__construct">ID3_Frame_AENC::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructs the class with given parameters and parses object related data.</dd>
+							<dt><b>__construct</b></dt>
+				<dd>in file RVA2.php, method <a href="php-reader/ID3/ID3_Frame_RVA2.html#method__construct">ID3_Frame_RVA2::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructs the class with given parameters and parses object related data.</dd>
+							<dt><b>__construct</b></dt>
+				<dd>in file APIC.php, method <a href="php-reader/ID3/ID3_Frame_APIC.html#method__construct">ID3_Frame_APIC::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructs the class with given parameters and parses object related data.</dd>
+							<dt><b>__construct</b></dt>
+				<dd>in file WXXX.php, method <a href="php-reader/ID3/ID3_Frame_WXXX.html#method__construct">ID3_Frame_WXXX::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructs the class with given parameters and parses object related data.</dd>
 							<dt><b>__construct</b></dt>
 				<dd>in file AbstractText.php, method <a href="php-reader/ID3/ID3_Frame_AbstractText.html#method__construct">ID3_Frame_AbstractText::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructs the class with given parameters and parses object related data.</dd>
+							<dt><b>__construct</b></dt>
+				<dd>in file ETCO.php, method <a href="php-reader/ID3/ID3_Frame_ETCO.html#method__construct">ID3_Frame_ETCO::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructs the class with given parameters and parses object related data.</dd>
+							<dt><b>__construct</b></dt>
+				<dd>in file SYTC.php, method <a href="php-reader/ID3/ID3_Frame_SYTC.html#method__construct">ID3_Frame_SYTC::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructs the class with given parameters and parses object related data.</dd>
+							<dt><b>__construct</b></dt>
+				<dd>in file AbstractLink.php, method <a href="php-reader/ID3/ID3_Frame_AbstractLink.html#method__construct">ID3_Frame_AbstractLink::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructs the class with given parameters and parses object related data.</dd>
+							<dt><b>__construct</b></dt>
+				<dd>in file EQU2.php, method <a href="php-reader/ID3/ID3_Frame_EQU2.html#method__construct">ID3_Frame_EQU2::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructs the class with given parameters and parses object related data.</dd>
+							<dt><b>__construct</b></dt>
+				<dd>in file RBUF.php, method <a href="php-reader/ID3/ID3_Frame_RBUF.html#method__construct">ID3_Frame_RBUF::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructs the class with given parameters and parses object related data.</dd>
+							<dt><b>__construct</b></dt>
+				<dd>in file COMR.php, method <a href="php-reader/ID3/ID3_Frame_COMR.html#method__construct">ID3_Frame_COMR::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructs the class with given parameters and parses object related data.</dd>
+							<dt><b>__construct</b></dt>
+				<dd>in file USER.php, method <a href="php-reader/ID3/ID3_Frame_USER.html#method__construct">ID3_Frame_USER::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructs the class with given parameters and parses object related data.</dd>
+							<dt><b>__construct</b></dt>
+				<dd>in file ENCR.php, method <a href="php-reader/ID3/ID3_Frame_ENCR.html#method__construct">ID3_Frame_ENCR::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructs the class with given parameters and parses object related data.</dd>
+							<dt><b>__get</b></dt>
+				<dd>in file Object.php, method <a href="php-reader/ID3/ID3_Object.html#method__get">ID3_Object::__get()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Magic function so that $obj-&gt;value will work.</dd>
+							<dt><b>__get</b></dt>
+				<dd>in file ID3v2.php, method <a href="php-reader/ID3/ID3v2.html#method__get">ID3v2::__get()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Magic function so that $obj-&gt;value will work. The method will attempt to  return the first frame that matches the identifier.</dd>
 							<dt><b>__get</b></dt>
 				<dd>in file ID3v1.php, method <a href="php-reader/ID3/ID3v1.html#method__get">ID3v1::__get()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Magic function so that $obj-&gt;value will work.</dd>
+							<dt><b>__set</b></dt>
+				<dd>in file Object.php, method <a href="php-reader/ID3/ID3_Object.html#method__set">ID3_Object::__set()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Magic function so that assignments with $obj-&gt;value will work.</dd>
+							<dt><b>__set</b></dt>
+				<dd>in file ID3v1.php, method <a href="php-reader/ID3/ID3v1.html#method__set">ID3v1::__set()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Magic function so that assignments with $obj-&gt;value will work.</dd>
+							<dt><b>__toString</b></dt>
+				<dd>in file RVRB.php, method <a href="php-reader/ID3/ID3_Frame_RVRB.html#method__toString">ID3_Frame_RVRB::__toString()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the frame raw data.</dd>
+							<dt><b>__toString</b></dt>
+				<dd>in file RVA2.php, method <a href="php-reader/ID3/ID3_Frame_RVA2.html#method__toString">ID3_Frame_RVA2::__toString()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the frame raw data.</dd>
+							<dt><b>__toString</b></dt>
+				<dd>in file SIGN.php, method <a href="php-reader/ID3/ID3_Frame_SIGN.html#method__toString">ID3_Frame_SIGN::__toString()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the frame raw data.</dd>
+							<dt><b>__toString</b></dt>
+				<dd>in file USLT.php, method <a href="php-reader/ID3/ID3_Frame_USLT.html#method__toString">ID3_Frame_USLT::__toString()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the frame raw data.</dd>
+							<dt><b>__toString</b></dt>
+				<dd>in file WXXX.php, method <a href="php-reader/ID3/ID3_Frame_WXXX.html#method__toString">ID3_Frame_WXXX::__toString()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the frame raw data.</dd>
+							<dt><b>__toString</b></dt>
+				<dd>in file USER.php, method <a href="php-reader/ID3/ID3_Frame_USER.html#method__toString">ID3_Frame_USER::__toString()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the frame raw data.</dd>
+							<dt><b>__toString</b></dt>
+				<dd>in file SYTC.php, method <a href="php-reader/ID3/ID3_Frame_SYTC.html#method__toString">ID3_Frame_SYTC::__toString()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the frame raw data.</dd>
+							<dt><b>__toString</b></dt>
+				<dd>in file RBUF.php, method <a href="php-reader/ID3/ID3_Frame_RBUF.html#method__toString">ID3_Frame_RBUF::__toString()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the frame raw data.</dd>
+							<dt><b>__toString</b></dt>
+				<dd>in file SYLT.php, method <a href="php-reader/ID3/ID3_Frame_SYLT.html#method__toString">ID3_Frame_SYLT::__toString()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the frame raw data.</dd>
+							<dt><b>__toString</b></dt>
+				<dd>in file SEEK.php, method <a href="php-reader/ID3/ID3_Frame_SEEK.html#method__toString">ID3_Frame_SEEK::__toString()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the frame raw data.</dd>
+							<dt><b>__toString</b></dt>
+				<dd>in file LINK.php, method <a href="php-reader/ID3/ID3_Frame_LINK.html#method__toString">ID3_Frame_LINK::__toString()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the frame raw data.</dd>
+							<dt><b>__toString</b></dt>
+				<dd>in file COMR.php, method <a href="php-reader/ID3/ID3_Frame_COMR.html#method__toString">ID3_Frame_COMR::__toString()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the frame raw data.</dd>
+							<dt><b>__toString</b></dt>
+				<dd>in file ENCR.php, method <a href="php-reader/ID3/ID3_Frame_ENCR.html#method__toString">ID3_Frame_ENCR::__toString()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the frame raw data.</dd>
+							<dt><b>__toString</b></dt>
+				<dd>in file ETCO.php, method <a href="php-reader/ID3/ID3_Frame_ETCO.html#method__toString">ID3_Frame_ETCO::__toString()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the frame raw data.</dd>
+							<dt><b>__toString</b></dt>
+				<dd>in file COMM.php, method <a href="php-reader/ID3/ID3_Frame_COMM.html#method__toString">ID3_Frame_COMM::__toString()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the frame raw data.</dd>
+							<dt><b>__toString</b></dt>
+				<dd>in file APIC.php, method <a href="php-reader/ID3/ID3_Frame_APIC.html#method__toString">ID3_Frame_APIC::__toString()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the frame raw data.</dd>
+							<dt><b>__toString</b></dt>
+				<dd>in file AbstractLink.php, method <a href="php-reader/ID3/ID3_Frame_AbstractLink.html#method__toString">ID3_Frame_AbstractLink::__toString()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the frame raw data.</dd>
+							<dt><b>__toString</b></dt>
+				<dd>in file AbstractText.php, method <a href="php-reader/ID3/ID3_Frame_AbstractText.html#method__toString">ID3_Frame_AbstractText::__toString()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the frame raw data.</dd>
+							<dt><b>__toString</b></dt>
+				<dd>in file AENC.php, method <a href="php-reader/ID3/ID3_Frame_AENC.html#method__toString">ID3_Frame_AENC::__toString()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the frame raw data.</dd>
+							<dt><b>__toString</b></dt>
+				<dd>in file Frame.php, method <a href="php-reader/ID3/ID3_Frame.html#method__toString">ID3_Frame::__toString()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the frame raw data.</dd>
+							<dt><b>__toString</b></dt>
+				<dd>in file GEOB.php, method <a href="php-reader/ID3/ID3_Frame_GEOB.html#method__toString">ID3_Frame_GEOB::__toString()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the frame raw data.</dd>
+							<dt><b>__toString</b></dt>
+				<dd>in file PCNT.php, method <a href="php-reader/ID3/ID3_Frame_PCNT.html#method__toString">ID3_Frame_PCNT::__toString()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the frame raw data.</dd>
+							<dt><b>__toString</b></dt>
+				<dd>in file POPM.php, method <a href="php-reader/ID3/ID3_Frame_POPM.html#method__toString">ID3_Frame_POPM::__toString()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the frame raw data.</dd>
+							<dt><b>__toString</b></dt>
+				<dd>in file POSS.php, method <a href="php-reader/ID3/ID3_Frame_POSS.html#method__toString">ID3_Frame_POSS::__toString()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the frame raw data.</dd>
+							<dt><b>__toString</b></dt>
+				<dd>in file OWNE.php, method <a href="php-reader/ID3/ID3_Frame_OWNE.html#method__toString">ID3_Frame_OWNE::__toString()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the frame raw data.</dd>
+							<dt><b>__toString</b></dt>
+				<dd>in file ID3v2.php, method <a href="php-reader/ID3/ID3v2.html#method__toString">ID3v2::__toString()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the tag raw data.</dd>
+							<dt><b>__toString</b></dt>
+				<dd>in file GRID.php, method <a href="php-reader/ID3/ID3_Frame_GRID.html#method__toString">ID3_Frame_GRID::__toString()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the frame raw data.</dd>
+							<dt><b>__toString</b></dt>
+				<dd>in file Header.php, method <a href="php-reader/ID3/ID3_Header.html#method__toString">ID3_Header::__toString()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the header/footer raw data without the identifier.</dd>
+							<dt><b>__toString</b></dt>
+				<dd>in file PRIV.php, method <a href="php-reader/ID3/ID3_Frame_PRIV.html#method__toString">ID3_Frame_PRIV::__toString()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the frame raw data.</dd>
 					</dl>
 	</div>
 	<a href="elementindex_php-reader.html#top">top</a><br>
@@ -512,6 +587,14 @@
 				<dd>in file HeaderObject.php, class <a href="php-reader/ASF/ASF_HeaderObject.html">ASF_HeaderObject</a><br>&nbsp;&nbsp;&nbsp;&nbsp;The <em>ASF_Header_Object</em> object implementation. This object contains  objects that give information about the file. See corresponding object  classes for more.</dd>
 							<dt><b>ASF_Object</b></dt>
 				<dd>in file Object.php, class <a href="php-reader/ASF/ASF_Object.html">ASF_Object</a><br>&nbsp;&nbsp;&nbsp;&nbsp;The base class for all ASF objects.</dd>
+							<dt><b>addAdjustment</b></dt>
+				<dd>in file EQU2.php, method <a href="php-reader/ID3/ID3_Frame_EQU2.html#methodaddAdjustment">ID3_Frame_EQU2::addAdjustment()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Adds a volume adjustment setting for given frequency. The frequency can  have a value from 0 to 32767 Hz, and the adjustment +/- 64 dB with a  precision of 0.001953125 dB.</dd>
+							<dt><b>addCounter</b></dt>
+				<dd>in file PCNT.php, method <a href="php-reader/ID3/ID3_Frame_PCNT.html#methodaddCounter">ID3_Frame_PCNT::addCounter()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Adds counter by one.</dd>
+							<dt><b>addCounter</b></dt>
+				<dd>in file POPM.php, method <a href="php-reader/ID3/ID3_Frame_POPM.html#methodaddCounter">ID3_Frame_POPM::addCounter()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Adds counter by one.</dd>
+							<dt><b>addFrame</b></dt>
+				<dd>in file ID3v2.php, method <a href="php-reader/ID3/ID3v2.html#methodaddFrame">ID3v2::addFrame()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Adds a new frame to the tag and returns it.</dd>
 							<dt><b>AbstractLink.php</b></dt>
 				<dd>procedural page <a href="php-reader/ID3/_ID3---Frame---AbstractLink.php.html">AbstractLink.php</a></dd>
 							<dt><b>AbstractText.php</b></dt>
@@ -611,6 +694,38 @@
 	<div>
 		<h2>f</h2>
 		<dl>
+							<dt><b>fromGUID</b></dt>
+				<dd>in file Transform.php, method <a href="php-reader/Transform.html#methodfromGUID">Transform::fromGUID()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the little-endian ordered binary data as big-endian ordered  hexadecimal GUID string.</dd>
+							<dt><b>fromHHex</b></dt>
+				<dd>in file Transform.php, method <a href="php-reader/Transform.html#methodfromHHex">Transform::fromHHex()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns binary data as hexadecimal string having high nibble first.</dd>
+							<dt><b>fromInt8</b></dt>
+				<dd>in file Transform.php, method <a href="php-reader/Transform.html#methodfromInt8">Transform::fromInt8()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns binary data as 8-bit integer.</dd>
+							<dt><b>fromInt16</b></dt>
+				<dd>in file Transform.php, method <a href="php-reader/Transform.html#methodfromInt16">Transform::fromInt16()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns machine endian ordered binary data as signed 16-bit integer.</dd>
+							<dt><b>fromInt32</b></dt>
+				<dd>in file Transform.php, method <a href="php-reader/Transform.html#methodfromInt32">Transform::fromInt32()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns machine-endian ordered binary data as signed 32-bit integer.</dd>
+							<dt><b>fromInt64BE</b></dt>
+				<dd>in file Transform.php, method <a href="php-reader/Transform.html#methodfromInt64BE">Transform::fromInt64BE()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns big-endian ordered binary data as 64-bit float. PHP does not  support 64-bit integers as the long integer is of 32-bits but using  aritmetic operations it is implicitly converted into floating point which  is of 64-bits long.</dd>
+							<dt><b>fromInt64LE</b></dt>
+				<dd>in file Transform.php, method <a href="php-reader/Transform.html#methodfromInt64LE">Transform::fromInt64LE()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns little-endian ordered binary data as 64-bit float. PHP does not  support 64-bit integers as the long integer is of 32-bits but using  aritmetic operations it is implicitly converted into floating point which  is of 64-bits long.</dd>
+							<dt><b>fromLHex</b></dt>
+				<dd>in file Transform.php, method <a href="php-reader/Transform.html#methodfromLHex">Transform::fromLHex()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns binary data as hexadecimal string having low nibble first.</dd>
+							<dt><b>fromString8</b></dt>
+				<dd>in file Transform.php, method <a href="php-reader/Transform.html#methodfromString8">Transform::fromString8()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns binary data as string. Removes terminating zero.</dd>
+							<dt><b>fromString16</b></dt>
+				<dd>in file Transform.php, method <a href="php-reader/Transform.html#methodfromString16">Transform::fromString16()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns UTF-16 formatted binary data as machine-ordered multibyte string.</dd>
+							<dt><b>fromString16BE</b></dt>
+				<dd>in file Transform.php, method <a href="php-reader/Transform.html#methodfromString16BE">Transform::fromString16BE()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns big-endian ordered binary data as machine ordered multibyte string.</dd>
+							<dt><b>fromString16LE</b></dt>
+				<dd>in file Transform.php, method <a href="php-reader/Transform.html#methodfromString16LE">Transform::fromString16LE()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns little-endian ordered binary data as machine ordered multibyte  string.</dd>
+							<dt><b>fromUInt16BE</b></dt>
+				<dd>in file Transform.php, method <a href="php-reader/Transform.html#methodfromUInt16BE">Transform::fromUInt16BE()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns big-endian ordered binary data as unsigned 16-bit integer.</dd>
+							<dt><b>fromUInt16LE</b></dt>
+				<dd>in file Transform.php, method <a href="php-reader/Transform.html#methodfromUInt16LE">Transform::fromUInt16LE()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns little-endian ordered binary data as unsigned 16-bit integer.</dd>
+							<dt><b>fromUInt32BE</b></dt>
+				<dd>in file Transform.php, method <a href="php-reader/Transform.html#methodfromUInt32BE">Transform::fromUInt32BE()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns big-endian ordered binary data as unsigned 32-bit integer.</dd>
+							<dt><b>fromUInt32LE</b></dt>
+				<dd>in file Transform.php, method <a href="php-reader/Transform.html#methodfromUInt32LE">Transform::fromUInt32LE()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns little-endian ordered binary data as unsigned 32-bit integer.</dd>
 							<dt><b>FilePropertiesObject.php</b></dt>
 				<dd>procedural page <a href="php-reader/ASF/_ASF---FilePropertiesObject.php.html">FilePropertiesObject.php</a></dd>
 							<dt><b>FOOTER</b></dt>
@@ -625,48 +740,10 @@
 	<div>
 		<h2>g</h2>
 		<dl>
-							<dt><b>getGUID</b></dt>
-				<dd>in file Transform.php, method <a href="php-reader/Transform.html#methodgetGUID">Transform::getGUID()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the little-endian ordered raw data as big-endian ordered  hexadecimal GUID string.</dd>
-							<dt><b>getHHex</b></dt>
-				<dd>in file Transform.php, method <a href="php-reader/Transform.html#methodgetHHex">Transform::getHHex()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns binary data as hexadecimal string having high nibble first.</dd>
-							<dt><b>getInt8</b></dt>
-				<dd>in file Transform.php, method <a href="php-reader/Transform.html#methodgetInt8">Transform::getInt8()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns binary data as 8-bit integer.</dd>
-							<dt><b>getInt16</b></dt>
-				<dd>in file Transform.php, method <a href="php-reader/Transform.html#methodgetInt16">Transform::getInt16()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns machine endian ordered binary data as signed 16-bit integer.</dd>
-							<dt><b>getInt32</b></dt>
-				<dd>in file Transform.php, method <a href="php-reader/Transform.html#methodgetInt32">Transform::getInt32()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns machine-endian ordered binary data as signed 32-bit integer.</dd>
-							<dt><b>getInt64</b></dt>
-				<dd>in file Transform.php, method <a href="php-reader/Transform.html#methodgetInt64">Transform::getInt64()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns machine-endian ordered binary data as 64-bit float. PHP does not  support 64-bit integers as the long integer is of 32-bits but using  aritmetic operations it is implicitly converted into floating point which  is of 64-bits long.</dd>
-							<dt><b>getInt64BE</b></dt>
-				<dd>in file Transform.php, method <a href="php-reader/Transform.html#methodgetInt64BE">Transform::getInt64BE()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns big-endian ordered binary data as 64-bit float. PHP does not  support 64-bit integers as the long integer is of 32-bits but using  aritmetic operations it is implicitly converted into floating point which  is of 64-bits long.</dd>
-							<dt><b>getInt64LE</b></dt>
-				<dd>in file Transform.php, method <a href="php-reader/Transform.html#methodgetInt64LE">Transform::getInt64LE()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns little-endian ordered binary data as 64-bit float. PHP does not  support 64-bit integers as the long integer is of 32-bits but using  aritmetic operations it is implicitly converted into floating point which  is of 64-bits long.</dd>
-							<dt><b>getLHex</b></dt>
-				<dd>in file Transform.php, method <a href="php-reader/Transform.html#methodgetLHex">Transform::getLHex()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns binary data as hexadecimal string having low nibble first.</dd>
 							<dt><b>getOffset</b></dt>
 				<dd>in file Reader.php, method <a href="php-reader/Reader.html#methodgetOffset">Reader::getOffset()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the current point of operation.</dd>
 							<dt><b>getSize</b></dt>
 				<dd>in file Reader.php, method <a href="php-reader/Reader.html#methodgetSize">Reader::getSize()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the file size in bytes.</dd>
-							<dt><b>getString8</b></dt>
-				<dd>in file Transform.php, method <a href="php-reader/Transform.html#methodgetString8">Transform::getString8()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns binary data as string. Removes terminating zero.</dd>
-							<dt><b>getString16</b></dt>
-				<dd>in file Transform.php, method <a href="php-reader/Transform.html#methodgetString16">Transform::getString16()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns machine-endian ordered binary data as multibyte string.</dd>
-							<dt><b>getString16BE</b></dt>
-				<dd>in file Transform.php, method <a href="php-reader/Transform.html#methodgetString16BE">Transform::getString16BE()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns big-endian ordered binary data as multibyte string.</dd>
-							<dt><b>getString16LE</b></dt>
-				<dd>in file Transform.php, method <a href="php-reader/Transform.html#methodgetString16LE">Transform::getString16LE()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns little-endian ordered binary data as multibyte string.</dd>
-							<dt><b>getUInt16</b></dt>
-				<dd>in file Transform.php, method <a href="php-reader/Transform.html#methodgetUInt16">Transform::getUInt16()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns machine endian ordered binary data as unsigned 16-bit integer.</dd>
-							<dt><b>getUInt16BE</b></dt>
-				<dd>in file Transform.php, method <a href="php-reader/Transform.html#methodgetUInt16BE">Transform::getUInt16BE()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns big-endian ordered binary data as unsigned 16-bit integer.</dd>
-							<dt><b>getUInt16LE</b></dt>
-				<dd>in file Transform.php, method <a href="php-reader/Transform.html#methodgetUInt16LE">Transform::getUInt16LE()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns little-endian ordered binary data as unsigned 16-bit integer.</dd>
-							<dt><b>getUInt32</b></dt>
-				<dd>in file Transform.php, method <a href="php-reader/Transform.html#methodgetUInt32">Transform::getUInt32()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns machine-endian ordered binary data as unsigned 32-bit integer.</dd>
-							<dt><b>getUInt32BE</b></dt>
-				<dd>in file Transform.php, method <a href="php-reader/Transform.html#methodgetUInt32BE">Transform::getUInt32BE()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns big-endian ordered binary data as unsigned 32-bit integer.</dd>
-							<dt><b>getUInt32LE</b></dt>
-				<dd>in file Transform.php, method <a href="php-reader/Transform.html#methodgetUInt32LE">Transform::getUInt32LE()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns little-endian ordered binary data as unsigned 32-bit integer.</dd>
 							<dt><b>getAuthor</b></dt>
 				<dd>in file ContentDescriptionObject.php, method <a href="php-reader/ASF/ASF_ContentDescriptionObject.html#methodgetAuthor">ASF_ContentDescriptionObject::getAuthor()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the author field.</dd>
 							<dt><b>getCopyright</b></dt>
@@ -708,7 +785,7 @@
 							<dt><b>$genres</b></dt>
 				<dd>in file ID3v1.php, variable <a href="php-reader/ID3/ID3v1.html#var$genres">ID3v1::$genres</a><br>&nbsp;&nbsp;&nbsp;&nbsp;The genre list.</dd>
 							<dt><b>getAdjustments</b></dt>
-				<dd>in file EQU2.php, method <a href="php-reader/ID3/ID3_Frame_EQU2.html#methodgetAdjustments">ID3_Frame_EQU2::getAdjustments()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the array containing adjustments having fequencies as keys and  their corresponding adjustments as values.</dd>
+				<dd>in file EQU2.php, method <a href="php-reader/ID3/ID3_Frame_EQU2.html#methodgetAdjustments">ID3_Frame_EQU2::getAdjustments()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the array containing adjustments having frequencies as keys and  their corresponding adjustments as values.</dd>
 							<dt><b>getAdjustments</b></dt>
 				<dd>in file RVA2.php, method <a href="php-reader/ID3/ID3_Frame_RVA2.html#methodgetAdjustments">ID3_Frame_RVA2::getAdjustments()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the array containing volume adjustments for each channel. Volume  adjustments are arrays themselves containing the following keys:  channelType, volumeAdjustment, peakVolume.</dd>
 							<dt><b>getAlbum</b></dt>
@@ -725,32 +802,28 @@
 				<dd>in file POPM.php, method <a href="php-reader/ID3/ID3_Frame_POPM.html#methodgetCounter">ID3_Frame_POPM::getCounter()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the counter.</dd>
 							<dt><b>getCounter</b></dt>
 				<dd>in file PCNT.php, method <a href="php-reader/ID3/ID3_Frame_PCNT.html#methodgetCounter">ID3_Frame_PCNT::getCounter()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the counter.</dd>
-							<dt><b>getCRC</b></dt>
-				<dd>in file ExtendedHeader.php, method <a href="php-reader/ID3/ID3_ExtendedHeader.html#methodgetCRC">ID3_ExtendedHeader::getCRC()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the CRC-32 data.</dd>
+							<dt><b>getCrc</b></dt>
+				<dd>in file ExtendedHeader.php, method <a href="php-reader/ID3/ID3_ExtendedHeader.html#methodgetCrc">ID3_ExtendedHeader::getCrc()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the CRC-32 data.</dd>
 							<dt><b>getCurrency</b></dt>
 				<dd>in file COMR.php, method <a href="php-reader/ID3/ID3_Frame_COMR.html#methodgetCurrency">ID3_Frame_COMR::getCurrency()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the currency code, encoded according to  <a href="http://www.iso.org/iso/support/faqs/faqs_widely_used_standards/widely_used_standards_other/currency_codes/currency_codes_list-1.htm">ISO 4217</a> alphabetic currency code.</dd>
 							<dt><b>getCurrency</b></dt>
 				<dd>in file OWNE.php, method <a href="php-reader/ID3/ID3_Frame_OWNE.html#methodgetCurrency">ID3_Frame_OWNE::getCurrency()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the currency used in transaction, encoded according to  <a href="http://www.iso.org/iso/support/faqs/faqs_widely_used_standards/widely_used_standards_other/currency_codes/currency_codes_list-1.htm">ISO 4217</a> alphabetic currency code.</dd>
 							<dt><b>getData</b></dt>
-				<dd>in file GEOB.php, method <a href="php-reader/ID3/ID3_Frame_GEOB.html#methodgetData">ID3_Frame_GEOB::getData()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the embedded object binary data.</dd>
-							<dt><b>getData</b></dt>
-				<dd>in file GRID.php, method <a href="php-reader/ID3/ID3_Frame_GRID.html#methodgetData">ID3_Frame_GRID::getData()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the group dependent data.</dd>
-							<dt><b>getData</b></dt>
-				<dd>in file ENCR.php, method <a href="php-reader/ID3/ID3_Frame_ENCR.html#methodgetData">ID3_Frame_ENCR::getData()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the encryption data.</dd>
-							<dt><b>getData</b></dt>
-				<dd>in file LINK.php, method <a href="php-reader/ID3/ID3_Frame_LINK.html#methodgetData">ID3_Frame_LINK::getData()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the additional ID data.</dd>
-							<dt><b>getData</b></dt>
-				<dd>in file SYTC.php, method <a href="php-reader/ID3/ID3_Frame_SYTC.html#methodgetData">ID3_Frame_SYTC::getData()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the tempo data.</dd>
-							<dt><b>getData</b></dt>
-				<dd>in file PRIV.php, method <a href="php-reader/ID3/ID3_Frame_PRIV.html#methodgetData">ID3_Frame_PRIV::getData()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the private binary data associated with the frame.</dd>
-							<dt><b>getData</b></dt>
 				<dd>in file MCDI.php, method <a href="php-reader/ID3/ID3_Frame_MCDI.html#methodgetData">ID3_Frame_MCDI::getData()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the CD TOC binary dump.</dd>
 							<dt><b>getData</b></dt>
 				<dd>in file COMR.php, method <a href="php-reader/ID3/ID3_Frame_COMR.html#methodgetData">ID3_Frame_COMR::getData()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the embedded image binary data.</dd>
 							<dt><b>getData</b></dt>
-				<dd>in file APIC.php, method <a href="php-reader/ID3/ID3_Frame_APIC.html#methodgetData">ID3_Frame_APIC::getData()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the embedded picture data.</dd>
+				<dd>in file GRID.php, method <a href="php-reader/ID3/ID3_Frame_GRID.html#methodgetData">ID3_Frame_GRID::getData()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the group dependent data.</dd>
 							<dt><b>getData</b></dt>
-				<dd>in file AENC.php, method <a href="php-reader/ID3/ID3_Frame_AENC.html#methodgetData">ID3_Frame_AENC::getData()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the encryption info.</dd>
+				<dd>in file GEOB.php, method <a href="php-reader/ID3/ID3_Frame_GEOB.html#methodgetData">ID3_Frame_GEOB::getData()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the embedded object binary data.</dd>
+							<dt><b>getData</b></dt>
+				<dd>in file PRIV.php, method <a href="php-reader/ID3/ID3_Frame_PRIV.html#methodgetData">ID3_Frame_PRIV::getData()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the private binary data associated with the frame.</dd>
+							<dt><b>getData</b></dt>
+				<dd>in file ENCR.php, method <a href="php-reader/ID3/ID3_Frame_ENCR.html#methodgetData">ID3_Frame_ENCR::getData()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the encryption data.</dd>
+							<dt><b>getData</b></dt>
+				<dd>in file APIC.php, method <a href="php-reader/ID3/ID3_Frame_APIC.html#methodgetData">ID3_Frame_APIC::getData()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the embedded image data.</dd>
+							<dt><b>getData</b></dt>
+				<dd>in file SYTC.php, method <a href="php-reader/ID3/ID3_Frame_SYTC.html#methodgetData">ID3_Frame_SYTC::getData()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the tempo data.</dd>
 							<dt><b>getDataLength</b></dt>
 				<dd>in file ASPI.php, method <a href="php-reader/ID3/ID3_Frame_ASPI.html#methodgetDataLength">ID3_Frame_ASPI::getDataLength()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the byte length of the audio data being indexed.</dd>
 							<dt><b>getDataStart</b></dt>
@@ -764,17 +837,17 @@
 							<dt><b>getDescription</b></dt>
 				<dd>in file APIC.php, method <a href="php-reader/ID3/ID3_Frame_APIC.html#methodgetDescription">ID3_Frame_APIC::getDescription()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the file description.</dd>
 							<dt><b>getDescription</b></dt>
-				<dd>in file COMM.php, method <a href="php-reader/ID3/ID3_Frame_COMM.html#methodgetDescription">ID3_Frame_COMM::getDescription()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the short content description.</dd>
+				<dd>in file USLT.php, method <a href="php-reader/ID3/ID3_Frame_USLT.html#methodgetDescription">ID3_Frame_USLT::getDescription()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the short content description.</dd>
 							<dt><b>getDescription</b></dt>
-				<dd>in file SYLT.php, method <a href="php-reader/ID3/ID3_Frame_USER.html#methodgetDescription">ID3_Frame_USER::getDescription()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the content description.</dd>
+				<dd>in file GEOB.php, method <a href="php-reader/ID3/ID3_Frame_GEOB.html#methodgetDescription">ID3_Frame_GEOB::getDescription()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the file description.</dd>
 							<dt><b>getDescription</b></dt>
 				<dd>in file WXXX.php, method <a href="php-reader/ID3/ID3_Frame_WXXX.html#methodgetDescription">ID3_Frame_WXXX::getDescription()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the link description.</dd>
 							<dt><b>getDescription</b></dt>
-				<dd>in file USLT.php, method <a href="php-reader/ID3/ID3_Frame_USLT.html#methodgetDescription">ID3_Frame_USLT::getDescription()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the short content description.</dd>
-							<dt><b>getDescription</b></dt>
 				<dd>in file COMR.php, method <a href="php-reader/ID3/ID3_Frame_COMR.html#methodgetDescription">ID3_Frame_COMR::getDescription()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the short description of the product.</dd>
 							<dt><b>getDescription</b></dt>
-				<dd>in file GEOB.php, method <a href="php-reader/ID3/ID3_Frame_GEOB.html#methodgetDescription">ID3_Frame_GEOB::getDescription()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the file description.</dd>
+				<dd>in file SYLT.php, method <a href="php-reader/ID3/ID3_Frame_SYLT.html#methodgetDescription">ID3_Frame_SYLT::getDescription()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the content description.</dd>
+							<dt><b>getDescription</b></dt>
+				<dd>in file COMM.php, method <a href="php-reader/ID3/ID3_Frame_COMM.html#methodgetDescription">ID3_Frame_COMM::getDescription()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the short content description.</dd>
 							<dt><b>getDeviation</b></dt>
 				<dd>in file MLLT.php, method <a href="php-reader/ID3/ID3_Frame_MLLT.html#methodgetDeviation">ID3_Frame_MLLT::getDeviation()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the deviations as an array. Each value is an array containing two  values, ie the deviation in bytes, and the deviation in milliseconds,  respectively.</dd>
 							<dt><b>getDevice</b></dt>
@@ -782,93 +855,109 @@
 							<dt><b>getDevice</b></dt>
 				<dd>in file EQU2.php, method <a href="php-reader/ID3/ID3_Frame_EQU2.html#methodgetDevice">ID3_Frame_EQU2::getDevice()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the device where the adjustments should apply.</dd>
 							<dt><b>getEncoding</b></dt>
-				<dd>in file GEOB.php, method <a href="php-reader/ID3/ID3_Frame_GEOB.html#methodgetEncoding">ID3_Frame_GEOB::getEncoding()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the text encoding.</dd>
-							<dt><b>getEncoding</b></dt>
-				<dd>in file WXXX.php, method <a href="php-reader/ID3/ID3_Frame_WXXX.html#methodgetEncoding">ID3_Frame_WXXX::getEncoding()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the text encoding.</dd>
-							<dt><b>getEncoding</b></dt>
-				<dd>in file COMR.php, method <a href="php-reader/ID3/ID3_Frame_COMR.html#methodgetEncoding">ID3_Frame_COMR::getEncoding()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the text encoding.</dd>
-							<dt><b>getEncoding</b></dt>
-				<dd>in file COMM.php, method <a href="php-reader/ID3/ID3_Frame_COMM.html#methodgetEncoding">ID3_Frame_COMM::getEncoding()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the text encoding.</dd>
+				<dd>in file USLT.php, method <a href="php-reader/ID3/ID3_Frame_USLT.html#methodgetEncoding">ID3_Frame_USLT::getEncoding()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the text encoding.</dd>
 							<dt><b>getEncoding</b></dt>
 				<dd>in file APIC.php, method <a href="php-reader/ID3/ID3_Frame_APIC.html#methodgetEncoding">ID3_Frame_APIC::getEncoding()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the text encoding.</dd>
 							<dt><b>getEncoding</b></dt>
-				<dd>in file SYLT.php, method <a href="php-reader/ID3/ID3_Frame_USER.html#methodgetEncoding">ID3_Frame_USER::getEncoding()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the text encoding.</dd>
+				<dd>in file COMR.php, method <a href="php-reader/ID3/ID3_Frame_COMR.html#methodgetEncoding">ID3_Frame_COMR::getEncoding()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the text encoding.</dd>
+							<dt><b>getEncoding</b></dt>
+				<dd>in file OWNE.php, method <a href="php-reader/ID3/ID3_Frame_OWNE.html#methodgetEncoding">ID3_Frame_OWNE::getEncoding()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the text encoding.</dd>
+							<dt><b>getEncoding</b></dt>
+				<dd>in file USER.php, method <a href="php-reader/ID3/ID3_Frame_USER.html#methodgetEncoding">ID3_Frame_USER::getEncoding()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the text encoding.</dd>
+							<dt><b>getEncoding</b></dt>
+				<dd>in file WXXX.php, method <a href="php-reader/ID3/ID3_Frame_WXXX.html#methodgetEncoding">ID3_Frame_WXXX::getEncoding()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the text encoding.</dd>
 							<dt><b>getEncoding</b></dt>
 				<dd>in file Encoding.php, method <a href="php-reader/ID3/ID3_Encoding.html#methodgetEncoding">ID3_Encoding::getEncoding()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the text encoding.</dd>
 							<dt><b>getEncoding</b></dt>
-				<dd>in file USLT.php, method <a href="php-reader/ID3/ID3_Frame_USLT.html#methodgetEncoding">ID3_Frame_USLT::getEncoding()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the text encoding.</dd>
+				<dd>in file GEOB.php, method <a href="php-reader/ID3/ID3_Frame_GEOB.html#methodgetEncoding">ID3_Frame_GEOB::getEncoding()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the text encoding.</dd>
+							<dt><b>getEncoding</b></dt>
+				<dd>in file SYLT.php, method <a href="php-reader/ID3/ID3_Frame_SYLT.html#methodgetEncoding">ID3_Frame_SYLT::getEncoding()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the text encoding.</dd>
+							<dt><b>getEncoding</b></dt>
+				<dd>in file COMM.php, method <a href="php-reader/ID3/ID3_Frame_COMM.html#methodgetEncoding">ID3_Frame_COMM::getEncoding()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the text encoding.</dd>
 							<dt><b>getEncoding</b></dt>
 				<dd>in file AbstractText.php, method <a href="php-reader/ID3/ID3_Frame_AbstractText.html#methodgetEncoding">ID3_Frame_AbstractText::getEncoding()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the text encoding.</dd>
-							<dt><b>getEncoding</b></dt>
-				<dd>in file OWNE.php, method <a href="php-reader/ID3/ID3_Frame_OWNE.html#methodgetEncoding">ID3_Frame_OWNE::getEncoding()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the text encoding.</dd>
+							<dt><b>getEncryptionInfo</b></dt>
+				<dd>in file AENC.php, method <a href="php-reader/ID3/ID3_Frame_AENC.html#methodgetEncryptionInfo">ID3_Frame_AENC::getEncryptionInfo()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the encryption info.</dd>
 							<dt><b>getEvents</b></dt>
 				<dd>in file ETCO.php, method <a href="php-reader/ID3/ID3_Frame_ETCO.html#methodgetEvents">ID3_Frame_ETCO::getEvents()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the events as an associated array having the timestamps as keys and  the event types as values.</dd>
 							<dt><b>getExtendedHeader</b></dt>
 				<dd>in file ID3v2.php, method <a href="php-reader/ID3/ID3v2.html#methodgetExtendedHeader">ID3v2::getExtendedHeader()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the extended header object if present, or <var>false</var>  otherwise.</dd>
 							<dt><b>getFilename</b></dt>
 				<dd>in file GEOB.php, method <a href="php-reader/ID3/ID3_Frame_GEOB.html#methodgetFilename">ID3_Frame_GEOB::getFilename()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the file name.</dd>
+							<dt><b>getFlags</b></dt>
+				<dd>in file Header.php, method <a href="php-reader/ID3/ID3_Header.html#methodgetFlags">ID3_Header::getFlags()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the flags byte.</dd>
+							<dt><b>getFlags</b></dt>
+				<dd>in file ExtendedHeader.php, method <a href="php-reader/ID3/ID3_ExtendedHeader.html#methodgetFlags">ID3_ExtendedHeader::getFlags()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the flags byte.</dd>
+							<dt><b>getFlags</b></dt>
+				<dd>in file Frame.php, method <a href="php-reader/ID3/ID3_Frame.html#methodgetFlags">ID3_Frame::getFlags()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the frame flags byte.</dd>
+							<dt><b>getFlags</b></dt>
+				<dd>in file RBUF.php, method <a href="php-reader/ID3/ID3_Frame_RBUF.html#methodgetFlags">ID3_Frame_RBUF::getFlags()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the flags byte.</dd>
 							<dt><b>getFooter</b></dt>
 				<dd>in file ID3v2.php, method <a href="php-reader/ID3/ID3v2.html#methodgetFooter">ID3v2::getFooter()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the footer object if present, or <var>false</var> otherwise.</dd>
 							<dt><b>getFormat</b></dt>
+				<dd>in file POSS.php, method <a href="php-reader/ID3/ID3_Frame_POSS.html#methodgetFormat">ID3_Frame_POSS::getFormat()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the timing format.</dd>
+							<dt><b>getFormat</b></dt>
 				<dd>in file SYTC.php, method <a href="php-reader/ID3/ID3_Frame_SYTC.html#methodgetFormat">ID3_Frame_SYTC::getFormat()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the timing format.</dd>
+							<dt><b>getFormat</b></dt>
+				<dd>in file ETCO.php, method <a href="php-reader/ID3/ID3_Frame_ETCO.html#methodgetFormat">ID3_Frame_ETCO::getFormat()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the timing format.</dd>
 							<dt><b>getFormat</b></dt>
 				<dd>in file Timing.php, method <a href="php-reader/ID3/ID3_Timing.html#methodgetFormat">ID3_Timing::getFormat()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the timing format.</dd>
 							<dt><b>getFormat</b></dt>
-				<dd>in file POSS.php, method <a href="php-reader/ID3/ID3_Frame_POSS.html#methodgetFormat">ID3_Frame_POSS::getFormat()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the timing format.</dd>
-							<dt><b>getFormat</b></dt>
-				<dd>in file SYLT.php, method <a href="php-reader/ID3/ID3_Frame_USER.html#methodgetFormat">ID3_Frame_USER::getFormat()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the timing format.</dd>
-							<dt><b>getFormat</b></dt>
-				<dd>in file ETCO.php, method <a href="php-reader/ID3/ID3_Frame_ETCO.html#methodgetFormat">ID3_Frame_ETCO::getFormat()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the timing format.</dd>
+				<dd>in file SYLT.php, method <a href="php-reader/ID3/ID3_Frame_SYLT.html#methodgetFormat">ID3_Frame_SYLT::getFormat()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the timing format.</dd>
 							<dt><b>getFractionAt</b></dt>
 				<dd>in file ASPI.php, method <a href="php-reader/ID3/ID3_Frame_ASPI.html#methodgetFractionAt">ID3_Frame_ASPI::getFractionAt()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the numerator of the fraction representing a relative position in  the data or <var>false</var> if index not defined. The denominator is 2  to the power of b.</dd>
 							<dt><b>getFrames</b></dt>
+				<dd>in file ID3v2.php, method <a href="php-reader/ID3/ID3v2.html#methodgetFrames">ID3v2::getFrames()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns all the frames the tag contains as an associate array. The frame  identifiers work as keys having an array of frames as associated value.</dd>
+							<dt><b>getFrames</b></dt>
 				<dd>in file MLLT.php, method <a href="php-reader/ID3/ID3_Frame_MLLT.html#methodgetFrames">ID3_Frame_MLLT::getFrames()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the number of MPEG frames between reference.</dd>
+							<dt><b>getFramesByIdentifier</b></dt>
+				<dd>in file ID3v2.php, method <a href="php-reader/ID3/ID3v2.html#methodgetFramesByIdentifier">ID3v2::getFramesByIdentifier()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns an array of frames matching the given identifier or an empty array  if no frames matched the identifier.</dd>
 							<dt><b>getGenre</b></dt>
 				<dd>in file ID3v1.php, method <a href="php-reader/ID3/ID3v1.html#methodgetGenre">ID3v1::getGenre()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the genre.</dd>
 							<dt><b>getGroup</b></dt>
-				<dd>in file SIGN.php, method <a href="php-reader/ID3/ID3_Frame_SIGN.html#methodgetGroup">ID3_Frame_SIGN::getGroup()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the group symbol.</dd>
-							<dt><b>getGroup</b></dt>
 				<dd>in file GRID.php, method <a href="php-reader/ID3/ID3_Frame_GRID.html#methodgetGroup">ID3_Frame_GRID::getGroup()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the group symbol.</dd>
+							<dt><b>getGroup</b></dt>
+				<dd>in file SIGN.php, method <a href="php-reader/ID3/ID3_Frame_SIGN.html#methodgetGroup">ID3_Frame_SIGN::getGroup()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the group symbol byte.</dd>
 							<dt><b>getHeader</b></dt>
 				<dd>in file ID3v2.php, method <a href="php-reader/ID3/ID3v2.html#methodgetHeader">ID3v2::getHeader()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the header object.</dd>
 							<dt><b>getIdentifier</b></dt>
 				<dd>in file Frame.php, method <a href="php-reader/ID3/ID3_Frame.html#methodgetIdentifier">ID3_Frame::getIdentifier()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the frame identifier string.</dd>
 							<dt><b>getIdentifier</b></dt>
+				<dd>in file GRID.php, method <a href="php-reader/ID3/ID3_Frame_GRID.html#methodgetIdentifier">ID3_Frame_GRID::getIdentifier()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the owner identifier string.</dd>
+							<dt><b>getIdentifier</b></dt>
 				<dd>in file PRIV.php, method <a href="php-reader/ID3/ID3_Frame_PRIV.html#methodgetIdentifier">ID3_Frame_PRIV::getIdentifier()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the owner identifier string.</dd>
 							<dt><b>getIdentifier</b></dt>
 				<dd>in file POPM.php, method <a href="php-reader/ID3/ID3_Frame_POPM.html#methodgetIdentifier">ID3_Frame_POPM::getIdentifier()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the user identifier string.</dd>
 							<dt><b>getIdentifier</b></dt>
-				<dd>in file ENCR.php, method <a href="php-reader/ID3/ID3_Frame_ENCR.html#methodgetIdentifier">ID3_Frame_ENCR::getIdentifier()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the owner identifier string.</dd>
-							<dt><b>getIdentifier</b></dt>
-				<dd>in file GRID.php, method <a href="php-reader/ID3/ID3_Frame_GRID.html#methodgetIdentifier">ID3_Frame_GRID::getIdentifier()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the owner identifier string.</dd>
-							<dt><b>getIdentifier</b></dt>
 				<dd>in file AENC.php, method <a href="php-reader/ID3/ID3_Frame_AENC.html#methodgetIdentifier">ID3_Frame_AENC::getIdentifier()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the owner identifier string.</dd>
+							<dt><b>getIdentifier</b></dt>
+				<dd>in file ENCR.php, method <a href="php-reader/ID3/ID3_Frame_ENCR.html#methodgetIdentifier">ID3_Frame_ENCR::getIdentifier()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the owner identifier string.</dd>
 							<dt><b>getImageType</b></dt>
 				<dd>in file APIC.php, method <a href="php-reader/ID3/ID3_Frame_APIC.html#methodgetImageType">ID3_Frame_APIC::getImageType()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the image type.</dd>
 							<dt><b>getInterpolation</b></dt>
 				<dd>in file EQU2.php, method <a href="php-reader/ID3/ID3_Frame_EQU2.html#methodgetInterpolation">ID3_Frame_EQU2::getInterpolation()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the interpolation method. The interpolation method describes which  method is preferred when an interpolation between the adjustment point that  follows.</dd>
 							<dt><b>getLanguage</b></dt>
+				<dd>in file SYLT.php, method <a href="php-reader/ID3/ID3_Frame_SYLT.html#methodgetLanguage">ID3_Frame_SYLT::getLanguage()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the language code as specified in the  <a href="http://www.loc.gov/standards/iso639-2/">ISO-639-2</a> standard.</dd>
+							<dt><b>getLanguage</b></dt>
 				<dd>in file Language.php, method <a href="php-reader/ID3/ID3_Language.html#methodgetLanguage">ID3_Language::getLanguage()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the text language code.</dd>
 							<dt><b>getLanguage</b></dt>
-				<dd>in file SYLT.php, method <a href="php-reader/ID3/ID3_Frame_USER.html#methodgetLanguage">ID3_Frame_USER::getLanguage()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the language code as specified in the  <a href="http://www.loc.gov/standards/iso639-2/">ISO-639-2</a> standard.</dd>
-							<dt><b>getLanguage</b></dt>
-				<dd>in file USLT.php, method <a href="php-reader/ID3/ID3_Frame_USLT.html#methodgetLanguage">ID3_Frame_USLT::getLanguage()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the language code as specified in the  <a href="http://www.loc.gov/standards/iso639-2/">ISO-639-2</a> standard.</dd>
+				<dd>in file USER.php, method <a href="php-reader/ID3/ID3_Frame_USER.html#methodgetLanguage">ID3_Frame_USER::getLanguage()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the language code as specified in the  <a href="http://www.loc.gov/standards/iso639-2/">ISO-639-2</a> standard.</dd>
 							<dt><b>getLanguage</b></dt>
 				<dd>in file COMM.php, method <a href="php-reader/ID3/ID3_Frame_COMM.html#methodgetLanguage">ID3_Frame_COMM::getLanguage()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the language code as specified in the  <a href="http://www.loc.gov/standards/iso639-2/">ISO-639-2</a> standard.</dd>
+							<dt><b>getLanguage</b></dt>
+				<dd>in file USLT.php, method <a href="php-reader/ID3/ID3_Frame_USLT.html#methodgetLanguage">ID3_Frame_USLT::getLanguage()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the language code as specified in the  <a href="http://www.loc.gov/standards/iso639-2/">ISO-639-2</a> standard.</dd>
 							<dt><b>getLink</b></dt>
 				<dd>in file AbstractLink.php, method <a href="php-reader/ID3/ID3_Frame_AbstractLink.html#methodgetLink">ID3_Frame_AbstractLink::getLink()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the link associated with the frame.</dd>
-							<dt><b>getLink</b></dt>
-				<dd>in file WXXX.php, method <a href="php-reader/ID3/ID3_Frame_WXXX.html#methodgetLink">ID3_Frame_WXXX::getLink()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the link.</dd>
 							<dt><b>getMethod</b></dt>
 				<dd>in file ENCR.php, method <a href="php-reader/ID3/ID3_Frame_ENCR.html#methodgetMethod">ID3_Frame_ENCR::getMethod()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the method symbol.</dd>
 							<dt><b>getMilliseconds</b></dt>
 				<dd>in file MLLT.php, method <a href="php-reader/ID3/ID3_Frame_MLLT.html#methodgetMilliseconds">ID3_Frame_MLLT::getMilliseconds()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the number of milliseconds between references.</dd>
 							<dt><b>getMimeType</b></dt>
-				<dd>in file APIC.php, method <a href="php-reader/ID3/ID3_Frame_APIC.html#methodgetMimeType">ID3_Frame_APIC::getMimeType()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the MIME type. The MIME type is always encoded with ISO-8859-1.</dd>
-							<dt><b>getMimeType</b></dt>
-				<dd>in file GEOB.php, method <a href="php-reader/ID3/ID3_Frame_GEOB.html#methodgetMimeType">ID3_Frame_GEOB::getMimeType()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the MIME type. The MIME type is always encoded with ISO-8859-1.</dd>
+				<dd>in file APIC.php, method <a href="php-reader/ID3/ID3_Frame_APIC.html#methodgetMimeType">ID3_Frame_APIC::getMimeType()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the MIME type. The MIME type is always ISO-8859-1 encoded.</dd>
 							<dt><b>getMimeType</b></dt>
 				<dd>in file COMR.php, method <a href="php-reader/ID3/ID3_Frame_COMR.html#methodgetMimeType">ID3_Frame_COMR::getMimeType()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the MIME type of the seller's company logo, if attached, or  <var>false</var> otherwise. Currently only &quot;image/png&quot; and &quot;image/jpeg&quot;  are allowed.</dd>
+							<dt><b>getMimeType</b></dt>
+				<dd>in file GEOB.php, method <a href="php-reader/ID3/ID3_Frame_GEOB.html#methodgetMimeType">ID3_Frame_GEOB::getMimeType()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the MIME type. The MIME type is always encoded with ISO-8859-1.</dd>
 							<dt><b>getMinimumOffset</b></dt>
 				<dd>in file SEEK.php, method <a href="php-reader/ID3/ID3_Frame_SEEK.html#methodgetMinimumOffset">ID3_Frame_SEEK::getMinimumOffset()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the minimum offset to next tag in bytes.</dd>
 							<dt><b>getOffset</b></dt>
@@ -884,9 +973,11 @@
 							<dt><b>getPreviewStart</b></dt>
 				<dd>in file AENC.php, method <a href="php-reader/ID3/ID3_Frame_AENC.html#methodgetPreviewStart">ID3_Frame_AENC::getPreviewStart()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the pointer to an unencrypted part of the audio in frames.</dd>
 							<dt><b>getPrice</b></dt>
-				<dd>in file OWNE.php, method <a href="php-reader/ID3/ID3_Frame_OWNE.html#methodgetPrice">ID3_Frame_OWNE::getPrice()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the price as a numerical string using &quot;.&quot; as the decimal separator.</dd>
-							<dt><b>getPrice</b></dt>
 				<dd>in file COMR.php, method <a href="php-reader/ID3/ID3_Frame_COMR.html#methodgetPrice">ID3_Frame_COMR::getPrice()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the price as a numerical string using &quot;.&quot; as the decimal separator.</dd>
+							<dt><b>getPrice</b></dt>
+				<dd>in file OWNE.php, method <a href="php-reader/ID3/ID3_Frame_OWNE.html#methodgetPrice">ID3_Frame_OWNE::getPrice()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the price as a numerical string using &quot;.&quot; as the decimal separator.</dd>
+							<dt><b>getQualifier</b></dt>
+				<dd>in file LINK.php, method <a href="php-reader/ID3/ID3_Frame_LINK.html#methodgetQualifier">ID3_Frame_LINK::getQualifier()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the additional data to identify further the tag.</dd>
 							<dt><b>getRating</b></dt>
 				<dd>in file POPM.php, method <a href="php-reader/ID3/ID3_Frame_POPM.html#methodgetRating">ID3_Frame_POPM::getRating()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the user rating.</dd>
 							<dt><b>getRestrictions</b></dt>
@@ -910,21 +1001,21 @@
 							<dt><b>getRevision</b></dt>
 				<dd>in file Header.php, method <a href="php-reader/ID3/ID3_Header.html#methodgetRevision">ID3_Header::getRevision()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the tag revision number.</dd>
 							<dt><b>getSeller</b></dt>
-				<dd>in file COMR.php, method <a href="php-reader/ID3/ID3_Frame_COMR.html#methodgetSeller">ID3_Frame_COMR::getSeller()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the name of the seller.</dd>
-							<dt><b>getSeller</b></dt>
 				<dd>in file OWNE.php, method <a href="php-reader/ID3/ID3_Frame_OWNE.html#methodgetSeller">ID3_Frame_OWNE::getSeller()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the name of the seller.</dd>
+							<dt><b>getSeller</b></dt>
+				<dd>in file COMR.php, method <a href="php-reader/ID3/ID3_Frame_COMR.html#methodgetSeller">ID3_Frame_COMR::getSeller()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the name of the seller.</dd>
 							<dt><b>getSignature</b></dt>
 				<dd>in file SIGN.php, method <a href="php-reader/ID3/ID3_Frame_SIGN.html#methodgetSignature">ID3_Frame_SIGN::getSignature()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the signature binary data.</dd>
 							<dt><b>getSize</b></dt>
-				<dd>in file ExtendedHeader.php, method <a href="php-reader/ID3/ID3_ExtendedHeader.html#methodgetSize">ID3_ExtendedHeader::getSize()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the extended header size in bytes.</dd>
-							<dt><b>getSize</b></dt>
 				<dd>in file ASPI.php, method <a href="php-reader/ID3/ID3_Frame_ASPI.html#methodgetSize">ID3_Frame_ASPI::getSize()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the number of index points in the frame.</dd>
+							<dt><b>getSize</b></dt>
+				<dd>in file RBUF.php, method <a href="php-reader/ID3/ID3_Frame_RBUF.html#methodgetSize">ID3_Frame_RBUF::getSize()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the buffer size.</dd>
 							<dt><b>getSize</b></dt>
 				<dd>in file Header.php, method <a href="php-reader/ID3/ID3_Header.html#methodgetSize">ID3_Header::getSize()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the tag size, excluding the header and the footer.</dd>
 							<dt><b>getSize</b></dt>
 				<dd>in file Frame.php, method <a href="php-reader/ID3/ID3_Frame.html#methodgetSize">ID3_Frame::getSize()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the size of the data in the final frame, after encryption,  compression and unsynchronisation. The size is excluding the frame header.</dd>
 							<dt><b>getSize</b></dt>
-				<dd>in file RBUF.php, method <a href="php-reader/ID3/ID3_Frame_RBUF.html#methodgetSize">ID3_Frame_RBUF::getSize()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the buffer size.</dd>
+				<dd>in file ExtendedHeader.php, method <a href="php-reader/ID3/ID3_ExtendedHeader.html#methodgetSize">ID3_ExtendedHeader::getSize()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the extended header size in bytes.</dd>
 							<dt><b>getTarget</b></dt>
 				<dd>in file LINK.php, method <a href="php-reader/ID3/ID3_Frame_LINK.html#methodgetTarget">ID3_Frame_LINK::getTarget()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the target tag identifier.</dd>
 							<dt><b>getText</b></dt>
@@ -932,17 +1023,21 @@
 							<dt><b>getText</b></dt>
 				<dd>in file USLT.php, method <a href="php-reader/ID3/ID3_Frame_USLT.html#methodgetText">ID3_Frame_USLT::getText()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the lyrics/text.</dd>
 							<dt><b>getText</b></dt>
-				<dd>in file SYLT.php, method <a href="php-reader/ID3/ID3_Frame_USER.html#methodgetText">ID3_Frame_USER::getText()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the texts with their timestamps.</dd>
+				<dd>in file AbstractText.php, method <a href="php-reader/ID3/ID3_Frame_AbstractText.html#methodgetText">ID3_Frame_AbstractText::getText()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the first text chunk the frame contains.</dd>
 							<dt><b>getText</b></dt>
-				<dd>in file AbstractText.php, method <a href="php-reader/ID3/ID3_Frame_AbstractText.html#methodgetText">ID3_Frame_AbstractText::getText()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns an array of texts the frame contains.</dd>
+				<dd>in file SYLT.php, method <a href="php-reader/ID3/ID3_Frame_SYLT.html#methodgetText">ID3_Frame_SYLT::getText()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the texts with their timestamps.</dd>
+							<dt><b>getText</b></dt>
+				<dd>in file USER.php, method <a href="php-reader/ID3/ID3_Frame_USER.html#methodgetText">ID3_Frame_USER::getText()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the text.</dd>
+							<dt><b>getTexts</b></dt>
+				<dd>in file AbstractText.php, method <a href="php-reader/ID3/ID3_Frame_AbstractText.html#methodgetTexts">ID3_Frame_AbstractText::getTexts()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns an array of texts the frame contains.</dd>
 							<dt><b>getTitle</b></dt>
 				<dd>in file ID3v1.php, method <a href="php-reader/ID3/ID3v1.html#methodgetTitle">ID3v1::getTitle()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the title field.</dd>
 							<dt><b>getTrack</b></dt>
 				<dd>in file ID3v1.php, method <a href="php-reader/ID3/ID3v1.html#methodgetTrack">ID3v1::getTrack()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the track field.</dd>
 							<dt><b>getType</b></dt>
-				<dd>in file SYLT.php, method <a href="php-reader/ID3/ID3_Frame_USER.html#methodgetType">ID3_Frame_USER::getType()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the content type code.</dd>
-							<dt><b>getURL</b></dt>
-				<dd>in file LINK.php, method <a href="php-reader/ID3/ID3_Frame_LINK.html#methodgetURL">ID3_Frame_LINK::getURL()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the target tag URL.</dd>
+				<dd>in file SYLT.php, method <a href="php-reader/ID3/ID3_Frame_SYLT.html#methodgetType">ID3_Frame_SYLT::getType()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the content type code.</dd>
+							<dt><b>getUrl</b></dt>
+				<dd>in file LINK.php, method <a href="php-reader/ID3/ID3_Frame_LINK.html#methodgetUrl">ID3_Frame_LINK::getUrl()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the target tag URL.</dd>
 							<dt><b>getVersion</b></dt>
 				<dd>in file Header.php, method <a href="php-reader/ID3/ID3_Header.html#methodgetVersion">ID3_Header::getVersion()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the tag major version number.</dd>
 							<dt><b>getYear</b></dt>
@@ -972,13 +1067,15 @@
 							<dt><b>hasFlag</b></dt>
 				<dd>in file RBUF.php, method <a href="php-reader/ID3/ID3_Frame_RBUF.html#methodhasFlag">ID3_Frame_RBUF::hasFlag()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Checks whether or not the flag is set. Returns <var>true</var> if the flag  is set, <var>false</var> otherwise.</dd>
 							<dt><b>hasFlag</b></dt>
+				<dd>in file Frame.php, method <a href="php-reader/ID3/ID3_Frame.html#methodhasFlag">ID3_Frame::hasFlag()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Checks whether or not the flag is set. Returns <var>true</var> if the flag  is set, <var>false</var> otherwise.</dd>
+							<dt><b>hasFlag</b></dt>
 				<dd>in file ExtendedHeader.php, method <a href="php-reader/ID3/ID3_ExtendedHeader.html#methodhasFlag">ID3_ExtendedHeader::hasFlag()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Checks whether or not the flag is set. Returns <var>true</var> if the flag  is set, <var>false</var> otherwise.</dd>
 							<dt><b>hasFlag</b></dt>
 				<dd>in file Header.php, method <a href="php-reader/ID3/ID3_Header.html#methodhasFlag">ID3_Header::hasFlag()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Checks whether or not the flag is set. Returns <var>true</var> if the flag  is set, <var>false</var> otherwise.</dd>
-							<dt><b>hasFlag</b></dt>
-				<dd>in file Frame.php, method <a href="php-reader/ID3/ID3_Frame.html#methodhasFlag">ID3_Frame::hasFlag()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Checks whether or not the flag is set. Returns <var>true</var> if the flag  is set, <var>false</var> otherwise.</dd>
 							<dt><b>hasFooter</b></dt>
 				<dd>in file ID3v2.php, method <a href="php-reader/ID3/ID3v2.html#methodhasFooter">ID3v2::hasFooter()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Checks whether there is a footer present in the tag. Returns  <var>true</var> if the footer is present, <var>false</var> otherwise.</dd>
+							<dt><b>hasFrame</b></dt>
+				<dd>in file ID3v2.php, method <a href="php-reader/ID3/ID3v2.html#methodhasFrame">ID3v2::hasFrame()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Checks whether there is a frame given as an argument defined in the tag.</dd>
 							<dt><b>hasFrames</b></dt>
 				<dd>in file ID3v2.php, method <a href="php-reader/ID3/ID3v2.html#methodhasFrames">ID3v2::hasFrames()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Checks whether there are frames left in the tag. Returns <var>true</var> if  there are frames left in the tag, <var>false</var> otherwise.</dd>
 							<dt><b>Header.php</b></dt>
@@ -1002,7 +1099,7 @@
 							<dt><b>ID3_Encoding</b></dt>
 				<dd>in file Encoding.php, class <a href="php-reader/ID3/ID3_Encoding.html">ID3_Encoding</a><br>&nbsp;&nbsp;&nbsp;&nbsp;The <var>Encoding</var> interface implies that the ID3v2 frame supports  content encoding.</dd>
 							<dt><b>ID3_Exception</b></dt>
-				<dd>in file Exception.php, class <a href="php-reader/ID3/ID3_Exception.html">ID3_Exception</a><br>&nbsp;&nbsp;&nbsp;&nbsp;The ID3_Exception is thrown whenever an error occurs within the ID3v1 or the  ID3v2 classes.</dd>
+				<dd>in file Exception.php, class <a href="php-reader/ID3/ID3_Exception.html">ID3_Exception</a><br>&nbsp;&nbsp;&nbsp;&nbsp;The ID3_Exception is thrown whenever an error occurs within the <a href="php-reader/ID3/ID3v1.html">ID3v1</a>  or the <a href="php-reader/ID3/ID3v2.html">ID3v2</a> classes.</dd>
 							<dt><b>ID3_ExtendedHeader</b></dt>
 				<dd>in file ExtendedHeader.php, class <a href="php-reader/ID3/ID3_ExtendedHeader.html">ID3_ExtendedHeader</a><br>&nbsp;&nbsp;&nbsp;&nbsp;The extended header contains information that can provide further insight in  the structure of the tag, but is not vital to the correct parsing of the tag  information; hence the extended header is optional.</dd>
 							<dt><b>ID3_Frame</b></dt>
@@ -1060,6 +1157,8 @@
 				<dd>in file SEEK.php, class <a href="php-reader/ID3/ID3_Frame_SEEK.html">ID3_Frame_SEEK</a><br>&nbsp;&nbsp;&nbsp;&nbsp;The <em>Seek</em> frame indicates where other tags in a file/stream can be  found. The minimum offset to next tag is calculated from the end of this tag  to the beginning of the next. There may only be one seek frame in a tag.</dd>
 							<dt><b>ID3_Frame_SIGN</b></dt>
 				<dd>in file SIGN.php, class <a href="php-reader/ID3/ID3_Frame_SIGN.html">ID3_Frame_SIGN</a><br>&nbsp;&nbsp;&nbsp;&nbsp;This frame enables a group of frames, grouped with the</dd>
+							<dt><b>ID3_Frame_SYLT</b></dt>
+				<dd>in file SYLT.php, class <a href="php-reader/ID3/ID3_Frame_SYLT.html">ID3_Frame_SYLT</a><br>&nbsp;&nbsp;&nbsp;&nbsp;The <em>Synchronised lyrics/text</em> frame is another way of incorporating the  words, said or sung lyrics, in the audio file as text, this time, however,  in sync with the audio. It might also be used to describing events e.g.</dd>
 							<dt><b>ID3_Frame_SYTC</b></dt>
 				<dd>in file SYTC.php, class <a href="php-reader/ID3/ID3_Frame_SYTC.html">ID3_Frame_SYTC</a><br>&nbsp;&nbsp;&nbsp;&nbsp;For a more accurate description of the tempo of a musical piece, the  <em>Synchronised tempo codes</em> frame might be used.</dd>
 							<dt><b>ID3_Frame_TALB</b></dt>
@@ -1154,7 +1253,7 @@
 							<dt><b>ID3_Frame_TXXX</b></dt>
 				<dd>in file TXXX.php, class <a href="php-reader/ID3/ID3_Frame_TXXX.html">ID3_Frame_TXXX</a><br>&nbsp;&nbsp;&nbsp;&nbsp;This frame is intended for one-string text information concerning the audio</dd>
 							<dt><b>ID3_Frame_USER</b></dt>
-				<dd>in file SYLT.php, class <a href="php-reader/ID3/ID3_Frame_USER.html">ID3_Frame_USER</a><br>&nbsp;&nbsp;&nbsp;&nbsp;The <em>Synchronised lyrics/text</em> frame is another way of incorporating the  words, said or sung lyrics, in the audio file as text, this time, however,  in sync with the audio. It might also be used to describing events e.g.</dd>
+				<dd>in file USER.php, class <a href="php-reader/ID3/ID3_Frame_USER.html">ID3_Frame_USER</a><br>&nbsp;&nbsp;&nbsp;&nbsp;The <em>Terms of use frame</em> contains a brief description of the terms of</dd>
 							<dt><b>ID3_Frame_USLT</b></dt>
 				<dd>in file USLT.php, class <a href="php-reader/ID3/ID3_Frame_USLT.html">ID3_Frame_USLT</a><br>&nbsp;&nbsp;&nbsp;&nbsp;The <em>Unsynchronised lyrics/text transcription</em> frame contains the lyrics  of the song or a text transcription of other vocal activities. There may be  more than one unsynchronised lyrics/text transcription frame in each tag, but  only one with the same language and content descriptor.</dd>
 							<dt><b>ID3_Frame_WCOM</b></dt>
@@ -1309,6 +1408,246 @@
 				<dd>procedural page <a href="php-reader/ID3/_ID3---Frame---SYLT.php.html">SYLT.php</a></dd>
 							<dt><b>SYTC.php</b></dt>
 				<dd>procedural page <a href="php-reader/ID3/_ID3---Frame---SYTC.php.html">SYTC.php</a></dd>
+							<dt><b>setAdjustments</b></dt>
+				<dd>in file RVA2.php, method <a href="php-reader/ID3/ID3_Frame_RVA2.html#methodsetAdjustments">ID3_Frame_RVA2::setAdjustments()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the array of volume adjustments for each channel. Each volume  adjustment is an array too containing the following keys: channelType,  volumeAdjustment, peakVolume.</dd>
+							<dt><b>setAdjustments</b></dt>
+				<dd>in file EQU2.php, method <a href="php-reader/ID3/ID3_Frame_EQU2.html#methodsetAdjustments">ID3_Frame_EQU2::setAdjustments()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the adjustments array. The array must have frequencies as keys and  their corresponding adjustments as values. The frequency can have a value  from 0 to 32767 Hz, and the adjustment +/- 64 dB with a precision of  0.001953125 dB. One frequency should only be described once in the frame.</dd>
+							<dt><b>setAlbum</b></dt>
+				<dd>in file ID3v1.php, method <a href="php-reader/ID3/ID3v1.html#methodsetAlbum">ID3v1::setAlbum()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets a new value for the album field. The field cannot exceed 30  characters in length.</dd>
+							<dt><b>setArtist</b></dt>
+				<dd>in file ID3v1.php, method <a href="php-reader/ID3/ID3v1.html#methodsetArtist">ID3v1::setArtist()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets a new value for the artist field. The field cannot exceed 30  characters in length.</dd>
+							<dt><b>setBytes</b></dt>
+				<dd>in file MLLT.php, method <a href="php-reader/ID3/ID3_Frame_MLLT.html#methodsetBytes">ID3_Frame_MLLT::setBytes()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the number of bytes between reference.</dd>
+							<dt><b>setComment</b></dt>
+				<dd>in file ID3v1.php, method <a href="php-reader/ID3/ID3v1.html#methodsetComment">ID3v1::setComment()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets a new value for the comment field. The field cannot exceed 30  characters in length.</dd>
+							<dt><b>setContact</b></dt>
+				<dd>in file COMR.php, method <a href="php-reader/ID3/ID3_Frame_COMR.html#methodsetContact">ID3_Frame_COMR::setContact()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the contact URL, with which the user can contact the seller.</dd>
+							<dt><b>setCounter</b></dt>
+				<dd>in file POPM.php, method <a href="php-reader/ID3/ID3_Frame_POPM.html#methodsetCounter">ID3_Frame_POPM::setCounter()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the counter value.</dd>
+							<dt><b>setCounter</b></dt>
+				<dd>in file PCNT.php, method <a href="php-reader/ID3/ID3_Frame_PCNT.html#methodsetCounter">ID3_Frame_PCNT::setCounter()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the counter value.</dd>
+							<dt><b>setCrc</b></dt>
+				<dd>in file ExtendedHeader.php, method <a href="php-reader/ID3/ID3_ExtendedHeader.html#methodsetCrc">ID3_ExtendedHeader::setCrc()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the CRC-32. The CRC-32 value is calculated of all the frames in the  tag and includes padding.</dd>
+							<dt><b>setCurrency</b></dt>
+				<dd>in file COMR.php, method <a href="php-reader/ID3/ID3_Frame_COMR.html#methodsetCurrency">ID3_Frame_COMR::setCurrency()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the currency used in transaction, encoded according to  <a href="http://www.iso.org/iso/support/faqs/faqs_widely_used_standards/widely_used_standards_other/currency_codes/currency_codes_list-1.htm">ISO 4217</a> alphabetic currency code.</dd>
+							<dt><b>setCurrency</b></dt>
+				<dd>in file OWNE.php, method <a href="php-reader/ID3/ID3_Frame_OWNE.html#methodsetCurrency">ID3_Frame_OWNE::setCurrency()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the currency used in transaction, encoded according to  <a href="http://www.iso.org/iso/support/faqs/faqs_widely_used_standards/widely_used_standards_other/currency_codes/currency_codes_list-1.htm">ISO 4217</a> alphabetic currency code.</dd>
+							<dt><b>setData</b></dt>
+				<dd>in file MCDI.php, method <a href="php-reader/ID3/ID3_Frame_MCDI.html#methodsetData">ID3_Frame_MCDI::setData()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the CD TOC binary dump.</dd>
+							<dt><b>setData</b></dt>
+				<dd>in file PRIV.php, method <a href="php-reader/ID3/ID3_Frame_PRIV.html#methodsetData">ID3_Frame_PRIV::setData()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the private binary data associated with the frame.</dd>
+							<dt><b>setData</b></dt>
+				<dd>in file Frame.php, method <a href="php-reader/ID3/ID3_Frame.html#methodsetData">ID3_Frame::setData()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the frame raw data.</dd>
+							<dt><b>setData</b></dt>
+				<dd>in file GEOB.php, method <a href="php-reader/ID3/ID3_Frame_GEOB.html#methodsetData">ID3_Frame_GEOB::setData()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the embedded object binary data.</dd>
+							<dt><b>setData</b></dt>
+				<dd>in file GRID.php, method <a href="php-reader/ID3/ID3_Frame_GRID.html#methodsetData">ID3_Frame_GRID::setData()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the group dependent data.</dd>
+							<dt><b>setData</b></dt>
+				<dd>in file ENCR.php, method <a href="php-reader/ID3/ID3_Frame_ENCR.html#methodsetData">ID3_Frame_ENCR::setData()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the encryption data.</dd>
+							<dt><b>setData</b></dt>
+				<dd>in file APIC.php, method <a href="php-reader/ID3/ID3_Frame_APIC.html#methodsetData">ID3_Frame_APIC::setData()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the embedded image data.</dd>
+							<dt><b>setData</b></dt>
+				<dd>in file COMR.php, method <a href="php-reader/ID3/ID3_Frame_COMR.html#methodsetData">ID3_Frame_COMR::setData()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the embedded image data.</dd>
+							<dt><b>setData</b></dt>
+				<dd>in file SYTC.php, method <a href="php-reader/ID3/ID3_Frame_SYTC.html#methodsetData">ID3_Frame_SYTC::setData()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the tempo data.</dd>
+							<dt><b>setDataLength</b></dt>
+				<dd>in file ASPI.php, method <a href="php-reader/ID3/ID3_Frame_ASPI.html#methodsetDataLength">ID3_Frame_ASPI::setDataLength()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the byte length of the audio data being indexed.</dd>
+							<dt><b>setDataStart</b></dt>
+				<dd>in file ASPI.php, method <a href="php-reader/ID3/ID3_Frame_ASPI.html#methodsetDataStart">ID3_Frame_ASPI::setDataStart()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the byte offset from the beginning of the file.</dd>
+							<dt><b>setDate</b></dt>
+				<dd>in file COMR.php, method <a href="php-reader/ID3/ID3_Frame_COMR.html#methodsetDate">ID3_Frame_COMR::setDate()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the date describing for how long the price is valid for. The date must  be an 8 character date string (YYYYMMDD).</dd>
+							<dt><b>setDate</b></dt>
+				<dd>in file OWNE.php, method <a href="php-reader/ID3/ID3_Frame_OWNE.html#methodsetDate">ID3_Frame_OWNE::setDate()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the date of purchase. The date must be an 8 character date string  (YYYYMMDD).</dd>
+							<dt><b>setDelivery</b></dt>
+				<dd>in file COMR.php, method <a href="php-reader/ID3/ID3_Frame_COMR.html#methodsetDelivery">ID3_Frame_COMR::setDelivery()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the delivery type with whitch the audio was delivered when bought.</dd>
+							<dt><b>setDescription</b></dt>
+				<dd>in file COMR.php, method <a href="php-reader/ID3/ID3_Frame_COMR.html#methodsetDescription">ID3_Frame_COMR::setDescription()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the content description text using given encoding. The description  encoding must be that of the seller text.</dd>
+							<dt><b>setDescription</b></dt>
+				<dd>in file SYLT.php, method <a href="php-reader/ID3/ID3_Frame_SYLT.html#methodsetDescription">ID3_Frame_SYLT::setDescription()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the content description text using given encoding. The description  language and encoding must be that of the actual text.</dd>
+							<dt><b>setDescription</b></dt>
+				<dd>in file APIC.php, method <a href="php-reader/ID3/ID3_Frame_APIC.html#methodsetDescription">ID3_Frame_APIC::setDescription()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the content description text using given encoding.</dd>
+							<dt><b>setDescription</b></dt>
+				<dd>in file GEOB.php, method <a href="php-reader/ID3/ID3_Frame_GEOB.html#methodsetDescription">ID3_Frame_GEOB::setDescription()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the file description text using given encoding. The description  encoding must be that of the file name.</dd>
+							<dt><b>setDescription</b></dt>
+				<dd>in file USLT.php, method <a href="php-reader/ID3/ID3_Frame_USLT.html#methodsetDescription">ID3_Frame_USLT::setDescription()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the content description text using given encoding. The description  language and encoding must be that of the actual text.</dd>
+							<dt><b>setDescription</b></dt>
+				<dd>in file COMM.php, method <a href="php-reader/ID3/ID3_Frame_COMM.html#methodsetDescription">ID3_Frame_COMM::setDescription()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the content description text using given encoding. The description  language and encoding must be that of the actual text.</dd>
+							<dt><b>setDescription</b></dt>
+				<dd>in file WXXX.php, method <a href="php-reader/ID3/ID3_Frame_WXXX.html#methodsetDescription">ID3_Frame_WXXX::setDescription()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the content description text using given encoding.</dd>
+							<dt><b>setDeviation</b></dt>
+				<dd>in file MLLT.php, method <a href="php-reader/ID3/ID3_Frame_MLLT.html#methodsetDeviation">ID3_Frame_MLLT::setDeviation()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the deviations array. The array must consist of arrays, each of which  having two values, the deviation in bytes, and the deviation in  milliseconds, respectively.</dd>
+							<dt><b>setDevice</b></dt>
+				<dd>in file EQU2.php, method <a href="php-reader/ID3/ID3_Frame_EQU2.html#methodsetDevice">ID3_Frame_EQU2::setDevice()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the device where the adjustments should apply.</dd>
+							<dt><b>setDevice</b></dt>
+				<dd>in file RVA2.php, method <a href="php-reader/ID3/ID3_Frame_RVA2.html#methodsetDevice">ID3_Frame_RVA2::setDevice()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the device where the adjustments should apply.</dd>
+							<dt><b>setEncoding</b></dt>
+				<dd>in file GEOB.php, method <a href="php-reader/ID3/ID3_Frame_GEOB.html#methodsetEncoding">ID3_Frame_GEOB::setEncoding()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the text encoding.</dd>
+							<dt><b>setEncoding</b></dt>
+				<dd>in file OWNE.php, method <a href="php-reader/ID3/ID3_Frame_OWNE.html#methodsetEncoding">ID3_Frame_OWNE::setEncoding()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the text encoding.</dd>
+							<dt><b>setEncoding</b></dt>
+				<dd>in file COMR.php, method <a href="php-reader/ID3/ID3_Frame_COMR.html#methodsetEncoding">ID3_Frame_COMR::setEncoding()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the text encoding.</dd>
+							<dt><b>setEncoding</b></dt>
+				<dd>in file USLT.php, method <a href="php-reader/ID3/ID3_Frame_USLT.html#methodsetEncoding">ID3_Frame_USLT::setEncoding()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the text encoding.</dd>
+							<dt><b>setEncoding</b></dt>
+				<dd>in file USER.php, method <a href="php-reader/ID3/ID3_Frame_USER.html#methodsetEncoding">ID3_Frame_USER::setEncoding()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the text encoding.</dd>
+							<dt><b>setEncoding</b></dt>
+				<dd>in file APIC.php, method <a href="php-reader/ID3/ID3_Frame_APIC.html#methodsetEncoding">ID3_Frame_APIC::setEncoding()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the text encoding.</dd>
+							<dt><b>setEncoding</b></dt>
+				<dd>in file WXXX.php, method <a href="php-reader/ID3/ID3_Frame_WXXX.html#methodsetEncoding">ID3_Frame_WXXX::setEncoding()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the text encoding.</dd>
+							<dt><b>setEncoding</b></dt>
+				<dd>in file Encoding.php, method <a href="php-reader/ID3/ID3_Encoding.html#methodsetEncoding">ID3_Encoding::setEncoding()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the text encoding.</dd>
+							<dt><b>setEncoding</b></dt>
+				<dd>in file SYLT.php, method <a href="php-reader/ID3/ID3_Frame_SYLT.html#methodsetEncoding">ID3_Frame_SYLT::setEncoding()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the text encoding.</dd>
+							<dt><b>setEncoding</b></dt>
+				<dd>in file COMM.php, method <a href="php-reader/ID3/ID3_Frame_COMM.html#methodsetEncoding">ID3_Frame_COMM::setEncoding()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the text encoding.</dd>
+							<dt><b>setEncoding</b></dt>
+				<dd>in file AbstractText.php, method <a href="php-reader/ID3/ID3_Frame_AbstractText.html#methodsetEncoding">ID3_Frame_AbstractText::setEncoding()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the text encoding.</dd>
+							<dt><b>setEncryptionInfo</b></dt>
+				<dd>in file AENC.php, method <a href="php-reader/ID3/ID3_Frame_AENC.html#methodsetEncryptionInfo">ID3_Frame_AENC::setEncryptionInfo()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the encryption info binary string.</dd>
+							<dt><b>setEvents</b></dt>
+				<dd>in file ETCO.php, method <a href="php-reader/ID3/ID3_Frame_ETCO.html#methodsetEvents">ID3_Frame_ETCO::setEvents()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the events using given format. The value must be an associated array  having the timestamps as keys and the event types as values.</dd>
+							<dt><b>setExtendedHeader</b></dt>
+				<dd>in file ID3v2.php, method <a href="php-reader/ID3/ID3v2.html#methodsetExtendedHeader">ID3v2::setExtendedHeader()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the extended header object.</dd>
+							<dt><b>setFilename</b></dt>
+				<dd>in file GEOB.php, method <a href="php-reader/ID3/ID3_Frame_GEOB.html#methodsetFilename">ID3_Frame_GEOB::setFilename()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the file name using given encoding. The file name encoding must be  that of the description text.</dd>
+							<dt><b>setFlags</b></dt>
+				<dd>in file Frame.php, method <a href="php-reader/ID3/ID3_Frame.html#methodsetFlags">ID3_Frame::setFlags()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the frame flags byte.</dd>
+							<dt><b>setFlags</b></dt>
+				<dd>in file RBUF.php, method <a href="php-reader/ID3/ID3_Frame_RBUF.html#methodsetFlags">ID3_Frame_RBUF::setFlags()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the flags byte.</dd>
+							<dt><b>setFlags</b></dt>
+				<dd>in file ExtendedHeader.php, method <a href="php-reader/ID3/ID3_ExtendedHeader.html#methodsetFlags">ID3_ExtendedHeader::setFlags()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the flags byte.</dd>
+							<dt><b>setFlags</b></dt>
+				<dd>in file Header.php, method <a href="php-reader/ID3/ID3_Header.html#methodsetFlags">ID3_Header::setFlags()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the flags byte.</dd>
+							<dt><b>setFooter</b></dt>
+				<dd>in file ID3v2.php, method <a href="php-reader/ID3/ID3v2.html#methodsetFooter">ID3v2::setFooter()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets whether the tag should have a footer defined.</dd>
+							<dt><b>setFormat</b></dt>
+				<dd>in file POSS.php, method <a href="php-reader/ID3/ID3_Frame_POSS.html#methodsetFormat">ID3_Frame_POSS::setFormat()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the timing format.</dd>
+							<dt><b>setFormat</b></dt>
+				<dd>in file Timing.php, method <a href="php-reader/ID3/ID3_Timing.html#methodsetFormat">ID3_Timing::setFormat()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the timing format.</dd>
+							<dt><b>setFormat</b></dt>
+				<dd>in file ETCO.php, method <a href="php-reader/ID3/ID3_Frame_ETCO.html#methodsetFormat">ID3_Frame_ETCO::setFormat()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the timing format.</dd>
+							<dt><b>setFormat</b></dt>
+				<dd>in file SYTC.php, method <a href="php-reader/ID3/ID3_Frame_SYTC.html#methodsetFormat">ID3_Frame_SYTC::setFormat()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the timing format.</dd>
+							<dt><b>setFormat</b></dt>
+				<dd>in file SYLT.php, method <a href="php-reader/ID3/ID3_Frame_SYLT.html#methodsetFormat">ID3_Frame_SYLT::setFormat()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the timing format.</dd>
+							<dt><b>setFrames</b></dt>
+				<dd>in file MLLT.php, method <a href="php-reader/ID3/ID3_Frame_MLLT.html#methodsetFrames">ID3_Frame_MLLT::setFrames()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the number of MPEG frames between reference.</dd>
+							<dt><b>setGenre</b></dt>
+				<dd>in file ID3v1.php, method <a href="php-reader/ID3/ID3v1.html#methodsetGenre">ID3v1::setGenre()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets a new value for the genre field. The value may either be a numerical  code representing one of the genres, or its string variant.</dd>
+							<dt><b>setGroup</b></dt>
+				<dd>in file GRID.php, method <a href="php-reader/ID3/ID3_Frame_GRID.html#methodsetGroup">ID3_Frame_GRID::setGroup()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the group symbol.</dd>
+							<dt><b>setGroup</b></dt>
+				<dd>in file SIGN.php, method <a href="php-reader/ID3/ID3_Frame_SIGN.html#methodsetGroup">ID3_Frame_SIGN::setGroup()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the group symbol byte.</dd>
+							<dt><b>setIdentifier</b></dt>
+				<dd>in file Frame.php, method <a href="php-reader/ID3/ID3_Frame.html#methodsetIdentifier">ID3_Frame::setIdentifier()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the frame identifier.</dd>
+							<dt><b>setIdentifier</b></dt>
+				<dd>in file PRIV.php, method <a href="php-reader/ID3/ID3_Frame_PRIV.html#methodsetIdentifier">ID3_Frame_PRIV::setIdentifier()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the owner identifier string.</dd>
+							<dt><b>setIdentifier</b></dt>
+				<dd>in file ENCR.php, method <a href="php-reader/ID3/ID3_Frame_ENCR.html#methodsetIdentifier">ID3_Frame_ENCR::setIdentifier()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the owner identifier string.</dd>
+							<dt><b>setIdentifier</b></dt>
+				<dd>in file POPM.php, method <a href="php-reader/ID3/ID3_Frame_POPM.html#methodsetIdentifier">ID3_Frame_POPM::setIdentifier()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the user identifier string.</dd>
+							<dt><b>setIdentifier</b></dt>
+				<dd>in file AENC.php, method <a href="php-reader/ID3/ID3_Frame_AENC.html#methodsetIdentifier">ID3_Frame_AENC::setIdentifier()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the owner identifier string.</dd>
+							<dt><b>setIdentifier</b></dt>
+				<dd>in file GRID.php, method <a href="php-reader/ID3/ID3_Frame_GRID.html#methodsetIdentifier">ID3_Frame_GRID::setIdentifier()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the owner identifier string.</dd>
+							<dt><b>setImageType</b></dt>
+				<dd>in file APIC.php, method <a href="php-reader/ID3/ID3_Frame_APIC.html#methodsetImageType">ID3_Frame_APIC::setImageType()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the image type code.</dd>
+							<dt><b>setInterpolation</b></dt>
+				<dd>in file EQU2.php, method <a href="php-reader/ID3/ID3_Frame_EQU2.html#methodsetInterpolation">ID3_Frame_EQU2::setInterpolation()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the interpolation method. The interpolation method describes which  method is preferred when an interpolation between the adjustment point that  follows.</dd>
+							<dt><b>setLanguage</b></dt>
+				<dd>in file SYLT.php, method <a href="php-reader/ID3/ID3_Frame_SYLT.html#methodsetLanguage">ID3_Frame_SYLT::setLanguage()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the text language code as specified in the  <a href="http://www.loc.gov/standards/iso639-2/">ISO-639-2</a> standard.</dd>
+							<dt><b>setLanguage</b></dt>
+				<dd>in file Language.php, method <a href="php-reader/ID3/ID3_Language.html#methodsetLanguage">ID3_Language::setLanguage()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the text language code.</dd>
+							<dt><b>setLanguage</b></dt>
+				<dd>in file USER.php, method <a href="php-reader/ID3/ID3_Frame_USER.html#methodsetLanguage">ID3_Frame_USER::setLanguage()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the text language code as specified in the  <a href="http://www.loc.gov/standards/iso639-2/">ISO-639-2</a> standard.</dd>
+							<dt><b>setLanguage</b></dt>
+				<dd>in file COMM.php, method <a href="php-reader/ID3/ID3_Frame_COMM.html#methodsetLanguage">ID3_Frame_COMM::setLanguage()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the text language code as specified in the  <a href="http://www.loc.gov/standards/iso639-2/">ISO-639-2</a> standard.</dd>
+							<dt><b>setLanguage</b></dt>
+				<dd>in file USLT.php, method <a href="php-reader/ID3/ID3_Frame_USLT.html#methodsetLanguage">ID3_Frame_USLT::setLanguage()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the text language code as specified in the  <a href="http://www.loc.gov/standards/iso639-2/">ISO-639-2</a> standard.</dd>
+							<dt><b>setLink</b></dt>
+				<dd>in file AbstractLink.php, method <a href="php-reader/ID3/ID3_Frame_AbstractLink.html#methodsetLink">ID3_Frame_AbstractLink::setLink()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the link. The link encoding is always ISO-8859-1.</dd>
+							<dt><b>setMethod</b></dt>
+				<dd>in file ENCR.php, method <a href="php-reader/ID3/ID3_Frame_ENCR.html#methodsetMethod">ID3_Frame_ENCR::setMethod()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the method symbol.</dd>
+							<dt><b>setMilliseconds</b></dt>
+				<dd>in file MLLT.php, method <a href="php-reader/ID3/ID3_Frame_MLLT.html#methodsetMilliseconds">ID3_Frame_MLLT::setMilliseconds()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the number of milliseconds between references.</dd>
+							<dt><b>setMimeType</b></dt>
+				<dd>in file COMR.php, method <a href="php-reader/ID3/ID3_Frame_COMR.html#methodsetMimeType">ID3_Frame_COMR::setMimeType()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the MIME type. Currently only &quot;image/png&quot; and &quot;image/jpeg&quot; are  allowed. The MIME type is always ISO-8859-1 encoded.</dd>
+							<dt><b>setMimeType</b></dt>
+				<dd>in file GEOB.php, method <a href="php-reader/ID3/ID3_Frame_GEOB.html#methodsetMimeType">ID3_Frame_GEOB::setMimeType()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the MIME type. The MIME type is always ISO-8859-1 encoded.</dd>
+							<dt><b>setMimeType</b></dt>
+				<dd>in file APIC.php, method <a href="php-reader/ID3/ID3_Frame_APIC.html#methodsetMimeType">ID3_Frame_APIC::setMimeType()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the MIME type. The MIME type is always ISO-8859-1 encoded.</dd>
+							<dt><b>setMinimumOffset</b></dt>
+				<dd>in file SEEK.php, method <a href="php-reader/ID3/ID3_Frame_SEEK.html#methodsetMinimumOffset">ID3_Frame_SEEK::setMinimumOffset()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the minimum offset to next tag in bytes.</dd>
+							<dt><b>setOffset</b></dt>
+				<dd>in file RBUF.php, method <a href="php-reader/ID3/ID3_Frame_RBUF.html#methodsetOffset">ID3_Frame_RBUF::setOffset()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the offset to next tag.</dd>
+							<dt><b>setPosition</b></dt>
+				<dd>in file POSS.php, method <a href="php-reader/ID3/ID3_Frame_POSS.html#methodsetPosition">ID3_Frame_POSS::setPosition()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the position where in the audio the listener starts to receive,  i.e. the beginning of the next frame, using given format.</dd>
+							<dt><b>setPremixLtoR</b></dt>
+				<dd>in file RVRB.php, method <a href="php-reader/ID3/ID3_Frame_RVRB.html#methodsetPremixLtoR">ID3_Frame_RVRB::setPremixLtoR()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the left-to-right premix.</dd>
+							<dt><b>setPremixRtoL</b></dt>
+				<dd>in file RVRB.php, method <a href="php-reader/ID3/ID3_Frame_RVRB.html#methodsetPremixRtoL">ID3_Frame_RVRB::setPremixRtoL()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the right-to-left premix.</dd>
+							<dt><b>setPreviewLength</b></dt>
+				<dd>in file AENC.php, method <a href="php-reader/ID3/ID3_Frame_AENC.html#methodsetPreviewLength">ID3_Frame_AENC::setPreviewLength()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the length of the preview in frames.</dd>
+							<dt><b>setPreviewStart</b></dt>
+				<dd>in file AENC.php, method <a href="php-reader/ID3/ID3_Frame_AENC.html#methodsetPreviewStart">ID3_Frame_AENC::setPreviewStart()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the pointer to an unencrypted part of the audio in frames.</dd>
+							<dt><b>setPrice</b></dt>
+				<dd>in file COMR.php, method <a href="php-reader/ID3/ID3_Frame_COMR.html#methodsetPrice">ID3_Frame_COMR::setPrice()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the price. The price must use &quot;.&quot; as the decimal separator and have  multiple values be separated by a &quot;/&quot; character.</dd>
+							<dt><b>setPrice</b></dt>
+				<dd>in file OWNE.php, method <a href="php-reader/ID3/ID3_Frame_OWNE.html#methodsetPrice">ID3_Frame_OWNE::setPrice()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the price.</dd>
+							<dt><b>setQualifier</b></dt>
+				<dd>in file LINK.php, method <a href="php-reader/ID3/ID3_Frame_LINK.html#methodsetQualifier">ID3_Frame_LINK::setQualifier()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the additional data to be used in tag identification.</dd>
+							<dt><b>setRating</b></dt>
+				<dd>in file POPM.php, method <a href="php-reader/ID3/ID3_Frame_POPM.html#methodsetRating">ID3_Frame_POPM::setRating()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the user rating.</dd>
+							<dt><b>setRestrictions</b></dt>
+				<dd>in file ExtendedHeader.php, method <a href="php-reader/ID3/ID3_ExtendedHeader.html#methodsetRestrictions">ID3_ExtendedHeader::setRestrictions()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the restrictions byte. See #getRestrictions for more.</dd>
+							<dt><b>setReverbBouncesLeft</b></dt>
+				<dd>in file RVRB.php, method <a href="php-reader/ID3/ID3_Frame_RVRB.html#methodsetReverbBouncesLeft">ID3_Frame_RVRB::setReverbBouncesLeft()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the left reverb bounces.</dd>
+							<dt><b>setReverbBouncesRight</b></dt>
+				<dd>in file RVRB.php, method <a href="php-reader/ID3/ID3_Frame_RVRB.html#methodsetReverbBouncesRight">ID3_Frame_RVRB::setReverbBouncesRight()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the right reverb bounces.</dd>
+							<dt><b>setReverbFeedbackLtoL</b></dt>
+				<dd>in file RVRB.php, method <a href="php-reader/ID3/ID3_Frame_RVRB.html#methodsetReverbFeedbackLtoL">ID3_Frame_RVRB::setReverbFeedbackLtoL()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the left-to-left reverb feedback.</dd>
+							<dt><b>setReverbFeedbackLtoR</b></dt>
+				<dd>in file RVRB.php, method <a href="php-reader/ID3/ID3_Frame_RVRB.html#methodsetReverbFeedbackLtoR">ID3_Frame_RVRB::setReverbFeedbackLtoR()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the left-to-right reverb feedback.</dd>
+							<dt><b>setReverbFeedbackRtoL</b></dt>
+				<dd>in file RVRB.php, method <a href="php-reader/ID3/ID3_Frame_RVRB.html#methodsetReverbFeedbackRtoL">ID3_Frame_RVRB::setReverbFeedbackRtoL()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the right-to-left reverb feedback.</dd>
+							<dt><b>setReverbFeedbackRtoR</b></dt>
+				<dd>in file RVRB.php, method <a href="php-reader/ID3/ID3_Frame_RVRB.html#methodsetReverbFeedbackRtoR">ID3_Frame_RVRB::setReverbFeedbackRtoR()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the right-to-right reverb feedback.</dd>
+							<dt><b>setReverbLeft</b></dt>
+				<dd>in file RVRB.php, method <a href="php-reader/ID3/ID3_Frame_RVRB.html#methodsetReverbLeft">ID3_Frame_RVRB::setReverbLeft()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the left reverb.</dd>
+							<dt><b>setReverbRight</b></dt>
+				<dd>in file RVRB.php, method <a href="php-reader/ID3/ID3_Frame_RVRB.html#methodsetReverbRight">ID3_Frame_RVRB::setReverbRight()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the right reverb.</dd>
+							<dt><b>setSeller</b></dt>
+				<dd>in file OWNE.php, method <a href="php-reader/ID3/ID3_Frame_OWNE.html#methodsetSeller">ID3_Frame_OWNE::setSeller()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the name of the seller using given encoding.</dd>
+							<dt><b>setSeller</b></dt>
+				<dd>in file COMR.php, method <a href="php-reader/ID3/ID3_Frame_COMR.html#methodsetSeller">ID3_Frame_COMR::setSeller()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the name of the seller using given encoding. The seller text encoding  must be that of the description text.</dd>
+							<dt><b>setSignature</b></dt>
+				<dd>in file SIGN.php, method <a href="php-reader/ID3/ID3_Frame_SIGN.html#methodsetSignature">ID3_Frame_SIGN::setSignature()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the signature binary data.</dd>
+							<dt><b>setSize</b></dt>
+				<dd>in file RBUF.php, method <a href="php-reader/ID3/ID3_Frame_RBUF.html#methodsetSize">ID3_Frame_RBUF::setSize()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the buffer size.</dd>
+							<dt><b>setSize</b></dt>
+				<dd>in file Header.php, method <a href="php-reader/ID3/ID3_Header.html#methodsetSize">ID3_Header::setSize()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the tag size, excluding the header and the footer. Called  automatically upon tag generation to adjust the tag size.</dd>
+							<dt><b>setTarget</b></dt>
+				<dd>in file LINK.php, method <a href="php-reader/ID3/ID3_Frame_LINK.html#methodsetTarget">ID3_Frame_LINK::setTarget()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the target tag identifier.</dd>
+							<dt><b>setText</b></dt>
+				<dd>in file USER.php, method <a href="php-reader/ID3/ID3_Frame_USER.html#methodsetText">ID3_Frame_USER::setText()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the text using given language and encoding.</dd>
+							<dt><b>setText</b></dt>
+				<dd>in file AbstractText.php, method <a href="php-reader/ID3/ID3_Frame_AbstractText.html#methodsetText">ID3_Frame_AbstractText::setText()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the text using given encoding.</dd>
+							<dt><b>setText</b></dt>
+				<dd>in file SYLT.php, method <a href="php-reader/ID3/ID3_Frame_SYLT.html#methodsetText">ID3_Frame_SYLT::setText()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the text using given encoding. The text language and encoding must be  that of the description text.</dd>
+							<dt><b>setText</b></dt>
+				<dd>in file COMM.php, method <a href="php-reader/ID3/ID3_Frame_COMM.html#methodsetText">ID3_Frame_COMM::setText()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the text using given encoding. The text language and encoding must be  that of the description text.</dd>
+							<dt><b>setText</b></dt>
+				<dd>in file USLT.php, method <a href="php-reader/ID3/ID3_Frame_USLT.html#methodsetText">ID3_Frame_USLT::setText()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the text using given encoding. The text language and encoding must be  that of the description text.</dd>
+							<dt><b>setTitle</b></dt>
+				<dd>in file ID3v1.php, method <a href="php-reader/ID3/ID3v1.html#methodsetTitle">ID3v1::setTitle()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets a new value for the title field. The field cannot exceed 30  characters in length.</dd>
+							<dt><b>setTrack</b></dt>
+				<dd>in file ID3v1.php, method <a href="php-reader/ID3/ID3v1.html#methodsetTrack">ID3v1::setTrack()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets a new value for the track field. By setting this field you enforce the  1.1 version to be used.</dd>
+							<dt><b>setType</b></dt>
+				<dd>in file SYLT.php, method <a href="php-reader/ID3/ID3_Frame_SYLT.html#methodsetType">ID3_Frame_SYLT::setType()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the content type code.</dd>
+							<dt><b>setUrl</b></dt>
+				<dd>in file LINK.php, method <a href="php-reader/ID3/ID3_Frame_LINK.html#methodsetUrl">ID3_Frame_LINK::setUrl()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the target tag URL.</dd>
+							<dt><b>setYear</b></dt>
+				<dd>in file ID3v1.php, method <a href="php-reader/ID3/ID3v1.html#methodsetYear">ID3v1::setYear()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets a new value for the year field. The field cannot exceed 4  characters in length.</dd>
 					</dl>
 	</div>
 	<a href="elementindex_php-reader.html#top">top</a><br>
@@ -1317,20 +1656,52 @@
 	<div>
 		<h2>t</h2>
 		<dl>
+							<dt><b>toGUID</b></dt>
+				<dd>in file Transform.php, method <a href="php-reader/Transform.html#methodtoGUID">Transform::toGUID()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns big-endian ordered hexadecimal GUID string as little-endian ordered  binary data string.</dd>
+							<dt><b>toHHex</b></dt>
+				<dd>in file Transform.php, method <a href="php-reader/Transform.html#methodtoHHex">Transform::toHHex()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns hexadecimal string having high nibble first as binary data.</dd>
+							<dt><b>toInt8</b></dt>
+				<dd>in file Transform.php, method <a href="php-reader/Transform.html#methodtoInt8">Transform::toInt8()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns binary data as 8-bit integer.</dd>
+							<dt><b>toInt16</b></dt>
+				<dd>in file Transform.php, method <a href="php-reader/Transform.html#methodtoInt16">Transform::toInt16()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns signed 16-bit integer as machine endian ordered binary data.</dd>
+							<dt><b>toInt32</b></dt>
+				<dd>in file Transform.php, method <a href="php-reader/Transform.html#methodtoInt32">Transform::toInt32()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns signed 32-bit integer as machine-endian ordered binary data.</dd>
+							<dt><b>toInt64BE</b></dt>
+				<dd>in file Transform.php, method <a href="php-reader/Transform.html#methodtoInt64BE">Transform::toInt64BE()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns 64-bit float as big-endian ordered binary data string.</dd>
+							<dt><b>toInt64LE</b></dt>
+				<dd>in file Transform.php, method <a href="php-reader/Transform.html#methodtoInt64LE">Transform::toInt64LE()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns 64-bit float as little-endian ordered binary data string.</dd>
+							<dt><b>toLHex</b></dt>
+				<dd>in file Transform.php, method <a href="php-reader/Transform.html#methodtoLHex">Transform::toLHex()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns hexadecimal string having low nibble first as binary data.</dd>
+							<dt><b>toString8</b></dt>
+				<dd>in file Transform.php, method <a href="php-reader/Transform.html#methodtoString8">Transform::toString8()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns string as binary data padded to given length with zeros.</dd>
+							<dt><b>toString16</b></dt>
+				<dd>in file Transform.php, method <a href="php-reader/Transform.html#methodtoString16">Transform::toString16()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns machine-ordered multibyte string as machine-endian ordered binary  data</dd>
+							<dt><b>toString16BE</b></dt>
+				<dd>in file Transform.php, method <a href="php-reader/Transform.html#methodtoString16BE">Transform::toString16BE()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns machine ordered multibyte string as big-endian ordered binary data.</dd>
+							<dt><b>toString16LE</b></dt>
+				<dd>in file Transform.php, method <a href="php-reader/Transform.html#methodtoString16LE">Transform::toString16LE()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns machine-ordered multibyte string as little-endian ordered binary  data.</dd>
+							<dt><b>toUInt16BE</b></dt>
+				<dd>in file Transform.php, method <a href="php-reader/Transform.html#methodtoUInt16BE">Transform::toUInt16BE()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns unsigned 16-bit integer as big-endian ordered binary data.</dd>
+							<dt><b>toUInt16LE</b></dt>
+				<dd>in file Transform.php, method <a href="php-reader/Transform.html#methodtoUInt16LE">Transform::toUInt16LE()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns unsigned 16-bit integer as little-endian ordered binary data.</dd>
+							<dt><b>toUInt32BE</b></dt>
+				<dd>in file Transform.php, method <a href="php-reader/Transform.html#methodtoUInt32BE">Transform::toUInt32BE()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns unsigned 32-bit integer as big-endian ordered binary data.</dd>
+							<dt><b>toUInt32LE</b></dt>
+				<dd>in file Transform.php, method <a href="php-reader/Transform.html#methodtoUInt32LE">Transform::toUInt32LE()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns unsigned 32-bit integer as little-endian ordered binary data.</dd>
 							<dt><b>Transform</b></dt>
 				<dd>in file Transform.php, class <a href="php-reader/Transform.html">Transform</a><br>&nbsp;&nbsp;&nbsp;&nbsp;An utility class to perform simple byte transformations on data.</dd>
 							<dt><b>Transform.php</b></dt>
 				<dd>procedural page <a href="php-reader/_Transform.php.html">Transform.php</a></dd>
 							<dt><b>$types</b></dt>
-				<dd>in file SYLT.php, variable <a href="php-reader/ID3/ID3_Frame_USER.html#var$types">ID3_Frame_USER::$types</a><br>&nbsp;&nbsp;&nbsp;&nbsp;The list of content types.</dd>
+				<dd>in file SYLT.php, variable <a href="php-reader/ID3/ID3_Frame_SYLT.html#var$types">ID3_Frame_SYLT::$types</a><br>&nbsp;&nbsp;&nbsp;&nbsp;The list of content types.</dd>
+							<dt><b>$types</b></dt>
+				<dd>in file APIC.php, variable <a href="php-reader/ID3/ID3_Frame_APIC.html#var$types">ID3_Frame_APIC::$types</a><br>&nbsp;&nbsp;&nbsp;&nbsp;The list of image types.</dd>
 							<dt><b>$types</b></dt>
 				<dd>in file RVA2.php, variable <a href="php-reader/ID3/ID3_Frame_RVA2.html#var$types">ID3_Frame_RVA2::$types</a><br>&nbsp;&nbsp;&nbsp;&nbsp;The list of channel types.</dd>
 							<dt><b>$types</b></dt>
 				<dd>in file ETCO.php, variable <a href="php-reader/ID3/ID3_Frame_ETCO.html#var$types">ID3_Frame_ETCO::$types</a><br>&nbsp;&nbsp;&nbsp;&nbsp;The list of event types.</dd>
 							<dt><b>$types</b></dt>
 				<dd>in file COMR.php, variable <a href="php-reader/ID3/ID3_Frame_COMR.html#var$types">ID3_Frame_COMR::$types</a><br>&nbsp;&nbsp;&nbsp;&nbsp;The delivery types.</dd>
-							<dt><b>$types</b></dt>
-				<dd>in file APIC.php, variable <a href="php-reader/ID3/ID3_Frame_APIC.html#var$types">ID3_Frame_APIC::$types</a><br>&nbsp;&nbsp;&nbsp;&nbsp;The list of image types.</dd>
 							<dt><b>TALB.php</b></dt>
 				<dd>procedural page <a href="php-reader/ID3/_ID3---Frame---TALB.php.html">TALB.php</a></dd>
 							<dt><b>TBPM.php</b></dt>
@@ -1425,6 +1796,8 @@
 				<dd>procedural page <a href="php-reader/ID3/_ID3---Frame---TXXX.php.html">TXXX.php</a></dd>
 							<dt><b>Timing.php</b></dt>
 				<dd>procedural page <a href="php-reader/ID3/_ID3---Timing.php.html">Timing.php</a></dd>
+							<dt><b>toString</b></dt>
+				<dd>in file ExtendedHeader.php, method <a href="php-reader/ID3/ID3_ExtendedHeader.html#methodtoString">ID3_ExtendedHeader::toString()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the header raw data.</dd>
 					</dl>
 	</div>
 	<a href="elementindex_php-reader.html#top">top</a><br>
@@ -1443,12 +1816,16 @@
 				<dd>in file Frame.php, class constant <a href="php-reader/ID3/ID3_Frame.html#constUNSYNCHRONISATION">ID3_Frame::UNSYNCHRONISATION</a><br>&nbsp;&nbsp;&nbsp;&nbsp;This flag indicates whether or not unsynchronisation was applied to this  frame.</dd>
 							<dt><b>UPDATE</b></dt>
 				<dd>in file ExtendedHeader.php, class constant <a href="php-reader/ID3/ID3_ExtendedHeader.html#constUPDATE">ID3_ExtendedHeader::UPDATE</a><br>&nbsp;&nbsp;&nbsp;&nbsp;A flag to denote that the present tag is an update of a tag found earlier  in the present file or stream. If frames defined as unique are found in  the present tag, they are to override any corresponding ones found in the  earlier tag. This flag has no corresponding data.</dd>
+							<dt><b>useCrc</b></dt>
+				<dd>in file ExtendedHeader.php, method <a href="php-reader/ID3/ID3_ExtendedHeader.html#methoduseCrc">ID3_ExtendedHeader::useCrc()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets whether the CRC-32 should be generated upon tag write.</dd>
 							<dt><b>UTF8</b></dt>
 				<dd>in file Encoding.php, class constant <a href="php-reader/ID3/ID3_Encoding.html#constUTF8">ID3_Encoding::UTF8</a><br>&nbsp;&nbsp;&nbsp;&nbsp;The UTF-8 Unicode encoding.</dd>
 							<dt><b>UTF16</b></dt>
 				<dd>in file Encoding.php, class constant <a href="php-reader/ID3/ID3_Encoding.html#constUTF16">ID3_Encoding::UTF16</a><br>&nbsp;&nbsp;&nbsp;&nbsp;The UTF-16 Unicode encoding with BOM.</dd>
 							<dt><b>UTF16BE</b></dt>
 				<dd>in file Encoding.php, class constant <a href="php-reader/ID3/ID3_Encoding.html#constUTF16BE">ID3_Encoding::UTF16BE</a><br>&nbsp;&nbsp;&nbsp;&nbsp;The UTF-16BE Unicode encoding without BOM.</dd>
+							<dt><b>UTF16LE</b></dt>
+				<dd>in file Encoding.php, class constant <a href="php-reader/ID3/ID3_Encoding.html#constUTF16LE">ID3_Encoding::UTF16LE</a><br>&nbsp;&nbsp;&nbsp;&nbsp;The UTF-16 Unicode encoding with BOM.</dd>
 					</dl>
 	</div>
 	<a href="elementindex_php-reader.html#top">top</a><br>
@@ -1475,12 +1852,16 @@
 				<dd>procedural page <a href="php-reader/ID3/_ID3---Frame---WPUB.php.html">WPUB.php</a></dd>
 							<dt><b>WXXX.php</b></dt>
 				<dd>procedural page <a href="php-reader/ID3/_ID3---Frame---WXXX.php.html">WXXX.php</a></dd>
+							<dt><b>write</b></dt>
+				<dd>in file ID3v1.php, method <a href="php-reader/ID3/ID3v1.html#methodwrite">ID3v1::write()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Writes the possibly altered ID3v1 tag back to the file where it was read.</dd>
+							<dt><b>write</b></dt>
+				<dd>in file ID3v2.php, method <a href="php-reader/ID3/ID3v2.html#methodwrite">ID3v2::write()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Writes the possibly altered ID3v2 tag back to the file where it was read.</dd>
 					</dl>
 	</div>
 	<a href="elementindex_php-reader.html#top">top</a><br>
         <div class="credit">
 		    <hr />
-		    Documentation generated on Mon, 17 Mar 2008 15:35:20 +0200 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.1</a>
+		    Documentation generated on Wed, 02 Apr 2008 18:34:53 +0300 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.1</a>
 	      </div>
       </td></tr></table>
     </td>

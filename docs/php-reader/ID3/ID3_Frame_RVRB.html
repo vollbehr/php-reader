@@ -285,6 +285,7 @@
 	    &nbsp;&nbsp;		<a href="../../php-reader/ID3/ID3_Frame_RVRB.html">ID3_Frame_RVRB</a><br />
 	    &nbsp;&nbsp;		<a href="../../php-reader/ID3/ID3_Frame_SEEK.html">ID3_Frame_SEEK</a><br />
 	    &nbsp;&nbsp;		<a href="../../php-reader/ID3/ID3_Frame_SIGN.html">ID3_Frame_SIGN</a><br />
+	    &nbsp;&nbsp;		<a href="../../php-reader/ID3/ID3_Frame_SYLT.html">ID3_Frame_SYLT</a><br />
 	    &nbsp;&nbsp;		<a href="../../php-reader/ID3/ID3_Frame_SYTC.html">ID3_Frame_SYTC</a><br />
 	    &nbsp;&nbsp;		<a href="../../php-reader/ID3/ID3_Frame_TALB.html">ID3_Frame_TALB</a><br />
 	    &nbsp;&nbsp;		<a href="../../php-reader/ID3/ID3_Frame_TBPM.html">ID3_Frame_TBPM</a><br />
@@ -378,7 +379,7 @@ Source Location: /ID3/Frame/RVRB.php<br /><br />
 <div class="description">The <em>Reverb</em> is yet another subjective frame, with which you can adjust</div><br /><br />
 <h4>Author(s):</h4>
 <ul>
-          <li>Sven Vollbehr &lt;<a href="mailto:sven.vollbehr@behrss.eu">sven.vollbehr@behrss.eu</a>&gt;</li>
+          <li>Sven Vollbehr &lt;<a href="mailto:svollbehr@gmail.com">svollbehr@gmail.com</a>&gt;</li>
                         </ul>
 
 
@@ -389,12 +390,12 @@ Source Location: /ID3/Frame/RVRB.php<br /><br />
       
 <h4>Version:</h4>
 <ul>
-  <li>$Rev: 11 $</li>
+  <li>$Rev: 65 $</li>
 </ul>
 
 <h4>Copyright:</h4>
 <ul>
-  <li>Copyright (c) 2008 BEHR Software Systems</li>
+  <li>Copyright (c) 2008 The PHP Reader Project Workgroup</li>
 </ul>
         
 </td>
@@ -415,6 +416,17 @@ Source Location: /ID3/Frame/RVRB.php<br /><br />
     <li><a href="../../php-reader/ID3/ID3_Frame_RVRB.html#methodgetReverbFeedbackRtoR">getReverbFeedbackRtoR</a></li>
     <li><a href="../../php-reader/ID3/ID3_Frame_RVRB.html#methodgetReverbLeft">getReverbLeft</a></li>
     <li><a href="../../php-reader/ID3/ID3_Frame_RVRB.html#methodgetReverbRight">getReverbRight</a></li>
+    <li><a href="../../php-reader/ID3/ID3_Frame_RVRB.html#methodsetPremixLtoR">setPremixLtoR</a></li>
+    <li><a href="../../php-reader/ID3/ID3_Frame_RVRB.html#methodsetPremixRtoL">setPremixRtoL</a></li>
+    <li><a href="../../php-reader/ID3/ID3_Frame_RVRB.html#methodsetReverbBouncesLeft">setReverbBouncesLeft</a></li>
+    <li><a href="../../php-reader/ID3/ID3_Frame_RVRB.html#methodsetReverbBouncesRight">setReverbBouncesRight</a></li>
+    <li><a href="../../php-reader/ID3/ID3_Frame_RVRB.html#methodsetReverbFeedbackLtoL">setReverbFeedbackLtoL</a></li>
+    <li><a href="../../php-reader/ID3/ID3_Frame_RVRB.html#methodsetReverbFeedbackLtoR">setReverbFeedbackLtoR</a></li>
+    <li><a href="../../php-reader/ID3/ID3_Frame_RVRB.html#methodsetReverbFeedbackRtoL">setReverbFeedbackRtoL</a></li>
+    <li><a href="../../php-reader/ID3/ID3_Frame_RVRB.html#methodsetReverbFeedbackRtoR">setReverbFeedbackRtoR</a></li>
+    <li><a href="../../php-reader/ID3/ID3_Frame_RVRB.html#methodsetReverbLeft">setReverbLeft</a></li>
+    <li><a href="../../php-reader/ID3/ID3_Frame_RVRB.html#methodsetReverbRight">setReverbRight</a></li>
+    <li><a href="../../php-reader/ID3/ID3_Frame_RVRB.html#method__toString">__toString</a></li>
   </ul>
 </td>
 
@@ -499,6 +511,12 @@ Source Location: /ID3/Frame/RVRB.php<br /><br />
 <h4>Class: <a href="../../php-reader/ID3/ID3_Object.html">ID3_Object</a></h4>
 <dl>
 <dt>
+  <a href="../../php-reader/ID3/ID3_Object.html#var$_options">ID3_Object::$_options</a>
+  </dt>
+<dd>
+   
+</dd>
+<dt>
   <a href="../../php-reader/ID3/ID3_Object.html#var$_reader">ID3_Object::$_reader</a>
   </dt>
 <dd>
@@ -520,6 +538,12 @@ Source Location: /ID3/Frame/RVRB.php<br /><br />
     Constructs the class with given parameters and reads object related data  from the ID3v2 tag.
   </dd>
     <dt>
+    <a href="../../php-reader/ID3/ID3_Frame.html#methodgetFlags">ID3_Frame::getFlags()</a>
+  </dt>
+  <dd>
+    Returns the frame flags byte.
+  </dd>
+    <dt>
     <a href="../../php-reader/ID3/ID3_Frame.html#methodgetIdentifier">ID3_Frame::getIdentifier()</a>
   </dt>
   <dd>
@@ -536,6 +560,30 @@ Source Location: /ID3/Frame/RVRB.php<br /><br />
   </dt>
   <dd>
     Checks whether or not the flag is set. Returns <var>true</var> if the flag  is set, <var>false</var> otherwise.
+  </dd>
+    <dt>
+    <a href="../../php-reader/ID3/ID3_Frame.html#methodsetData">ID3_Frame::setData()</a>
+  </dt>
+  <dd>
+    Sets the frame raw data.
+  </dd>
+    <dt>
+    <a href="../../php-reader/ID3/ID3_Frame.html#methodsetFlags">ID3_Frame::setFlags()</a>
+  </dt>
+  <dd>
+    Sets the frame flags byte.
+  </dd>
+    <dt>
+    <a href="../../php-reader/ID3/ID3_Frame.html#methodsetIdentifier">ID3_Frame::setIdentifier()</a>
+  </dt>
+  <dd>
+    Sets the frame identifier.
+  </dd>
+    <dt>
+    <a href="../../php-reader/ID3/ID3_Frame.html#method__toString">ID3_Frame::__toString()</a>
+  </dt>
+  <dd>
+    Returns the frame raw data.
   </dd>
   </dl>
 <h4>Class: <a href="../../php-reader/ID3/ID3_Object.html">ID3_Object</a></h4>
@@ -558,6 +606,18 @@ Source Location: /ID3/Frame/RVRB.php<br /><br />
   <dd>
     Encodes the given 32-bit integer to 28-bit synchsafe integer, where the  most significant bit of each byte is zero, making seven bits out of eight  available.
   </dd>
+    <dt>
+    <a href="../../php-reader/ID3/ID3_Object.html#method__get">ID3_Object::__get()</a>
+  </dt>
+  <dd>
+    Magic function so that $obj-&gt;value will work.
+  </dd>
+    <dt>
+    <a href="../../php-reader/ID3/ID3_Object.html#method__set">ID3_Object::__set()</a>
+  </dt>
+  <dd>
+    Magic function so that assignments with $obj-&gt;value will work.
+  </dd>
   </dl>
 </div>
 </td>
@@ -568,22 +628,22 @@ Source Location: /ID3/Frame/RVRB.php<br /><br />
 <a name="class_details"></a>
 <h3>Class Details</h3>
 <div class="tags">
-[line 64]<br />
+[line 66]<br />
 The <em>Reverb</em> is yet another subjective frame, with which you can adjust<br /><br /><p>echoes of different kinds. Reverb left/right is the delay between every  bounce in milliseconds. Reverb bounces left/right is the number of bounces  that should be made. $FF equals an infinite number of bounces. Feedback is  the amount of volume that should be returned to the next echo bounce. $00 is  0%, $FF is 100%. If this value were $7F, there would be 50% volume reduction  on the first bounce, 50% of that on the second and so on. Left to left means  the sound from the left bounce to be played in the left speaker, while left  to right means sound from the left bounce to be played in the right speaker.</p><p>Premix left to right is the amount of left sound to be mixed in the right  before any reverb is applied, where $00 id 0% and $FF is 100%. Premix right  to left does the same thing, but right to left. Setting both premix to $FF  would result in a mono output (if the reverb is applied symmetric). There may  only be one RVRB frame in each tag.</p><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td><b>author:</b>&nbsp;&nbsp;</td><td>Sven Vollbehr &lt;<a href="mailto:sven.vollbehr@behrss.eu">sven.vollbehr@behrss.eu</a>&gt;</td>
+    <td><b>author:</b>&nbsp;&nbsp;</td><td>Sven Vollbehr &lt;<a href="mailto:svollbehr@gmail.com">svollbehr@gmail.com</a>&gt;</td>
   </tr>
   <tr>
-    <td><b>version:</b>&nbsp;&nbsp;</td><td>$Rev: 11 $</td>
+    <td><b>version:</b>&nbsp;&nbsp;</td><td>$Rev: 65 $</td>
   </tr>
   <tr>
-    <td><b>copyright:</b>&nbsp;&nbsp;</td><td>Copyright (c) 2008 BEHR Software Systems</td>
+    <td><b>copyright:</b>&nbsp;&nbsp;</td><td>Copyright (c) 2008 The PHP Reader Project Workgroup</td>
   </tr>
   <tr>
-    <td><b>license:</b>&nbsp;&nbsp;</td><td><a href="http://www.opensource.org/licenses/bsd-license.php">New BSD License</a></td>
+    <td><b>license:</b>&nbsp;&nbsp;</td><td><a href="http://code.google.com/p/php-reader/wiki/License">New BSD License</a></td>
   </tr>
 </table>
 </div>
@@ -598,13 +658,13 @@ The <em>Reverb</em> is yet another subjective frame, with which you can adjust<b
 
   <hr />
 	<a name="method__construct"></a>
-	<h3>constructor __construct <span class="smalllinenumber">[line 101]</span></h3>
+	<h3>constructor __construct <span class="smalllinenumber">[line 103]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
 		<code>ID3_Frame_RVRB __construct(
-<a href="../../php-reader/Reader.html">Reader</a>
-$reader)</code>
+[<a href="../../php-reader/Reader.html">Reader</a>
+$reader = null])</code>
     </td></tr></table>
     </td></tr></table><br />
 	
@@ -634,7 +694,7 @@ $reader)</code>
   </div>
   <hr />
 	<a name="methodgetPremixLtoR"></a>
-	<h3>method getPremixLtoR <span class="smalllinenumber">[line 190]</span></h3>
+	<h3>method getPremixLtoR <span class="smalllinenumber">[line 263]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -659,7 +719,7 @@ $reader)</code>
   </div>
   <hr />
 	<a name="methodgetPremixRtoL"></a>
-	<h3>method getPremixRtoL <span class="smalllinenumber">[line 200]</span></h3>
+	<h3>method getPremixRtoL <span class="smalllinenumber">[line 280]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -684,7 +744,7 @@ $reader)</code>
   </div>
   <hr />
 	<a name="methodgetReverbBouncesLeft"></a>
-	<h3>method getReverbBouncesLeft <span class="smalllinenumber">[line 136]</span></h3>
+	<h3>method getReverbBouncesLeft <span class="smalllinenumber">[line 161]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -709,7 +769,7 @@ $reader)</code>
   </div>
   <hr />
 	<a name="methodgetReverbBouncesRight"></a>
-	<h3>method getReverbBouncesRight <span class="smalllinenumber">[line 143]</span></h3>
+	<h3>method getReverbBouncesRight <span class="smalllinenumber">[line 178]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -734,7 +794,7 @@ $reader)</code>
   </div>
   <hr />
 	<a name="methodgetReverbFeedbackLtoL"></a>
-	<h3>method getReverbFeedbackLtoL <span class="smalllinenumber">[line 150]</span></h3>
+	<h3>method getReverbFeedbackLtoL <span class="smalllinenumber">[line 195]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -759,7 +819,7 @@ $reader)</code>
   </div>
   <hr />
 	<a name="methodgetReverbFeedbackLtoR"></a>
-	<h3>method getReverbFeedbackLtoR <span class="smalllinenumber">[line 160]</span></h3>
+	<h3>method getReverbFeedbackLtoR <span class="smalllinenumber">[line 212]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -784,7 +844,7 @@ $reader)</code>
   </div>
   <hr />
 	<a name="methodgetReverbFeedbackRtoL"></a>
-	<h3>method getReverbFeedbackRtoL <span class="smalllinenumber">[line 180]</span></h3>
+	<h3>method getReverbFeedbackRtoL <span class="smalllinenumber">[line 246]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -809,7 +869,7 @@ $reader)</code>
   </div>
   <hr />
 	<a name="methodgetReverbFeedbackRtoR"></a>
-	<h3>method getReverbFeedbackRtoR <span class="smalllinenumber">[line 170]</span></h3>
+	<h3>method getReverbFeedbackRtoR <span class="smalllinenumber">[line 229]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -834,7 +894,7 @@ $reader)</code>
   </div>
   <hr />
 	<a name="methodgetReverbLeft"></a>
-	<h3>method getReverbLeft <span class="smalllinenumber">[line 122]</span></h3>
+	<h3>method getReverbLeft <span class="smalllinenumber">[line 127]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -859,7 +919,7 @@ $reader)</code>
   </div>
   <hr />
 	<a name="methodgetReverbRight"></a>
-	<h3>method getReverbRight <span class="smalllinenumber">[line 129]</span></h3>
+	<h3>method getReverbRight <span class="smalllinenumber">[line 144]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -882,12 +942,397 @@ $reader)</code>
 	
         <div class="top">[ <a href="#top">Top</a> ]</div>
   </div>
+  <hr />
+	<a name="methodsetPremixLtoR"></a>
+	<h3>method setPremixLtoR <span class="smalllinenumber">[line 270]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void setPremixLtoR(
+integer
+$premixLtoR)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Sets the left-to-right premix.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">integer&nbsp;&nbsp;</td>
+        <td><b>$premixLtoR</b>&nbsp;&nbsp;</td>
+        <td>The left-to-right premix.</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodsetPremixRtoL"></a>
+	<h3>method setPremixRtoL <span class="smalllinenumber">[line 287]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void setPremixRtoL(
+integer
+$premixRtoL)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Sets the right-to-left premix.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">integer&nbsp;&nbsp;</td>
+        <td><b>$premixRtoL</b>&nbsp;&nbsp;</td>
+        <td>The right-to-left premix.</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodsetReverbBouncesLeft"></a>
+	<h3>method setReverbBouncesLeft <span class="smalllinenumber">[line 168]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void setReverbBouncesLeft(
+integer
+$reverbBouncesLeft)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Sets the left reverb bounces.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">integer&nbsp;&nbsp;</td>
+        <td><b>$reverbBouncesLeft</b>&nbsp;&nbsp;</td>
+        <td>The left reverb bounces.</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodsetReverbBouncesRight"></a>
+	<h3>method setReverbBouncesRight <span class="smalllinenumber">[line 185]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void setReverbBouncesRight(
+integer
+$reverbBouncesRight)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Sets the right reverb bounces.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">integer&nbsp;&nbsp;</td>
+        <td><b>$reverbBouncesRight</b>&nbsp;&nbsp;</td>
+        <td>The right reverb bounces.</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodsetReverbFeedbackLtoL"></a>
+	<h3>method setReverbFeedbackLtoL <span class="smalllinenumber">[line 202]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void setReverbFeedbackLtoL(
+integer
+$reverbFeedbackLtoL)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Sets the left-to-left reverb feedback.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">integer&nbsp;&nbsp;</td>
+        <td><b>$reverbFeedbackLtoL</b>&nbsp;&nbsp;</td>
+        <td>The left-to-left reverb feedback.</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodsetReverbFeedbackLtoR"></a>
+	<h3>method setReverbFeedbackLtoR <span class="smalllinenumber">[line 219]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void setReverbFeedbackLtoR(
+integer
+$reverbFeedbackLtoR)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Sets the left-to-right reverb feedback.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">integer&nbsp;&nbsp;</td>
+        <td><b>$reverbFeedbackLtoR</b>&nbsp;&nbsp;</td>
+        <td>The left-to-right reverb feedback.</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodsetReverbFeedbackRtoL"></a>
+	<h3>method setReverbFeedbackRtoL <span class="smalllinenumber">[line 253]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void setReverbFeedbackRtoL(
+integer
+$reverbFeedbackRtoL)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Sets the right-to-left reverb feedback.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">integer&nbsp;&nbsp;</td>
+        <td><b>$reverbFeedbackRtoL</b>&nbsp;&nbsp;</td>
+        <td>The right-to-left reverb feedback.</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodsetReverbFeedbackRtoR"></a>
+	<h3>method setReverbFeedbackRtoR <span class="smalllinenumber">[line 236]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void setReverbFeedbackRtoR(
+integer
+$reverbFeedbackRtoR)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Sets the right-to-right reverb feedback.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">integer&nbsp;&nbsp;</td>
+        <td><b>$reverbFeedbackRtoR</b>&nbsp;&nbsp;</td>
+        <td>The right-to-right reverb feedback.</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodsetReverbLeft"></a>
+	<h3>method setReverbLeft <span class="smalllinenumber">[line 134]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void setReverbLeft(
+integer
+$reverbLeft)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Sets the left reverb.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">integer&nbsp;&nbsp;</td>
+        <td><b>$reverbLeft</b>&nbsp;&nbsp;</td>
+        <td>The left reverb.</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodsetReverbRight"></a>
+	<h3>method setReverbRight <span class="smalllinenumber">[line 151]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void setReverbRight(
+integer
+$reverbRight)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Sets the right reverb.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">integer&nbsp;&nbsp;</td>
+        <td><b>$reverbRight</b>&nbsp;&nbsp;</td>
+        <td>The right reverb.</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="method__toString"></a>
+	<h3>method __toString <span class="smalllinenumber">[line 297]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>string __toString(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Returns the frame raw data.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	Overrides <a href="../../php-reader/ID3/ID3_Frame.html#method__toString">ID3_Frame::__toString()</a> (Returns the frame raw data.)<br /><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
 </div><br />
 
 
         <div class="credit">
 		    <hr />
-		    Documentation generated on Mon, 17 Mar 2008 15:35:34 +0200 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.1</a>
+		    Documentation generated on Wed, 02 Apr 2008 18:35:31 +0300 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.1</a>
 	      </div>
       </td></tr></table>
     </td>

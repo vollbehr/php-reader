@@ -2,6 +2,8 @@
 /**
  * PHP Reader Library
  *
+ * Copyright (c) 2008 The PHP Reader Project Workgroup. All rights reserved.
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -10,7 +12,7 @@
  *  - Redistributions in binary form must reproduce the above copyright notice,
  *    this list of conditions and the following disclaimer in the documentation
  *    and/or other materials provided with the distribution.
- *  - Neither the name of the BEHR Software Systems nor the names of its
+ *  - Neither the name of the project workgroup nor the names of its
  *    contributors may be used to endorse or promote products derived from this
  *    software without specific prior written permission.
  *
@@ -28,9 +30,9 @@
  *
  * @package    php-reader
  * @subpackage ID3
- * @copyright  Copyright (c) 2008 BEHR Software Systems
- * @license    http://www.opensource.org/licenses/bsd-license.php New BSD License
- * @version    $Id: RVRB.php 11 2008-03-12 12:06:41Z svollbehr $
+ * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
+ * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
+ * @version    $Id: RVRB.php 65 2008-04-02 15:22:46Z svollbehr $
  */
 
 /**#@+ @ignore */
@@ -56,10 +58,10 @@ require_once("ID3/Frame.php");
  *
  * @package    php-reader
  * @subpackage ID3
- * @author     Sven Vollbehr <sven.vollbehr@behrss.eu>
- * @copyright  Copyright (c) 2008 BEHR Software Systems
- * @license    http://www.opensource.org/licenses/bsd-license.php New BSD License
- * @version    $Rev: 11 $
+ * @author     Sven Vollbehr <svollbehr@gmail.com>
+ * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
+ * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
+ * @version    $Rev: 65 $
  */
 final class ID3_Frame_RVRB extends ID3_Frame
 {
@@ -98,20 +100,23 @@ final class ID3_Frame_RVRB extends ID3_Frame
    *
    * @param Reader $reader The reader object.
    */
-  public function __construct($reader)
+  public function __construct($reader = null)
   {
     parent::__construct($reader);
+    
+    if ($reader === null)
+      return;
 
-    $this->_reverbLeft = substr($this->_data, 0, 2);
-    $this->_reverbRight = substr($this->_data, 2, 2);
-    $this->_reverbBouncesLeft = substr($this->_data, 4, 1);
-    $this->_reverbBouncesRight = substr($this->_data, 5, 1);
-    $this->_reverbFeedbackLtoL = substr($this->_data, 6, 1);
-    $this->_reverbFeedbackLtoR = substr($this->_data, 7, 1);
-    $this->_reverbFeedbackRtoR = substr($this->_data, 8, 1);
-    $this->_reverbFeedbackRtoL = substr($this->_data, 9, 1);
-    $this->_premixLtoR = substr($this->_data, 10, 1);
-    $this->_premixRtoL = substr($this->_data, 11, 1);
+    $this->_reverbLeft  = Transform::fromInt16BE(substr($this->_data, 0, 2));
+    $this->_reverbRight = Transform::fromInt16BE(substr($this->_data, 2, 2));
+    $this->_reverbBouncesLeft  = Transform::fromInt8($this->_data[4]);
+    $this->_reverbBouncesRight = Transform::fromInt8($this->_data[5]);
+    $this->_reverbFeedbackLtoL = Transform::fromInt8($this->_data[6]);
+    $this->_reverbFeedbackLtoR = Transform::fromInt8($this->_data[7]);
+    $this->_reverbFeedbackRtoR = Transform::fromInt8($this->_data[8]);
+    $this->_reverbFeedbackRtoL = Transform::fromInt8($this->_data[9]);
+    $this->_premixLtoR  = Transform::fromInt8($this->_data[10]);
+    $this->_premixRtoL  = Transform::fromInt8($this->_data[11]);
   }
   
   /**
@@ -120,85 +125,188 @@ final class ID3_Frame_RVRB extends ID3_Frame
    * @return integer
    */
   public function getReverbLeft() { return $this->_reverbLeft; }
-
+  
+  /**
+   * Sets the left reverb.
+   * 
+   * @param integer $reverbLeft The left reverb.
+   */
+  public function setReverbLeft($reverbLeft)
+  {
+    return $this->_reverbLeft = $reverbLeft;
+  }
+  
   /**
    * Returns the right reverb.
    * 
    * @return integer
    */
   public function getReverbRight() { return $this->_reverbRight; }
-
+  
+  /**
+   * Sets the right reverb.
+   * 
+   * @param integer $reverbRight The right reverb.
+   */
+  public function setReverbRight($reverbRight)
+  {
+    return $this->_reverbRight = $reverbRight;
+  }
+  
   /**
    * Returns the left reverb bounces.
    * 
    * @return integer
    */
   public function getReverbBouncesLeft() { return $this->_reverbBouncesLeft; }
-
+  
+  /**
+   * Sets the left reverb bounces.
+   * 
+   * @param integer $reverbBouncesLeft The left reverb bounces.
+   */
+  public function setReverbBouncesLeft($reverbBouncesLeft)
+  {
+    $this->_reverbBouncesLeft = $reverbBouncesLeft;
+  }
+  
   /**
    * Returns the right reverb bounces.
    * 
    * @return integer
    */
   public function getReverbBouncesRight() { return $this->_reverbBouncesRight; }
-
+  
+  /**
+   * Sets the right reverb bounces.
+   * 
+   * @param integer $reverbBouncesRight The right reverb bounces.
+   */
+  public function setReverbBouncesRight($reverbBouncesRight)
+  {
+    $this->_reverbBouncesRight = $reverbBouncesRight;
+  }
+  
   /**
    * Returns the left-to-left reverb feedback.
    * 
    * @return integer
    */
-  public function getReverbFeedbackLtoL()
+  public function getReverbFeedbackLtoL() { return $this->_reverbFeedbackLtoL; }
+  
+  /**
+   * Sets the left-to-left reverb feedback.
+   * 
+   * @param integer $reverbFeedbackLtoL The left-to-left reverb feedback.
+   */
+  public function setReverbFeedbackLtoL($reverbFeedbackLtoL)
   {
-    return $this->_reverbFeedbackLtoL;
+    $this->_reverbFeedbackLtoL = $reverbFeedbackLtoL;
   }
-
+  
   /**
    * Returns the left-to-right reverb feedback.
    * 
    * @return integer
    */
-  public function getReverbFeedbackLtoR()
+  public function getReverbFeedbackLtoR() { return $this->_reverbFeedbackLtoR; }
+  
+  /**
+   * Sets the left-to-right reverb feedback.
+   * 
+   * @param integer $reverbFeedbackLtoR The left-to-right reverb feedback.
+   */
+  public function setReverbFeedbackLtoR($reverbFeedbackLtoR)
   {
-    return $this->_reverbFeedbackLtoR;
+    $this->_reverbFeedbackLtoR = $reverbFeedbackLtoR;
   }
-
+  
   /**
    * Returns the right-to-right reverb feedback.
    * 
    * @return integer
    */
-  public function getReverbFeedbackRtoR()
+  public function getReverbFeedbackRtoR() { return $this->_reverbFeedbackRtoR; }
+  
+  /**
+   * Sets the right-to-right reverb feedback.
+   * 
+   * @param integer $reverbFeedbackRtoR The right-to-right reverb feedback.
+   */
+  public function setReverbFeedbackRtoR($reverbFeedbackRtoR)
   {
-    return $this->_reverbFeedbackRtoR;
+    $this->_reverbFeedbackRtoR = $reverbFeedbackRtoR;
   }
-
+  
   /**
    * Returns the right-to-left reverb feedback.
    * 
    * @return integer
    */
-  public function getReverbFeedbackRtoL()
+  public function getReverbFeedbackRtoL() { return $this->_reverbFeedbackRtoL; }
+  
+  /**
+   * Sets the right-to-left reverb feedback.
+   * 
+   * @param integer $reverbFeedbackRtoL The right-to-left reverb feedback.
+   */
+  public function setReverbFeedbackRtoL($reverbFeedbackRtoL)
   {
-    return $this->_reverbFeedbackRtoL;
+    $this->_reverbFeedbackRtoL = $reverbFeedbackRtoL;
   }
-
+  
   /**
    * Returns the left-to-right premix.
    * 
    * @return integer
    */
-  public function getPremixLtoR()
+  public function getPremixLtoR() { return $this->_premixLtoR; }
+  
+  /**
+   * Sets the left-to-right premix.
+   * 
+   * @param integer $premixLtoR The left-to-right premix.
+   */
+  public function setPremixLtoR($premixLtoR)
   {
-    return $this->_premixLtoR;
+    $this->_premixLtoR = $premixLtoR;
   }
-
+  
   /**
    * Returns the right-to-left premix.
    * 
    * @return integer
    */
-  public function getPremixRtoL()
+  public function getPremixRtoL() { return $this->_premixRtoL; }
+  
+  /**
+   * Sets the right-to-left premix.
+   * 
+   * @param integer $premixRtoL The right-to-left premix.
+   */
+  public function setPremixRtoL($premixRtoL)
   {
-    return $this->_premixRtoL;
+    $this->_premixRtoL = $premixRtoL;
+  }
+  
+  /**
+   * Returns the frame raw data.
+   *
+   * @return string
+   */
+  public function __toString()
+  {
+    $this->setData
+      (Transform::toInt16BE($this->_reverbLeft) .
+       Transform::toInt16BE($this->_reverbRight) .
+       Transform::toInt8($this->_reverbBouncesLeft) .
+       Transform::toInt8($this->_reverbBouncesRight) .
+       Transform::toInt8($this->_reverbFeedbackLtoL) .
+       Transform::toInt8($this->_reverbFeedbackLtoR) .
+       Transform::toInt8($this->_reverbFeedbackRtoR) .
+       Transform::toInt8($this->_reverbFeedbackRtoL) .
+       Transform::toInt8($this->_premixLtoR) .
+       Transform::toInt8($this->_premixRtoL));
+    return parent::__toString();
   }
 }

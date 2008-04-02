@@ -285,6 +285,7 @@
 	    &nbsp;&nbsp;		<a href="../../php-reader/ID3/ID3_Frame_RVRB.html">ID3_Frame_RVRB</a><br />
 	    &nbsp;&nbsp;		<a href="../../php-reader/ID3/ID3_Frame_SEEK.html">ID3_Frame_SEEK</a><br />
 	    &nbsp;&nbsp;		<a href="../../php-reader/ID3/ID3_Frame_SIGN.html">ID3_Frame_SIGN</a><br />
+	    &nbsp;&nbsp;		<a href="../../php-reader/ID3/ID3_Frame_SYLT.html">ID3_Frame_SYLT</a><br />
 	    &nbsp;&nbsp;		<a href="../../php-reader/ID3/ID3_Frame_SYTC.html">ID3_Frame_SYTC</a><br />
 	    &nbsp;&nbsp;		<a href="../../php-reader/ID3/ID3_Frame_TALB.html">ID3_Frame_TALB</a><br />
 	    &nbsp;&nbsp;		<a href="../../php-reader/ID3/ID3_Frame_TBPM.html">ID3_Frame_TBPM</a><br />
@@ -376,7 +377,7 @@ Source Location: /ID3/Frame.php<br /><br />
 <div class="description">A base class for all ID3v2 frames as described in the  <a href="http://www.id3.org/id3v2.4.0-frames">ID3v2 frames document</a>.</div><br /><br />
 <h4>Author(s):</h4>
 <ul>
-          <li>Sven Vollbehr &lt;<a href="mailto:sven.vollbehr@behrss.eu">sven.vollbehr@behrss.eu</a>&gt;</li>
+          <li>Sven Vollbehr &lt;<a href="mailto:svollbehr@gmail.com">svollbehr@gmail.com</a>&gt;</li>
                         </ul>
 
 
@@ -387,12 +388,12 @@ Source Location: /ID3/Frame.php<br /><br />
       
 <h4>Version:</h4>
 <ul>
-  <li>$Rev: 11 $</li>
+  <li>$Rev: 64 $</li>
 </ul>
 
 <h4>Copyright:</h4>
 <ul>
-  <li>2008 BEHR Software Systems</li>
+  <li>Copyright (c) 2008 The PHP Reader Project Workgroup</li>
 </ul>
         
 </td>
@@ -422,9 +423,14 @@ Source Location: /ID3/Frame.php<br /><br />
 <h3><a href="#class_methods">Methods</a></h3>
 <ul>
     <li><a href="../../php-reader/ID3/ID3_Frame.html#method__construct">__construct</a></li>
+    <li><a href="../../php-reader/ID3/ID3_Frame.html#methodgetFlags">getFlags</a></li>
     <li><a href="../../php-reader/ID3/ID3_Frame.html#methodgetIdentifier">getIdentifier</a></li>
     <li><a href="../../php-reader/ID3/ID3_Frame.html#methodgetSize">getSize</a></li>
     <li><a href="../../php-reader/ID3/ID3_Frame.html#methodhasFlag">hasFlag</a></li>
+    <li><a href="../../php-reader/ID3/ID3_Frame.html#methodsetData">setData</a></li>
+    <li><a href="../../php-reader/ID3/ID3_Frame.html#methodsetFlags">setFlags</a></li>
+    <li><a href="../../php-reader/ID3/ID3_Frame.html#methodsetIdentifier">setIdentifier</a></li>
+    <li><a href="../../php-reader/ID3/ID3_Frame.html#method__toString">__toString</a></li>
   </ul>
 </td>
 
@@ -539,12 +545,16 @@ Source Location: /ID3/Frame.php<br /><br />
 	<dd>This frame enables a group of frames, grouped with the</dd>
 </dl>
 <dl>
-<dt></dt>
-	<dd>The <em>Terms of use frame</em> contains a brief description of the terms of</dd>
+<dt><a href="../../php-reader/ID3/ID3_Frame_SYLT.html">ID3_Frame_SYLT</a></dt>
+	<dd>The <em>Synchronised lyrics/text</em> frame is another way of incorporating the  words, said or sung lyrics, in the audio file as text, this time, however,  in sync with the audio. It might also be used to describing events e.g.</dd>
 </dl>
 <dl>
 <dt><a href="../../php-reader/ID3/ID3_Frame_SYTC.html">ID3_Frame_SYTC</a></dt>
 	<dd>For a more accurate description of the tempo of a musical piece, the  <em>Synchronised tempo codes</em> frame might be used.</dd>
+</dl>
+<dl>
+<dt><a href="../../php-reader/ID3/ID3_Frame_USER.html">ID3_Frame_USER</a></dt>
+	<dd>The <em>Terms of use frame</em> contains a brief description of the terms of</dd>
 </dl>
 <dl>
 <dt><a href="../../php-reader/ID3/ID3_Frame_USLT.html">ID3_Frame_USLT</a></dt>
@@ -559,6 +569,12 @@ Source Location: /ID3/Frame.php<br /><br />
 <div class="tags">
 <h4>Class: <a href="../../php-reader/ID3/ID3_Object.html">ID3_Object</a></h4>
 <dl>
+<dt>
+  <a href="../../php-reader/ID3/ID3_Object.html#var$_options">ID3_Object::$_options</a>
+  </dt>
+<dd>
+   
+</dd>
 <dt>
   <a href="../../php-reader/ID3/ID3_Object.html#var$_reader">ID3_Object::$_reader</a>
   </dt>
@@ -592,6 +608,18 @@ Source Location: /ID3/Frame.php<br /><br />
   <dd>
     Encodes the given 32-bit integer to 28-bit synchsafe integer, where the  most significant bit of each byte is zero, making seven bits out of eight  available.
   </dd>
+    <dt>
+    <a href="../../php-reader/ID3/ID3_Object.html#method__get">ID3_Object::__get()</a>
+  </dt>
+  <dd>
+    Magic function so that $obj-&gt;value will work.
+  </dd>
+    <dt>
+    <a href="../../php-reader/ID3/ID3_Object.html#method__set">ID3_Object::__set()</a>
+  </dt>
+  <dd>
+    Magic function so that assignments with $obj-&gt;value will work.
+  </dd>
   </dl>
 </div>
 </td>
@@ -602,22 +630,22 @@ Source Location: /ID3/Frame.php<br /><br />
 <a name="class_details"></a>
 <h3>Class Details</h3>
 <div class="tags">
-[line 52]<br />
+[line 54]<br />
 A base class for all ID3v2 frames as described in the  <a href="http://www.id3.org/id3v2.4.0-frames">ID3v2 frames document</a>.<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td><b>author:</b>&nbsp;&nbsp;</td><td>Sven Vollbehr &lt;<a href="mailto:sven.vollbehr@behrss.eu">sven.vollbehr@behrss.eu</a>&gt;</td>
+    <td><b>author:</b>&nbsp;&nbsp;</td><td>Sven Vollbehr &lt;<a href="mailto:svollbehr@gmail.com">svollbehr@gmail.com</a>&gt;</td>
   </tr>
   <tr>
-    <td><b>version:</b>&nbsp;&nbsp;</td><td>$Rev: 11 $</td>
+    <td><b>version:</b>&nbsp;&nbsp;</td><td>$Rev: 64 $</td>
   </tr>
   <tr>
-    <td><b>copyright:</b>&nbsp;&nbsp;</td><td>2008 BEHR Software Systems</td>
+    <td><b>copyright:</b>&nbsp;&nbsp;</td><td>Copyright (c) 2008 The PHP Reader Project Workgroup</td>
   </tr>
   <tr>
-    <td><b>license:</b>&nbsp;&nbsp;</td><td><a href="http://www.opensource.org/licenses/bsd-license.php">New BSD License</a></td>
+    <td><b>license:</b>&nbsp;&nbsp;</td><td><a href="http://code.google.com/p/php-reader/wiki/License">New BSD License</a></td>
   </tr>
 </table>
 </div>
@@ -630,9 +658,9 @@ A base class for all ID3v2 frames as described in the  <a href="http://www.id3.o
 <div class="tags">
 	<a name="var$_data"></a>
 	<p></p>
-	<h4>$_data = <span class="value"></span></h4>
-	<p>[line 128]</p>
-  Raw content read from the frame.<br /><br /><br /><br />
+	<h4>$_data = <span class="value">&nbsp;&quot;&quot;</span></h4>
+	<p>[line 130]</p>
+  Raw content of the frame.<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -661,13 +689,13 @@ A base class for all ID3v2 frames as described in the  <a href="http://www.id3.o
 
   <hr />
 	<a name="method__construct"></a>
-	<h3>constructor __construct <span class="smalllinenumber">[line 137]</span></h3>
+	<h3>constructor __construct <span class="smalllinenumber">[line 139]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
 		<code>ID3_Frame __construct(
-<a href="../../php-reader/Reader.html">Reader</a>
-$reader)</code>
+[<a href="../../php-reader/Reader.html">Reader</a>
+$reader = null])</code>
     </td></tr></table>
     </td></tr></table><br />
 	
@@ -787,11 +815,15 @@ $reader)</code>
 		<dd>Constructs the class with given parameters and parses object related data.</dd>
 	</dl>
 		<dl>
-	<dt><a href="../../php-reader/ID3/ID3_Frame_USER.html#method__construct">ID3_Frame_USER::__construct()</a></dt>
+	<dt><a href="../../php-reader/ID3/ID3_Frame_SYLT.html#method__construct">ID3_Frame_SYLT::__construct()</a></dt>
 		<dd>Constructs the class with given parameters and parses object related data.</dd>
 	</dl>
 		<dl>
 	<dt><a href="../../php-reader/ID3/ID3_Frame_SYTC.html#method__construct">ID3_Frame_SYTC::__construct()</a></dt>
+		<dd>Constructs the class with given parameters and parses object related data.</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../php-reader/ID3/ID3_Frame_USER.html#method__construct">ID3_Frame_USER::__construct()</a></dt>
 		<dd>Constructs the class with given parameters and parses object related data.</dd>
 	</dl>
 		<dl>
@@ -813,8 +845,50 @@ $reader)</code>
         <div class="top">[ <a href="#top">Top</a> ]</div>
   </div>
   <hr />
+	<a name="methodgetFlags"></a>
+	<h3>method getFlags <span class="smalllinenumber">[line 192]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>integer getFlags(
+
+$flags)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Returns the frame flags byte.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	<p>Overridden in child classes as:<br />
+		<dl>
+	<dt><a href="../../php-reader/ID3/ID3_Frame_RBUF.html#methodgetFlags">ID3_Frame_RBUF::getFlags()</a></dt>
+		<dd>Returns the flags byte.</dd>
+	</dl>
+	</p>
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">&nbsp;&nbsp;</td>
+        <td><b>$flags</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
 	<a name="methodgetIdentifier"></a>
-	<h3>method getIdentifier <span class="smalllinenumber">[line 152]</span></h3>
+	<h3>method getIdentifier <span class="smalllinenumber">[line 158]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -861,7 +935,7 @@ $reader)</code>
   </div>
   <hr />
 	<a name="methodgetSize"></a>
-	<h3>method getSize <span class="smalllinenumber">[line 160]</span></h3>
+	<h3>method getSize <span class="smalllinenumber">[line 176]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -896,7 +970,7 @@ $reader)</code>
   </div>
   <hr />
 	<a name="methodhasFlag"></a>
-	<h3>method hasFlag <span class="smalllinenumber">[line 169]</span></h3>
+	<h3>method hasFlag <span class="smalllinenumber">[line 185]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -936,6 +1010,307 @@ $flag)</code>
     </div><br />
         <div class="top">[ <a href="#top">Top</a> ]</div>
   </div>
+  <hr />
+	<a name="methodsetData"></a>
+	<h3>method setData <span class="smalllinenumber">[line 206]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>string setData(
+
+$data)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Sets the frame raw data.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	<p>Overridden in child classes as:<br />
+		<dl>
+	<dt><a href="../../php-reader/ID3/ID3_Frame_APIC.html#methodsetData">ID3_Frame_APIC::setData()</a></dt>
+		<dd>Sets the embedded image data.</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../php-reader/ID3/ID3_Frame_COMR.html#methodsetData">ID3_Frame_COMR::setData()</a></dt>
+		<dd>Sets the embedded image data.</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../php-reader/ID3/ID3_Frame_ENCR.html#methodsetData">ID3_Frame_ENCR::setData()</a></dt>
+		<dd>Sets the encryption data.</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../php-reader/ID3/ID3_Frame_GEOB.html#methodsetData">ID3_Frame_GEOB::setData()</a></dt>
+		<dd>Sets the embedded object binary data.</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../php-reader/ID3/ID3_Frame_GRID.html#methodsetData">ID3_Frame_GRID::setData()</a></dt>
+		<dd>Sets the group dependent data.</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../php-reader/ID3/ID3_Frame_MCDI.html#methodsetData">ID3_Frame_MCDI::setData()</a></dt>
+		<dd>Sets the CD TOC binary dump.</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../php-reader/ID3/ID3_Frame_PRIV.html#methodsetData">ID3_Frame_PRIV::setData()</a></dt>
+		<dd>Sets the private binary data associated with the frame.</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../php-reader/ID3/ID3_Frame_SYTC.html#methodsetData">ID3_Frame_SYTC::setData()</a></dt>
+		<dd>Sets the tempo data.</dd>
+	</dl>
+	</p>
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">&nbsp;&nbsp;</td>
+        <td><b>$data</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodsetFlags"></a>
+	<h3>method setFlags <span class="smalllinenumber">[line 199]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void setFlags(
+string
+$flags)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Sets the frame flags byte.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	<p>Overridden in child classes as:<br />
+		<dl>
+	<dt><a href="../../php-reader/ID3/ID3_Frame_RBUF.html#methodsetFlags">ID3_Frame_RBUF::setFlags()</a></dt>
+		<dd>Sets the flags byte.</dd>
+	</dl>
+	</p>
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$flags</b>&nbsp;&nbsp;</td>
+        <td>The flags byte.</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodsetIdentifier"></a>
+	<h3>method setIdentifier <span class="smalllinenumber">[line 165]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void setIdentifier(
+string
+$identifier)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Sets the frame identifier.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	<p>Overridden in child classes as:<br />
+		<dl>
+	<dt><a href="../../php-reader/ID3/ID3_Frame_AENC.html#methodsetIdentifier">ID3_Frame_AENC::setIdentifier()</a></dt>
+		<dd>Sets the owner identifier string.</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../php-reader/ID3/ID3_Frame_ENCR.html#methodsetIdentifier">ID3_Frame_ENCR::setIdentifier()</a></dt>
+		<dd>Sets the owner identifier string.</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../php-reader/ID3/ID3_Frame_GRID.html#methodsetIdentifier">ID3_Frame_GRID::setIdentifier()</a></dt>
+		<dd>Sets the owner identifier string.</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../php-reader/ID3/ID3_Frame_POPM.html#methodsetIdentifier">ID3_Frame_POPM::setIdentifier()</a></dt>
+		<dd>Sets the user identifier string.</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../php-reader/ID3/ID3_Frame_PRIV.html#methodsetIdentifier">ID3_Frame_PRIV::setIdentifier()</a></dt>
+		<dd>Sets the owner identifier string.</dd>
+	</dl>
+	</p>
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$identifier</b>&nbsp;&nbsp;</td>
+        <td>The identifier.</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="method__toString"></a>
+	<h3>method __toString <span class="smalllinenumber">[line 217]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>string __toString(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Returns the frame raw data.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	<p>Overridden in child classes as:<br />
+		<dl>
+	<dt><a href="../../php-reader/ID3/ID3_Frame_AbstractLink.html#method__toString">ID3_Frame_AbstractLink::__toString()</a></dt>
+		<dd>Returns the frame raw data.</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../php-reader/ID3/ID3_Frame_WXXX.html#method__toString">ID3_Frame_WXXX::__toString()</a></dt>
+		<dd>Returns the frame raw data.</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../php-reader/ID3/ID3_Frame_AbstractText.html#method__toString">ID3_Frame_AbstractText::__toString()</a></dt>
+		<dd>Returns the frame raw data.</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../php-reader/ID3/ID3_Frame_AENC.html#method__toString">ID3_Frame_AENC::__toString()</a></dt>
+		<dd>Returns the frame raw data.</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../php-reader/ID3/ID3_Frame_APIC.html#method__toString">ID3_Frame_APIC::__toString()</a></dt>
+		<dd>Returns the frame raw data.</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../php-reader/ID3/ID3_Frame_COMM.html#method__toString">ID3_Frame_COMM::__toString()</a></dt>
+		<dd>Returns the frame raw data.</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../php-reader/ID3/ID3_Frame_COMR.html#method__toString">ID3_Frame_COMR::__toString()</a></dt>
+		<dd>Returns the frame raw data.</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../php-reader/ID3/ID3_Frame_ENCR.html#method__toString">ID3_Frame_ENCR::__toString()</a></dt>
+		<dd>Returns the frame raw data.</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../php-reader/ID3/ID3_Frame_ETCO.html#method__toString">ID3_Frame_ETCO::__toString()</a></dt>
+		<dd>Returns the frame raw data.</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../php-reader/ID3/ID3_Frame_GEOB.html#method__toString">ID3_Frame_GEOB::__toString()</a></dt>
+		<dd>Returns the frame raw data.</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../php-reader/ID3/ID3_Frame_GRID.html#method__toString">ID3_Frame_GRID::__toString()</a></dt>
+		<dd>Returns the frame raw data.</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../php-reader/ID3/ID3_Frame_LINK.html#method__toString">ID3_Frame_LINK::__toString()</a></dt>
+		<dd>Returns the frame raw data.</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../php-reader/ID3/ID3_Frame_OWNE.html#method__toString">ID3_Frame_OWNE::__toString()</a></dt>
+		<dd>Returns the frame raw data.</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../php-reader/ID3/ID3_Frame_PCNT.html#method__toString">ID3_Frame_PCNT::__toString()</a></dt>
+		<dd>Returns the frame raw data.</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../php-reader/ID3/ID3_Frame_POPM.html#method__toString">ID3_Frame_POPM::__toString()</a></dt>
+		<dd>Returns the frame raw data.</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../php-reader/ID3/ID3_Frame_POSS.html#method__toString">ID3_Frame_POSS::__toString()</a></dt>
+		<dd>Returns the frame raw data.</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../php-reader/ID3/ID3_Frame_PRIV.html#method__toString">ID3_Frame_PRIV::__toString()</a></dt>
+		<dd>Returns the frame raw data.</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../php-reader/ID3/ID3_Frame_RBUF.html#method__toString">ID3_Frame_RBUF::__toString()</a></dt>
+		<dd>Returns the frame raw data.</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../php-reader/ID3/ID3_Frame_RVA2.html#method__toString">ID3_Frame_RVA2::__toString()</a></dt>
+		<dd>Returns the frame raw data.</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../php-reader/ID3/ID3_Frame_RVRB.html#method__toString">ID3_Frame_RVRB::__toString()</a></dt>
+		<dd>Returns the frame raw data.</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../php-reader/ID3/ID3_Frame_SEEK.html#method__toString">ID3_Frame_SEEK::__toString()</a></dt>
+		<dd>Returns the frame raw data.</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../php-reader/ID3/ID3_Frame_SIGN.html#method__toString">ID3_Frame_SIGN::__toString()</a></dt>
+		<dd>Returns the frame raw data.</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../php-reader/ID3/ID3_Frame_SYLT.html#method__toString">ID3_Frame_SYLT::__toString()</a></dt>
+		<dd>Returns the frame raw data.</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../php-reader/ID3/ID3_Frame_SYTC.html#method__toString">ID3_Frame_SYTC::__toString()</a></dt>
+		<dd>Returns the frame raw data.</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../php-reader/ID3/ID3_Frame_USER.html#method__toString">ID3_Frame_USER::__toString()</a></dt>
+		<dd>Returns the frame raw data.</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../php-reader/ID3/ID3_Frame_USLT.html#method__toString">ID3_Frame_USLT::__toString()</a></dt>
+		<dd>Returns the frame raw data.</dd>
+	</dl>
+	</p>
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
 </div><br />
 
 <hr />
@@ -945,7 +1320,7 @@ $flag)</code>
 	<a name="constCOMPRESSION"></a>
 	<p></p>
 	<h4>COMPRESSION = <span class="value">&nbsp;8</span></h4>
-	<p>[line 88]</p>
+	<p>[line 90]</p>
   This flag indicates whether or not the frame is compressed. A <em>Data
  Length Indicator</em> byte is included in the frame.<br /><br /><br /><br />
 <h4>Tags:</h4>
@@ -962,28 +1337,28 @@ $flag)</code>
 	<a name="constDATA_LENGTH_INDICATOR"></a>
 	<p></p>
 	<h4>DATA_LENGTH_INDICATOR = <span class="value">&nbsp;1</span></h4>
-	<p>[line 112]</p>
+	<p>[line 114]</p>
   This flag indicates that a data length indicator has been added to the  frame.<br /><br />
   <br />
 	<div class="top">[ <a href="#top">Top</a> ]</div><br />
 	<a name="constDISCARD_ON_FILECHANGE"></a>
 	<p></p>
 	<h4>DISCARD_ON_FILECHANGE = <span class="value">&nbsp;8192</span></h4>
-	<p>[line 66]</p>
+	<p>[line 68]</p>
   This flag tells the tag parser what to do with this frame if it is unknown  and the file, excluding the tag, is altered. This does not apply when the  audio is completely replaced with other audio data.<br /><br />
   <br />
 	<div class="top">[ <a href="#top">Top</a> ]</div><br />
 	<a name="constDISCARD_ON_TAGCHANGE"></a>
 	<p></p>
 	<h4>DISCARD_ON_TAGCHANGE = <span class="value">&nbsp;16384</span></h4>
-	<p>[line 59]</p>
+	<p>[line 61]</p>
   This flag tells the tag parser what to do with this frame if it is unknown  and the tag is altered in any way. This applies to all kinds of  alterations, including adding more padding and reordering the frames.<br /><br />
   <br />
 	<div class="top">[ <a href="#top">Top</a> ]</div><br />
 	<a name="constENCRYPTION"></a>
 	<p></p>
 	<h4>ENCRYPTION = <span class="value">&nbsp;4</span></h4>
-	<p>[line 100]</p>
+	<p>[line 102]</p>
   This flag indicates whether or not the frame is encrypted. If set, one byte  indicating with which method it was encrypted will be added to the frame.<br /><br /><p>See description of the <a href="../../php-reader/ID3/ID3_Frame_ENCR.html">ID3_Frame_ENCR</a> frame for more information  about encryption method registration. Encryption should be done after  compression. Whether or not setting this flag requires the presence of a  <em>Data Length Indicator</em> depends on the specific algorithm used.</p><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
@@ -999,21 +1374,21 @@ $flag)</code>
 	<a name="constGROUPING_IDENTITY"></a>
 	<p></p>
 	<h4>GROUPING_IDENTITY = <span class="value">&nbsp;32</span></h4>
-	<p>[line 80]</p>
+	<p>[line 82]</p>
   This flag indicates whether or not this frame belongs in a group with  other frames. If set, a group identifier byte is added to the frame. Every  frame with the same group identifier belongs to the same group.<br /><br />
   <br />
 	<div class="top">[ <a href="#top">Top</a> ]</div><br />
 	<a name="constREAD_ONLY"></a>
 	<p></p>
 	<h4>READ_ONLY = <span class="value">&nbsp;4096</span></h4>
-	<p>[line 73]</p>
+	<p>[line 75]</p>
   This flag, if set, tells the software that the contents of this frame are  intended to be read only. Changing the contents might break something,  e.g. a signature.<br /><br />
   <br />
 	<div class="top">[ <a href="#top">Top</a> ]</div><br />
 	<a name="constUNSYNCHRONISATION"></a>
 	<p></p>
 	<h4>UNSYNCHRONISATION = <span class="value">&nbsp;2</span></h4>
-	<p>[line 106]</p>
+	<p>[line 108]</p>
   This flag indicates whether or not unsynchronisation was applied to this  frame.<br /><br />
   <br />
 	<div class="top">[ <a href="#top">Top</a> ]</div><br />
@@ -1021,7 +1396,7 @@ $flag)</code>
 
         <div class="credit">
 		    <hr />
-		    Documentation generated on Mon, 17 Mar 2008 15:35:27 +0200 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.1</a>
+		    Documentation generated on Wed, 02 Apr 2008 18:35:12 +0300 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.1</a>
 	      </div>
       </td></tr></table>
     </td>

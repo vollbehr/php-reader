@@ -2,6 +2,8 @@
 /**
  * PHP Reader Library
  *
+ * Copyright (c) 2008 The PHP Reader Project Workgroup. All rights reserved.
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -10,7 +12,7 @@
  *  - Redistributions in binary form must reproduce the above copyright notice,
  *    this list of conditions and the following disclaimer in the documentation
  *    and/or other materials provided with the distribution.
- *  - Neither the name of the BEHR Software Systems nor the names of its
+ *  - Neither the name of the project workgroup nor the names of its
  *    contributors may be used to endorse or promote products derived from this
  *    software without specific prior written permission.
  *
@@ -28,9 +30,9 @@
  *
  * @package    php-reader
  * @subpackage ID3
- * @copyright  Copyright (c) 2008 BEHR Software Systems
- * @license    http://www.opensource.org/licenses/bsd-license.php New BSD License
- * @version    $Id: LINK.php 11 2008-03-12 12:06:41Z svollbehr $
+ * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
+ * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
+ * @version    $Id: LINK.php 65 2008-04-02 15:22:46Z svollbehr $
  */
 
 /**#@+ @ignore */
@@ -76,10 +78,10 @@ require_once("ID3/Frame.php");
  *
  * @package    php-reader
  * @subpackage ID3
- * @author     Sven Vollbehr <sven.vollbehr@behrss.eu>
- * @copyright  Copyright (c) 2008 BEHR Software Systems
- * @license    http://www.opensource.org/licenses/bsd-license.php New BSD License
- * @version    $Rev: 11 $
+ * @author     Sven Vollbehr <svollbehr@gmail.com>
+ * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
+ * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
+ * @version    $Rev: 65 $
  */
 final class ID3_Frame_LINK extends ID3_Frame
 {
@@ -89,17 +91,23 @@ final class ID3_Frame_LINK extends ID3_Frame
   /** @var string */
   private $_url;
   
+  /** @var string */
+  private $_qualifier;
+  
   /**
    * Constructs the class with given parameters and parses object related data.
    *
    * @param Reader $reader The reader object.
    */
-  public function __construct($reader)
+  public function __construct($reader = null)
   {
     parent::__construct($reader);
+    
+    if ($reader === null)
+      return;
 
     $this->_target = substr($this->_data, 0, 4);
-    list($this->_url, $this->_data) =
+    list($this->_url, $this->_qualifier) =
       preg_split("/\\x00/", substr($this->_data, 4), 2);
   }
   
@@ -109,18 +117,55 @@ final class ID3_Frame_LINK extends ID3_Frame
    * @return string
    */
   public function getTarget() { return $this->_target; }
-
+  
+  /**
+   * Sets the target tag identifier.
+   * 
+   * @param string $target The target tag identifier.
+   */
+  public function setTarget($target) { $this->_target = $target; }
+  
   /**
    * Returns the target tag URL.
    * 
    * @return string
    */
-  public function getURL() { return $this->_url; }
+  public function getUrl() { return $this->_url; }
   
   /**
-   * Returns the additional ID data.
+   * Sets the target tag URL.
+   * 
+   * @param string $url The target URL.
+   */
+  public function setUrl($url) { $this->_url = $url; }
+  
+  /**
+   * Returns the additional data to identify further the tag.
    * 
    * @return string
    */
-  public function getData() { return $this->_data; }
+  public function getQualifier() { return $this->_qualifier; }
+  
+  /**
+   * Sets the additional data to be used in tag identification.
+   * 
+   * @param string $identifier The qualifier.
+   */
+  public function setQualifier($qualifier)
+  {
+    $this->_qualifier = $qualifier;
+  }
+  
+  /**
+   * Returns the frame raw data.
+   *
+   * @return string
+   */
+  public function __toString()
+  {
+    $this->setData
+      (Transform::toString8(substr($this->_target, 0, 4), 4) .
+       $this->_url . "\0" . $this->_qualifier);
+    return parent::__toString();
+  }
 }
