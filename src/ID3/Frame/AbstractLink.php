@@ -32,7 +32,7 @@
  * @subpackage ID3
  * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
  * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version    $Id: AbstractLink.php 65 2008-04-02 15:22:46Z svollbehr $
+ * @version    $Id: AbstractLink.php 75 2008-04-14 23:57:21Z svollbehr $
  */
 
 /**#@+ @ignore */
@@ -47,7 +47,7 @@ require_once("ID3/Frame.php");
  * @author     Sven Vollbehr <svollbehr@gmail.com>
  * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
  * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version    $Rev: 65 $
+ * @version    $Rev: 75 $
  */
 abstract class ID3_Frame_AbstractLink extends ID3_Frame
 {
@@ -58,13 +58,14 @@ abstract class ID3_Frame_AbstractLink extends ID3_Frame
    * Constructs the class with given parameters and parses object related data.
    *
    * @param Reader $reader The reader object.
+   * @param Array $options The options array.
    */
-  public function __construct($reader = null)
+  public function __construct($reader = null, &$options = array())
   {
-    parent::__construct($reader);
+    parent::__construct($reader, $options);
     
     if ($reader !== null)
-      $this->_link = preg_split("/\\x00/", $this->_data, 1);
+      $this->_link = implode(preg_split("/\\x00/", $this->_data, 1), "");
   }
 
   /**
@@ -88,7 +89,7 @@ abstract class ID3_Frame_AbstractLink extends ID3_Frame
    */
   public function __toString()
   {
-    $this->setData($link);
+    $this->setData($this->_link);
     return parent::__toString();
   }
 }

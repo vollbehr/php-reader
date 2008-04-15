@@ -1,857 +1,447 @@
-<html>
-<head>
-<title>Docs For Class Reader</title>
-<link rel="stylesheet" type="text/css" href="../media/style.css">
-</head>
-<body>
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class Reader</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class Reader</h2>
 
-<table border="0" cellspacing="0" cellpadding="0" height="48" width="100%">
-  <tr>
-    <td class="header_top">php-reader</td>
-  </tr>
-  <tr><td class="header_line"><img src="../media/empty.png" width="1" height="1" border="0" alt=""  /></td></tr>
-  <tr>
-    <td class="header_menu">
-        
-                                    
-                              		  [ <a href="../classtrees_php-reader.html" class="menu">class tree: php-reader</a> ]
-		  [ <a href="../elementindex_php-reader.html" class="menu">index: php-reader</a> ]
-		  	    [ <a href="../elementindex.html" class="menu">all elements</a> ]
-    </td>
-  </tr>
-  <tr><td class="header_line"><img src="../media/empty.png" width="1" height="1" border="0" alt=""  /></td></tr>
-</table>
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+															<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">The Reader class encapsulates a file. It is hence responsible of upkeeping  the connection to the file, keeping track of the cursor position and reading  data from it.</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Sven Vollbehr &lt;<a href="mailto:svollbehr@gmail.com">svollbehr@gmail.com</a>&gt;</li>
+				<li><span class="field">version:</span> $Rev: 39 $</li>
+				<li><span class="field">copyright:</span> Copyright (c) 2006-2008 The PHP Reader Project Workgroup</li>
+				<li><span class="field">license:</span> <a href="http://code.google.com/p/php-reader/wiki/License">New BSD License</a></li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_Reader.php.html">/Reader.php</a> (line <span class="field">54</span>)
+		</p>
+		
+				
+		<pre></pre>
+	
+			</div>
+</div>
 
-<table width="100%" border="0" cellpadding="0" cellspacing="0">
-  <tr valign="top">
-    <td width="200" class="menu">
-	<div id="todolist">
-			<p><a href="../todolist.html">Todo List</a></p>
+
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+												<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+																																																																																												
+												<div class="method-definition">
+											<span class="method-result">Reader</span>
+										<a href="#__construct" title="details" class="method-name">__construct</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$filename</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$mode</span> = <span class="var-default">&quot;rb&quot;</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#__destruct" title="details" class="method-name">__destruct</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#available" title="details" class="method-name">available</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">integer</span>
+										<a href="#getOffset" title="details" class="method-name">getOffset</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">integer</span>
+										<a href="#getSize" title="details" class="method-name">getSize</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#read" title="details" class="method-name">read</a>
+											(<span class="var-type">integer</span>&nbsp;<span class="var-name">$length</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setOffset" title="details" class="method-name">setOffset</a>
+											(<span class="var-type">integer</span>&nbsp;<span class="var-name">$offset</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#skip" title="details" class="method-name">skip</a>
+											(<span class="var-type">integer</span>&nbsp;<span class="var-name">$size</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">mixed</span>
+										<a href="#__call" title="details" class="method-name">__call</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$method</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$params</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">mixed</span>
+										<a href="#__get" title="details" class="method-name">__get</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">mixed</span>
+										<a href="#__set" title="details" class="method-name">__set</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								</div>
+		</div>
+	</div>		
+
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+
+<a name="method__construct" id="__construct"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">69</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Constructs the Reader class with given file.</p>
+	<ul class="tags">
+				<li><span class="field">throws:</span> Reader_Exception if the file cannot be read.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">Reader</span>
+		<span class="method-name">
+			__construct
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$filename</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$mode</span> = <span class="var-default">&quot;rb&quot;</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$filename</span><span class="var-description">: The path to the file.</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$mode</span><span class="var-description">: The type of access.</span>			</li>
+				</ul>
+		
+			
 	</div>
-      <b>Packages:</b><br />
-              <a href="../li_php-reader.html">php-reader</a><br />
-            <br /><br />
-                        <b>Files:</b><br />
-      	  <div class="package">
-			<a href="../php-reader/_Reader---Exception.php.html">		Exception.php
-		</a><br>
-			<a href="../php-reader/_Reader.php.html">		Reader.php
-		</a><br>
-			<a href="../php-reader/_Transform.php.html">		Transform.php
-		</a><br>
-	  </div><br />
-	subpackage <b>ASF</b><br>  <div class="package">
-			<a href="../php-reader/ASF/_ASF.php.html">		ASF.php
-		</a><br>
-			<a href="../php-reader/ASF/_ASF---ContentDescriptionObject.php.html">		ContentDescriptionObject.php
-		</a><br>
-			<a href="../php-reader/ASF/_ASF---ExtendedContentDescriptionObject.php.html">		ExtendedContentDescriptionObject.php
-		</a><br>
-			<a href="../php-reader/ASF/_ASF---FilePropertiesObject.php.html">		FilePropertiesObject.php
-		</a><br>
-			<a href="../php-reader/ASF/_ASF---HeaderObject.php.html">		HeaderObject.php
-		</a><br>
-			<a href="../php-reader/ASF/_ASF---Object.php.html">		Object.php
-		</a><br>
-	  </div><br />
-	subpackage <b>ID3</b><br>  <div class="package">
-			<a href="../php-reader/ID3/_ID3---Frame---AbstractLink.php.html">		AbstractLink.php
-		</a><br>
-			<a href="../php-reader/ID3/_ID3---Frame---AbstractText.php.html">		AbstractText.php
-		</a><br>
-			<a href="../php-reader/ID3/_ID3---Frame---AENC.php.html">		AENC.php
-		</a><br>
-			<a href="../php-reader/ID3/_ID3---Frame---APIC.php.html">		APIC.php
-		</a><br>
-			<a href="../php-reader/ID3/_ID3---Frame---ASPI.php.html">		ASPI.php
-		</a><br>
-			<a href="../php-reader/ID3/_ID3---Frame---COMM.php.html">		COMM.php
-		</a><br>
-			<a href="../php-reader/ID3/_ID3---Frame---COMR.php.html">		COMR.php
-		</a><br>
-			<a href="../php-reader/ID3/_ID3---Encoding.php.html">		Encoding.php
-		</a><br>
-			<a href="../php-reader/ID3/_ID3---Frame---ENCR.php.html">		ENCR.php
-		</a><br>
-			<a href="../php-reader/ID3/_ID3---Frame---EQU2.php.html">		EQU2.php
-		</a><br>
-			<a href="../php-reader/ID3/_ID3---Frame---ETCO.php.html">		ETCO.php
-		</a><br>
-			<a href="../php-reader/ID3/_ID3---Exception.php.html">		Exception.php
-		</a><br>
-			<a href="../php-reader/ID3/_ID3---ExtendedHeader.php.html">		ExtendedHeader.php
-		</a><br>
-			<a href="../php-reader/ID3/_ID3---Frame.php.html">		Frame.php
-		</a><br>
-			<a href="../php-reader/ID3/_ID3---Frame---GEOB.php.html">		GEOB.php
-		</a><br>
-			<a href="../php-reader/ID3/_ID3---Frame---GRID.php.html">		GRID.php
-		</a><br>
-			<a href="../php-reader/ID3/_ID3---Header.php.html">		Header.php
-		</a><br>
-			<a href="../php-reader/ID3/_ID3v1.php.html">		ID3v1.php
-		</a><br>
-			<a href="../php-reader/ID3/_ID3v2.php.html">		ID3v2.php
-		</a><br>
-			<a href="../php-reader/ID3/_ID3---Language.php.html">		Language.php
-		</a><br>
-			<a href="../php-reader/ID3/_ID3---Frame---LINK.php.html">		LINK.php
-		</a><br>
-			<a href="../php-reader/ID3/_ID3---Frame---MCDI.php.html">		MCDI.php
-		</a><br>
-			<a href="../php-reader/ID3/_ID3---Frame---MLLT.php.html">		MLLT.php
-		</a><br>
-			<a href="../php-reader/ID3/_ID3---Object.php.html">		Object.php
-		</a><br>
-			<a href="../php-reader/ID3/_ID3---Frame---OWNE.php.html">		OWNE.php
-		</a><br>
-			<a href="../php-reader/ID3/_ID3---Frame---PCNT.php.html">		PCNT.php
-		</a><br>
-			<a href="../php-reader/ID3/_ID3---Frame---POPM.php.html">		POPM.php
-		</a><br>
-			<a href="../php-reader/ID3/_ID3---Frame---POSS.php.html">		POSS.php
-		</a><br>
-			<a href="../php-reader/ID3/_ID3---Frame---PRIV.php.html">		PRIV.php
-		</a><br>
-			<a href="../php-reader/ID3/_ID3---Frame---RBUF.php.html">		RBUF.php
-		</a><br>
-			<a href="../php-reader/ID3/_ID3---Frame---RVA2.php.html">		RVA2.php
-		</a><br>
-			<a href="../php-reader/ID3/_ID3---Frame---RVRB.php.html">		RVRB.php
-		</a><br>
-			<a href="../php-reader/ID3/_ID3---Frame---SEEK.php.html">		SEEK.php
-		</a><br>
-			<a href="../php-reader/ID3/_ID3---Frame---SIGN.php.html">		SIGN.php
-		</a><br>
-			<a href="../php-reader/ID3/_ID3---Frame---SYLT.php.html">		SYLT.php
-		</a><br>
-			<a href="../php-reader/ID3/_ID3---Frame---SYTC.php.html">		SYTC.php
-		</a><br>
-			<a href="../php-reader/ID3/_ID3---Frame---TALB.php.html">		TALB.php
-		</a><br>
-			<a href="../php-reader/ID3/_ID3---Frame---TBPM.php.html">		TBPM.php
-		</a><br>
-			<a href="../php-reader/ID3/_ID3---Frame---TCOM.php.html">		TCOM.php
-		</a><br>
-			<a href="../php-reader/ID3/_ID3---Frame---TCON.php.html">		TCON.php
-		</a><br>
-			<a href="../php-reader/ID3/_ID3---Frame---TCOP.php.html">		TCOP.php
-		</a><br>
-			<a href="../php-reader/ID3/_ID3---Frame---TDEN.php.html">		TDEN.php
-		</a><br>
-			<a href="../php-reader/ID3/_ID3---Frame---TDLY.php.html">		TDLY.php
-		</a><br>
-			<a href="../php-reader/ID3/_ID3---Frame---TDOR.php.html">		TDOR.php
-		</a><br>
-			<a href="../php-reader/ID3/_ID3---Frame---TDRC.php.html">		TDRC.php
-		</a><br>
-			<a href="../php-reader/ID3/_ID3---Frame---TDRL.php.html">		TDRL.php
-		</a><br>
-			<a href="../php-reader/ID3/_ID3---Frame---TDTG.php.html">		TDTG.php
-		</a><br>
-			<a href="../php-reader/ID3/_ID3---Frame---TENC.php.html">		TENC.php
-		</a><br>
-			<a href="../php-reader/ID3/_ID3---Frame---TEXT.php.html">		TEXT.php
-		</a><br>
-			<a href="../php-reader/ID3/_ID3---Frame---TFLT.php.html">		TFLT.php
-		</a><br>
-			<a href="../php-reader/ID3/_ID3---Timing.php.html">		Timing.php
-		</a><br>
-			<a href="../php-reader/ID3/_ID3---Frame---TIPL.php.html">		TIPL.php
-		</a><br>
-			<a href="../php-reader/ID3/_ID3---Frame---TIT1.php.html">		TIT1.php
-		</a><br>
-			<a href="../php-reader/ID3/_ID3---Frame---TIT2.php.html">		TIT2.php
-		</a><br>
-			<a href="../php-reader/ID3/_ID3---Frame---TIT3.php.html">		TIT3.php
-		</a><br>
-			<a href="../php-reader/ID3/_ID3---Frame---TKEY.php.html">		TKEY.php
-		</a><br>
-			<a href="../php-reader/ID3/_ID3---Frame---TLAN.php.html">		TLAN.php
-		</a><br>
-			<a href="../php-reader/ID3/_ID3---Frame---TLEN.php.html">		TLEN.php
-		</a><br>
-			<a href="../php-reader/ID3/_ID3---Frame---TMCL.php.html">		TMCL.php
-		</a><br>
-			<a href="../php-reader/ID3/_ID3---Frame---TMED.php.html">		TMED.php
-		</a><br>
-			<a href="../php-reader/ID3/_ID3---Frame---TMOO.php.html">		TMOO.php
-		</a><br>
-			<a href="../php-reader/ID3/_ID3---Frame---TOAL.php.html">		TOAL.php
-		</a><br>
-			<a href="../php-reader/ID3/_ID3---Frame---TOFN.php.html">		TOFN.php
-		</a><br>
-			<a href="../php-reader/ID3/_ID3---Frame---TOLY.php.html">		TOLY.php
-		</a><br>
-			<a href="../php-reader/ID3/_ID3---Frame---TOPE.php.html">		TOPE.php
-		</a><br>
-			<a href="../php-reader/ID3/_ID3---Frame---TOWN.php.html">		TOWN.php
-		</a><br>
-			<a href="../php-reader/ID3/_ID3---Frame---TPE1.php.html">		TPE1.php
-		</a><br>
-			<a href="../php-reader/ID3/_ID3---Frame---TPE2.php.html">		TPE2.php
-		</a><br>
-			<a href="../php-reader/ID3/_ID3---Frame---TPE3.php.html">		TPE3.php
-		</a><br>
-			<a href="../php-reader/ID3/_ID3---Frame---TPE4.php.html">		TPE4.php
-		</a><br>
-			<a href="../php-reader/ID3/_ID3---Frame---TPOS.php.html">		TPOS.php
-		</a><br>
-			<a href="../php-reader/ID3/_ID3---Frame---TPRO.php.html">		TPRO.php
-		</a><br>
-			<a href="../php-reader/ID3/_ID3---Frame---TPUB.php.html">		TPUB.php
-		</a><br>
-			<a href="../php-reader/ID3/_ID3---Frame---TRCK.php.html">		TRCK.php
-		</a><br>
-			<a href="../php-reader/ID3/_ID3---Frame---TRSN.php.html">		TRSN.php
-		</a><br>
-			<a href="../php-reader/ID3/_ID3---Frame---TRSO.php.html">		TRSO.php
-		</a><br>
-			<a href="../php-reader/ID3/_ID3---Frame---TSOA.php.html">		TSOA.php
-		</a><br>
-			<a href="../php-reader/ID3/_ID3---Frame---TSOP.php.html">		TSOP.php
-		</a><br>
-			<a href="../php-reader/ID3/_ID3---Frame---TSOT.php.html">		TSOT.php
-		</a><br>
-			<a href="../php-reader/ID3/_ID3---Frame---TSRC.php.html">		TSRC.php
-		</a><br>
-			<a href="../php-reader/ID3/_ID3---Frame---TSSE.php.html">		TSSE.php
-		</a><br>
-			<a href="../php-reader/ID3/_ID3---Frame---TSST.php.html">		TSST.php
-		</a><br>
-			<a href="../php-reader/ID3/_ID3---Frame---TXXX.php.html">		TXXX.php
-		</a><br>
-			<a href="../php-reader/ID3/_ID3---Frame---USER.php.html">		USER.php
-		</a><br>
-			<a href="../php-reader/ID3/_ID3---Frame---USLT.php.html">		USLT.php
-		</a><br>
-			<a href="../php-reader/ID3/_ID3---Frame---WCOM.php.html">		WCOM.php
-		</a><br>
-			<a href="../php-reader/ID3/_ID3---Frame---WCOP.php.html">		WCOP.php
-		</a><br>
-			<a href="../php-reader/ID3/_ID3---Frame---WOAF.php.html">		WOAF.php
-		</a><br>
-			<a href="../php-reader/ID3/_ID3---Frame---WOAR.php.html">		WOAR.php
-		</a><br>
-			<a href="../php-reader/ID3/_ID3---Frame---WOAS.php.html">		WOAS.php
-		</a><br>
-			<a href="../php-reader/ID3/_ID3---Frame---WORS.php.html">		WORS.php
-		</a><br>
-			<a href="../php-reader/ID3/_ID3---Frame---WPAY.php.html">		WPAY.php
-		</a><br>
-			<a href="../php-reader/ID3/_ID3---Frame---WPUB.php.html">		WPUB.php
-		</a><br>
-			<a href="../php-reader/ID3/_ID3---Frame---WXXX.php.html">		WXXX.php
-		</a><br>
-	  </div><br />
-      
-            <b>Interfaces:</b><br />
-        <div class="package">
-	ID3<br />	    &nbsp;&nbsp;		<a href="../php-reader/ID3/ID3_Encoding.html">ID3_Encoding</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ID3/ID3_Language.html">ID3_Language</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ID3/ID3_Timing.html">ID3_Timing</a><br />
-	  </div>
-      
-            <b>Classes:</b><br />
-        <div class="package">
-	ID3<br />	    &nbsp;&nbsp;		<a href="../php-reader/ID3/ID3v1.html">ID3v1</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ID3/ID3v2.html">ID3v2</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ID3/ID3_Exception.html">ID3_Exception</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ID3/ID3_ExtendedHeader.html">ID3_ExtendedHeader</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ID3/ID3_Frame.html">ID3_Frame</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ID3/ID3_Frame_AbstractLink.html">ID3_Frame_AbstractLink</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ID3/ID3_Frame_AbstractText.html">ID3_Frame_AbstractText</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ID3/ID3_Frame_AENC.html">ID3_Frame_AENC</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ID3/ID3_Frame_APIC.html">ID3_Frame_APIC</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ID3/ID3_Frame_ASPI.html">ID3_Frame_ASPI</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ID3/ID3_Frame_COMM.html">ID3_Frame_COMM</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ID3/ID3_Frame_COMR.html">ID3_Frame_COMR</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ID3/ID3_Frame_ENCR.html">ID3_Frame_ENCR</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ID3/ID3_Frame_EQU2.html">ID3_Frame_EQU2</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ID3/ID3_Frame_ETCO.html">ID3_Frame_ETCO</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ID3/ID3_Frame_GEOB.html">ID3_Frame_GEOB</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ID3/ID3_Frame_GRID.html">ID3_Frame_GRID</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ID3/ID3_Frame_ISRC.html">ID3_Frame_ISRC</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ID3/ID3_Frame_LINK.html">ID3_Frame_LINK</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ID3/ID3_Frame_MCDI.html">ID3_Frame_MCDI</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ID3/ID3_Frame_MLLT.html">ID3_Frame_MLLT</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ID3/ID3_Frame_OWNE.html">ID3_Frame_OWNE</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ID3/ID3_Frame_PCNT.html">ID3_Frame_PCNT</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ID3/ID3_Frame_POPM.html">ID3_Frame_POPM</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ID3/ID3_Frame_POSS.html">ID3_Frame_POSS</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ID3/ID3_Frame_PRIV.html">ID3_Frame_PRIV</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ID3/ID3_Frame_RBUF.html">ID3_Frame_RBUF</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ID3/ID3_Frame_RVA2.html">ID3_Frame_RVA2</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ID3/ID3_Frame_RVRB.html">ID3_Frame_RVRB</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ID3/ID3_Frame_SEEK.html">ID3_Frame_SEEK</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ID3/ID3_Frame_SIGN.html">ID3_Frame_SIGN</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ID3/ID3_Frame_SYLT.html">ID3_Frame_SYLT</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ID3/ID3_Frame_SYTC.html">ID3_Frame_SYTC</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ID3/ID3_Frame_TALB.html">ID3_Frame_TALB</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ID3/ID3_Frame_TBPM.html">ID3_Frame_TBPM</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ID3/ID3_Frame_TCOM.html">ID3_Frame_TCOM</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ID3/ID3_Frame_TCON.html">ID3_Frame_TCON</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ID3/ID3_Frame_TCOP.html">ID3_Frame_TCOP</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ID3/ID3_Frame_TDEN.html">ID3_Frame_TDEN</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ID3/ID3_Frame_TDLY.html">ID3_Frame_TDLY</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ID3/ID3_Frame_TDOR.html">ID3_Frame_TDOR</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ID3/ID3_Frame_TDRC.html">ID3_Frame_TDRC</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ID3/ID3_Frame_TDRL.html">ID3_Frame_TDRL</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ID3/ID3_Frame_TDTG.html">ID3_Frame_TDTG</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ID3/ID3_Frame_TENC.html">ID3_Frame_TENC</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ID3/ID3_Frame_TEXT.html">ID3_Frame_TEXT</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ID3/ID3_Frame_TFLT.html">ID3_Frame_TFLT</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ID3/ID3_Frame_TIPL.html">ID3_Frame_TIPL</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ID3/ID3_Frame_TIT1.html">ID3_Frame_TIT1</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ID3/ID3_Frame_TIT2.html">ID3_Frame_TIT2</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ID3/ID3_Frame_TIT3.html">ID3_Frame_TIT3</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ID3/ID3_Frame_TKEY.html">ID3_Frame_TKEY</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ID3/ID3_Frame_TLAN.html">ID3_Frame_TLAN</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ID3/ID3_Frame_TLEN.html">ID3_Frame_TLEN</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ID3/ID3_Frame_TMCL.html">ID3_Frame_TMCL</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ID3/ID3_Frame_TMED.html">ID3_Frame_TMED</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ID3/ID3_Frame_TMOO.html">ID3_Frame_TMOO</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ID3/ID3_Frame_TOAL.html">ID3_Frame_TOAL</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ID3/ID3_Frame_TOFN.html">ID3_Frame_TOFN</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ID3/ID3_Frame_TOLY.html">ID3_Frame_TOLY</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ID3/ID3_Frame_TOPE.html">ID3_Frame_TOPE</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ID3/ID3_Frame_TOWN.html">ID3_Frame_TOWN</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ID3/ID3_Frame_TPE1.html">ID3_Frame_TPE1</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ID3/ID3_Frame_TPE2.html">ID3_Frame_TPE2</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ID3/ID3_Frame_TPE3.html">ID3_Frame_TPE3</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ID3/ID3_Frame_TPE4.html">ID3_Frame_TPE4</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ID3/ID3_Frame_TPOS.html">ID3_Frame_TPOS</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ID3/ID3_Frame_TPRO.html">ID3_Frame_TPRO</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ID3/ID3_Frame_TPUB.html">ID3_Frame_TPUB</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ID3/ID3_Frame_TRCK.html">ID3_Frame_TRCK</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ID3/ID3_Frame_TRSN.html">ID3_Frame_TRSN</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ID3/ID3_Frame_TRSO.html">ID3_Frame_TRSO</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ID3/ID3_Frame_TSOA.html">ID3_Frame_TSOA</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ID3/ID3_Frame_TSOP.html">ID3_Frame_TSOP</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ID3/ID3_Frame_TSOT.html">ID3_Frame_TSOT</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ID3/ID3_Frame_TSSE.html">ID3_Frame_TSSE</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ID3/ID3_Frame_TSST.html">ID3_Frame_TSST</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ID3/ID3_Frame_TXXX.html">ID3_Frame_TXXX</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ID3/ID3_Frame_USER.html">ID3_Frame_USER</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ID3/ID3_Frame_USLT.html">ID3_Frame_USLT</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ID3/ID3_Frame_WCOM.html">ID3_Frame_WCOM</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ID3/ID3_Frame_WCOP.html">ID3_Frame_WCOP</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ID3/ID3_Frame_WOAF.html">ID3_Frame_WOAF</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ID3/ID3_Frame_WOAR.html">ID3_Frame_WOAR</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ID3/ID3_Frame_WOAS.html">ID3_Frame_WOAS</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ID3/ID3_Frame_WORS.html">ID3_Frame_WORS</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ID3/ID3_Frame_WPAY.html">ID3_Frame_WPAY</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ID3/ID3_Frame_WPUB.html">ID3_Frame_WPUB</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ID3/ID3_Frame_WXXX.html">ID3_Frame_WXXX</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ID3/ID3_Header.html">ID3_Header</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ID3/ID3_Object.html">ID3_Object</a><br />
-	  </div>
-  <div class="package">
-	ASF<br />	    &nbsp;&nbsp;		<a href="../php-reader/ASF/ASF.html">ASF</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ASF/ASF_ContentDescriptionObject.html">ASF_ContentDescriptionObject</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ASF/ASF_ExtendedContentDescriptionObject.html">ASF_ExtendedContentDescriptionObject</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ASF/ASF_FilePropertiesObject.html">ASF_FilePropertiesObject</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ASF/ASF_HeaderObject.html">ASF_HeaderObject</a><br />
-	    &nbsp;&nbsp;		<a href="../php-reader/ASF/ASF_Object.html">ASF_Object</a><br />
-	  </div>
-  <div class="package">
-		    		<a href="../php-reader/Reader.html">Reader</a><br />
-	    		<a href="../php-reader/Reader_Exception.html">Reader_Exception</a><br />
-	    		<a href="../php-reader/Transform.html">Transform</a><br />
-	  </div>
-                </td>
-    <td>
-      <table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
-
-<h1>Class: Reader</h1>
-Source Location: /Reader.php<br /><br />
-
-
-<table width="100%" border="0">
-<tr><td valign="top">
-
-<h3><a href="#class_details">Class Overview</a></h3>
-<pre></pre><br />
-<div class="description">The Reader class encapsulates a file. It is hence responsible of upkeeping  the connection to the file, keeping track of the cursor position and reading  data from it.</div><br /><br />
-<h4>Author(s):</h4>
-<ul>
-          <li>Sven Vollbehr &lt;<a href="mailto:svollbehr@gmail.com">svollbehr@gmail.com</a>&gt;</li>
-                        </ul>
-
-
-
-
-        
-          
-      
-<h4>Version:</h4>
-<ul>
-  <li>$Rev: 39 $</li>
-</ul>
-
-<h4>Copyright:</h4>
-<ul>
-  <li>Copyright (c) 2006-2008 The PHP Reader Project Workgroup</li>
-</ul>
-        
-</td>
-
-
-
-<td valign="top">
-<h3><a href="#class_methods">Methods</a></h3>
-<ul>
-    <li><a href="../php-reader/Reader.html#method__construct">__construct</a></li>
-    <li><a href="../php-reader/Reader.html#method__destruct">__destruct</a></li>
-    <li><a href="../php-reader/Reader.html#methodavailable">available</a></li>
-    <li><a href="../php-reader/Reader.html#methodgetOffset">getOffset</a></li>
-    <li><a href="../php-reader/Reader.html#methodgetSize">getSize</a></li>
-    <li><a href="../php-reader/Reader.html#methodread">read</a></li>
-    <li><a href="../php-reader/Reader.html#methodsetOffset">setOffset</a></li>
-    <li><a href="../php-reader/Reader.html#methodskip">skip</a></li>
-    <li><a href="../php-reader/Reader.html#method__call">__call</a></li>
-    <li><a href="../php-reader/Reader.html#method__get">__get</a></li>
-    <li><a href="../php-reader/Reader.html#method__set">__set</a></li>
-  </ul>
-</td>
-
-</tr></table>
-<hr />
-
-<table width="100%" border="0"><tr>
-
-
-
-
-
-
-</tr></table>
-<hr />
-
-<a name="class_details"></a>
-<h3>Class Details</h3>
-<div class="tags">
-[line 54]<br />
-The Reader class encapsulates a file. It is hence responsible of upkeeping  the connection to the file, keeping track of the cursor position and reading  data from it.<br /><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>author:</b>&nbsp;&nbsp;</td><td>Sven Vollbehr &lt;<a href="mailto:svollbehr@gmail.com">svollbehr@gmail.com</a>&gt;</td>
-  </tr>
-  <tr>
-    <td><b>version:</b>&nbsp;&nbsp;</td><td>$Rev: 39 $</td>
-  </tr>
-  <tr>
-    <td><b>copyright:</b>&nbsp;&nbsp;</td><td>Copyright (c) 2006-2008 The PHP Reader Project Workgroup</td>
-  </tr>
-  <tr>
-    <td><b>license:</b>&nbsp;&nbsp;</td><td><a href="http://code.google.com/p/php-reader/wiki/License">New BSD License</a></td>
-  </tr>
-</table>
-</div>
-</div><br /><br />
-<div class="top">[ <a href="#top">Top</a> ]</div><br />
-
-
-<hr />
-<a name="class_methods"></a>
-<h3>Class Methods</h3>
-<div class="tags">
-
-  <hr />
-	<a name="method__construct"></a>
-	<h3>constructor __construct <span class="smalllinenumber">[line 69]</span></h3>
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>Reader __construct(
-string
-$filename, [string
-$mode = &quot;rb&quot;])</code>
-    </td></tr></table>
-    </td></tr></table><br />
+<a name="method__destruct" id="__destruct"><!-- --></a>
+<div class="oddrow">
 	
-		Constructs the Reader class with given file.<br /><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>throws:</b>&nbsp;&nbsp;</td><td>Reader_Exception if the file cannot be read.</td>
-  </tr>
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
-  </tr>
-</table>
-</div>
-<br /><br />
-
+	<div class="method-header">
+		<span class="method-title">Destructor __destruct</span> (line <span class="line-number">82</span>)
+	</div> 
 	
-        <h4>Parameters:</h4>
-    <div class="tags">
-    <table border="0" cellspacing="0" cellpadding="0">
-          <tr>
-        <td class="type">string&nbsp;&nbsp;</td>
-        <td><b>$filename</b>&nbsp;&nbsp;</td>
-        <td>The path to the file.</td>
-      </tr>
-          <tr>
-        <td class="type">string&nbsp;&nbsp;</td>
-        <td><b>$mode</b>&nbsp;&nbsp;</td>
-        <td>The type of access.</td>
-      </tr>
-        </table>
-    </div><br />
-        <div class="top">[ <a href="#top">Top</a> ]</div>
-  </div>
-  <hr />
-	<a name="method__destruct"></a>
-	<h3>destructor __destruct <span class="smalllinenumber">[line 82]</span></h3>
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>void __destruct(
-)</code>
-    </td></tr></table>
-    </td></tr></table><br />
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Closes the file.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
 	
-		Closes the file.<br /><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
-  </tr>
-</table>
-</div>
-<br /><br />
-
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			__destruct
+		</span>
+				()
+			</div>
 	
-        <div class="top">[ <a href="#top">Top</a> ]</div>
-  </div>
-  <hr />
-	<a name="methodavailable"></a>
-	<h3>method available <span class="smalllinenumber">[line 94]</span></h3>
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>boolean available(
-)</code>
-    </td></tr></table>
-    </td></tr></table><br />
+		
+			
+	</div>
+<a name="methodavailable" id="available"><!-- --></a>
+<div class="evenrow">
 	
-		Checks whether there is more to be read in the file. Returns  <var>true</var> if the end of the file has not yet been reached;  <var>false</var> otherwise.<br /><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
-  </tr>
-</table>
-</div>
-<br /><br />
-
+	<div class="method-header">
+		<span class="method-title">available</span> (line <span class="line-number">94</span>)
+	</div> 
 	
-        <div class="top">[ <a href="#top">Top</a> ]</div>
-  </div>
-  <hr />
-	<a name="methodgetOffset"></a>
-	<h3>method getOffset <span class="smalllinenumber">[line 136]</span></h3>
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>integer getOffset(
-)</code>
-    </td></tr></table>
-    </td></tr></table><br />
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Checks whether there is more to be read in the file. Returns  <var>true</var> if the end of the file has not yet been reached;  <var>false</var> otherwise.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
 	
-		Returns the current point of operation.<br /><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
-  </tr>
-</table>
-</div>
-<br /><br />
-
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			available
+		</span>
+				()
+			</div>
 	
-        <div class="top">[ <a href="#top">Top</a> ]</div>
-  </div>
-  <hr />
-	<a name="methodgetSize"></a>
-	<h3>method getSize <span class="smalllinenumber">[line 159]</span></h3>
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>integer getSize(
-)</code>
-    </td></tr></table>
-    </td></tr></table><br />
+		
+			
+	</div>
+<a name="methodgetOffset" id="getOffset"><!-- --></a>
+<div class="oddrow">
 	
-		Returns the file size in bytes.<br /><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
-  </tr>
-</table>
-</div>
-<br /><br />
-
+	<div class="method-header">
+		<span class="method-title">getOffset</span> (line <span class="line-number">136</span>)
+	</div> 
 	
-        <div class="top">[ <a href="#top">Top</a> ]</div>
-  </div>
-  <hr />
-	<a name="methodread"></a>
-	<h3>method read <span class="smalllinenumber">[line 122]</span></h3>
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>string read(
-integer
-$length)</code>
-    </td></tr></table>
-    </td></tr></table><br />
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the current point of operation.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
 	
-		Reads <var>length</var> amount of bytes from the file stream.<br /><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>throws:</b>&nbsp;&nbsp;</td><td>Reader_Exception if <var>length</var> attribute is negative.</td>
-  </tr>
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
-  </tr>
-</table>
-</div>
-<br /><br />
-
+	<div class="method-signature">
+		<span class="method-result">integer</span>
+		<span class="method-name">
+			getOffset
+		</span>
+				()
+			</div>
 	
-        <h4>Parameters:</h4>
-    <div class="tags">
-    <table border="0" cellspacing="0" cellpadding="0">
-          <tr>
-        <td class="type">integer&nbsp;&nbsp;</td>
-        <td><b>$length</b>&nbsp;&nbsp;</td>
-        <td>The amount of bytes.</td>
-      </tr>
-        </table>
-    </div><br />
-        <div class="top">[ <a href="#top">Top</a> ]</div>
-  </div>
-  <hr />
-	<a name="methodsetOffset"></a>
-	<h3>method setOffset <span class="smalllinenumber">[line 149]</span></h3>
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>void setOffset(
-integer
-$offset)</code>
-    </td></tr></table>
-    </td></tr></table><br />
+		
+			
+	</div>
+<a name="methodgetSize" id="getSize"><!-- --></a>
+<div class="evenrow">
 	
-		Sets the point of operation, ie the cursor offset value. The offset can  also be set to a negative value when it is interpreted as an offset from  the end of the file instead of the beginning.<br /><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
-  </tr>
-</table>
-</div>
-<br /><br />
-
+	<div class="method-header">
+		<span class="method-title">getSize</span> (line <span class="line-number">159</span>)
+	</div> 
 	
-        <h4>Parameters:</h4>
-    <div class="tags">
-    <table border="0" cellspacing="0" cellpadding="0">
-          <tr>
-        <td class="type">integer&nbsp;&nbsp;</td>
-        <td><b>$offset</b>&nbsp;&nbsp;</td>
-        <td>The new point of operation.</td>
-      </tr>
-        </table>
-    </div><br />
-        <div class="top">[ <a href="#top">Top</a> ]</div>
-  </div>
-  <hr />
-	<a name="methodskip"></a>
-	<h3>method skip <span class="smalllinenumber">[line 106]</span></h3>
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>void skip(
-integer
-$size)</code>
-    </td></tr></table>
-    </td></tr></table><br />
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the file size in bytes.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
 	
-		Jumps <var>size</var> amount of bytes in the file stream.<br /><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>throws:</b>&nbsp;&nbsp;</td><td>Reader_Exception if <var>size</var> attribute is negative.</td>
-  </tr>
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
-  </tr>
-</table>
-</div>
-<br /><br />
-
+	<div class="method-signature">
+		<span class="method-result">integer</span>
+		<span class="method-name">
+			getSize
+		</span>
+				()
+			</div>
 	
-        <h4>Parameters:</h4>
-    <div class="tags">
-    <table border="0" cellspacing="0" cellpadding="0">
-          <tr>
-        <td class="type">integer&nbsp;&nbsp;</td>
-        <td><b>$size</b>&nbsp;&nbsp;</td>
-        <td>The amount of bytes.</td>
-      </tr>
-        </table>
-    </div><br />
-        <div class="top">[ <a href="#top">Top</a> ]</div>
-  </div>
-  <hr />
-	<a name="method__call"></a>
-	<h3>method __call <span class="smalllinenumber">[line 203]</span></h3>
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>mixed __call(
-string
-$method, string
-$params)</code>
-    </td></tr></table>
-    </td></tr></table><br />
+		
+			
+	</div>
+<a name="methodread" id="read"><!-- --></a>
+<div class="oddrow">
 	
-		Magic function to delegate the call to helper methods of  <var>Transform</var> class to transform read data in another format.<br /><br /><p>The read data length is determined from the helper method name. For methods  where arbitrary data lengths are accepted a parameter can be used to  specify the length.</p><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>throws:</b>&nbsp;&nbsp;</td><td>Reader_Exception if no such transformer is implemented</td>
-  </tr>
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
-  </tr>
-</table>
-</div>
-<br /><br />
-
+	<div class="method-header">
+		<span class="method-title">read</span> (line <span class="line-number">122</span>)
+	</div> 
 	
-        <h4>Parameters:</h4>
-    <div class="tags">
-    <table border="0" cellspacing="0" cellpadding="0">
-          <tr>
-        <td class="type">string&nbsp;&nbsp;</td>
-        <td><b>$method</b>&nbsp;&nbsp;</td>
-        <td>The method to be called.</td>
-      </tr>
-          <tr>
-        <td class="type">string&nbsp;&nbsp;</td>
-        <td><b>$params</b>&nbsp;&nbsp;</td>
-        <td>The parameters should the function accept them.</td>
-      </tr>
-        </table>
-    </div><br />
-        <div class="top">[ <a href="#top">Top</a> ]</div>
-  </div>
-  <hr />
-	<a name="method__get"></a>
-	<h3>method __get <span class="smalllinenumber">[line 170]</span></h3>
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>mixed __get(
-string
-$name)</code>
-    </td></tr></table>
-    </td></tr></table><br />
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Reads <var>length</var> amount of bytes from the file stream.</p>
+	<ul class="tags">
+				<li><span class="field">throws:</span> Reader_Exception if <var>length</var> attribute is negative.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
 	
-		Magic function so that $obj-&gt;value will work.<br /><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
-  </tr>
-</table>
-</div>
-<br /><br />
-
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			read
+		</span>
+					(<span class="var-type">integer</span>&nbsp;<span class="var-name">$length</span>)
+			</div>
 	
-        <h4>Parameters:</h4>
-    <div class="tags">
-    <table border="0" cellspacing="0" cellpadding="0">
-          <tr>
-        <td class="type">string&nbsp;&nbsp;</td>
-        <td><b>$name</b>&nbsp;&nbsp;</td>
-        <td>The field name.</td>
-      </tr>
-        </table>
-    </div><br />
-        <div class="top">[ <a href="#top">Top</a> ]</div>
-  </div>
-  <hr />
-	<a name="method__set"></a>
-	<h3>method __set <span class="smalllinenumber">[line 183]</span></h3>
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>mixed __set(
-string
-$name, string
-$value)</code>
-    </td></tr></table>
-    </td></tr></table><br />
+			<ul class="parameters">
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$length</span><span class="var-description">: The amount of bytes.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetOffset" id="setOffset"><!-- --></a>
+<div class="evenrow">
 	
-		Magic function so that assignments with $obj-&gt;value will work.<br /><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
-  </tr>
-</table>
-</div>
-<br /><br />
-
+	<div class="method-header">
+		<span class="method-title">setOffset</span> (line <span class="line-number">149</span>)
+	</div> 
 	
-        <h4>Parameters:</h4>
-    <div class="tags">
-    <table border="0" cellspacing="0" cellpadding="0">
-          <tr>
-        <td class="type">string&nbsp;&nbsp;</td>
-        <td><b>$name</b>&nbsp;&nbsp;</td>
-        <td>The field name.</td>
-      </tr>
-          <tr>
-        <td class="type">string&nbsp;&nbsp;</td>
-        <td><b>$value</b>&nbsp;&nbsp;</td>
-        <td>The field value.</td>
-      </tr>
-        </table>
-    </div><br />
-        <div class="top">[ <a href="#top">Top</a> ]</div>
-  </div>
-</div><br />
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets the point of operation, ie the cursor offset value. The offset can  also be set to a negative value when it is interpreted as an offset from  the end of the file instead of the beginning.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setOffset
+		</span>
+					(<span class="var-type">integer</span>&nbsp;<span class="var-name">$offset</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$offset</span><span class="var-description">: The new point of operation.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodskip" id="skip"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">skip</span> (line <span class="line-number">106</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Jumps <var>size</var> amount of bytes in the file stream.</p>
+	<ul class="tags">
+				<li><span class="field">throws:</span> Reader_Exception if <var>size</var> attribute is negative.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			skip
+		</span>
+					(<span class="var-type">integer</span>&nbsp;<span class="var-name">$size</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$size</span><span class="var-description">: The amount of bytes.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="method__call" id="__call"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">__call</span> (line <span class="line-number">203</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Magic function to delegate the call to helper methods of  <var>Transform</var> class to transform read data in another format.</p>
+<p class="description"><p>The read data length is determined from the helper method name. For methods  where arbitrary data lengths are accepted a parameter can be used to  specify the length.</p></p>
+	<ul class="tags">
+				<li><span class="field">throws:</span> Reader_Exception if no such transformer is implemented</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">mixed</span>
+		<span class="method-name">
+			__call
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$method</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$params</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$method</span><span class="var-description">: The method to be called.</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$params</span><span class="var-description">: The parameters should the function accept them.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="method__get" id="__get"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">__get</span> (line <span class="line-number">170</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Magic function so that $obj-&gt;value will work.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">mixed</span>
+		<span class="method-name">
+			__get
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$name</span><span class="var-description">: The field name.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="method__set" id="__set"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">__set</span> (line <span class="line-number">183</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Magic function so that assignments with $obj-&gt;value will work.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">mixed</span>
+		<span class="method-name">
+			__set
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$name</span><span class="var-description">: The field name.</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: The field value.</span>			</li>
+				</ul>
+		
+			
+	</div>
+						
+		</div>
+	</div>
 
 
-        <div class="credit">
-		    <hr />
-		    Documentation generated on Wed, 02 Apr 2008 18:35:29 +0300 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.1</a>
-	      </div>
-      </td></tr></table>
-    </td>
-  </tr>
-</table>
-
-</body>
-</html>
+	<p class="notes" id="credit">
+		Documentation generated on Tue, 15 Apr 2008 03:33:22 +0300 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.1</a>
+	</p>
+	</div></body>
+</html>

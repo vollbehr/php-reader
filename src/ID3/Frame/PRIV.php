@@ -32,7 +32,7 @@
  * @subpackage ID3
  * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
  * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version    $Id: PRIV.php 65 2008-04-02 15:22:46Z svollbehr $
+ * @version    $Id: PRIV.php 75 2008-04-14 23:57:21Z svollbehr $
  */
 
 /**#@+ @ignore */
@@ -54,12 +54,12 @@ require_once("ID3/Frame.php");
  * @author     Sven Vollbehr <svollbehr@gmail.com>
  * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
  * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version    $Rev: 65 $
+ * @version    $Rev: 75 $
  */
 final class ID3_Frame_PRIV extends ID3_Frame
 {
   /** @var string */
-  private $_id;
+  private $_owner;
   
   /** @var string */
   private $_privateData;
@@ -68,15 +68,16 @@ final class ID3_Frame_PRIV extends ID3_Frame
    * Constructs the class with given parameters and parses object related data.
    *
    * @param Reader $reader The reader object.
+   * @param Array $options The options array.
    */
-  public function __construct($reader = null)
+  public function __construct($reader = null, &$options = array())
   {
-    parent::__construct($reader);
+    parent::__construct($reader, $options);
     
     if ($reader === null)
       return;
     
-    list($this->_id, $this->_privateData) =
+    list($this->_owner, $this->_privateData) =
       preg_split("/\\x00/", $this->_data, 2);
   }
   
@@ -85,14 +86,14 @@ final class ID3_Frame_PRIV extends ID3_Frame
    * 
    * @return string
    */
-  public function getIdentifier() { return $this->_id; }
+  public function getOwner() { return $this->_owner; }
   
   /**
    * Sets the owner identifier string.
    * 
-   * @param string $id The owner identifier string.
+   * @param string $owner The owner identifier string.
    */
-  public function setIdentifier($id) { $this->_id = $id; }
+  public function setOwner($owner) { $this->_owner = $owner; }
   
   /**
    * Returns the private binary data associated with the frame.
@@ -115,7 +116,7 @@ final class ID3_Frame_PRIV extends ID3_Frame
    */
   public function __toString()
   {
-    parent::setData($this->_id . "\0" . $this->_privateData);
+    parent::setData($this->_owner . "\0" . $this->_privateData);
     return parent::__toString();
   }
 }

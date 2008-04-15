@@ -32,7 +32,7 @@
  * @subpackage ID3
  * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
  * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version    $Id: APIC.php 65 2008-04-02 15:22:46Z svollbehr $
+ * @version    $Id: APIC.php 75 2008-04-14 23:57:21Z svollbehr $
  */
 
 /**#@+ @ignore */
@@ -58,7 +58,7 @@ require_once("ID3/Encoding.php");
  * @author     Sven Vollbehr <svollbehr@gmail.com>
  * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
  * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version    $Rev: 65 $
+ * @version    $Rev: 75 $
  */
 final class ID3_Frame_APIC extends ID3_Frame
   implements ID3_Encoding
@@ -97,10 +97,11 @@ final class ID3_Frame_APIC extends ID3_Frame
    * Constructs the class with given parameters and parses object related data.
    *
    * @param Reader $reader The reader object.
+   * @param Array $options The options array.
    */
-  public function __construct($reader = null)
+  public function __construct($reader = null, &$options = array())
   {
-    parent::__construct($reader);
+    parent::__construct($reader, $options);
     
     if ($reader === null)
       return;
@@ -108,7 +109,7 @@ final class ID3_Frame_APIC extends ID3_Frame
     $this->_encoding = Transform::fromInt8($this->_data[0]);
     $this->_mimeType = substr
       ($this->_data, 1, ($pos = strpos($this->_data, "\0", 1)) - 1);
-    $this->_pictureType = Transform::fromInt8($this->_data[$pos++]);
+    $this->_imageType = Transform::fromInt8($this->_data[$pos++]);
     $this->_data = substr($this->_data, $pos);
     
     switch ($this->_encoding) {
