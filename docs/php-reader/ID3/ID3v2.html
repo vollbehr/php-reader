@@ -22,27 +22,15 @@
 	<div class="info-box-body">
         		<!-- ========== Info from phpDoc block ========= -->
 <p class="short-description">This class represents a file containing ID3v2 headers as described in  <a href="http://www.id3.org/id3v2.4.0-structure">ID3v2 structure document</a>.</p>
-<p class="description"><p>ID3v2 is a general tagging format for audio, which makes it possible to store  meta data about the audio inside the audio file itself. The ID3 tag is mainly  targeted at files encoded with MPEG-1/2 layer I, MPEG-1/2 layer II, MPEG-1/2  layer III and MPEG-2.5, but may work with other types of encoded audio or as  a stand alone format for audio meta data.</p><p>ID3v2 is designed to be as flexible and expandable as possible to meet new  meta information needs that might arise. To achieve that ID3v2 is constructed  as a container for several information blocks, called frames, whose format  need not be known to the software that encounters them. Each frame has an  unique and predefined identifier which allows software to skip unknown  frames.</p><p>Overall tag structure:</p><p><pre>   +-----------------------------+
-   |      Header (10 bytes)      |
-   +-----------------------------+
-   |       Extended Header       |
-   | (variable length, OPTIONAL) |
-   +-----------------------------+
-   |   Frames (variable length)  |
-   +-----------------------------+
-   |           Padding           |
-   | (variable length, OPTIONAL) |
-   +-----------------------------+
-   | Footer (10 bytes, OPTIONAL) |
-   +-----------------------------+</pre></p><p>In general, padding and footer are mutually exclusive.</p></p>
+<p class="description"><p>ID3v2 is a general tagging format for audio, which makes it possible to store  meta data about the audio inside the audio file itself. The ID3 tag is mainly  targeted at files encoded with MPEG-1/2 layer I, MPEG-1/2 layer II, MPEG-1/2  layer III and MPEG-2.5, but may work with other types of encoded audio or as  a stand alone format for audio meta data.</p><p>ID3v2 is designed to be as flexible and expandable as possible to meet new  meta information needs that might arise. To achieve that ID3v2 is constructed  as a container for several information blocks, called frames, whose format  need not be known to the software that encounters them. Each frame has an  unique and predefined identifier which allows software to skip unknown  frames.</p></p>
 	<ul class="tags">
 				<li><span class="field">author:</span> Sven Vollbehr &lt;<a href="mailto:svollbehr@gmail.com">svollbehr@gmail.com</a>&gt;</li>
-				<li><span class="field">version:</span> $Rev: 75 $</li>
+				<li><span class="field">version:</span> $Rev: 86 $</li>
 				<li><span class="field">copyright:</span> Copyright (c) 2008 The PHP Reader Project Workgroup</li>
 				<li><span class="field">license:</span> <a href="http://code.google.com/p/php-reader/wiki/License">New BSD License</a></li>
 			</ul>
 		<p class="notes">
-			Located in <a class="field" href="_ID3v2.php.html">/ID3v2.php</a> (line <span class="field">90</span>)
+			Located in <a class="field" href="_ID3v2.php.html">/ID3v2.php</a> (line <span class="field">70</span>)
 		</p>
 		
 				
@@ -159,14 +147,16 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">Constructor __construct</span> (line <span class="line-number">128</span>)
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">112</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
 <p class="short-description">Constructs the ID3v2 class with given file and options. The options array  may also be given as the only parameter.</p>
 <p class="description"><p>The following options are currently recognized: <ul><li>version -- The ID3v2 tag version to use in write operation. This option
      is automatically set when a tag is read from a file and defaults to
-     version 4.0 for tag write.</li></ul></p></p>
+     version 4.0 for tag write.</li><li>readonly -- Indicates that the tag is read from a temporary file or
+     another source it cannot be written back to. The tag can, however,
+     still be written to another file.</li></ul></p></p>
 	<ul class="tags">
 				<li><span class="field">todo:</span> Only limited subset of flags are processed.</li>
 				<li><span class="field">todo:</span> Utilize the SEEK frame and search for a footer to find the tag</li>
@@ -185,7 +175,7 @@
 			<ul class="parameters">
 					<li>
 				<span class="var-type">string</span>
-				<span class="var-name">$filename</span><span class="var-description">: The path to the file.</span>			</li>
+				<span class="var-name">$filename</span><span class="var-description">: The path to the file, file descriptor of an opened                          file, or <a href="../../php-reader/Reader.html">Reader</a> instance.</span>			</li>
 					<li>
 				<span class="var-type">Array</span>
 				<span class="var-name">$options</span><span class="var-description">: The options array.</span>			</li>
@@ -197,7 +187,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">addFrame</span> (line <span class="line-number">286</span>)
+		<span class="method-title">addFrame</span> (line <span class="line-number">273</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -226,7 +216,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">getExtendedHeader</span> (line <span class="line-number">209</span>)
+		<span class="method-title">getExtendedHeader</span> (line <span class="line-number">199</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -250,7 +240,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">getFooter</span> (line <span class="line-number">310</span>)
+		<span class="method-title">getFooter</span> (line <span class="line-number">297</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -274,7 +264,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">getFrames</span> (line <span class="line-number">249</span>)
+		<span class="method-title">getFrames</span> (line <span class="line-number">239</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -298,7 +288,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">getFramesByIdentifier</span> (line <span class="line-number">268</span>)
+		<span class="method-title">getFramesByIdentifier</span> (line <span class="line-number">255</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -328,7 +318,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">getHeader</span> (line <span class="line-number">189</span>)
+		<span class="method-title">getHeader</span> (line <span class="line-number">179</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -352,7 +342,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">hasExtendedHeader</span> (line <span class="line-number">197</span>)
+		<span class="method-title">hasExtendedHeader</span> (line <span class="line-number">187</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -376,7 +366,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">hasFooter</span> (line <span class="line-number">300</span>)
+		<span class="method-title">hasFooter</span> (line <span class="line-number">287</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -400,7 +390,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">hasFrame</span> (line <span class="line-number">238</span>)
+		<span class="method-title">hasFrame</span> (line <span class="line-number">228</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -430,7 +420,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">setExtendedHeader</span> (line <span class="line-number">221</span>)
+		<span class="method-title">setExtendedHeader</span> (line <span class="line-number">211</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -459,7 +449,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">setFooter</span> (line <span class="line-number">322</span>)
+		<span class="method-title">setFooter</span> (line <span class="line-number">309</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -488,7 +478,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">write</span> (line <span class="line-number">351</span>)
+		<span class="method-title">write</span> (line <span class="line-number">338</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -518,7 +508,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">__get</span> (line <span class="line-number">396</span>)
+		<span class="method-title">__get</span> (line <span class="line-number">383</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -548,7 +538,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">__toString</span> (line <span class="line-number">414</span>)
+		<span class="method-title">__toString</span> (line <span class="line-number">401</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -574,7 +564,7 @@
 
 
 	<p class="notes" id="credit">
-		Documentation generated on Tue, 15 Apr 2008 03:33:11 +0300 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.1</a>
+		Documentation generated on Sun, 27 Apr 2008 19:23:48 +0300 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.1</a>
 	</p>
 	</div></body>
 </html>

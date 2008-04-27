@@ -32,7 +32,7 @@
  * @package   php-reader
  * @copyright Copyright (c) 2006-2008 The PHP Reader Project Workgroup
  * @license   http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version   $Id: Reader.php 39 2008-03-26 17:27:22Z svollbehr $
+ * @version   $Id: Reader.php 86 2008-04-25 07:30:05Z svollbehr $
  */
 
 /**#@+ @ignore */
@@ -49,7 +49,7 @@ require_once("Transform.php");
  * @author    Sven Vollbehr <svollbehr@gmail.com>
  * @copyright Copyright (c) 2006-2008 The PHP Reader Project Workgroup
  * @license   http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version   $Rev: 39 $
+ * @version   $Rev: 86 $
  */
 class Reader
 {
@@ -68,7 +68,9 @@ class Reader
    */
   public function __construct($filename, $mode = "rb")
   {
-    if (($this->_fd = fopen($filename, $mode)) === false)
+    if (is_resource($filename) && get_resource_type($filename) == "file")
+      $this->_fd = $filename;
+    else if (($this->_fd = fopen($filename, $mode)) === false)
       throw new Reader_Exception("Unable to open file:" . $filename);
     
     fseek($this->_fd, 0, SEEK_END);
@@ -156,10 +158,7 @@ class Reader
    * 
    * @return integer
    */
-  public function getSize()
-  {
-    return $this->_size;
-  }
+  public function getSize() { return $this->_size; }
   
   /**
    * Magic function so that $obj->value will work.
