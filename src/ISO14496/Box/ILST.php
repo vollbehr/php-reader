@@ -32,7 +32,7 @@
  * @subpackage ISO 14496
  * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
  * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version    $Id: ILST.php 87 2008-04-27 15:52:45Z svollbehr $
+ * @version    $Id: ILST.php 92 2008-05-10 13:43:14Z svollbehr $
  */
 
 /**#@+ @ignore */
@@ -47,24 +47,48 @@ require_once("ISO14496/Box.php");
  * @author     Sven Vollbehr <svollbehr@gmail.com>
  * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
  * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version    $Rev: 87 $
+ * @version    $Rev: 92 $
  * @since      iTunes/iPod specific
  */
 final class ISO14496_Box_ILST extends ISO14496_Box
 {
-  private $_data = array();
-  
   /**
    * Constructs the class with given parameters and reads box related data from
    * the ISO Base Media file.
    *
    * @param Reader $reader The reader object.
    */
-  public function __construct($reader)
+  public function __construct($reader = null, &$options = array())
   {
-    parent::__construct($reader);
+    parent::__construct($reader, $options);
     $this->setContainer(true);
+    
+    if ($reader === null)
+      return;
+    
     $this->constructBoxes("ISO14496_Box_ILST_Container");
+  }
+  
+  /**
+   * Override magic function so that $obj->value on a box will return the data
+   * box instead of the data container box.
+   *
+   * @param string $name The box or field name.
+   * @return mixed
+   */
+  public function __get($name)
+  {
+    if (strlen($name) == 3)
+      $name = "\xa9" . $name;
+    if ($name[0] == "_")
+      $name = "\xa9" . substr($name, 1, 3);
+    if ($this->hasBox($name)) {
+      $boxes = $this->getBoxesByIdentifier($name);
+      return $boxes[0]->data;
+    }
+    if (method_exists($this, "get" . ucfirst($name)))
+      return call_user_func(array($this, "get" . ucfirst($name)));
+    return $this->addBox(new ISO14496_Box_ILST_Container($name))->data;
   }
 }
 
@@ -76,17 +100,22 @@ final class ISO14496_Box_ILST extends ISO14496_Box
  * @author     Sven Vollbehr <svollbehr@gmail.com>
  * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
  * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version    $Rev: 87 $
+ * @version    $Rev: 92 $
  * @since      iTunes/iPod specific
  * @ignore
  */
 final class ISO14496_Box_ILST_Container extends ISO14496_Box
 {
-  public function __construct($reader)
+  public function __construct($reader = null, &$options = array())
   {
-    parent::__construct($reader);
+    parent::__construct(is_string($reader) ? null : $reader, $options);
     $this->setContainer(true);
-    $this->constructBoxes();
+    
+    if (is_string($reader)) {
+      $this->setType($reader);
+      $this->addBox(new ISO14496_Box_DATA());
+    } else
+      $this->constructBoxes();
   }
 }
 
@@ -102,7 +131,7 @@ require_once("ISO14496/Box/Full.php");
  * @author     Sven Vollbehr <svollbehr@gmail.com>
  * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
  * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version    $Rev: 87 $
+ * @version    $Rev: 92 $
  * @since      iTunes/iPod specific
  */
 final class ISO14496_Box_DATA extends ISO14496_Box_Full
@@ -134,18 +163,21 @@ final class ISO14496_Box_DATA extends ISO14496_Box_Full
    *
    * @param Reader $reader The reader object.
    */
-  public function __construct($reader)
+  public function __construct($reader = null, &$options = array())
   {
-    parent::__construct($reader);
+    parent::__construct($reader, $options);
+    
+    if ($reader === null)
+      return;
     
     $this->_reader->skip(4);
     $data = $this->_reader->read
-      ($this->_offset + $this->_size - $this->_reader->getOffset());
+      ($this->getOffset() + $this->getSize() - $this->_reader->getOffset());
     switch ($this->getFlags()) {
     case self::INTEGER:
     case self::INTEGER_OLD_STYLE:
       for ($i = 0;  $i < strlen($data); $i++)
-        $this->_value .= ord($data[$i]);
+        $this->_value .= Transform::fromInt8($data[$i]);
       break;
     case self::STRING:
     default:
@@ -159,4 +191,61 @@ final class ISO14496_Box_DATA extends ISO14496_Box_Full
    * @return mixed
    */
   public function getValue() { return $this->_value; }
+  
+  /**
+   * Sets the value this box contains.
+   * 
+   * @return mixed
+   */
+  public function setValue($value, $type = false)
+  {
+    $this->_value = (string)$value;
+    if ($type === false && is_string($value))
+      $this->_flags = self::STRING;
+    if ($type === false && is_int($value))
+      $this->_flags = self::INTEGER;
+    if ($type !== false)
+      $this->_flags = $type;
+  }
+  
+  /**
+   * Override magic function so that $obj->data will return the current box
+   * instead of an error. For other values the method will attempt to call a
+   * getter method.
+   *
+   * If there are no getter methods with given name, the method will yield an
+   * exception.
+   *
+   * @param string $name The box or field name.
+   * @return mixed
+   */
+  public function __get($name)
+  {
+    if ($name == "data")
+      return $this;
+    if (method_exists($this, "get" . ucfirst($name)))
+      return call_user_func(array($this, "get" . ucfirst($name)));
+    throw new ISO14496_Exception("Unknown box/field: " . $name);
+  }
+  
+  /**
+   * Returns the box raw data.
+   *
+   * @return string
+   */
+  public function __toString($data = "")
+  {
+    switch ($this->getFlags()) {
+    case self::INTEGER:
+    case self::INTEGER_OLD_STYLE:
+      $data = "";
+      for ($i = 0;  $i < strlen($this->_value); $i++)
+        $data .= Transform::toInt8($this->_value[$i]);
+      break;
+    case self::STRING:
+    default:
+      $data = $this->_value;
+    }
+    return parent::__toString("\0\0\0\0" . $data);
+  }
 }

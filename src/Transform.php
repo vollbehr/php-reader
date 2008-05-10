@@ -32,7 +32,7 @@
  * @package   php-reader
  * @copyright Copyright (c) 2006-2008 The PHP Reader Project Workgroup
  * @license   http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version   $Id: Transform.php 65 2008-04-02 15:22:46Z svollbehr $
+ * @version   $Id: Transform.php 89 2008-05-02 15:07:10Z svollbehr $
  */
 
 /**
@@ -42,7 +42,7 @@
  * @author    Sven Vollbehr <svollbehr@gmail.com>
  * @copyright Copyright (c) 2006-2008 The PHP Reader Project Workgroup
  * @license   http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version   $Rev: 65 $
+ * @version   $Rev: 89 $
  * @static
  */
 final class Transform
@@ -134,6 +134,62 @@ final class Transform
   }
   
   /**
+   * Returns signed 32-bit integer as little-endian ordered binary data.
+   *
+   * @param integer $value The input value.
+   * @return string
+   */
+  public static function toInt32LE($value)
+  {
+    if (self::fromInt32("\x00\x00\x00\x01") == 1)
+      return strrev(self::toInt32($value));
+    else 
+      return self::toInt32($value);
+  }
+  
+  /**
+   * Returns little-endian ordered binary data as signed 32-bit integer.
+   * 
+   * @param string $value The binary data string.
+   * @return integer
+   */
+  public static function fromInt32LE($value)
+  {
+    if (self::fromInt32("\x00\x00\x00\x01") == 1)
+      return self::fromInt32(strrev($value));
+    else
+      return self::fromInt32($value);
+  }
+  
+  /**
+   * Returns signed 32-bit integer as big-endian ordered binary data.
+   *
+   * @param integer $value The input value.
+   * @return string
+   */
+  public static function toInt32BE($value)
+  {
+    if (self::fromInt32("\x00\x00\x00\x01") == 1)
+      return self::toInt32($value);
+    else 
+      return strrev(self::toInt32($value));
+  }
+  
+  /**
+   * Returns big-endian ordered binary data as signed 32-bit integer.
+   * 
+   * @param string $value The binary data string.
+   * @return integer
+   */
+  public static function fromInt32BE($value)
+  {
+    if (self::fromInt32("\x00\x00\x00\x01") == 1)
+      return self::fromInt32($value);
+    else
+      return self::fromInt32(strrev($value));
+  }
+  
+  /**
    * Returns unsigned 32-bit integer as little-endian ordered binary data.
    *
    * @param integer $value The input value.
@@ -200,6 +256,62 @@ final class Transform
   {
     list(, $int) = unpack("s*", $value);
     return $int;
+  }
+  
+  /**
+   * Returns signed 16-bit integer as little-endian ordered binary data.
+   *
+   * @param integer $value The input value.
+   * @return string
+   */
+  public static function toInt16LE($value)
+  {
+    if (self::fromInt16("\x00\x01") == 1)
+      return strrev(self::toInt16($value));
+    else 
+      return self::toInt16($value);
+  }
+  
+  /**
+   * Returns little-endian ordered binary data as signed 16-bit integer.
+   *
+   * @param string $value The binary data string.
+   * @return integer
+   */
+  public static function fromInt16LE($value)
+  {
+    if (self::fromInt16("\x00\x01") == 1)
+      return self::fromInt16(strrev($value));
+    else
+      return self::fromInt16($value);
+  }
+  
+  /**
+   * Returns signed 16-bit integer as big-endian ordered binary data.
+   *
+   * @param integer $value The input value.
+   * @return string
+   */
+  public static function toInt16BE($value)
+  {
+    if (self::fromInt16("\x00\x01") == 1)
+      return self::toInt16($value);
+    else 
+      return strrev(self::toInt16($value));
+  }
+  
+  /**
+   * Returns big-endian ordered binary data as signed 16-bit integer.
+   *
+   * @param string $value The binary data string.
+   * @return integer
+   */
+  public static function fromInt16BE($value)
+  {
+    if (self::fromInt16("\x00\x01") == 1)
+      return self::fromInt16($value);
+    else
+      return self::fromInt16(strrev($value));
   }
   
   /**

@@ -32,7 +32,7 @@
  * @subpackage ISO 14496
  * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
  * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version    $Id: TFHD.php 85 2008-04-23 20:21:36Z svollbehr $
+ * @version    $Id: TFHD.php 92 2008-05-10 13:43:14Z svollbehr $
  */
 
 /**#@+ @ignore */
@@ -50,7 +50,7 @@ require_once("ISO14496/Box/Full.php");
  * @author     Sven Vollbehr <svollbehr@gmail.com>
  * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
  * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version    $Rev: 85 $
+ * @version    $Rev: 92 $
  */
 final class ISO14496_Box_TFHD extends ISO14496_Box_Full
 {
@@ -111,9 +111,9 @@ final class ISO14496_Box_TFHD extends ISO14496_Box_Full
    * @param Reader  $reader The reader object.
    * @todo The sample flags could be parsed further
    */
-  public function __construct($reader)
+  public function __construct($reader, &$options = array())
   {
-    parent::__construct($reader);
+    parent::__construct($reader, $options);
     
     $this->_trackId = $this->_reader->readUInt32BE();
     if ($this->hasFlag(self::BASE_DATA_OFFSET))

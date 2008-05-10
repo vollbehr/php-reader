@@ -32,7 +32,7 @@
  * @subpackage ID3
  * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
  * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version    $Id: Frame.php 75 2008-04-14 23:57:21Z svollbehr $
+ * @version    $Id: Frame.php 93 2008-05-10 17:11:44Z svollbehr $
  */
 
 /**#@+ @ignore */
@@ -49,7 +49,7 @@ require_once("ID3/Object.php");
  * @author     Sven Vollbehr <svollbehr@gmail.com>
  * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
  * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version    $Rev: 75 $
+ * @version    $Rev: 93 $
  */
 class ID3_Frame extends ID3_Object
 {
@@ -152,7 +152,7 @@ class ID3_Frame extends ID3_Object
       $this->_size = $this->decodeSynchsafe32($this->_reader->readUInt32BE());
 
       /* ID3v2.3.0 Flags; convert to 2.4.0 format */
-      if (isset($this->_options["version"]) && $this->_options["version"] < 4) {
+      if ($this->getOption("version", 4) < 4) {
         $flags = $this->_reader->readUInt16BE();
         if (($flags & 0x8000) == 0x8000)
           $this->_flags |= self::DISCARD_ON_TAGCHANGE;
@@ -243,7 +243,7 @@ class ID3_Frame extends ID3_Object
   public function __toString()
   {
     /* ID3v2.3.0 Flags; convert from 2.4.0 format */
-    if (isset($this->_options["version"]) && $this->_options["version"] < 4) {
+    if ($this->getOption("version", 4) < 4) {
       $flags = 0;
       if ($this->hasFlag(self::DISCARD_ON_TAGCHANGE))
         $flags = $flags | 0x8000;

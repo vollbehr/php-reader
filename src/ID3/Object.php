@@ -32,7 +32,7 @@
  * @subpackage ID3
  * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
  * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version    $Id: Object.php 75 2008-04-14 23:57:21Z svollbehr $
+ * @version    $Id: Object.php 93 2008-05-10 17:11:44Z svollbehr $
  */
 
 /**
@@ -43,7 +43,7 @@
  * @author     Sven Vollbehr <svollbehr@gmail.com>
  * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
  * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version    $Rev: 75 $
+ * @version    $Rev: 93 $
  */
 abstract class ID3_Object
 {
@@ -59,7 +59,7 @@ abstract class ID3_Object
    *
    * @var Array
    */
-  protected $_options;
+  private $_options;
   
   /**
    * Constructs the class with given parameters and reads object related data
@@ -82,11 +82,36 @@ abstract class ID3_Object
   public function getOptions() { return $this->_options; }
   
   /**
+   * Returns the given option value, or the default value if the option is not
+   * defined.
+   *
+   * @param string $option The name of the option.
+   * @param mixed $defaultValue The default value to be returned.
+   */
+  public function getOption($option, $defaultValue = false)
+  {
+    if (isset($this->_options[$option]))
+      return $this->_options[$option];
+    return $defaultValue;
+  }
+  
+  /**
    * Sets the options array. See {@link ID3v2} class for available options.
    *
    * @param Array $options The options array.
    */
   public function setOptions(&$options) { $this->_options = $options; }
+  
+  /**
+   * Sets the given option the given value.
+   *
+   * @param string $option The name of the option.
+   * @param mixed $value The value to set for the option.
+   */
+  public function setOption($option, $value)
+  {
+    $this->_options[$option] = $value;
+  }
   
   /**
    * Magic function so that $obj->value will work.

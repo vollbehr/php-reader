@@ -32,7 +32,7 @@
  * @subpackage ISO 14496
  * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
  * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version    $Id: HDLR.php 85 2008-04-23 20:21:36Z svollbehr $
+ * @version    $Id: HDLR.php 92 2008-05-10 13:43:14Z svollbehr $
  */
 
 /**#@+ @ignore */
@@ -53,7 +53,7 @@ require_once("ISO14496/Box/Full.php");
  * @author     Sven Vollbehr <svollbehr@gmail.com>
  * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
  * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version    $Rev: 85 $
+ * @version    $Rev: 92 $
  */
 final class ISO14496_Box_HDLR extends ISO14496_Box_Full
 {
@@ -69,15 +69,18 @@ final class ISO14496_Box_HDLR extends ISO14496_Box_Full
    *
    * @param Reader  $reader The reader object.
    */
-  public function __construct($reader)
+  public function __construct($reader = null, &$options = array())
   {
-    parent::__construct($reader);
+    parent::__construct($reader, $options);
+    
+    if ($reader === null)
+      return;
     
     $this->_reader->skip(4);
     $this->_handlerType = $this->_reader->read(4);
     $this->_reader->skip(12);
-    $this->_name = $this->_reader->read
-      ($this->_offset + $this->_size - $this->_reader->getOffset());
+    $this->_name = $this->_reader->readString8
+      ($this->getOffset() + $this->getSize() - $this->_reader->getOffset());
   }
   
   /**
@@ -97,6 +100,25 @@ final class ISO14496_Box_HDLR extends ISO14496_Box_Full
   public function getHandlerType() { return $this->_handlerType; }
   
   /**
+   * Sets the handler type.
+   * 
+   * When present in a media box, the value must be set to one of the following
+   * values, or a value from a derived specification:
+   *   o <i>vide</i> Video track
+   *   o <i>soun</i> Audio track
+   *   o <i>hint</i> Hint track
+   * 
+   * When present in a meta box, the value must be set to an appropriate value
+   * to indicate the format of the meta box contents.
+   * 
+   * @param string $handlerType The handler type.
+   */
+  public function setHandlerType($handlerType)
+  {
+    $this->_handlerType = $handlerType;
+  }
+  
+  /**
    * Returns the name string. The name is in UTF-8 characters and gives a
    * human-readable name for the track type (for debugging and inspection
    * purposes).
@@ -104,4 +126,25 @@ final class ISO14496_Box_HDLR extends ISO14496_Box_Full
    * @return integer
    */
   public function getName() { return $this->_name; }
+  
+  /**
+   * Sets the name string. The name must be in UTF-8 and give a human-readable
+   * name for the track type (for debugging and inspection purposes).
+   * 
+   * @param string $name The human-readable description.
+   */
+  public function setName($name) { $this->_name = $name; }
+  
+  /**
+   * Returns the box raw data.
+   *
+   * @return string
+   */
+  public function __toString($data = "")
+  {
+    return parent::__toString
+      ("appl" . $this->_handlerType . Transform::toUInt32BE(0) .
+       Transform::toUInt32BE(0) . Transform::toUInt32BE(0) . $this->_name .
+       "\0");
+  }
 }

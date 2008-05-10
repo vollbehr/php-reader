@@ -3,13 +3,13 @@
   <html xmlns="http://www.w3.org/1999/xhtml">
 		<head>
 			<!-- template designed by Marco Von Ballmoos -->
-			<title>Docs For Class ISO14496_Box_STGP</title>
+			<title>Docs For Class ISO14496_Box_SBGP</title>
 			<link rel="stylesheet" href="../../media/stylesheet.css" />
 			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
 		</head>
 		<body>
 			<div class="page-body">			
-<h2 class="class-name">Class ISO14496_Box_STGP</h2>
+<h2 class="class-name">Class ISO14496_Box_SBGP</h2>
 
 <a name="sec-description"></a>
 <div class="info-box">
@@ -26,12 +26,12 @@
 <p class="description"><p>sample belongs to and the associated description of that sample group. The  table is compactly coded with each entry giving the index of the first sample  of a run of samples with the same sample group descriptor. The sample group  description ID is an index that refers to a <a href="../../php-reader/ISO/ISO14496_Box_SGPD.html">Sample  Group Description Box</a>, which contains entries describing the characteristics  of each sample group.</p><p>There may be multiple instances of this box if there is more than one sample  grouping for the samples in a track. Each instance of the Sample To Group Box  has a type code that distinguishes different sample groupings. Within a  track, there shall be at most one instance of this box with a particular  grouping type. The associated Sample Group Description shall indicate the  same value for the grouping type.</p></p>
 	<ul class="tags">
 				<li><span class="field">author:</span> Sven Vollbehr &lt;<a href="mailto:svollbehr@gmail.com">svollbehr@gmail.com</a>&gt;</li>
-				<li><span class="field">version:</span> $Rev: 85 $</li>
+				<li><span class="field">version:</span> $Rev: 92 $</li>
 				<li><span class="field">copyright:</span> Copyright (c) 2008 The PHP Reader Project Workgroup</li>
 				<li><span class="field">license:</span> <a href="http://code.google.com/p/php-reader/wiki/License">New BSD License</a></li>
 			</ul>
 		<p class="notes">
-			Located in <a class="field" href="_ISO14496---Box---STGP.php.html">/ISO14496/Box/STGP.php</a> (line <span class="field">65</span>)
+			Located in <a class="field" href="_ISO14496---Box---SBGP.php.html">/ISO14496/Box/SBGP.php</a> (line <span class="field">65</span>)
 		</p>
 		
 				
@@ -39,7 +39,7 @@
    |
    --<a href="../../php-reader/ISO/ISO14496_Box_Full.html">ISO14496_Box_Full</a>
       |
-      --ISO14496_Box_STGP</pre>
+      --ISO14496_Box_SBGP</pre>
 	
 			</div>
 </div>
@@ -61,9 +61,9 @@
 			<div class="method-summary">
 																												
 												<div class="method-definition">
-											<span class="method-result">ISO14496_Box_STGP</span>
+											<span class="method-result">ISO14496_Box_SBGP</span>
 										<a href="#__construct" title="details" class="method-name">__construct</a>
-											(<span class="var-type"><a href="../../php-reader/Reader.html">Reader</a></span>&nbsp;<span class="var-name">$reader</span>)
+											(<span class="var-type"><a href="../../php-reader/Reader.html">Reader</a></span>&nbsp;<span class="var-name">$reader</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">&$options</span> = <span class="var-default">array()</span>])
 									</div>
 																<div class="method-definition">
 											<span class="method-result">integer</span>
@@ -106,22 +106,7 @@
 									<p>Inherited from <span class="classname"><a href="../../php-reader/ISO/ISO14496_Box.html">ISO14496_Box</a></span></p>
 					<blockquote>
 													<span class="var-title">
-								<span class="var-name"><a href="../../php-reader/ISO/ISO14496_Box.html#var$_boxes">ISO14496_Box::$_boxes</a></span><br>
-							</span>
-													<span class="var-title">
-								<span class="var-name"><a href="../../php-reader/ISO/ISO14496_Box.html#var$_container">ISO14496_Box::$_container</a></span><br>
-							</span>
-													<span class="var-title">
-								<span class="var-name"><a href="../../php-reader/ISO/ISO14496_Box.html#var$_offset">ISO14496_Box::$_offset</a></span><br>
-							</span>
-													<span class="var-title">
 								<span class="var-name"><a href="../../php-reader/ISO/ISO14496_Box.html#var$_reader">ISO14496_Box::$_reader</a></span><br>
-							</span>
-													<span class="var-title">
-								<span class="var-name"><a href="../../php-reader/ISO/ISO14496_Box.html#var$_size">ISO14496_Box::$_size</a></span><br>
-							</span>
-													<span class="var-title">
-								<span class="var-name"><a href="../../php-reader/ISO/ISO14496_Box.html#var$_type">ISO14496_Box::$_type</a></span><br>
 							</span>
 											</blockquote> 
 										
@@ -154,17 +139,20 @@
 			</ul>
 	
 	<div class="method-signature">
-		<span class="method-result">ISO14496_Box_STGP</span>
+		<span class="method-result">ISO14496_Box_SBGP</span>
 		<span class="method-name">
 			__construct
 		</span>
-					(<span class="var-type"><a href="../../php-reader/Reader.html">Reader</a></span>&nbsp;<span class="var-name">$reader</span>)
+					(<span class="var-type"><a href="../../php-reader/Reader.html">Reader</a></span>&nbsp;<span class="var-name">$reader</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">&$options</span> = <span class="var-default">array()</span>])
 			</div>
 	
 			<ul class="parameters">
 					<li>
 				<span class="var-type"><a href="../../php-reader/Reader.html">Reader</a></span>
 				<span class="var-name">$reader</span><span class="var-description">: The reader object.</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">&$options</span>			</li>
 				</ul>
 		
 			<hr class="separator" />
@@ -179,7 +167,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">getGroupingType</span> (line <span class="line-number">100</span>)
+		<span class="method-title">getGroupingType</span> (line <span class="line-number">104</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -204,7 +192,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">getSampleToGroupTable</span> (line <span class="line-number">124</span>)
+		<span class="method-title">getSampleToGroupTable</span> (line <span class="line-number">128</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -245,20 +233,39 @@
 													<span class="method-name"><a href="../../php-reader/ISO/ISO14496_Box_Full.html#methodgetFlags">ISO14496_Box_Full::getFlags()</a></span><br>
 													<span class="method-name"><a href="../../php-reader/ISO/ISO14496_Box_Full.html#methodgetVersion">ISO14496_Box_Full::getVersion()</a></span><br>
 													<span class="method-name"><a href="../../php-reader/ISO/ISO14496_Box_Full.html#methodhasFlag">ISO14496_Box_Full::hasFlag()</a></span><br>
+													<span class="method-name"><a href="../../php-reader/ISO/ISO14496_Box_Full.html#methodsetFlags">ISO14496_Box_Full::setFlags()</a></span><br>
+													<span class="method-name"><a href="../../php-reader/ISO/ISO14496_Box_Full.html#methodsetVersion">ISO14496_Box_Full::setVersion()</a></span><br>
+													<span class="method-name"><a href="../../php-reader/ISO/ISO14496_Box_Full.html#method__toString">ISO14496_Box_Full::__toString()</a></span><br>
 											</blockquote>
 									<!-- =========== Summary =========== -->
 					<p>Inherited From <span class="classname"><a href="../../php-reader/ISO/ISO14496_Box.html">ISO14496_Box</a></span></p>
 					<blockquote>
 													<span class="method-name"><a href="../../php-reader/ISO/ISO14496_Box.html#method__construct">ISO14496_Box::__construct()</a></span><br>
+													<span class="method-name"><a href="../../php-reader/ISO/ISO14496_Box.html#methodaddBox">ISO14496_Box::addBox()</a></span><br>
 													<span class="method-name"><a href="../../php-reader/ISO/ISO14496_Box.html#methodconstructBoxes">ISO14496_Box::constructBoxes()</a></span><br>
 													<span class="method-name"><a href="../../php-reader/ISO/ISO14496_Box.html#methodgetBoxes">ISO14496_Box::getBoxes()</a></span><br>
 													<span class="method-name"><a href="../../php-reader/ISO/ISO14496_Box.html#methodgetBoxesByIdentifier">ISO14496_Box::getBoxesByIdentifier()</a></span><br>
 													<span class="method-name"><a href="../../php-reader/ISO/ISO14496_Box.html#methodgetContainer">ISO14496_Box::getContainer()</a></span><br>
+													<span class="method-name"><a href="../../php-reader/ISO/ISO14496_Box.html#methodgetOffset">ISO14496_Box::getOffset()</a></span><br>
+													<span class="method-name"><a href="../../php-reader/ISO/ISO14496_Box.html#methodgetOption">ISO14496_Box::getOption()</a></span><br>
+													<span class="method-name"><a href="../../php-reader/ISO/ISO14496_Box.html#methodgetOptions">ISO14496_Box::getOptions()</a></span><br>
+													<span class="method-name"><a href="../../php-reader/ISO/ISO14496_Box.html#methodgetParent">ISO14496_Box::getParent()</a></span><br>
+													<span class="method-name"><a href="../../php-reader/ISO/ISO14496_Box.html#methodgetSize">ISO14496_Box::getSize()</a></span><br>
 													<span class="method-name"><a href="../../php-reader/ISO/ISO14496_Box.html#methodgetType">ISO14496_Box::getType()</a></span><br>
 													<span class="method-name"><a href="../../php-reader/ISO/ISO14496_Box.html#methodhasBox">ISO14496_Box::hasBox()</a></span><br>
 													<span class="method-name"><a href="../../php-reader/ISO/ISO14496_Box.html#methodisContainer">ISO14496_Box::isContainer()</a></span><br>
 													<span class="method-name"><a href="../../php-reader/ISO/ISO14496_Box.html#methodsetContainer">ISO14496_Box::setContainer()</a></span><br>
+													<span class="method-name"><a href="../../php-reader/ISO/ISO14496_Box.html#methodsetOffset">ISO14496_Box::setOffset()</a></span><br>
+													<span class="method-name"><a href="../../php-reader/ISO/ISO14496_Box.html#methodsetOption">ISO14496_Box::setOption()</a></span><br>
+													<span class="method-name"><a href="../../php-reader/ISO/ISO14496_Box.html#methodsetOptions">ISO14496_Box::setOptions()</a></span><br>
+													<span class="method-name"><a href="../../php-reader/ISO/ISO14496_Box.html#methodsetParent">ISO14496_Box::setParent()</a></span><br>
+													<span class="method-name"><a href="../../php-reader/ISO/ISO14496_Box.html#methodsetSize">ISO14496_Box::setSize()</a></span><br>
+													<span class="method-name"><a href="../../php-reader/ISO/ISO14496_Box.html#methodsetType">ISO14496_Box::setType()</a></span><br>
 													<span class="method-name"><a href="../../php-reader/ISO/ISO14496_Box.html#method__get">ISO14496_Box::__get()</a></span><br>
+													<span class="method-name"><a href="../../php-reader/ISO/ISO14496_Box.html#method__isset">ISO14496_Box::__isset()</a></span><br>
+													<span class="method-name"><a href="../../php-reader/ISO/ISO14496_Box.html#method__set">ISO14496_Box::__set()</a></span><br>
+													<span class="method-name"><a href="../../php-reader/ISO/ISO14496_Box.html#method__toString">ISO14496_Box::__toString()</a></span><br>
+													<span class="method-name"><a href="../../php-reader/ISO/ISO14496_Box.html#method__unset">ISO14496_Box::__unset()</a></span><br>
 											</blockquote>
 										
 		</div>
@@ -266,7 +273,7 @@
 
 
 	<p class="notes" id="credit">
-		Documentation generated on Sun, 27 Apr 2008 19:24:28 +0300 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.1</a>
+		Documentation generated on Sat, 10 May 2008 20:27:57 +0300 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.1</a>
 	</p>
 	</div></body>
 </html>

@@ -32,7 +32,7 @@
  * @subpackage ID3
  * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
  * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version    $Id: ExtendedHeader.php 75 2008-04-14 23:57:21Z svollbehr $
+ * @version    $Id: ExtendedHeader.php 93 2008-05-10 17:11:44Z svollbehr $
  */
 
 /**#@+ @ignore */
@@ -49,7 +49,7 @@ require_once("ID3/Object.php");
  * @author     Sven Vollbehr <svollbehr@gmail.com>
  * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
  * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version    $Rev: 75 $
+ * @version    $Rev: 93 $
  */
 final class ID3_ExtendedHeader extends ID3_Object
 {
@@ -117,7 +117,7 @@ final class ID3_ExtendedHeader extends ID3_Object
     $this->_size = $this->decodeSynchsafe32($this->_reader->readUInt32BE());
     
     /* ID3v2.3.0 ExtendedHeader */
-    if (isset($this->_options["version"]) && $this->_options["version"] < 4) {
+    if ($this->getOption("version", 4) < 4) {
       if ($this->_reader->readUInt16BE() == 0x8000)
         $this->_flags = self::CRC32;
       $this->_padding = $this->_reader->readUInt32BE();
@@ -299,7 +299,7 @@ final class ID3_ExtendedHeader extends ID3_Object
   public function __toString()
   {
     /* ID3v2.3.0 ExtendedHeader */
-    if (isset($this->_options["version"]) && $this->_options["version"] < 4) {
+    if ($this->getOption("version", 4) < 4) {
       return Transform::toUInt32BE($this->_size) .
         Transform::toUInt16BE($this->hasFlag(self::CRC32) ? 0x8000 : 0) .
         Transform::toUInt32BE($this->_padding) .

@@ -32,7 +32,7 @@
  * @subpackage ID3
  * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
  * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version    $Id: Header.php 75 2008-04-14 23:57:21Z svollbehr $
+ * @version    $Id: Header.php 93 2008-05-10 17:11:44Z svollbehr $
  */
 
 /**#@+ @ignore */
@@ -48,7 +48,7 @@ require_once("ID3/Object.php");
  * @author     Sven Vollbehr <svollbehr@gmail.com>
  * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
  * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version    $Rev: 75 $
+ * @version    $Rev: 93 $
  */
 final class ID3_Header extends ID3_Object
 {
@@ -119,7 +119,7 @@ final class ID3_Header extends ID3_Object
    */
   public function setVersion($version)
   {
-    $this->_version = $this->_options["version"] = $version;
+    $this->setOption("version", $this->_version = $version);
   }
   
   /**

@@ -32,7 +32,7 @@
  * @subpackage ISO 14496
  * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
  * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version    $Id: ELST.php 85 2008-04-23 20:21:36Z svollbehr $
+ * @version    $Id: ELST.php 92 2008-05-10 13:43:14Z svollbehr $
  */
 
 /**#@+ @ignore */
@@ -50,7 +50,7 @@ require_once("ISO14496/Box/Full.php");
  * @author     Sven Vollbehr <svollbehr@gmail.com>
  * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
  * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version    $Rev: 85 $
+ * @version    $Rev: 92 $
  */
 final class ISO14496_Box_ELST extends ISO14496_Box_Full
 {
@@ -63,9 +63,9 @@ final class ISO14496_Box_ELST extends ISO14496_Box_Full
    *
    * @param Reader $reader The reader object.
    */
-  public function __construct($reader)
+  public function __construct($reader, &$options = array())
   {
-    parent::__construct($reader);
+    parent::__construct($reader, $options);
     
     $entryCount = $this->_reader->readUInt32BE();
     for ($i = 1; $i <= $entryCount; $i++) {
@@ -92,7 +92,7 @@ final class ISO14496_Box_ELST extends ISO14496_Box_Full
    *     media time scale units, in composition time). If this field is set to
    *     –1, it is an empty edit. The last edit in a track shall never be an
    *     empty edit. Any difference between the duration in the
-   *     {@link ISO14496_Box_MVHD Movie Header Box}, and the track’s duration is
+   *     {@link ISO14496_Box_MVHD Movie Header Box}, and the track's duration is
    *     expressed as an implicit empty edit at the end.
    *   o mediaRate: the relative rate at which to play the media corresponding
    *     to this edit segment. If this value is 0, then the edit is specifying

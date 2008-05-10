@@ -26,7 +26,7 @@
 <p class="short-description">The base class for all ID3v2 objects.</p>
 	<ul class="tags">
 				<li><span class="field">author:</span> Sven Vollbehr &lt;<a href="mailto:svollbehr@gmail.com">svollbehr@gmail.com</a>&gt;</li>
-				<li><span class="field">version:</span> $Rev: 75 $</li>
+				<li><span class="field">version:</span> $Rev: 93 $</li>
 				<li><span class="field">copyright:</span> Copyright (c) 2008 The PHP Reader Project Workgroup</li>
 				<li><span class="field">abstract:</span> </li>
 				<li><span class="field">license:</span> <a href="http://code.google.com/p/php-reader/wiki/License">New BSD License</a></li>
@@ -93,11 +93,7 @@
 								</div>
 		<div class="info-box-body">
 			<div class="var-summary">
-																																<div class="var-title">
-					<span class="var-type">Array</span>
-					<a href="#$_options" title="details" class="var-name">$_options</a>
-				</div>
-																<div class="var-title">
+																								<div class="var-title">
 					<span class="var-type"><a href="../../php-reader/Reader.html">Reader</a></span>
 					<a href="#$_reader" title="details" class="var-name">$_reader</a>
 				</div>
@@ -118,7 +114,7 @@
 		</div>
 		<div class="info-box-body">			
 			<div class="method-summary">
-																																																												
+																																																																												
 												<div class="method-definition">
 											<span class="method-result">ID3_Object</span>
 										<a href="#__construct" title="details" class="method-name">__construct</a>
@@ -135,9 +131,19 @@
 											(<span class="var-type">integer</span>&nbsp;<span class="var-name">$val</span>)
 									</div>
 																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#getOption" title="details" class="method-name">getOption</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$option</span>, [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$defaultValue</span> = <span class="var-default">false</span>])
+									</div>
+																<div class="method-definition">
 											<span class="method-result">Array</span>
 										<a href="#getOptions" title="details" class="method-name">getOptions</a>
 										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setOption" title="details" class="method-name">setOption</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$option</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>)
 									</div>
 																<div class="method-definition">
 											<span class="method-result">void</span>
@@ -172,30 +178,8 @@
 							
 					</div>
 		<div class="info-box-body">
-			<a name="var$_options" id="$_options"><!-- --></A>
+			<a name="var$_reader" id="$_reader"><!-- --></A>
 <div class="oddrow">
-
-	<div class="var-header">
-		<span class="var-title">
-			<span class="var-type">Array</span>
-			<span class="var-name">$_options</span>
-						(line <span class="line-number">62</span>)
-		</span>
-	</div>
-
-	<!-- ========== Info from phpDoc block ========= -->
-<p class="short-description">The options array.</p>
-	<ul class="tags">
-				<li><span class="field">access:</span> protected</li>
-			</ul>
-	
-	
-		
-		
-
-</div>
-<a name="var$_reader" id="$_reader"><!-- --></A>
-<div class="evenrow">
 
 	<div class="var-header">
 		<span class="var-title">
@@ -234,7 +218,7 @@
 			<A NAME='method_detail'></A>
 
 <a name="method__construct" id="__construct"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
 		<span class="method-title">Constructor __construct</span> (line <span class="line-number">71</span>)
@@ -417,10 +401,10 @@
 				</ul>
 	</div>
 <a name="methoddecodeSynchsafe32" id="decodeSynchsafe32"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">decodeSynchsafe32</span> (line <span class="line-number">143</span>)
+		<span class="method-title">decodeSynchsafe32</span> (line <span class="line-number">168</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -446,10 +430,10 @@
 			
 	</div>
 <a name="methodencodeSynchsafe32" id="encodeSynchsafe32"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">encodeSynchsafe32</span> (line <span class="line-number">127</span>)
+		<span class="method-title">encodeSynchsafe32</span> (line <span class="line-number">152</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -470,6 +454,38 @@
 					<li>
 				<span class="var-type">integer</span>
 				<span class="var-name">$val</span><span class="var-description">: The integer to encode.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetOption" id="getOption"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getOption</span> (line <span class="line-number">91</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the given option value, or the default value if the option is not  defined.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			getOption
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$option</span>, [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$defaultValue</span> = <span class="var-default">false</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$option</span><span class="var-description">: The name of the option.</span>			</li>
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$defaultValue</span><span class="var-description">: The default value to be returned.</span>			</li>
 				</ul>
 		
 			
@@ -498,11 +514,43 @@
 		
 			
 	</div>
-<a name="methodsetOptions" id="setOptions"><!-- --></a>
+<a name="methodsetOption" id="setOption"><!-- --></a>
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">setOptions</span> (line <span class="line-number">89</span>)
+		<span class="method-title">setOption</span> (line <span class="line-number">111</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets the given option the given value.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setOption
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$option</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$option</span><span class="var-description">: The name of the option.</span>			</li>
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$value</span><span class="var-description">: The value to set for the option.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetOptions" id="setOptions"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setOptions</span> (line <span class="line-number">103</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -531,10 +579,10 @@
 			
 	</div>
 <a name="method__get" id="__get"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">__get</span> (line <span class="line-number">97</span>)
+		<span class="method-title">__get</span> (line <span class="line-number">122</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -560,10 +608,10 @@
 			
 	</div>
 <a name="method__set" id="__set"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">__set</span> (line <span class="line-number">111</span>)
+		<span class="method-title">__set</span> (line <span class="line-number">136</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -597,7 +645,7 @@
 
 
 	<p class="notes" id="credit">
-		Documentation generated on Sun, 27 Apr 2008 19:24:08 +0300 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.1</a>
+		Documentation generated on Sat, 10 May 2008 20:27:26 +0300 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.1</a>
 	</p>
 	</div></body>
 </html>

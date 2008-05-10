@@ -32,7 +32,7 @@
  * @subpackage ISO 14496
  * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
  * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version    $Id: STZ2.php 85 2008-04-23 20:21:36Z svollbehr $
+ * @version    $Id: STZ2.php 92 2008-05-10 13:43:14Z svollbehr $
  */
 
 /**#@+ @ignore */
@@ -55,7 +55,7 @@ require_once("ISO14496/Box/Full.php");
  * @author     Sven Vollbehr <svollbehr@gmail.com>
  * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
  * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version    $Rev: 85 $
+ * @version    $Rev: 92 $
  */
 final class ISO14496_Box_STZ2 extends ISO14496_Box_Full
 {
@@ -68,26 +68,29 @@ final class ISO14496_Box_STZ2 extends ISO14496_Box_Full
    *
    * @param Reader $reader The reader object.
    */
-  public function __construct($reader)
+  public function __construct($reader, &$options = array())
   {
-    parent::__construct($reader);
+    parent::__construct($reader, $options);
     
     $this->_reader->skip(3);
     $fieldSize = $this->_reader->readInt8();
     $sampleCount = $this->_reader->readUInt32BE();
-    for ($i = 1; $i < $sampleCount; $i++) {
+    $data = $this->_reader->read
+      ($this->getOffset() + $this->getSize() - $this->_reader->getOffset());
+    for ($i = 1; $i <= $sampleCount; $i++) {
       switch ($fieldSize) {
       case 4:
         $this->_sampleSizeTable[$i] =
-          (($tmp = $this->_reader->readInt8()) >> 4) & 0xf;
+          (($tmp = Transform::fromInt8($data[$i - 1])) >> 4) & 0xf;
         if ($i + 1 < $sampleCount)
           $this->_sampleSizeTable[$i++] = $tmp & 0xf;
         break;
       case 8:
-        $this->_sampleSizeTable[$i] = $this->_reader->readInt8();
+        $this->_sampleSizeTable[$i] = Transform::fromInt8($data[$i - 1]);
         break;
       case 16:
-        $this->_sampleSizeTable[$i] = $this->_reader->readUInt16BE();
+        $this->_sampleSizeTable[$i] =
+          Transform::fromUInt16BE(substr($data, ($i - 1) * 2, 2));
         break;
       }
     }

@@ -32,7 +32,7 @@
  * @subpackage ISO 14496
  * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
  * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version    $Id: CPRT.php 85 2008-04-23 20:21:36Z svollbehr $
+ * @version    $Id: CPRT.php 92 2008-05-10 13:43:14Z svollbehr $
  */
 
 /**#@+ @ignore */
@@ -50,7 +50,7 @@ require_once("ISO14496/Box/Full.php");
  * @author     Sven Vollbehr <svollbehr@gmail.com>
  * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
  * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version    $Rev: 85 $
+ * @version    $Rev: 92 $
  */
 final class ISO14496_Box_CPRT extends ISO14496_Box_Full
 {
@@ -67,15 +67,15 @@ final class ISO14496_Box_CPRT extends ISO14496_Box_Full
    * @param Reader $reader The reader object.
    * @todo Distinguish UTF-16?
    */
-  public function __construct($reader)
+  public function __construct($reader, &$options = array())
   {
-    parent::__construct($reader);
+    parent::__construct($reader, $options);
     
     $this->_language =
       chr(((($tmp = $this->_reader->readUInt16BE()) >> 10) & 0x1f) + 0x60) .
       chr((($tmp >> 5) & 0x1f) + 0x60) . chr(($tmp & 0x1f) + 0x60);
     $this->_notice = $this->_reader->read
-      ($this->_offset + $this->_size - $this->_reader->getOffset());
+      ($this->getOffset() + $this->getSize() - $this->_reader->getOffset());
   }
   
   /**

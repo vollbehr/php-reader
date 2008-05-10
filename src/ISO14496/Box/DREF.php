@@ -32,7 +32,7 @@
  * @subpackage ISO 14496
  * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
  * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version    $Id: DREF.php 85 2008-04-23 20:21:36Z svollbehr $
+ * @version    $Id: DREF.php 92 2008-05-10 13:43:14Z svollbehr $
  */
 
 /**#@+ @ignore */
@@ -54,7 +54,7 @@ require_once("ISO14496/Box/Full.php");
  * @author     Sven Vollbehr <svollbehr@gmail.com>
  * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
  * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version    $Rev: 85 $
+ * @version    $Rev: 92 $
  */
 final class ISO14496_Box_DREF extends ISO14496_Box_Full
 {
@@ -64,25 +64,25 @@ final class ISO14496_Box_DREF extends ISO14496_Box_Full
    *
    * @param Reader $reader The reader object.
    */
-  public function __construct($reader)
+  public function __construct($reader = null, &$options = array())
   {
-    parent::__construct($reader);
+    parent::__construct($reader, $options);
     $this->setContainer(true);
-    $count = $this->_reader->readUInt32BE();
-    for ($i = 0; $i < $count; $i++) {
-      $offset = $this->_reader->getOffset();
-      $size = $this->_reader->readUInt32BE();
-      $type = $this->_reader->read(4);
-      $this->_reader->setOffset($offset);
-      if ($type == "url ") {
-        require_once("ISO14496/Box/URL.php");
-        $this->_boxes[] = new ISO14496_Box_URL($this->_reader);
-      }
-      if ($type == "urn ") {
-        require_once("ISO14496/Box/URN.php");
-        $this->_boxes[] = new ISO14496_Box_URN($this->_reader);
-      }
-      $this->_reader->setOffset($offset + $size);
-    }
+    
+    if ($reader === null)
+      return;
+
+    $this->_reader->skip(4);
+    $this->constructBoxes();
+  }
+  
+  /**
+   * Returns the box raw data.
+   *
+   * @return string
+   */
+  public function __toString($data = "")
+  {
+    return parent::__toString(Transform::toUInt32BE(count($this->_boxes)));
   }
 }
