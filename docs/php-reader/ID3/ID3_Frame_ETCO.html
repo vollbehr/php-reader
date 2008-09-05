@@ -32,13 +32,14 @@
 <p class="short-description">The <em>Event timing codes</em> allows synchronisation with key events in the  audio.</p>
 <p class="description"><p>The events are an array of timestamp and type pairs. The time stamp is set to  zero if directly at the beginning of the sound or after the previous event.  All events are sorted in chronological order.</p><p>The events $E0-EF are for user events. You might want to synchronise your  music to something, like setting off an explosion on-stage, activating a  screensaver etc.</p><p>There may only be one ETCO frame in each tag.</p></p>
 	<ul class="tags">
+				<li><span class="field">author:</span> Ryan Butterfield &lt;<a href="mailto:buttza@gmail.com">buttza@gmail.com</a>&gt;</li>
 				<li><span class="field">author:</span> Sven Vollbehr &lt;<a href="mailto:svollbehr@gmail.com">svollbehr@gmail.com</a>&gt;</li>
-				<li><span class="field">version:</span> $Rev: 75 $</li>
+				<li><span class="field">version:</span> $Rev: 105 $</li>
 				<li><span class="field">copyright:</span> Copyright (c) 2008 The PHP Reader Project Workgroup</li>
 				<li><span class="field">license:</span> <a href="http://code.google.com/p/php-reader/wiki/License">New BSD License</a></li>
 			</ul>
 		<p class="notes">
-			Located in <a class="field" href="_ID3---Frame---ETCO.php.html">/ID3/Frame/ETCO.php</a> (line <span class="field">64</span>)
+			Located in <a class="field" href="_ID3---Frame---ETCO.php.html">/ID3/Frame/ETCO.php</a> (line <span class="field">65</span>)
 		</p>
 		
 				
@@ -140,13 +141,13 @@
 					</div>
 		<div class="info-box-body">
 			<a name="var$types" id="$types"><!-- --></A>
-<div class="oddrow">
+<div class="evenrow">
 
 	<div class="var-header">
 		<span class="var-title">
 			static <span class="var-type">Array</span>
 			<span class="var-name">$types</span>
-			 = <span class="var-default">array<br />    (&quot;Padding&quot;, &quot;End of initial silence&quot;, &quot;Intro start&quot;, &quot;Main part start&quot;,<br />     &quot;Outro start&quot;, &quot;Outro end&quot;, &quot;Verse start&quot;,&quot;Refrain start&quot;,<br />     &quot;Interlude start&quot;, &quot;Theme start&quot;, &quot;Variation start&quot;, &quot;Key change&quot;,<br />     &quot;Time change&quot;, &quot;Momentary unwanted noise&quot;, &quot;Sustained noise&quot;,<br />     &quot;Sustained noise end&quot;, &quot;Intro end&quot;, &quot;Main part end&quot;, &quot;Verse end&quot;,<br />     &quot;Refrain end&quot;, &quot;Theme end&quot;, &quot;Profanity&quot;, &quot;Profanity end&quot;,<br />    <br />     0xe0 =&gt; &quot;User event&quot;, &quot;User event&quot;, &quot;User event&quot;, &quot;User event&quot;,<br />     &quot;User event&quot;, &quot;User event&quot;, &quot;User event&quot;, &quot;User event&quot;, &quot;User event&quot;,<br />     &quot;User event&quot;, &quot;User event&quot;, &quot;User event&quot;, &quot;User event&quot;, &quot;User event&quot;,<br />    <br />     0xfd =&gt; &quot;Audio end (start of silence)&quot;, &quot;Audio file ends&quot;,<br />     &quot;One more byte of events follows&quot;)</span>			(line <span class="line-number">72</span>)
+			 = <span class="var-default">array<br />    (&quot;Padding&quot;, &quot;End of initial silence&quot;, &quot;Intro start&quot;, &quot;Main part start&quot;,<br />     &quot;Outro start&quot;, &quot;Outro end&quot;, &quot;Verse start&quot;,&quot;Refrain start&quot;,<br />     &quot;Interlude start&quot;, &quot;Theme start&quot;, &quot;Variation start&quot;, &quot;Key change&quot;,<br />     &quot;Time change&quot;, &quot;Momentary unwanted noise&quot;, &quot;Sustained noise&quot;,<br />     &quot;Sustained noise end&quot;, &quot;Intro end&quot;, &quot;Main part end&quot;, &quot;Verse end&quot;,<br />     &quot;Refrain end&quot;, &quot;Theme end&quot;, &quot;Profanity&quot;, &quot;Profanity end&quot;,<br />    <br />     0xe0 =&gt; &quot;User event&quot;, &quot;User event&quot;, &quot;User event&quot;, &quot;User event&quot;,<br />     &quot;User event&quot;, &quot;User event&quot;, &quot;User event&quot;, &quot;User event&quot;, &quot;User event&quot;,<br />     &quot;User event&quot;, &quot;User event&quot;, &quot;User event&quot;, &quot;User event&quot;, &quot;User event&quot;,<br />    <br />     0xfd =&gt; &quot;Audio end (start of silence)&quot;, &quot;Audio file ends&quot;,<br />     &quot;One more byte of events follows&quot;)</span>			(line <span class="line-number">73</span>)
 		</span>
 	</div>
 
@@ -194,10 +195,10 @@
 			<A NAME='method_detail'></A>
 
 <a name="method__construct" id="__construct"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">Constructor __construct</span> (line <span class="line-number">99</span>)
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">100</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -235,10 +236,10 @@
 			
 	</div>
 <a name="methodgetEvents" id="getEvents"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">getEvents</span> (line <span class="line-number">137</span>)
+		<span class="method-title">getEvents</span> (line <span class="line-number">138</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -259,10 +260,10 @@
 			
 	</div>
 <a name="methodgetFormat" id="getFormat"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">getFormat</span> (line <span class="line-number">121</span>)
+		<span class="method-title">getFormat</span> (line <span class="line-number">122</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -289,10 +290,10 @@
 			
 	</div>
 <a name="methodsetEvents" id="setEvents"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">setEvents</span> (line <span class="line-number">146</span>)
+		<span class="method-title">setEvents</span> (line <span class="line-number">147</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -321,10 +322,10 @@
 			
 	</div>
 <a name="methodsetFormat" id="setFormat"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">setFormat</span> (line <span class="line-number">129</span>)
+		<span class="method-title">setFormat</span> (line <span class="line-number">130</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -357,10 +358,10 @@
 			
 	</div>
 <a name="method__toString" id="__toString"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">__toString</span> (line <span class="line-number">158</span>)
+		<span class="method-title">__toString</span> (line <span class="line-number">160</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -406,7 +407,11 @@
 					<blockquote>
 													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#method__construct">ID3_Object::__construct()</a></span><br>
 													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#methoddecodeSynchsafe32">ID3_Object::decodeSynchsafe32()</a></span><br>
+													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#methoddecodeUnsynchronisation">ID3_Object::decodeUnsynchronisation()</a></span><br>
 													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#methodencodeSynchsafe32">ID3_Object::encodeSynchsafe32()</a></span><br>
+													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#methodencodeUnsynchronisation">ID3_Object::encodeUnsynchronisation()</a></span><br>
+													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#methodexplodeString8">ID3_Object::explodeString8()</a></span><br>
+													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#methodexplodeString16">ID3_Object::explodeString16()</a></span><br>
 													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#methodgetOption">ID3_Object::getOption()</a></span><br>
 													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#methodgetOptions">ID3_Object::getOptions()</a></span><br>
 													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#methodsetOption">ID3_Object::setOption()</a></span><br>
@@ -474,7 +479,7 @@
 	</div>
 
 	<p class="notes" id="credit">
-		Documentation generated on Sat, 10 May 2008 20:25:49 +0300 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.1</a>
+		Documentation generated on Fri, 05 Sep 2008 20:18:35 +0300 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.1</a>
 	</p>
 	</div></body>
 </html>

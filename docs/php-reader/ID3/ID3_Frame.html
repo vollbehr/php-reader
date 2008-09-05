@@ -28,7 +28,7 @@
 <p class="short-description">A base class for all ID3v2 frames as described in the  <a href="http://www.id3.org/id3v2.4.0-frames">ID3v2 frames document</a>.</p>
 	<ul class="tags">
 				<li><span class="field">author:</span> Sven Vollbehr &lt;<a href="mailto:svollbehr@gmail.com">svollbehr@gmail.com</a>&gt;</li>
-				<li><span class="field">version:</span> $Rev: 93 $</li>
+				<li><span class="field">version:</span> $Rev: 107 $</li>
 				<li><span class="field">copyright:</span> Copyright (c) 2008 The PHP Reader Project Workgroup</li>
 				<li><span class="field">license:</span> <a href="http://code.google.com/p/php-reader/wiki/License">New BSD License</a></li>
 			</ul>
@@ -384,9 +384,9 @@
 											(<span class="var-type">integer</span>&nbsp;<span class="var-name">$flag</span>)
 									</div>
 																<div class="method-definition">
-											<span class="method-result">string</span>
+											<span class="method-result">void</span>
 										<a href="#setData" title="details" class="method-name">setData</a>
-											(<span class="var-type"></span>&nbsp;<span class="var-name">$data</span>)
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$data</span>)
 									</div>
 																<div class="method-definition">
 											<span class="method-result">void</span>
@@ -424,7 +424,7 @@
 					</div>
 		<div class="info-box-body">
 			<a name="var$_data" id="$_data"><!-- --></A>
-<div class="evenrow">
+<div class="oddrow">
 
 	<div class="var-header">
 		<span class="var-title">
@@ -473,7 +473,7 @@
 			<A NAME='method_detail'></A>
 
 <a name="method__construct" id="__construct"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
 		<span class="method-title">Constructor __construct</span> (line <span class="line-number">144</span>)
@@ -651,10 +651,10 @@
 				</ul>
 	</div>
 <a name="methodgetFlags" id="getFlags"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">getFlags</span> (line <span class="line-number">218</span>)
+		<span class="method-title">getFlags</span> (line <span class="line-number">230</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -678,20 +678,12 @@
 				</ul>
 		
 			
-			<hr class="separator" />
-		<div class="notes">Redefined in descendants as:</div>
-		<ul class="redefinitions">
-					<li>
-				<a href="../../php-reader/ID3/ID3_Frame_RBUF.html#methodgetFlags">ID3_Frame_RBUF::getFlags()</a>
-								: Returns the flags byte.
-							</li>
-				</ul>
 	</div>
 <a name="methodgetIdentifier" id="getIdentifier"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">getIdentifier</span> (line <span class="line-number">184</span>)
+		<span class="method-title">getIdentifier</span> (line <span class="line-number">196</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -712,10 +704,10 @@
 			
 	</div>
 <a name="methodgetSize" id="getSize"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">getSize</span> (line <span class="line-number">202</span>)
+		<span class="method-title">getSize</span> (line <span class="line-number">214</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -741,17 +733,13 @@
 				<a href="../../php-reader/ID3/ID3_Frame_ASPI.html#methodgetSize">ID3_Frame_ASPI::getSize()</a>
 								: Returns the number of index points in the frame.
 							</li>
-					<li>
-				<a href="../../php-reader/ID3/ID3_Frame_RBUF.html#methodgetSize">ID3_Frame_RBUF::getSize()</a>
-								: Returns the buffer size.
-							</li>
 				</ul>
 	</div>
 <a name="methodhasFlag" id="hasFlag"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">hasFlag</span> (line <span class="line-number">211</span>)
+		<span class="method-title">hasFlag</span> (line <span class="line-number">223</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -775,20 +763,12 @@
 				</ul>
 		
 			
-			<hr class="separator" />
-		<div class="notes">Redefined in descendants as:</div>
-		<ul class="redefinitions">
-					<li>
-				<a href="../../php-reader/ID3/ID3_Frame_RBUF.html#methodhasFlag">ID3_Frame_RBUF::hasFlag()</a>
-								: Checks whether or not the flag is set. Returns <var>true</var> if the flag  is set, <var>false</var> otherwise.
-							</li>
-				</ul>
 	</div>
 <a name="methodsetData" id="setData"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">setData</span> (line <span class="line-number">232</span>)
+		<span class="method-title">setData</span> (line <span class="line-number">244</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -798,16 +778,16 @@
 			</ul>
 	
 	<div class="method-signature">
-		<span class="method-result">string</span>
+		<span class="method-result">void</span>
 		<span class="method-name">
 			setData
 		</span>
-					(<span class="var-type"></span>&nbsp;<span class="var-name">$data</span>)
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$data</span>)
 			</div>
 	
 			<ul class="parameters">
 					<li>
-				<span class="var-type"></span>
+				<span class="var-type">string</span>
 				<span class="var-name">$data</span>			</li>
 				</ul>
 		
@@ -816,44 +796,16 @@
 		<div class="notes">Redefined in descendants as:</div>
 		<ul class="redefinitions">
 					<li>
-				<a href="../../php-reader/ID3/ID3_Frame_APIC.html#methodsetData">ID3_Frame_APIC::setData()</a>
-								: Sets the embedded image data.
-							</li>
-					<li>
-				<a href="../../php-reader/ID3/ID3_Frame_COMR.html#methodsetData">ID3_Frame_COMR::setData()</a>
-								: Sets the embedded image data.
-							</li>
-					<li>
-				<a href="../../php-reader/ID3/ID3_Frame_ENCR.html#methodsetData">ID3_Frame_ENCR::setData()</a>
-								: Sets the encryption data.
-							</li>
-					<li>
-				<a href="../../php-reader/ID3/ID3_Frame_GEOB.html#methodsetData">ID3_Frame_GEOB::setData()</a>
-								: Sets the embedded object binary data.
-							</li>
-					<li>
-				<a href="../../php-reader/ID3/ID3_Frame_GRID.html#methodsetData">ID3_Frame_GRID::setData()</a>
-								: Sets the group dependent data.
-							</li>
-					<li>
 				<a href="../../php-reader/ID3/ID3_Frame_MCDI.html#methodsetData">ID3_Frame_MCDI::setData()</a>
 								: Sets the CD TOC binary dump.
-							</li>
-					<li>
-				<a href="../../php-reader/ID3/ID3_Frame_PRIV.html#methodsetData">ID3_Frame_PRIV::setData()</a>
-								: Sets the private binary data associated with the frame.
-							</li>
-					<li>
-				<a href="../../php-reader/ID3/ID3_Frame_SYTC.html#methodsetData">ID3_Frame_SYTC::setData()</a>
-								: Sets the tempo data.
 							</li>
 				</ul>
 	</div>
 <a name="methodsetFlags" id="setFlags"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">setFlags</span> (line <span class="line-number">225</span>)
+		<span class="method-title">setFlags</span> (line <span class="line-number">237</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -877,20 +829,12 @@
 				</ul>
 		
 			
-			<hr class="separator" />
-		<div class="notes">Redefined in descendants as:</div>
-		<ul class="redefinitions">
-					<li>
-				<a href="../../php-reader/ID3/ID3_Frame_RBUF.html#methodsetFlags">ID3_Frame_RBUF::setFlags()</a>
-								: Sets the flags byte.
-							</li>
-				</ul>
 	</div>
 <a name="methodsetIdentifier" id="setIdentifier"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">setIdentifier</span> (line <span class="line-number">191</span>)
+		<span class="method-title">setIdentifier</span> (line <span class="line-number">203</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -916,10 +860,10 @@
 			
 	</div>
 <a name="method__toString" id="__toString"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">__toString</span> (line <span class="line-number">243</span>)
+		<span class="method-title">__toString</span> (line <span class="line-number">255</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1074,7 +1018,11 @@
 					<blockquote>
 													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#method__construct">ID3_Object::__construct()</a></span><br>
 													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#methoddecodeSynchsafe32">ID3_Object::decodeSynchsafe32()</a></span><br>
+													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#methoddecodeUnsynchronisation">ID3_Object::decodeUnsynchronisation()</a></span><br>
 													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#methodencodeSynchsafe32">ID3_Object::encodeSynchsafe32()</a></span><br>
+													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#methodencodeUnsynchronisation">ID3_Object::encodeUnsynchronisation()</a></span><br>
+													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#methodexplodeString8">ID3_Object::explodeString8()</a></span><br>
+													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#methodexplodeString16">ID3_Object::explodeString16()</a></span><br>
 													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#methodgetOption">ID3_Object::getOption()</a></span><br>
 													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#methodgetOptions">ID3_Object::getOptions()</a></span><br>
 													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#methodsetOption">ID3_Object::setOption()</a></span><br>
@@ -1102,7 +1050,7 @@
 					</div>
 		<div class="info-box-body">
 			<a name="constCOMPRESSION" id="COMPRESSION"><!-- --></A>
-<div class="evenrow">
+<div class="oddrow">
 
 	<div class="const-header">
 		<img src="../../media/images/Variable.png" />
@@ -1123,7 +1071,7 @@
 	
 </div>
 <a name="constDATA_LENGTH_INDICATOR" id="DATA_LENGTH_INDICATOR"><!-- --></A>
-<div class="oddrow">
+<div class="evenrow">
 
 	<div class="const-header">
 		<img src="../../media/images/Variable.png" />
@@ -1143,7 +1091,7 @@
 	
 </div>
 <a name="constDISCARD_ON_FILECHANGE" id="DISCARD_ON_FILECHANGE"><!-- --></A>
-<div class="evenrow">
+<div class="oddrow">
 
 	<div class="const-header">
 		<img src="../../media/images/Variable.png" />
@@ -1160,7 +1108,7 @@
 	
 </div>
 <a name="constDISCARD_ON_TAGCHANGE" id="DISCARD_ON_TAGCHANGE"><!-- --></A>
-<div class="oddrow">
+<div class="evenrow">
 
 	<div class="const-header">
 		<img src="../../media/images/Variable.png" />
@@ -1177,7 +1125,7 @@
 	
 </div>
 <a name="constENCRYPTION" id="ENCRYPTION"><!-- --></A>
-<div class="evenrow">
+<div class="oddrow">
 
 	<div class="const-header">
 		<img src="../../media/images/Variable.png" />
@@ -1198,7 +1146,7 @@
 	
 </div>
 <a name="constGROUPING_IDENTITY" id="GROUPING_IDENTITY"><!-- --></A>
-<div class="oddrow">
+<div class="evenrow">
 
 	<div class="const-header">
 		<img src="../../media/images/Variable.png" />
@@ -1215,7 +1163,7 @@
 	
 </div>
 <a name="constREAD_ONLY" id="READ_ONLY"><!-- --></A>
-<div class="evenrow">
+<div class="oddrow">
 
 	<div class="const-header">
 		<img src="../../media/images/Variable.png" />
@@ -1232,7 +1180,7 @@
 	
 </div>
 <a name="constUNSYNCHRONISATION" id="UNSYNCHRONISATION"><!-- --></A>
-<div class="oddrow">
+<div class="evenrow">
 
 	<div class="const-header">
 		<img src="../../media/images/Variable.png" />
@@ -1256,7 +1204,7 @@
 	</div>
 
 	<p class="notes" id="credit">
-		Documentation generated on Sat, 10 May 2008 20:26:00 +0300 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.1</a>
+		Documentation generated on Fri, 05 Sep 2008 20:18:41 +0300 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.1</a>
 	</p>
 	</div></body>
 </html>

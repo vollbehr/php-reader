@@ -32,7 +32,7 @@
  * @subpackage ISO 14496
  * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
  * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version    $Id: ILST.php 92 2008-05-10 13:43:14Z svollbehr $
+ * @version    $Id: ILST.php 101 2008-05-13 20:28:13Z svollbehr $
  */
 
 /**#@+ @ignore */
@@ -40,14 +40,43 @@ require_once("ISO14496/Box.php");
 /**#@-*/
 
 /**
- * A container box for all the iTunes/iPod specific boxes.
+ * A container box for all the iTunes/iPod specific boxes. A list of well known
+ * boxes is provided in the following table. The value for each box is contained
+ * in a nested {@link ISO14496_Box_DATA Data Box}.
+ * 
+ * <ul>
+ * <li><b>_nam</b> -- <i>Name of the track</i></li>
+ * <li><b>_ART</b> -- <i>Name of the artist</i></li>
+ * <li><b>aART</b> -- <i>Name of the album artist</i></li>
+ * <li><b>_alb</b> -- <i>Name of the album</i></li>
+ * <li><b>_grp</b> -- <i>Grouping</i></li>
+ * <li><b>_day</b> -- <i>Year of publication</i></li>
+ * <li><b>trkn</b> -- <i>Track number (number/total)</i></li>
+ * <li><b>disk</b> -- <i>Disk number (number/total)</i></li>
+ * <li><b>tmpo</b> -- <i>BPM tempo</i></li>
+ * <li><b>_wrt</b> -- <i>Name of the composer</i></li>
+ * <li><b>_cmt</b> -- <i>Comments</i></li>
+ * <li><b>_gen</b> -- <i>Genre as string</i></li>
+ * <li><b>gnre</b> -- <i>Genre as an ID3v1 code, added by one</i></li>
+ * <li><b>cpil</b> -- <i>Part of a compilation (0/1)</i></li>
+ * <li><b>tvsh</b> -- <i>Name of the (television) show</i></li>
+ * <li><b>sonm</b> -- <i>Sort name of the track</i></li>
+ * <li><b>soar</b> -- <i>Sort name of the artist</i></li>
+ * <li><b>soaa</b> -- <i>Sort name of the album artist</i></li>
+ * <li><b>soal</b> -- <i>Sort name of the album</i></li>
+ * <li><b>soco</b> -- <i>Sort name of the composer</i></li>
+ * <li><b>sosn</b> -- <i>Sort name of the show</i></li>
+ * <li><b>_lyr</b> -- <i>Lyrics</i></li>
+ * <li><b>covr</b> -- <i>Cover (or other) artwork binary data</i></li>
+ * <li><b>_too</b> -- <i>Information about the software</i></li>
+ * </ul>
  *
  * @package    php-reader
  * @subpackage ISO 14496
  * @author     Sven Vollbehr <svollbehr@gmail.com>
  * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
  * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version    $Rev: 92 $
+ * @version    $Rev: 101 $
  * @since      iTunes/iPod specific
  */
 final class ISO14496_Box_ILST extends ISO14496_Box
@@ -100,7 +129,7 @@ final class ISO14496_Box_ILST extends ISO14496_Box
  * @author     Sven Vollbehr <svollbehr@gmail.com>
  * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
  * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version    $Rev: 92 $
+ * @version    $Rev: 101 $
  * @since      iTunes/iPod specific
  * @ignore
  */
@@ -131,7 +160,7 @@ require_once("ISO14496/Box/Full.php");
  * @author     Sven Vollbehr <svollbehr@gmail.com>
  * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
  * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version    $Rev: 92 $
+ * @version    $Rev: 101 $
  * @since      iTunes/iPod specific
  */
 final class ISO14496_Box_DATA extends ISO14496_Box_Full

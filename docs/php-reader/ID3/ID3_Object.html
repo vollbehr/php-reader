@@ -25,14 +25,15 @@
         		<!-- ========== Info from phpDoc block ========= -->
 <p class="short-description">The base class for all ID3v2 objects.</p>
 	<ul class="tags">
+				<li><span class="field">author:</span> Ryan Butterfield &lt;<a href="mailto:buttza@gmail.com">buttza@gmail.com</a>&gt;</li>
 				<li><span class="field">author:</span> Sven Vollbehr &lt;<a href="mailto:svollbehr@gmail.com">svollbehr@gmail.com</a>&gt;</li>
-				<li><span class="field">version:</span> $Rev: 93 $</li>
+				<li><span class="field">version:</span> $Rev: 107 $</li>
 				<li><span class="field">copyright:</span> Copyright (c) 2008 The PHP Reader Project Workgroup</li>
 				<li><span class="field">abstract:</span> </li>
 				<li><span class="field">license:</span> <a href="http://code.google.com/p/php-reader/wiki/License">New BSD License</a></li>
 			</ul>
 		<p class="notes">
-			Located in <a class="field" href="_ID3---Object.php.html">/ID3/Object.php</a> (line <span class="field">48</span>)
+			Located in <a class="field" href="_ID3---Object.php.html">/ID3/Object.php</a> (line <span class="field">49</span>)
 		</p>
 		
 				
@@ -114,7 +115,7 @@
 		</div>
 		<div class="info-box-body">			
 			<div class="method-summary">
-																																																																												
+																																																																																																												
 												<div class="method-definition">
 											<span class="method-result">ID3_Object</span>
 										<a href="#__construct" title="details" class="method-name">__construct</a>
@@ -126,9 +127,29 @@
 											(<span class="var-type">integer</span>&nbsp;<span class="var-name">$val</span>)
 									</div>
 																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#decodeUnsynchronisation" title="details" class="method-name">decodeUnsynchronisation</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">&$data</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$data</span>)
+									</div>
+																<div class="method-definition">
 											<span class="method-result">integer</span>
 										<a href="#encodeSynchsafe32" title="details" class="method-name">encodeSynchsafe32</a>
 											(<span class="var-type">integer</span>&nbsp;<span class="var-name">$val</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#encodeUnsynchronisation" title="details" class="method-name">encodeUnsynchronisation</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">&$data</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$data</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">Array</span>
+										<a href="#explodeString8" title="details" class="method-name">explodeString8</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$limit</span> = <span class="var-default">null</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">Array</span>
+										<a href="#explodeString16" title="details" class="method-name">explodeString16</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$limit</span> = <span class="var-default">null</span>])
 									</div>
 																<div class="method-definition">
 											<span class="method-result">void</span>
@@ -185,7 +206,7 @@
 		<span class="var-title">
 			<span class="var-type"><a href="../../php-reader/Reader.html">Reader</a></span>
 			<span class="var-name">$_reader</span>
-						(line <span class="line-number">55</span>)
+						(line <span class="line-number">56</span>)
 		</span>
 	</div>
 
@@ -221,7 +242,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">Constructor __construct</span> (line <span class="line-number">71</span>)
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">72</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -404,7 +425,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">decodeSynchsafe32</span> (line <span class="line-number">168</span>)
+		<span class="method-title">decodeSynchsafe32</span> (line <span class="line-number">165</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -429,11 +450,44 @@
 		
 			
 	</div>
-<a name="methodencodeSynchsafe32" id="encodeSynchsafe32"><!-- --></a>
+<a name="methoddecodeUnsynchronisation" id="decodeUnsynchronisation"><!-- --></a>
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">encodeSynchsafe32</span> (line <span class="line-number">152</span>)
+		<span class="method-title">decodeUnsynchronisation</span> (line <span class="line-number">203</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Reverses the unsynchronisation scheme from the given data string.</p>
+	<ul class="tags">
+				<li><span class="field">see:</span> encodeUnsyncronisation</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			decodeUnsynchronisation
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">&$data</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$data</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$data</span><span class="var-description">: The input data.</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">&$data</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodencodeSynchsafe32" id="encodeSynchsafe32"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">encodeSynchsafe32</span> (line <span class="line-number">153</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -458,11 +512,108 @@
 		
 			
 	</div>
+<a name="methodencodeUnsynchronisation" id="encodeUnsynchronisation"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">encodeUnsynchronisation</span> (line <span class="line-number">184</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Applies the unsynchronisation scheme to the given data string.</p>
+<p class="description"><p>Whenever a false synchronisation is found within the data, one zeroed byte  is inserted after the first false synchronisation byte. This has the side  effect that all 0xff00 combinations have to be altered, so they will not  be affected by the decoding process. Therefore all the 0xff00 combinations  have to be replaced with the 0xff0000 combination during the  unsynchronisation.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			encodeUnsynchronisation
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">&$data</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$data</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$data</span><span class="var-description">: The input data.</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">&$data</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodexplodeString8" id="explodeString8"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">explodeString8</span> (line <span class="line-number">248</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Splits UTF-8 or ISO-8859-1 formatted binary data according to null  terminators residing in the string, up to a given limit.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">Array</span>
+		<span class="method-name">
+			explodeString8
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$limit</span> = <span class="var-default">null</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: The input string.</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$limit</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodexplodeString16" id="explodeString16"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">explodeString16</span> (line <span class="line-number">221</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Splits UTF-16 formatted binary data up according to null terminators  residing in the string, up to a given limit.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">Array</span>
+		<span class="method-name">
+			explodeString16
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$limit</span> = <span class="var-default">null</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: The input string.</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$limit</span>			</li>
+				</ul>
+		
+			
+	</div>
 <a name="methodgetOption" id="getOption"><!-- --></a>
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">getOption</span> (line <span class="line-number">91</span>)
+		<span class="method-title">getOption</span> (line <span class="line-number">92</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -494,7 +645,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">getOptions</span> (line <span class="line-number">82</span>)
+		<span class="method-title">getOptions</span> (line <span class="line-number">83</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -518,7 +669,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">setOption</span> (line <span class="line-number">111</span>)
+		<span class="method-title">setOption</span> (line <span class="line-number">112</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -550,7 +701,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">setOptions</span> (line <span class="line-number">103</span>)
+		<span class="method-title">setOptions</span> (line <span class="line-number">104</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -582,7 +733,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">__get</span> (line <span class="line-number">122</span>)
+		<span class="method-title">__get</span> (line <span class="line-number">123</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -611,7 +762,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">__set</span> (line <span class="line-number">136</span>)
+		<span class="method-title">__set</span> (line <span class="line-number">137</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -645,7 +796,7 @@
 
 
 	<p class="notes" id="credit">
-		Documentation generated on Sat, 10 May 2008 20:27:26 +0300 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.1</a>
+		Documentation generated on Fri, 05 Sep 2008 20:19:10 +0300 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.1</a>
 	</p>
 	</div></body>
 </html>

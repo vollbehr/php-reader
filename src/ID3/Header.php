@@ -32,7 +32,7 @@
  * @subpackage ID3
  * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
  * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version    $Id: Header.php 93 2008-05-10 17:11:44Z svollbehr $
+ * @version    $Id: Header.php 107 2008-08-03 19:09:16Z svollbehr $
  */
 
 /**#@+ @ignore */
@@ -48,7 +48,7 @@ require_once("ID3/Object.php");
  * @author     Sven Vollbehr <svollbehr@gmail.com>
  * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
  * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version    $Rev: 93 $
+ * @version    $Rev: 107 $
  */
 final class ID3_Header extends ID3_Object
 {
@@ -89,7 +89,7 @@ final class ID3_Header extends ID3_Object
    */
   public function __construct($reader = null, &$options = array())
   {
-    parent::__construct($reader);
+    parent::__construct($reader, $options);
     
     if ($reader === null)
       return;
@@ -98,8 +98,6 @@ final class ID3_Header extends ID3_Object
       $this->_reader->readInt8() + $this->_reader->readInt8() / 10;
     $this->_flags = $this->_reader->readInt8();
     $this->_size = $this->decodeSynchsafe32($this->_reader->readUInt32BE());
-    
-    $this->setOptions($options);
   }
   
   /**
@@ -136,7 +134,7 @@ final class ID3_Header extends ID3_Object
    * 
    * @return integer
    */
-  public function getFlags($flags) { return $this->_flags; }
+  public function getFlags() { return $this->_flags; }
   
   /**
    * Sets the flags byte.

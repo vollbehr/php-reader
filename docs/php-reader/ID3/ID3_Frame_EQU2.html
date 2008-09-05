@@ -26,14 +26,15 @@
         		<!-- ========== Info from phpDoc block ========= -->
 <p class="short-description">The <em>Equalisation (2)</em> is another subjective, alignment frame. It allows  the user to predefine an equalisation curve within the audio file. There may  be more than one EQU2 frame in each tag, but only one with the same  identification string.</p>
 	<ul class="tags">
+				<li><span class="field">author:</span> Ryan Butterfield &lt;<a href="mailto:buttza@gmail.com">buttza@gmail.com</a>&gt;</li>
 				<li><span class="field">author:</span> Sven Vollbehr &lt;<a href="mailto:svollbehr@gmail.com">svollbehr@gmail.com</a>&gt;</li>
-				<li><span class="field">version:</span> $Rev: 75 $</li>
+				<li><span class="field">version:</span> $Rev: 105 $</li>
 				<li><span class="field">copyright:</span> Copyright (c) 2008 The PHP Reader Project Workgroup</li>
 				<li><span class="field">since:</span> ID3v2.4.0</li>
 				<li><span class="field">license:</span> <a href="http://code.google.com/p/php-reader/wiki/License">New BSD License</a></li>
 			</ul>
 		<p class="notes">
-			Located in <a class="field" href="_ID3---Frame---EQU2.php.html">/ID3/Frame/EQU2.php</a> (line <span class="field">57</span>)
+			Located in <a class="field" href="_ID3---Frame---EQU2.php.html">/ID3/Frame/EQU2.php</a> (line <span class="field">58</span>)
 		</p>
 		
 				
@@ -192,7 +193,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">Constructor __construct</span> (line <span class="line-number">87</span>)
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">88</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -233,11 +234,11 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">addAdjustment</span> (line <span class="line-number">158</span>)
+		<span class="method-title">addAdjustment</span> (line <span class="line-number">159</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
-<p class="short-description">Adds a volume adjustment setting for given frequency. The frequency can  have a value from 0 to 32767 Hz, and the adjustment +/- 64 dB with a  precision of 0.001953125 dB.</p>
+<p class="short-description">Adds a volume adjustment setting for given frequency. The frequency can  have a value from 0 to 32767 Hz, and the adjustment &lt;/&gt; +/- 64 dB with a  precision of 0.001953125 dB.</p>
 	<ul class="tags">
 				<li><span class="field">access:</span> public</li>
 			</ul>
@@ -265,7 +266,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">getAdjustments</span> (line <span class="line-number">148</span>)
+		<span class="method-title">getAdjustments</span> (line <span class="line-number">149</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -290,7 +291,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">getDevice</span> (line <span class="line-number">131</span>)
+		<span class="method-title">getDevice</span> (line <span class="line-number">132</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -314,7 +315,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">getInterpolation</span> (line <span class="line-number">112</span>)
+		<span class="method-title">getInterpolation</span> (line <span class="line-number">113</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -338,11 +339,11 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">setAdjustments</span> (line <span class="line-number">172</span>)
+		<span class="method-title">setAdjustments</span> (line <span class="line-number">173</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
-<p class="short-description">Sets the adjustments array. The array must have frequencies as keys and  their corresponding adjustments as values. The frequency can have a value  from 0 to 32767 Hz, and the adjustment +/- 64 dB with a precision of  0.001953125 dB. One frequency should only be described once in the frame.</p>
+<p class="short-description">Sets the adjustments array. The array must have frequencies as keys and  their corresponding adjustments as values. The frequency can have a value  from 0 to 32767 Hz, and the adjustment &lt;/&gt; +/- 64 dB with a precision of  0.001953125 dB. One frequency should only be described once in the frame.</p>
 	<ul class="tags">
 				<li><span class="field">access:</span> public</li>
 			</ul>
@@ -367,7 +368,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">setDevice</span> (line <span class="line-number">138</span>)
+		<span class="method-title">setDevice</span> (line <span class="line-number">139</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -396,7 +397,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">setInterpolation</span> (line <span class="line-number">121</span>)
+		<span class="method-title">setInterpolation</span> (line <span class="line-number">122</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -471,7 +472,11 @@
 					<blockquote>
 													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#method__construct">ID3_Object::__construct()</a></span><br>
 													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#methoddecodeSynchsafe32">ID3_Object::decodeSynchsafe32()</a></span><br>
+													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#methoddecodeUnsynchronisation">ID3_Object::decodeUnsynchronisation()</a></span><br>
 													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#methodencodeSynchsafe32">ID3_Object::encodeSynchsafe32()</a></span><br>
+													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#methodencodeUnsynchronisation">ID3_Object::encodeUnsynchronisation()</a></span><br>
+													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#methodexplodeString8">ID3_Object::explodeString8()</a></span><br>
+													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#methodexplodeString16">ID3_Object::explodeString16()</a></span><br>
 													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#methodgetOption">ID3_Object::getOption()</a></span><br>
 													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#methodgetOptions">ID3_Object::getOptions()</a></span><br>
 													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#methodsetOption">ID3_Object::setOption()</a></span><br>
@@ -505,7 +510,7 @@
 		<span class="const-title">
 			<span class="const-name">BAND</span>
 			 = <span class="const-default"> 0</span>
-			(line <span class="line-number">64</span>)
+			(line <span class="line-number">65</span>)
 		</span>
 	</div>
 
@@ -522,7 +527,7 @@
 		<span class="const-title">
 			<span class="const-name">LINEAR</span>
 			 = <span class="const-default"> 1</span>
-			(line <span class="line-number">70</span>)
+			(line <span class="line-number">71</span>)
 		</span>
 	</div>
 
@@ -573,7 +578,7 @@
 	</div>
 
 	<p class="notes" id="credit">
-		Documentation generated on Sat, 10 May 2008 20:25:45 +0300 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.1</a>
+		Documentation generated on Fri, 05 Sep 2008 20:18:33 +0300 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.1</a>
 	</p>
 	</div></body>
 </html>

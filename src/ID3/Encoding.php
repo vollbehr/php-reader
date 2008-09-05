@@ -32,7 +32,7 @@
  * @subpackage ID3
  * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
  * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version    $Id: Encoding.php 64 2008-04-01 10:38:12Z svollbehr $
+ * @version    $Id: Encoding.php 105 2008-07-30 14:56:47Z svollbehr $
  */
 
 /**
@@ -44,7 +44,7 @@
  * @author     Sven Vollbehr <svollbehr@gmail.com>
  * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
  * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version    $Rev: 64 $
+ * @version    $Rev: 105 $
  */
 interface ID3_Encoding
 {
@@ -54,8 +54,8 @@ interface ID3_Encoding
   /** The UTF-16 Unicode encoding with BOM. */
   const UTF16    = 1;
   
-  /** The UTF-16 Unicode encoding with BOM. */
-  const UTF16LE  = 1;
+  /** The UTF-16LE Unicode encoding without BOM. */
+  const UTF16LE  = 4;
   
   /** The UTF-16BE Unicode encoding without BOM. */
   const UTF16BE  = 2;

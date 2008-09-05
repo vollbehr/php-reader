@@ -32,7 +32,7 @@
  * @subpackage ID3
  * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
  * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version    $Id: RVRB.php 75 2008-04-14 23:57:21Z svollbehr $
+ * @version    $Id: RVRB.php 105 2008-07-30 14:56:47Z svollbehr $
  */
 
 /**#@+ @ignore */
@@ -59,9 +59,10 @@ require_once("ID3/Frame.php");
  * @package    php-reader
  * @subpackage ID3
  * @author     Sven Vollbehr <svollbehr@gmail.com>
+ * @author     Ryan Butterfield <buttza@gmail.com>
  * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
  * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version    $Rev: 75 $
+ * @version    $Rev: 105 $
  */
 final class ID3_Frame_RVRB extends ID3_Frame
 {
@@ -108,16 +109,16 @@ final class ID3_Frame_RVRB extends ID3_Frame
     if ($reader === null)
       return;
 
-    $this->_reverbLeft  = Transform::fromInt16BE(substr($this->_data, 0, 2));
-    $this->_reverbRight = Transform::fromInt16BE(substr($this->_data, 2, 2));
-    $this->_reverbBouncesLeft  = Transform::fromInt8($this->_data[4]);
-    $this->_reverbBouncesRight = Transform::fromInt8($this->_data[5]);
-    $this->_reverbFeedbackLtoL = Transform::fromInt8($this->_data[6]);
-    $this->_reverbFeedbackLtoR = Transform::fromInt8($this->_data[7]);
-    $this->_reverbFeedbackRtoR = Transform::fromInt8($this->_data[8]);
-    $this->_reverbFeedbackRtoL = Transform::fromInt8($this->_data[9]);
-    $this->_premixLtoR  = Transform::fromInt8($this->_data[10]);
-    $this->_premixRtoL  = Transform::fromInt8($this->_data[11]);
+    $this->_reverbLeft  = Transform::fromUInt16BE(substr($this->_data, 0, 2));
+    $this->_reverbRight = Transform::fromUInt16BE(substr($this->_data, 2, 2));
+    $this->_reverbBouncesLeft  = Transform::fromUInt8($this->_data[4]);
+    $this->_reverbBouncesRight = Transform::fromUInt8($this->_data[5]);
+    $this->_reverbFeedbackLtoL = Transform::fromUInt8($this->_data[6]);
+    $this->_reverbFeedbackLtoR = Transform::fromUInt8($this->_data[7]);
+    $this->_reverbFeedbackRtoR = Transform::fromUInt8($this->_data[8]);
+    $this->_reverbFeedbackRtoL = Transform::fromUInt8($this->_data[9]);
+    $this->_premixLtoR  = Transform::fromUInt8($this->_data[10]);
+    $this->_premixRtoL  = Transform::fromUInt8($this->_data[11]);
   }
   
   /**
@@ -298,16 +299,16 @@ final class ID3_Frame_RVRB extends ID3_Frame
   public function __toString()
   {
     $this->setData
-      (Transform::toInt16BE($this->_reverbLeft) .
-       Transform::toInt16BE($this->_reverbRight) .
-       Transform::toInt8($this->_reverbBouncesLeft) .
-       Transform::toInt8($this->_reverbBouncesRight) .
-       Transform::toInt8($this->_reverbFeedbackLtoL) .
-       Transform::toInt8($this->_reverbFeedbackLtoR) .
-       Transform::toInt8($this->_reverbFeedbackRtoR) .
-       Transform::toInt8($this->_reverbFeedbackRtoL) .
-       Transform::toInt8($this->_premixLtoR) .
-       Transform::toInt8($this->_premixRtoL));
+      (Transform::toUInt16BE($this->_reverbLeft) .
+       Transform::toUInt16BE($this->_reverbRight) .
+       Transform::toUInt8($this->_reverbBouncesLeft) .
+       Transform::toUInt8($this->_reverbBouncesRight) .
+       Transform::toUInt8($this->_reverbFeedbackLtoL) .
+       Transform::toUInt8($this->_reverbFeedbackLtoR) .
+       Transform::toUInt8($this->_reverbFeedbackRtoR) .
+       Transform::toUInt8($this->_reverbFeedbackRtoL) .
+       Transform::toUInt8($this->_premixLtoR) .
+       Transform::toUInt8($this->_premixRtoL));
     return parent::__toString();
   }
 }

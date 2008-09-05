@@ -32,7 +32,7 @@
  * @package   php-reader
  * @copyright Copyright (c) 2006-2008 The PHP Reader Project Workgroup
  * @license   http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version   $Id: Reader.php 86 2008-04-25 07:30:05Z svollbehr $
+ * @version   $Id: Reader.php 104 2008-07-29 21:11:46Z svollbehr $
  */
 
 /**#@+ @ignore */
@@ -47,9 +47,10 @@ require_once("Transform.php");
  * 
  * @package   php-reader
  * @author    Sven Vollbehr <svollbehr@gmail.com>
+ * @author    Ryan Butterfield <buttza@gmail.com>
  * @copyright Copyright (c) 2006-2008 The PHP Reader Project Workgroup
  * @license   http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version   $Rev: 86 $
+ * @version   $Rev: 104 $
  */
 class Reader
 {
@@ -68,7 +69,8 @@ class Reader
    */
   public function __construct($filename, $mode = "rb")
   {
-    if (is_resource($filename) && get_resource_type($filename) == "file")
+    if (is_resource($filename) && 
+        in_array(get_resource_type($filename), array("file", "stream")))
       $this->_fd = $filename;
     else if (($this->_fd = fopen($filename, $mode)) === false)
       throw new Reader_Exception("Unable to open file:" . $filename);

@@ -32,7 +32,7 @@
  * @subpackage ISO 14496
  * @copyright  Copyright (c) 2008 PHP Reader Project Workgroup
  * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version    $Id: ISO14496.php 92 2008-05-10 13:43:14Z svollbehr $
+ * @version    $Id: ISO14496.php 101 2008-05-13 20:28:13Z svollbehr $
  */
 
 /**#@+ @ignore */
@@ -170,7 +170,7 @@ require_once("ISO14496/Box.php");
  *     <li>trun -- <i>{@link ISO14496_Box_TRUN Track Fragment Run}</i>
  *     <li>sdtp -- <i>{@link ISO14496_Box_SDTP Independent and Disposable
  *         Samples}</i>
- *     <li>sbgp -- <i>{@link ISO14496_Box_SBGP SampleToGroup Box}</i>
+ *     <li>sbgp -- <i>{@link ISO14496_Box_SBGP !SampleToGroup Box}</i>
  *     <li>subs -- <i>{@link ISO14496_Box_SUBS Sub-Sample Information Box}</i>
  *     </ul>
  *   </ul>
@@ -243,7 +243,7 @@ require_once("ISO14496/Box.php");
  * @author     Sven Vollbehr <svollbehr@gmail.com>
  * @copyright  Copyright (c) 2008 PHP Reader Project Workgroup
  * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version    $Rev: 92 $
+ * @version    $Rev: 101 $
  */
 class ISO14496 extends ISO14496_Box
 {

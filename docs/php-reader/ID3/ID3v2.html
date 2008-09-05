@@ -24,13 +24,14 @@
 <p class="short-description">This class represents a file containing ID3v2 headers as described in  <a href="http://www.id3.org/id3v2.4.0-structure">ID3v2 structure document</a>.</p>
 <p class="description"><p>ID3v2 is a general tagging format for audio, which makes it possible to store  meta data about the audio inside the audio file itself. The ID3 tag is mainly  targeted at files encoded with MPEG-1/2 layer I, MPEG-1/2 layer II, MPEG-1/2  layer III and MPEG-2.5, but may work with other types of encoded audio or as  a stand alone format for audio meta data.</p><p>ID3v2 is designed to be as flexible and expandable as possible to meet new  meta information needs that might arise. To achieve that ID3v2 is constructed  as a container for several information blocks, called frames, whose format  need not be known to the software that encounters them. Each frame has an  unique and predefined identifier which allows software to skip unknown  frames.</p></p>
 	<ul class="tags">
+				<li><span class="field">author:</span> Ryan Butterfield &lt;<a href="mailto:buttza@gmail.com">buttza@gmail.com</a>&gt;</li>
 				<li><span class="field">author:</span> Sven Vollbehr &lt;<a href="mailto:svollbehr@gmail.com">svollbehr@gmail.com</a>&gt;</li>
-				<li><span class="field">version:</span> $Rev: 93 $</li>
+				<li><span class="field">version:</span> $Rev: 107 $</li>
 				<li><span class="field">copyright:</span> Copyright (c) 2008 The PHP Reader Project Workgroup</li>
 				<li><span class="field">license:</span> <a href="http://code.google.com/p/php-reader/wiki/License">New BSD License</a></li>
 			</ul>
 		<p class="notes">
-			Located in <a class="field" href="_ID3v2.php.html">/ID3v2.php</a> (line <span class="field">70</span>)
+			Located in <a class="field" href="_ID3v2.php.html">/ID3v2.php</a> (line <span class="field">71</span>)
 		</p>
 		
 				
@@ -55,7 +56,7 @@
 												<div class="method-definition">
 											<span class="method-result">ID3v2</span>
 										<a href="#__construct" title="details" class="method-name">__construct</a>
-											([<span class="var-type">string</span>&nbsp;<span class="var-name">$filename</span> = <span class="var-default">false</span>], [<span class="var-type">Array</span>&nbsp;<span class="var-name">$options</span> = <span class="var-default">array()</span>])
+											([<span class="var-type">string|<a href="../../php-reader/Reader.html">Reader</a></span>&nbsp;<span class="var-name">$filename</span> = <span class="var-default">false</span>], [<span class="var-type">Array</span>&nbsp;<span class="var-name">$options</span> = <span class="var-default">array()</span>])
 									</div>
 																<div class="method-definition">
 											<span class="method-result"><a href="../../php-reader/ID3/ID3_Frame.html">ID3_Frame</a></span>
@@ -154,10 +155,10 @@
 			<A NAME='method_detail'></A>
 
 <a name="method__construct" id="__construct"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">Constructor __construct</span> (line <span class="line-number">112</span>)
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">113</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -179,13 +180,13 @@
 		<span class="method-name">
 			__construct
 		</span>
-					([<span class="var-type">string</span>&nbsp;<span class="var-name">$filename</span> = <span class="var-default">false</span>], [<span class="var-type">Array</span>&nbsp;<span class="var-name">$options</span> = <span class="var-default">array()</span>])
+					([<span class="var-type">string|<a href="../../php-reader/Reader.html">Reader</a></span>&nbsp;<span class="var-name">$filename</span> = <span class="var-default">false</span>], [<span class="var-type">Array</span>&nbsp;<span class="var-name">$options</span> = <span class="var-default">array()</span>])
 			</div>
 	
 			<ul class="parameters">
 					<li>
-				<span class="var-type">string</span>
-				<span class="var-name">$filename</span><span class="var-description">: The path to the file, file descriptor of an opened                          file, or <a href="../../php-reader/Reader.html">Reader</a> instance.</span>			</li>
+				<span class="var-type">string|<a href="../../php-reader/Reader.html">Reader</a></span>
+				<span class="var-name">$filename</span><span class="var-description">: The path to the file, file descriptor of an                                 opened file, or <a href="../../php-reader/Reader.html">Reader</a> instance.</span>			</li>
 					<li>
 				<span class="var-type">Array</span>
 				<span class="var-name">$options</span><span class="var-description">: The options array.</span>			</li>
@@ -194,10 +195,10 @@
 			
 	</div>
 <a name="methodaddFrame" id="addFrame"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">addFrame</span> (line <span class="line-number">275</span>)
+		<span class="method-title">addFrame</span> (line <span class="line-number">283</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -223,10 +224,10 @@
 			
 	</div>
 <a name="methodgetExtendedHeader" id="getExtendedHeader"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">getExtendedHeader</span> (line <span class="line-number">201</span>)
+		<span class="method-title">getExtendedHeader</span> (line <span class="line-number">209</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -247,10 +248,10 @@
 			
 	</div>
 <a name="methodgetFooter" id="getFooter"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">getFooter</span> (line <span class="line-number">299</span>)
+		<span class="method-title">getFooter</span> (line <span class="line-number">307</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -271,10 +272,10 @@
 			
 	</div>
 <a name="methodgetFrames" id="getFrames"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">getFrames</span> (line <span class="line-number">241</span>)
+		<span class="method-title">getFrames</span> (line <span class="line-number">249</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -295,10 +296,10 @@
 			
 	</div>
 <a name="methodgetFramesByIdentifier" id="getFramesByIdentifier"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">getFramesByIdentifier</span> (line <span class="line-number">257</span>)
+		<span class="method-title">getFramesByIdentifier</span> (line <span class="line-number">265</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -325,10 +326,10 @@
 			
 	</div>
 <a name="methodgetHeader" id="getHeader"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">getHeader</span> (line <span class="line-number">181</span>)
+		<span class="method-title">getHeader</span> (line <span class="line-number">189</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -349,10 +350,10 @@
 			
 	</div>
 <a name="methodhasExtendedHeader" id="hasExtendedHeader"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">hasExtendedHeader</span> (line <span class="line-number">189</span>)
+		<span class="method-title">hasExtendedHeader</span> (line <span class="line-number">197</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -373,10 +374,10 @@
 			
 	</div>
 <a name="methodhasFooter" id="hasFooter"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">hasFooter</span> (line <span class="line-number">289</span>)
+		<span class="method-title">hasFooter</span> (line <span class="line-number">297</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -397,10 +398,10 @@
 			
 	</div>
 <a name="methodhasFrame" id="hasFrame"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">hasFrame</span> (line <span class="line-number">230</span>)
+		<span class="method-title">hasFrame</span> (line <span class="line-number">238</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -427,10 +428,10 @@
 			
 	</div>
 <a name="methodsetExtendedHeader" id="setExtendedHeader"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">setExtendedHeader</span> (line <span class="line-number">213</span>)
+		<span class="method-title">setExtendedHeader</span> (line <span class="line-number">221</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -456,10 +457,10 @@
 			
 	</div>
 <a name="methodsetFooter" id="setFooter"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">setFooter</span> (line <span class="line-number">311</span>)
+		<span class="method-title">setFooter</span> (line <span class="line-number">319</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -485,10 +486,10 @@
 			
 	</div>
 <a name="methodwrite" id="write"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">write</span> (line <span class="line-number">340</span>)
+		<span class="method-title">write</span> (line <span class="line-number">348</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -515,10 +516,10 @@
 			
 	</div>
 <a name="method__get" id="__get"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">__get</span> (line <span class="line-number">384</span>)
+		<span class="method-title">__get</span> (line <span class="line-number">397</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -545,10 +546,10 @@
 			
 	</div>
 <a name="method__isset" id="__isset"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">__isset</span> (line <span class="line-number">404</span>)
+		<span class="method-title">__isset</span> (line <span class="line-number">417</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -574,10 +575,10 @@
 			
 	</div>
 <a name="method__toString" id="__toString"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">__toString</span> (line <span class="line-number">419</span>)
+		<span class="method-title">__toString</span> (line <span class="line-number">435</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -598,10 +599,10 @@
 			
 	</div>
 <a name="method__unset" id="__unset"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">__unset</span> (line <span class="line-number">412</span>)
+		<span class="method-title">__unset</span> (line <span class="line-number">428</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -632,7 +633,7 @@
 
 
 	<p class="notes" id="credit">
-		Documentation generated on Sat, 10 May 2008 20:26:25 +0300 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.1</a>
+		Documentation generated on Fri, 05 Sep 2008 20:18:50 +0300 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.1</a>
 	</p>
 	</div></body>
 </html>

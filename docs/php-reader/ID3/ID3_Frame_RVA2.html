@@ -19,7 +19,7 @@
 													<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
 						|											<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
 						
-											<a href="#sec-consts">Constants</a>
+											<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
 						
 			</div>
 	<div class="info-box-body">
@@ -27,14 +27,15 @@
 <p class="short-description">The <em>Relative volume adjustment (2)</em> frame is a more subjective frame than</p>
 <p class="description"><p>the previous ones. It allows the user to say how much he wants to  increase/decrease the volume on each channel when the file is played. The  purpose is to be able to align all files to a reference volume, so that you  don't have to change the volume constantly. This frame may also be used to  balance adjust the audio. The volume adjustment is encoded as a fixed point  decibel value, 16 bit signed integer representing (adjustment*512), giving  +/- 64 dB with a precision of 0.001953125 dB. E.g. +2 dB is stored as $04 00  and -2 dB is $FC 00.</p><p>There may be more than one RVA2 frame in each tag, but only one with the same  identification string.</p></p>
 	<ul class="tags">
+				<li><span class="field">author:</span> Ryan Butterfield &lt;<a href="mailto:buttza@gmail.com">buttza@gmail.com</a>&gt;</li>
 				<li><span class="field">author:</span> Sven Vollbehr &lt;<a href="mailto:svollbehr@gmail.com">svollbehr@gmail.com</a>&gt;</li>
-				<li><span class="field">version:</span> $Rev: 75 $</li>
+				<li><span class="field">version:</span> $Rev: 105 $</li>
 				<li><span class="field">copyright:</span> Copyright (c) 2008 The PHP Reader Project Workgroup</li>
 				<li><span class="field">since:</span> ID3v2.4.0</li>
 				<li><span class="field">license:</span> <a href="http://code.google.com/p/php-reader/wiki/License">New BSD License</a></li>
 			</ul>
 		<p class="notes">
-			Located in <a class="field" href="_ID3---Frame---RVA2.php.html">/ID3/Frame/RVA2.php</a> (line <span class="field">65</span>)
+			Located in <a class="field" href="_ID3---Frame---RVA2.php.html">/ID3/Frame/RVA2.php</a> (line <span class="field">66</span>)
 		</p>
 		
 				
@@ -48,6 +49,39 @@
 </div>
 
 
+	<a name="sec-const-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Class Constant Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+						<span class="disabled">Constants</span> (<a href="#sec-consts">details</a>)
+												<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+				 
+				|
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<div class="const-summary">
+								<div class="const-title">
+					<img src="../../media/images/Constant.png" alt=" " />
+					<a href="#channelType" title="details" class="const-name">channelType</a> = 					<span class="var-type"> &quot;channelType&quot;</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../../media/images/Constant.png" alt=" " />
+					<a href="#peakVolume" title="details" class="const-name">peakVolume</a> = 					<span class="var-type"> &quot;peakVolume&quot;</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../../media/images/Constant.png" alt=" " />
+					<a href="#volumeAdjustment" title="details" class="const-name">volumeAdjustment</a> = 					<span class="var-type"> &quot;volumeAdjustment&quot;</span>
+
+				</div>
+							</div>
+		</div>
+	</div>
 
 	<a name="sec-var-summary"></a>
 	<div class="info-box">
@@ -58,7 +92,7 @@
 							| 
 									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
 							
-															<a href="#sec-consts">Constants</a>
+															<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
 							
 					</div>
 		<div class="info-box-body">
@@ -76,7 +110,7 @@
 		<div class="info-box-title">Method Summary</span></div>
 		<div class="nav-bar">
 			<a href="#sec-description">Description</a> |
-															<a href="#sec-consts">Constants</a>
+															<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
 							
 															<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
 				 
@@ -128,7 +162,7 @@
 										<a href="#sec-var-summary">Vars</a> (<span class="disabled">details</span>)
 						
 			
-												<a href="#sec-consts">Constants</a>
+												<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
 							
 										| 
 									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
@@ -136,13 +170,13 @@
 					</div>
 		<div class="info-box-body">
 			<a name="var$types" id="$types"><!-- --></A>
-<div class="evenrow">
+<div class="oddrow">
 
 	<div class="var-header">
 		<span class="var-title">
 			static <span class="var-type">Array</span>
 			<span class="var-name">$types</span>
-			 = <span class="var-default">array<br />    (&quot;Other&quot;, &quot;Master volume&quot;, &quot;Front right&quot;, &quot;Front left&quot;, &quot;Back right&quot;,<br />     &quot;Back left&quot;, &quot;Front centre&quot;, &quot;Back centre&quot;, &quot;Subwoofer&quot;)</span>			(line <span class="line-number">72</span>)
+			 = <span class="var-default">array<br />    (&quot;Other&quot;, &quot;Master volume&quot;, &quot;Front right&quot;, &quot;Front left&quot;, &quot;Back right&quot;,<br />     &quot;Back left&quot;, &quot;Front centre&quot;, &quot;Back centre&quot;, &quot;Subwoofer&quot;)</span>			(line <span class="line-number">96</span>)
 		</span>
 	</div>
 
@@ -181,7 +215,7 @@
 		<div class="nav-bar">
 			<a href="#sec-description">Description</a> |
 															<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
-																			<a href="#sec-consts">Constants</a>
+																			<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
 							
 										<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
 						
@@ -190,10 +224,10 @@
 			<A NAME='method_detail'></A>
 
 <a name="method__construct" id="__construct"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">Constructor __construct</span> (line <span class="line-number">88</span>)
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">112</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -231,10 +265,10 @@
 			
 	</div>
 <a name="methodgetAdjustments" id="getAdjustments"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">getAdjustments</span> (line <span class="line-number">154</span>)
+		<span class="method-title">getAdjustments</span> (line <span class="line-number">176</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -255,10 +289,10 @@
 			
 	</div>
 <a name="methodgetDevice" id="getDevice"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">getDevice</span> (line <span class="line-number">138</span>)
+		<span class="method-title">getDevice</span> (line <span class="line-number">160</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -279,10 +313,10 @@
 			
 	</div>
 <a name="methodsetAdjustments" id="setAdjustments"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">setAdjustments</span> (line <span class="line-number">163</span>)
+		<span class="method-title">setAdjustments</span> (line <span class="line-number">185</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -308,10 +342,10 @@
 			
 	</div>
 <a name="methodsetDevice" id="setDevice"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">setDevice</span> (line <span class="line-number">145</span>)
+		<span class="method-title">setDevice</span> (line <span class="line-number">167</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -337,10 +371,10 @@
 			
 	</div>
 <a name="method__toString" id="__toString"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">__toString</span> (line <span class="line-number">173</span>)
+		<span class="method-title">__toString</span> (line <span class="line-number">195</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -386,7 +420,11 @@
 					<blockquote>
 													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#method__construct">ID3_Object::__construct()</a></span><br>
 													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#methoddecodeSynchsafe32">ID3_Object::decodeSynchsafe32()</a></span><br>
+													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#methoddecodeUnsynchronisation">ID3_Object::decodeUnsynchronisation()</a></span><br>
 													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#methodencodeSynchsafe32">ID3_Object::encodeSynchsafe32()</a></span><br>
+													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#methodencodeUnsynchronisation">ID3_Object::encodeUnsynchronisation()</a></span><br>
+													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#methodexplodeString8">ID3_Object::explodeString8()</a></span><br>
+													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#methodexplodeString16">ID3_Object::explodeString16()</a></span><br>
 													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#methodgetOption">ID3_Object::getOption()</a></span><br>
 													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#methodgetOptions">ID3_Object::getOptions()</a></span><br>
 													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#methodsetOption">ID3_Object::setOption()</a></span><br>
@@ -412,7 +450,61 @@
 							
 					</div>
 		<div class="info-box-body">
-										<h4>Inherited Constants</h4>
+			<a name="constchannelType" id="channelType"><!-- --></A>
+<div class="evenrow">
+
+	<div class="const-header">
+		<img src="../../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">channelType</span>
+			 = <span class="const-default"> &quot;channelType&quot;</span>
+			(line <span class="line-number">74</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">The channel type key.</p>
+	<ul class="tags">
+				<li><span class="field">see:</span> <a href="../../php-reader/ID3/ID3_Frame_RVA2.html#var$types">ID3_Frame_RVA2::$types</a></li>
+			</ul>
+	
+	
+</div>
+<a name="constpeakVolume" id="peakVolume"><!-- --></A>
+<div class="oddrow">
+
+	<div class="const-header">
+		<img src="../../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">peakVolume</span>
+			 = <span class="const-default"> &quot;peakVolume&quot;</span>
+			(line <span class="line-number">89</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">The peak volume key.</p>
+	
+	
+</div>
+<a name="constvolumeAdjustment" id="volumeAdjustment"><!-- --></A>
+<div class="evenrow">
+
+	<div class="const-header">
+		<img src="../../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">volumeAdjustment</span>
+			 = <span class="const-default"> &quot;volumeAdjustment&quot;</span>
+			(line <span class="line-number">82</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">The volume adjustment key. Adjustments are +/- 64 dB with a precision of  0.001953125 dB.</p>
+	
+	
+</div>
+							<h4>Inherited Constants</h4>
 				<A NAME='inherited_vars'><!-- --></A>
 									<p>Inherited from <span class="classname"><a href="../../php-reader/ID3/ID3_Frame.html">ID3_Frame</a></span></p>
 					<blockquote>
@@ -454,7 +546,7 @@
 	</div>
 
 	<p class="notes" id="credit">
-		Documentation generated on Sat, 10 May 2008 20:27:50 +0300 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.1</a>
+		Documentation generated on Fri, 05 Sep 2008 20:19:17 +0300 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.1</a>
 	</p>
 	</div></body>
 </html>

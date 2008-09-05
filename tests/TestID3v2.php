@@ -32,7 +32,7 @@
  * @subpackage Tests
  * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
  * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version    $Id: TestID3v2.php 65 2008-04-02 15:22:46Z svollbehr $
+ * @version    $Id: TestID3v2.php 107 2008-08-03 19:09:16Z svollbehr $
  */
 
 /**#@+ @ignore */
@@ -48,7 +48,7 @@ require_once("ID3v2.php");
  * @author     Sven Vollbehr <svollbehr@gmail.com>
  * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
  * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version    $Rev: 65 $
+ * @version    $Rev: 107 $
  */
 final class TestID3v2 extends PHPUnit_Framework_TestCase
 {
@@ -120,5 +120,20 @@ final class TestID3v2 extends PHPUnit_Framework_TestCase
     $this->assertEquals("Comment 2", $id3->comm->text);
     $this->assertEquals("13/13",     $id3->trck->text);
     $this->assertEquals("Trance",    $id3->tcon->text);
+  }
+  
+  function testUnsynchronisation()
+  {
+    $id3 = new ID3v2("id3v2.tag");
+    $id3->tit2->text = "\xff\xf0";
+    $id3->tcon->text = "\xff\xe0\xf0";
+    $id3->write();
+    
+    $this->assertEquals
+      ("TIT2\0\0\0\x08\0\x03\0\0\0\x03\x03\xff\x00\xf0", "" . $id3->tit2);
+    
+    $id3 = new ID3v2("id3v2.tag");
+    $this->assertEquals("\xff\xf0",     $id3->tit2->text);
+    $this->assertEquals("\xff\xe0\xf0", $id3->tcon->text);
   }
 }

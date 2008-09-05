@@ -32,7 +32,7 @@
  * @subpackage ID3
  * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
  * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version    $Id: PRIV.php 75 2008-04-14 23:57:21Z svollbehr $
+ * @version    $Id: PRIV.php 105 2008-07-30 14:56:47Z svollbehr $
  */
 
 /**#@+ @ignore */
@@ -52,9 +52,10 @@ require_once("ID3/Frame.php");
  * @package    php-reader
  * @subpackage ID3
  * @author     Sven Vollbehr <svollbehr@gmail.com>
+ * @author     Ryan Butterfield <buttza@gmail.com>
  * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
  * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version    $Rev: 75 $
+ * @version    $Rev: 105 $
  */
 final class ID3_Frame_PRIV extends ID3_Frame
 {
@@ -78,7 +79,7 @@ final class ID3_Frame_PRIV extends ID3_Frame
       return;
     
     list($this->_owner, $this->_privateData) =
-      preg_split("/\\x00/", $this->_data, 2);
+      $this->explodeString8($this->_data, 2);
   }
   
   /**
@@ -100,14 +101,17 @@ final class ID3_Frame_PRIV extends ID3_Frame
    * 
    * @return string
    */
-  public function getData() { return $this->_privateData; }
+  public function getPrivateData() { return $this->_privateData; }
   
   /**
    * Sets the private binary data associated with the frame.
    * 
    * @param string $privateData The private binary data string.
    */
-  public function setData($privateData) { $this->_privateData = $privateData; }
+  public function setPrivateData($privateData)
+  {
+    $this->_privateData = $privateData;
+  }
   
   /**
    * Returns the frame raw data.

@@ -32,7 +32,7 @@
  * @subpackage ID3
  * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
  * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version    $Id: OWNE.php 75 2008-04-14 23:57:21Z svollbehr $
+ * @version    $Id: OWNE.php 105 2008-07-30 14:56:47Z svollbehr $
  */
 
 /**#@+ @ignore */
@@ -50,9 +50,10 @@ require_once("ID3/Encoding.php");
  * @package    php-reader
  * @subpackage ID3
  * @author     Sven Vollbehr <svollbehr@gmail.com>
+ * @author     Ryan Butterfield <buttza@gmail.com>
  * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
  * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version    $Rev: 75 $
+ * @version    $Rev: 105 $
  */
 final class ID3_Frame_OWNE extends ID3_Frame
   implements ID3_Encoding
@@ -85,9 +86,9 @@ final class ID3_Frame_OWNE extends ID3_Frame
     if ($reader === null)
       return;
 
-    $this->_encoding = Transform::fromInt8($this->_data[0]);
+    $this->_encoding = Transform::fromUInt8($this->_data[0]);
     list($tmp, $this->_data) =
-      preg_split("/\\x00/", substr($this->_data, 1), 2);
+      $this->explodeString8(substr($this->_data, 1), 2);
     $this->_currency = substr($tmp, 0, 3);
     $this->_price = substr($tmp, 3);
     $this->_date = substr($this->_data, 0, 8);
@@ -197,17 +198,17 @@ final class ID3_Frame_OWNE extends ID3_Frame
    */
   public function __toString()
   {
-    $data = Transform::toInt8($this->_encoding) . $this->_currency .
+    $data = Transform::toUInt8($this->_encoding) . $this->_currency .
       $this->_price . "\0" . $this->_date;
     switch ($this->_encoding) {
     case self::UTF16:
-      $data .= Transform::toString16($this->_seller);
+    case self::UTF16LE:
+      $data .= Transform::toString16
+        ($this->_seller, $this->_encoding == self::UTF16 ?
+         Transform::MACHINE_ENDIAN_ORDER : Transform::LITTLE_ENDIAN_ORDER);
       break;
     case self::UTF16BE:
       $data .= Transform::toString16BE($this->_seller);
-      break;
-    case self::UTF16LE:
-      $data .= Transform::toString16LE($this->_seller);
       break;
     default:
       $data .= $this->_seller;

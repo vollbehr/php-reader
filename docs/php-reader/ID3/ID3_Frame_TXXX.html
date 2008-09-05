@@ -27,13 +27,14 @@
 <p class="short-description">This frame is intended for one-string text information concerning the audio</p>
 <p class="description"><p>file in a similar way to the other T-frames. The frame body consists of a  description of the string, represented as a terminated string, followed by  the actual string. There may be more than one TXXX frame in each tag, but  only one with the same description.</p><p>The description is the first value, and the its value the second in the text  array.</p></p>
 	<ul class="tags">
+				<li><span class="field">author:</span> Ryan Butterfield &lt;<a href="mailto:buttza@gmail.com">buttza@gmail.com</a>&gt;</li>
 				<li><span class="field">author:</span> Sven Vollbehr &lt;<a href="mailto:svollbehr@gmail.com">svollbehr@gmail.com</a>&gt;</li>
-				<li><span class="field">version:</span> $Rev: 75 $</li>
+				<li><span class="field">version:</span> $Rev: 105 $</li>
 				<li><span class="field">copyright:</span> Copyright (c) 2008 The PHP Reader Project Workgroup</li>
 				<li><span class="field">license:</span> <a href="http://code.google.com/p/php-reader/wiki/License">New BSD License</a></li>
 			</ul>
 		<p class="notes">
-			Located in <a class="field" href="_ID3---Frame---TXXX.php.html">/ID3/Frame/TXXX.php</a> (line <span class="field">59</span>)
+			Located in <a class="field" href="_ID3---Frame---TXXX.php.html">/ID3/Frame/TXXX.php</a> (line <span class="field">60</span>)
 		</p>
 		
 				
@@ -150,7 +151,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">Constructor __construct</span> (line <span class="line-number">70</span>)
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">71</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -191,7 +192,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">getDescription</span> (line <span class="line-number">99</span>)
+		<span class="method-title">getDescription</span> (line <span class="line-number">106</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -215,7 +216,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">setDescription</span> (line <span class="line-number">107</span>)
+		<span class="method-title">setDescription</span> (line <span class="line-number">114</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -247,7 +248,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">__toString</span> (line <span class="line-number">119</span>)
+		<span class="method-title">__toString</span> (line <span class="line-number">126</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -304,7 +305,11 @@
 					<blockquote>
 													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#method__construct">ID3_Object::__construct()</a></span><br>
 													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#methoddecodeSynchsafe32">ID3_Object::decodeSynchsafe32()</a></span><br>
+													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#methoddecodeUnsynchronisation">ID3_Object::decodeUnsynchronisation()</a></span><br>
 													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#methodencodeSynchsafe32">ID3_Object::encodeSynchsafe32()</a></span><br>
+													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#methodencodeUnsynchronisation">ID3_Object::encodeUnsynchronisation()</a></span><br>
+													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#methodexplodeString8">ID3_Object::explodeString8()</a></span><br>
+													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#methodexplodeString16">ID3_Object::explodeString16()</a></span><br>
 													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#methodgetOption">ID3_Object::getOption()</a></span><br>
 													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#methodgetOptions">ID3_Object::getOptions()</a></span><br>
 													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#methodsetOption">ID3_Object::setOption()</a></span><br>
@@ -372,7 +377,7 @@
 	</div>
 
 	<p class="notes" id="credit">
-		Documentation generated on Sat, 10 May 2008 20:30:50 +0300 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.1</a>
+		Documentation generated on Fri, 05 Sep 2008 20:20:06 +0300 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.1</a>
 	</p>
 	</div></body>
 </html>

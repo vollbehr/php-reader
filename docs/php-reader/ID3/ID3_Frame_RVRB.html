@@ -27,13 +27,14 @@
 <p class="short-description">The <em>Reverb</em> is yet another subjective frame, with which you can adjust</p>
 <p class="description"><p>echoes of different kinds. Reverb left/right is the delay between every  bounce in milliseconds. Reverb bounces left/right is the number of bounces  that should be made. $FF equals an infinite number of bounces. Feedback is  the amount of volume that should be returned to the next echo bounce. $00 is  0%, $FF is 100%. If this value were $7F, there would be 50% volume reduction  on the first bounce, 50% of that on the second and so on. Left to left means  the sound from the left bounce to be played in the left speaker, while left  to right means sound from the left bounce to be played in the right speaker.</p><p>Premix left to right is the amount of left sound to be mixed in the right  before any reverb is applied, where $00 id 0% and $FF is 100%. Premix right  to left does the same thing, but right to left. Setting both premix to $FF  would result in a mono output (if the reverb is applied symmetric). There may  only be one RVRB frame in each tag.</p></p>
 	<ul class="tags">
+				<li><span class="field">author:</span> Ryan Butterfield &lt;<a href="mailto:buttza@gmail.com">buttza@gmail.com</a>&gt;</li>
 				<li><span class="field">author:</span> Sven Vollbehr &lt;<a href="mailto:svollbehr@gmail.com">svollbehr@gmail.com</a>&gt;</li>
-				<li><span class="field">version:</span> $Rev: 75 $</li>
+				<li><span class="field">version:</span> $Rev: 105 $</li>
 				<li><span class="field">copyright:</span> Copyright (c) 2008 The PHP Reader Project Workgroup</li>
 				<li><span class="field">license:</span> <a href="http://code.google.com/p/php-reader/wiki/License">New BSD License</a></li>
 			</ul>
 		<p class="notes">
-			Located in <a class="field" href="_ID3---Frame---RVRB.php.html">/ID3/Frame/RVRB.php</a> (line <span class="field">66</span>)
+			Located in <a class="field" href="_ID3---Frame---RVRB.php.html">/ID3/Frame/RVRB.php</a> (line <span class="field">67</span>)
 		</p>
 		
 				
@@ -229,7 +230,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">Constructor __construct</span> (line <span class="line-number">104</span>)
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">105</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -270,7 +271,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">getPremixLtoR</span> (line <span class="line-number">264</span>)
+		<span class="method-title">getPremixLtoR</span> (line <span class="line-number">265</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -294,7 +295,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">getPremixRtoL</span> (line <span class="line-number">281</span>)
+		<span class="method-title">getPremixRtoL</span> (line <span class="line-number">282</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -318,7 +319,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">getReverbBouncesLeft</span> (line <span class="line-number">162</span>)
+		<span class="method-title">getReverbBouncesLeft</span> (line <span class="line-number">163</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -342,7 +343,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">getReverbBouncesRight</span> (line <span class="line-number">179</span>)
+		<span class="method-title">getReverbBouncesRight</span> (line <span class="line-number">180</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -366,7 +367,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">getReverbFeedbackLtoL</span> (line <span class="line-number">196</span>)
+		<span class="method-title">getReverbFeedbackLtoL</span> (line <span class="line-number">197</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -390,7 +391,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">getReverbFeedbackLtoR</span> (line <span class="line-number">213</span>)
+		<span class="method-title">getReverbFeedbackLtoR</span> (line <span class="line-number">214</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -414,7 +415,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">getReverbFeedbackRtoL</span> (line <span class="line-number">247</span>)
+		<span class="method-title">getReverbFeedbackRtoL</span> (line <span class="line-number">248</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -438,7 +439,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">getReverbFeedbackRtoR</span> (line <span class="line-number">230</span>)
+		<span class="method-title">getReverbFeedbackRtoR</span> (line <span class="line-number">231</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -462,7 +463,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">getReverbLeft</span> (line <span class="line-number">128</span>)
+		<span class="method-title">getReverbLeft</span> (line <span class="line-number">129</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -486,7 +487,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">getReverbRight</span> (line <span class="line-number">145</span>)
+		<span class="method-title">getReverbRight</span> (line <span class="line-number">146</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -510,7 +511,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">setPremixLtoR</span> (line <span class="line-number">271</span>)
+		<span class="method-title">setPremixLtoR</span> (line <span class="line-number">272</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -539,7 +540,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">setPremixRtoL</span> (line <span class="line-number">288</span>)
+		<span class="method-title">setPremixRtoL</span> (line <span class="line-number">289</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -568,7 +569,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">setReverbBouncesLeft</span> (line <span class="line-number">169</span>)
+		<span class="method-title">setReverbBouncesLeft</span> (line <span class="line-number">170</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -597,7 +598,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">setReverbBouncesRight</span> (line <span class="line-number">186</span>)
+		<span class="method-title">setReverbBouncesRight</span> (line <span class="line-number">187</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -626,7 +627,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">setReverbFeedbackLtoL</span> (line <span class="line-number">203</span>)
+		<span class="method-title">setReverbFeedbackLtoL</span> (line <span class="line-number">204</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -655,7 +656,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">setReverbFeedbackLtoR</span> (line <span class="line-number">220</span>)
+		<span class="method-title">setReverbFeedbackLtoR</span> (line <span class="line-number">221</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -684,7 +685,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">setReverbFeedbackRtoL</span> (line <span class="line-number">254</span>)
+		<span class="method-title">setReverbFeedbackRtoL</span> (line <span class="line-number">255</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -713,7 +714,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">setReverbFeedbackRtoR</span> (line <span class="line-number">237</span>)
+		<span class="method-title">setReverbFeedbackRtoR</span> (line <span class="line-number">238</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -742,7 +743,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">setReverbLeft</span> (line <span class="line-number">135</span>)
+		<span class="method-title">setReverbLeft</span> (line <span class="line-number">136</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -771,7 +772,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">setReverbRight</span> (line <span class="line-number">152</span>)
+		<span class="method-title">setReverbRight</span> (line <span class="line-number">153</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -800,7 +801,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">__toString</span> (line <span class="line-number">298</span>)
+		<span class="method-title">__toString</span> (line <span class="line-number">299</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -846,7 +847,11 @@
 					<blockquote>
 													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#method__construct">ID3_Object::__construct()</a></span><br>
 													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#methoddecodeSynchsafe32">ID3_Object::decodeSynchsafe32()</a></span><br>
+													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#methoddecodeUnsynchronisation">ID3_Object::decodeUnsynchronisation()</a></span><br>
 													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#methodencodeSynchsafe32">ID3_Object::encodeSynchsafe32()</a></span><br>
+													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#methodencodeUnsynchronisation">ID3_Object::encodeUnsynchronisation()</a></span><br>
+													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#methodexplodeString8">ID3_Object::explodeString8()</a></span><br>
+													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#methodexplodeString16">ID3_Object::explodeString16()</a></span><br>
 													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#methodgetOption">ID3_Object::getOption()</a></span><br>
 													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#methodgetOptions">ID3_Object::getOptions()</a></span><br>
 													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#methodsetOption">ID3_Object::setOption()</a></span><br>
@@ -914,7 +919,7 @@
 	</div>
 
 	<p class="notes" id="credit">
-		Documentation generated on Sat, 10 May 2008 20:27:54 +0300 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.1</a>
+		Documentation generated on Fri, 05 Sep 2008 20:19:19 +0300 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.1</a>
 	</p>
 	</div></body>
 </html>

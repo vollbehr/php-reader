@@ -27,13 +27,14 @@
 <p class="short-description">The purpose of the <em>Popularimeter</em> frame is to specify how good an audio</p>
 <p class="description"><p>file is. Many interesting applications could be found to this frame such as a  playlist that features better audio files more often than others or it could  be used to profile a person's taste and find other good files by comparing  people's profiles. The frame contains the email address to the user, one  rating byte and a four byte play counter, intended to be increased with one  for every time the file is played.</p><p>The rating is 1-255 where 1 is worst and 255 is best. 0 is unknown. If no  personal counter is wanted it may be omitted. When the counter reaches all  one's, one byte is inserted in front of the counter thus making the counter  eight bits bigger in the same away as the play counter  <a href="../../php-reader/ID3/ID3_Frame_PCNT.html">ID3_Frame_PCNT</a>. There may be more than one POPM frame in each tag,  but only one with the same email address.</p></p>
 	<ul class="tags">
+				<li><span class="field">author:</span> Ryan Butterfield &lt;<a href="mailto:buttza@gmail.com">buttza@gmail.com</a>&gt;</li>
 				<li><span class="field">author:</span> Sven Vollbehr &lt;<a href="mailto:svollbehr@gmail.com">svollbehr@gmail.com</a>&gt;</li>
-				<li><span class="field">version:</span> $Rev: 75 $</li>
+				<li><span class="field">version:</span> $Rev: 105 $</li>
 				<li><span class="field">copyright:</span> Copyright (c) 2008 The PHP Reader Project Workgroup</li>
 				<li><span class="field">license:</span> <a href="http://code.google.com/p/php-reader/wiki/License">New BSD License</a></li>
 			</ul>
 		<p class="notes">
-			Located in <a class="field" href="_ID3---Frame---POPM.php.html">/ID3/Frame/POPM.php</a> (line <span class="field">65</span>)
+			Located in <a class="field" href="_ID3---Frame---POPM.php.html">/ID3/Frame/POPM.php</a> (line <span class="field">66</span>)
 		</p>
 		
 				
@@ -161,10 +162,10 @@
 			<A NAME='method_detail'></A>
 
 <a name="method__construct" id="__construct"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">Constructor __construct</span> (line <span class="line-number">82</span>)
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">83</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -202,10 +203,10 @@
 			
 	</div>
 <a name="methodaddCounter" id="addCounter"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">addCounter</span> (line <span class="line-number">137</span>)
+		<span class="method-title">addCounter</span> (line <span class="line-number">138</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -226,10 +227,10 @@
 			
 	</div>
 <a name="methodgetCounter" id="getCounter"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">getCounter</span> (line <span class="line-number">132</span>)
+		<span class="method-title">getCounter</span> (line <span class="line-number">133</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -250,10 +251,10 @@
 			
 	</div>
 <a name="methodgetOwner" id="getOwner"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">getOwner</span> (line <span class="line-number">104</span>)
+		<span class="method-title">getOwner</span> (line <span class="line-number">105</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -274,10 +275,10 @@
 			
 	</div>
 <a name="methodgetRating" id="getRating"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">getRating</span> (line <span class="line-number">118</span>)
+		<span class="method-title">getRating</span> (line <span class="line-number">119</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -298,10 +299,10 @@
 			
 	</div>
 <a name="methodsetCounter" id="setCounter"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">setCounter</span> (line <span class="line-number">144</span>)
+		<span class="method-title">setCounter</span> (line <span class="line-number">145</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -327,10 +328,10 @@
 			
 	</div>
 <a name="methodsetOwner" id="setOwner"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">setOwner</span> (line <span class="line-number">111</span>)
+		<span class="method-title">setOwner</span> (line <span class="line-number">112</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -356,10 +357,10 @@
 			
 	</div>
 <a name="methodsetRating" id="setRating"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">setRating</span> (line <span class="line-number">125</span>)
+		<span class="method-title">setRating</span> (line <span class="line-number">126</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -385,10 +386,10 @@
 			
 	</div>
 <a name="method__toString" id="__toString"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">__toString</span> (line <span class="line-number">151</span>)
+		<span class="method-title">__toString</span> (line <span class="line-number">152</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -434,7 +435,11 @@
 					<blockquote>
 													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#method__construct">ID3_Object::__construct()</a></span><br>
 													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#methoddecodeSynchsafe32">ID3_Object::decodeSynchsafe32()</a></span><br>
+													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#methoddecodeUnsynchronisation">ID3_Object::decodeUnsynchronisation()</a></span><br>
 													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#methodencodeSynchsafe32">ID3_Object::encodeSynchsafe32()</a></span><br>
+													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#methodencodeUnsynchronisation">ID3_Object::encodeUnsynchronisation()</a></span><br>
+													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#methodexplodeString8">ID3_Object::explodeString8()</a></span><br>
+													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#methodexplodeString16">ID3_Object::explodeString16()</a></span><br>
 													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#methodgetOption">ID3_Object::getOption()</a></span><br>
 													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#methodgetOptions">ID3_Object::getOptions()</a></span><br>
 													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#methodsetOption">ID3_Object::setOption()</a></span><br>
@@ -502,7 +507,7 @@
 	</div>
 
 	<p class="notes" id="credit">
-		Documentation generated on Sat, 10 May 2008 20:27:41 +0300 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.1</a>
+		Documentation generated on Fri, 05 Sep 2008 20:19:15 +0300 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.1</a>
 	</p>
 	</div></body>
 </html>

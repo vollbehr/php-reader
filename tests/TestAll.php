@@ -32,7 +32,7 @@
  * @subpackage Tests
  * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
  * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version    $Id: TestAll.php 64 2008-04-01 10:38:12Z svollbehr $
+ * @version    $Id: TestAll.php 107 2008-08-03 19:09:16Z svollbehr $
  */
 
 /**#@+ @ignore */
@@ -40,6 +40,7 @@ require_once("PHPUnit/Framework.php");
 require_once("PHPUnit/TextUI/TestRunner.php");
 
 ini_set("include_path", ini_get("include_path") . PATH_SEPARATOR . "../src/");
+ini_set("memory_limit", "16M");
 
 $suite = new PHPUnit_Framework_TestSuite("PHP Reader");
 

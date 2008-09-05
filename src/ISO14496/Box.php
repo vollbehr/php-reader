@@ -32,7 +32,7 @@
  * @subpackage ISO 14496
  * @copyright  Copyright (c) 2008 PHP Reader Project Workgroup
  * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version    $Id: Box.php 93 2008-05-10 17:11:44Z svollbehr $
+ * @version    $Id: Box.php 102 2008-06-23 20:41:20Z svollbehr $
  */
 
 /**#@+ @ignore */
@@ -47,7 +47,7 @@ require_once("ISO14496/Exception.php");
  * @author     Sven Vollbehr <svollbehr@gmail.com>
  * @copyright  Copyright (c) 2008 PHP Reader Project Workgroup
  * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version    $Rev: 93 $
+ * @version    $Rev: 102 $
  */
 class ISO14496_Box
 {
@@ -85,9 +85,10 @@ class ISO14496_Box
   private static $_path = array();
   
   /**
-   * Constructs the class with given parameters.
+   * Constructs the class with given parameters and options.
    *
-   * @param Reader $reader The reader object.
+   * @param Reader $reader  The reader object.
+   * @param Array  $options The options array.
    */
   public function __construct($reader, &$options = array())
   {
@@ -176,7 +177,6 @@ class ISO14496_Box
    *
    * The method will propagate size change to box parents.
    * 
-   * @todo Size does not propagate to parent
    * @param integer $size The box size.
    */
   public function setSize($size)
@@ -397,8 +397,7 @@ class ISO14496_Box
   public function __set($name, $value)
   {
     if (method_exists($this, "set" . ucfirst($name)))
-      call_user_func
-        (array($this, "set" . ucfirst($name)), $value);
+      call_user_func(array($this, "set" . ucfirst($name)), $value);
     else throw new ISO14496_Exception("Unknown field: " . $name);
   }
   
