@@ -32,7 +32,7 @@
  * @subpackage ISO 14496
  * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
  * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version    $Id: TFHD.php 92 2008-05-10 13:43:14Z svollbehr $
+ * @version    $Id: TFHD.php 112 2008-09-21 17:56:29Z svollbehr $
  */
 
 /**#@+ @ignore */
@@ -48,9 +48,10 @@ require_once("ISO14496/Box/Full.php");
  * @package    php-reader
  * @subpackage ISO 14496
  * @author     Sven Vollbehr <svollbehr@gmail.com>
+ * @author     Anders Ödlund <odlund@gmail.com>
  * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
  * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version    $Rev: 92 $
+ * @version    $Rev: 112 $
  */
 final class ISO14496_Box_TFHD extends ISO14496_Box_Full
 {
@@ -58,7 +59,10 @@ final class ISO14496_Box_TFHD extends ISO14496_Box_Full
   private $_trackId;
   
   /** @var integer */
-  private $_defaultSampleDescriptionIndex;
+  private $_baseDataOffset;
+  
+  /** @var integer */
+  private $_sampleDescriptionIndex;
   
   /** @var integer */
   private $_defaultSampleDuration;
@@ -95,7 +99,7 @@ final class ISO14496_Box_TFHD extends ISO14496_Box_Full
   const DEFAULT_SAMPLE_SIZE = 0x10;
   
   /** Indicates the precense of the defaultSampleFlags field. */
-  const DEFAULT_SAMPLE_DURATION = 0x20;
+  const DEFAULT_SAMPLE_FLAGS = 0x20;
   
   /**
    * Indicates that the duration provided in either defaultSampleDuration, or by
@@ -155,7 +159,7 @@ final class ISO14496_Box_TFHD extends ISO14496_Box_Full
    */
   public function getSampleDescriptionIndex()
   {
-    return $this->_defaultSampleDescriptionIndex;
+    return $this->_sampleDescriptionIndex;
   }
   
   /**

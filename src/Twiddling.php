@@ -31,7 +31,7 @@
  * @package    php-reader
  * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
  * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version    $Id: Twiddling.php 110 2008-09-05 17:10:51Z svollbehr $
+ * @version    $Id: Twiddling.php 114 2008-12-03 21:49:43Z svollbehr $
  */
 
 /**
@@ -39,9 +39,10 @@
  *
  * @package    php-reader
  * @author     Ryan Butterfield <buttza@gmail.com>
+ * @author     Sven Vollbehr <svollbehr@gmail.com>
  * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
  * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version    $Rev: 110 $
+ * @version    $Rev: 114 $
  * @static
  */
 final class Twiddling
@@ -200,8 +201,8 @@ final class Twiddling
    */
   public static function setValue($integer, $start, $end, $value)
   {
-    return self::clearBits($integer, self::getMask($start, $end) << $start) |
-      ($value << $start);
+    return self::clearBits
+      ($integer, self::getMask($start, $end) << $start) | ($value << $start);
   }
 
   /**
@@ -227,9 +228,6 @@ final class Twiddling
    */
   public static function getMask($start, $end)
   {
-    $mask = 0;
-    for (; $start <= $end; $start++)
-      $mask |= 1 << $start;
-    return $mask;
+    return ($tmp = (1 << $end)) + $tmp - (1 << $start);
   }
 }

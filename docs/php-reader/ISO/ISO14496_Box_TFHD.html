@@ -26,13 +26,14 @@
         		<!-- ========== Info from phpDoc block ========= -->
 <p class="short-description">Each movie fragment can add zero or more <em>Track Fragment Header Box</em> to  each track; and a track fragment can add zero or more contiguous runs of  samples. The track fragment header sets up information and defaults used for  those runs of samples.</p>
 	<ul class="tags">
+				<li><span class="field">author:</span> Anders Ödlund &lt;<a href="mailto:odlund@gmail.com">odlund@gmail.com</a>&gt;</li>
 				<li><span class="field">author:</span> Sven Vollbehr &lt;<a href="mailto:svollbehr@gmail.com">svollbehr@gmail.com</a>&gt;</li>
-				<li><span class="field">version:</span> $Rev: 92 $</li>
+				<li><span class="field">version:</span> $Rev: 112 $</li>
 				<li><span class="field">copyright:</span> Copyright (c) 2008 The PHP Reader Project Workgroup</li>
 				<li><span class="field">license:</span> <a href="http://code.google.com/p/php-reader/wiki/License">New BSD License</a></li>
 			</ul>
 		<p class="notes">
-			Located in <a class="field" href="_ISO14496---Box---TFHD.php.html">/ISO14496/Box/TFHD.php</a> (line <span class="field">55</span>)
+			Located in <a class="field" href="_ISO14496---Box---TFHD.php.html">/ISO14496/Box/TFHD.php</a> (line <span class="field">56</span>)
 		</p>
 		
 				
@@ -68,12 +69,12 @@
 				</div>
 								<div class="const-title">
 					<img src="../../media/images/Constant.png" alt=" " />
-					<a href="#DEFAULT_SAMPLE_DURATION" title="details" class="const-name">DEFAULT_SAMPLE_DURATION</a> = 					<span class="var-type"> 0x20</span>
+					<a href="#DEFAULT_SAMPLE_DURATION" title="details" class="const-name">DEFAULT_SAMPLE_DURATION</a> = 					<span class="var-type"> 0x8</span>
 
 				</div>
 								<div class="const-title">
 					<img src="../../media/images/Constant.png" alt=" " />
-					<a href="#DEFAULT_SAMPLE_DURATION" title="details" class="const-name">DEFAULT_SAMPLE_DURATION</a> = 					<span class="var-type"> 0x8</span>
+					<a href="#DEFAULT_SAMPLE_FLAGS" title="details" class="const-name">DEFAULT_SAMPLE_FLAGS</a> = 					<span class="var-type"> 0x20</span>
 
 				</div>
 								<div class="const-title">
@@ -201,10 +202,10 @@
 			<A NAME='method_detail'></A>
 
 <a name="method__construct" id="__construct"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">Constructor __construct</span> (line <span class="line-number">114</span>)
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">118</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -240,10 +241,10 @@
 			
 	</div>
 <a name="methodgetBaseDataOffset" id="getBaseDataOffset"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">getBaseDataOffset</span> (line <span class="line-number">146</span>)
+		<span class="method-title">getBaseDataOffset</span> (line <span class="line-number">150</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -264,10 +265,10 @@
 			
 	</div>
 <a name="methodgetDefaultSampleDuration" id="getDefaultSampleDuration"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">getDefaultSampleDuration</span> (line <span class="line-number">166</span>)
+		<span class="method-title">getDefaultSampleDuration</span> (line <span class="line-number">170</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -288,10 +289,10 @@
 			
 	</div>
 <a name="methodgetDefaultSampleFlags" id="getDefaultSampleFlags"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">getDefaultSampleFlags</span> (line <span class="line-number">186</span>)
+		<span class="method-title">getDefaultSampleFlags</span> (line <span class="line-number">190</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -312,10 +313,10 @@
 			
 	</div>
 <a name="methodgetDefaultSampleSize" id="getDefaultSampleSize"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">getDefaultSampleSize</span> (line <span class="line-number">176</span>)
+		<span class="method-title">getDefaultSampleSize</span> (line <span class="line-number">180</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -336,10 +337,10 @@
 			
 	</div>
 <a name="methodgetSampleDescriptionIndex" id="getSampleDescriptionIndex"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">getSampleDescriptionIndex</span> (line <span class="line-number">156</span>)
+		<span class="method-title">getSampleDescriptionIndex</span> (line <span class="line-number">160</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -360,10 +361,10 @@
 			
 	</div>
 <a name="methodgetTrackId" id="getTrackId"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">getTrackId</span> (line <span class="line-number">136</span>)
+		<span class="method-title">getTrackId</span> (line <span class="line-number">140</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -445,37 +446,20 @@
 					</div>
 		<div class="info-box-body">
 			<a name="constBASE_DATA_OFFSET" id="BASE_DATA_OFFSET"><!-- --></A>
-<div class="oddrow">
+<div class="evenrow">
 
 	<div class="const-header">
 		<img src="../../media/images/Variable.png" />
 		<span class="const-title">
 			<span class="const-name">BASE_DATA_OFFSET</span>
 			 = <span class="const-default"> 0x1</span>
-			(line <span class="line-number">82</span>)
+			(line <span class="line-number">86</span>)
 		</span>
 	</div>
 
 	<!-- ========== Info from phpDoc block ========= -->
 <p class="short-description">Indicates indicates the presence of the baseDataOffset field. This provides</p>
 <p class="description"><p>an explicit anchor for the data offsets in each track run (see below). If  not provided, the base-dataoffset for the first track in the movie fragment  is the position of the first byte of the enclosing Movie Fragment Box, and  for second and subsequent track fragments, the default is the end of the  data defined by the preceding fragment. Fragments inheriting their offset  in this way must all use the same data-reference (i.e., the data for these  tracks must be in the same file).</p></p>
-	
-	
-</div>
-<a name="constDEFAULT_SAMPLE_DURATION" id="DEFAULT_SAMPLE_DURATION"><!-- --></A>
-<div class="evenrow">
-
-	<div class="const-header">
-		<img src="../../media/images/Variable.png" />
-		<span class="const-title">
-			<span class="const-name">DEFAULT_SAMPLE_DURATION</span>
-			 = <span class="const-default"> 0x20</span>
-			(line <span class="line-number">98</span>)
-		</span>
-	</div>
-
-	<!-- ========== Info from phpDoc block ========= -->
-<p class="short-description">Indicates the precense of the defaultSampleFlags field.</p>
 	
 	
 </div>
@@ -487,7 +471,7 @@
 		<span class="const-title">
 			<span class="const-name">DEFAULT_SAMPLE_DURATION</span>
 			 = <span class="const-default"> 0x8</span>
-			(line <span class="line-number">92</span>)
+			(line <span class="line-number">96</span>)
 		</span>
 	</div>
 
@@ -496,15 +480,32 @@
 	
 	
 </div>
-<a name="constDEFAULT_SAMPLE_SIZE" id="DEFAULT_SAMPLE_SIZE"><!-- --></A>
+<a name="constDEFAULT_SAMPLE_FLAGS" id="DEFAULT_SAMPLE_FLAGS"><!-- --></A>
 <div class="evenrow">
+
+	<div class="const-header">
+		<img src="../../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">DEFAULT_SAMPLE_FLAGS</span>
+			 = <span class="const-default"> 0x20</span>
+			(line <span class="line-number">102</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Indicates the precense of the defaultSampleFlags field.</p>
+	
+	
+</div>
+<a name="constDEFAULT_SAMPLE_SIZE" id="DEFAULT_SAMPLE_SIZE"><!-- --></A>
+<div class="oddrow">
 
 	<div class="const-header">
 		<img src="../../media/images/Variable.png" />
 		<span class="const-title">
 			<span class="const-name">DEFAULT_SAMPLE_SIZE</span>
 			 = <span class="const-default"> 0x10</span>
-			(line <span class="line-number">95</span>)
+			(line <span class="line-number">99</span>)
 		</span>
 	</div>
 
@@ -514,14 +515,14 @@
 	
 </div>
 <a name="constDURATION_IS_EMPTY" id="DURATION_IS_EMPTY"><!-- --></A>
-<div class="oddrow">
+<div class="evenrow">
 
 	<div class="const-header">
 		<img src="../../media/images/Variable.png" />
 		<span class="const-title">
 			<span class="const-name">DURATION_IS_EMPTY</span>
 			 = <span class="const-default"> 0x10000</span>
-			(line <span class="line-number">105</span>)
+			(line <span class="line-number">109</span>)
 		</span>
 	</div>
 
@@ -531,14 +532,14 @@
 	
 </div>
 <a name="constSAMPLE_DESCRIPTION_INDEX" id="SAMPLE_DESCRIPTION_INDEX"><!-- --></A>
-<div class="evenrow">
+<div class="oddrow">
 
 	<div class="const-header">
 		<img src="../../media/images/Variable.png" />
 		<span class="const-title">
 			<span class="const-name">SAMPLE_DESCRIPTION_INDEX</span>
 			 = <span class="const-default"> 0x2</span>
-			(line <span class="line-number">89</span>)
+			(line <span class="line-number">93</span>)
 		</span>
 	</div>
 
@@ -552,7 +553,7 @@
 	</div>
 
 	<p class="notes" id="credit">
-		Documentation generated on Fri, 05 Sep 2008 20:19:41 +0300 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.1</a>
+		Documentation generated on Sun, 07 Dec 2008 22:32:34 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.1</a>
 	</p>
 	</div></body>
 </html>

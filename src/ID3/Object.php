@@ -32,7 +32,7 @@
  * @subpackage ID3
  * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
  * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version    $Id: Object.php 107 2008-08-03 19:09:16Z svollbehr $
+ * @version    $Id: Object.php 114 2008-12-03 21:49:43Z svollbehr $
  */
 
 /**
@@ -44,7 +44,7 @@
  * @author     Ryan Butterfield <buttza@gmail.com>
  * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
  * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version    $Rev: 107 $
+ * @version    $Rev: 114 $
  */
 abstract class ID3_Object
 {
@@ -63,8 +63,7 @@ abstract class ID3_Object
   private $_options;
   
   /**
-   * Constructs the class with given parameters and reads object related data
-   * from the ID3v2 tag.
+   * Constructs the class with given parameters.
    *
    * @param Reader $reader The reader object.
    * @param Array $options The options array.
