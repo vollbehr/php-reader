@@ -34,7 +34,7 @@
 	<ul class="tags">
 				<li><span class="field">author:</span> Ryan Butterfield &lt;<a href="mailto:buttza@gmail.com">buttza@gmail.com</a>&gt;</li>
 				<li><span class="field">author:</span> Sven Vollbehr &lt;<a href="mailto:svollbehr@gmail.com">svollbehr@gmail.com</a>&gt;</li>
-				<li><span class="field">version:</span> $Rev: 105 $</li>
+				<li><span class="field">version:</span> $Rev: 129 $</li>
 				<li><span class="field">copyright:</span> Copyright (c) 2008 The PHP Reader Project Workgroup</li>
 				<li><span class="field">license:</span> <a href="http://code.google.com/p/php-reader/wiki/License">New BSD License</a></li>
 			</ul>
@@ -182,7 +182,7 @@
 			<A NAME='method_detail'></A>
 
 <a name="method__construct" id="__construct"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
 		<span class="method-title">Constructor __construct</span> (line <span class="line-number">82</span>)
@@ -223,10 +223,10 @@
 			
 	</div>
 <a name="methodgetCurrency" id="getCurrency"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">getCurrency</span> (line <span class="line-number">131</span>)
+		<span class="method-title">getCurrency</span> (line <span class="line-number">151</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -247,10 +247,10 @@
 			
 	</div>
 <a name="methodgetDate" id="getDate"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">getDate</span> (line <span class="line-number">164</span>)
+		<span class="method-title">getDate</span> (line <span class="line-number">184</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -271,14 +271,15 @@
 			
 	</div>
 <a name="methodgetEncoding" id="getEncoding"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">getEncoding</span> (line <span class="line-number">114</span>)
+		<span class="method-title">getEncoding</span> (line <span class="line-number">128</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
 <p class="short-description">Returns the text encoding.</p>
+<p class="description"><p>All the strings read from a file are automatically converted to the  character encoding specified with the <var>encoding</var> option. See  <a href="../../php-reader/ID3/ID3v2.html">ID3v2</a> for details. This method returns the original text encoding  used to write the frame.</p></p>
 	<ul class="tags">
 				<li><span class="field">access:</span> public</li>
 			</ul>
@@ -301,10 +302,10 @@
 			
 	</div>
 <a name="methodgetPrice" id="getPrice"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">getPrice</span> (line <span class="line-number">147</span>)
+		<span class="method-title">getPrice</span> (line <span class="line-number">167</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -325,10 +326,10 @@
 			
 	</div>
 <a name="methodgetSeller" id="getSeller"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">getSeller</span> (line <span class="line-number">179</span>)
+		<span class="method-title">getSeller</span> (line <span class="line-number">199</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -349,10 +350,10 @@
 			
 	</div>
 <a name="methodsetCurrency" id="setCurrency"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">setCurrency</span> (line <span class="line-number">140</span>)
+		<span class="method-title">setCurrency</span> (line <span class="line-number">160</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -378,10 +379,10 @@
 			
 	</div>
 <a name="methodsetDate" id="setDate"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">setDate</span> (line <span class="line-number">172</span>)
+		<span class="method-title">setDate</span> (line <span class="line-number">192</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -407,14 +408,15 @@
 			
 	</div>
 <a name="methodsetEncoding" id="setEncoding"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">setEncoding</span> (line <span class="line-number">122</span>)
+		<span class="method-title">setEncoding</span> (line <span class="line-number">142</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
 <p class="short-description">Sets the text encoding.</p>
+<p class="description"><p>All the string written to the frame are done so using given character  encoding. No conversions of existing data take place upon the call to this  method thus all texts must be given in given character encoding.</p><p>The default character encoding used to write the frame is UTF-8.</p></p>
 	<ul class="tags">
 				<li><span class="field">see:</span> <a href="../../php-reader/ID3/ID3_Encoding.html">ID3_Encoding</a></li>
 				<li><span class="field">access:</span> public</li>
@@ -443,10 +445,10 @@
 			
 	</div>
 <a name="methodsetPrice" id="setPrice"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">setPrice</span> (line <span class="line-number">154</span>)
+		<span class="method-title">setPrice</span> (line <span class="line-number">174</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -472,10 +474,10 @@
 			
 	</div>
 <a name="methodsetSeller" id="setSeller"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">setSeller</span> (line <span class="line-number">187</span>)
+		<span class="method-title">setSeller</span> (line <span class="line-number">207</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -504,10 +506,10 @@
 			
 	</div>
 <a name="method__toString" id="__toString"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">__toString</span> (line <span class="line-number">199</span>)
+		<span class="method-title">__toString</span> (line <span class="line-number">219</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -552,6 +554,7 @@
 					<p>Inherited From <span class="classname"><a href="../../php-reader/ID3/ID3_Object.html">ID3_Object</a></span></p>
 					<blockquote>
 													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#method__construct">ID3_Object::__construct()</a></span><br>
+													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#methodconvertString">ID3_Object::convertString()</a></span><br>
 													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#methoddecodeSynchsafe32">ID3_Object::decodeSynchsafe32()</a></span><br>
 													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#methoddecodeUnsynchronisation">ID3_Object::decodeUnsynchronisation()</a></span><br>
 													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#methodencodeSynchsafe32">ID3_Object::encodeSynchsafe32()</a></span><br>
@@ -625,7 +628,7 @@
 	</div>
 
 	<p class="notes" id="credit">
-		Documentation generated on Thu, 18 Dec 2008 16:20:36 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.1</a>
+		Documentation generated on Sun, 28 Dec 2008 22:28:42 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.1</a>
 	</p>
 	</div></body>
 </html>

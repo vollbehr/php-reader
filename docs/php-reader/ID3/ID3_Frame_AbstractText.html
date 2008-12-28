@@ -34,7 +34,7 @@
 	<ul class="tags">
 				<li><span class="field">author:</span> Ryan Butterfield &lt;<a href="mailto:buttza@gmail.com">buttza@gmail.com</a>&gt;</li>
 				<li><span class="field">author:</span> Sven Vollbehr &lt;<a href="mailto:svollbehr@gmail.com">svollbehr@gmail.com</a>&gt;</li>
-				<li><span class="field">version:</span> $Rev: 107 $</li>
+				<li><span class="field">version:</span> $Rev: 129 $</li>
 				<li><span class="field">copyright:</span> Copyright (c) 2008 The PHP Reader Project Workgroup</li>
 				<li><span class="field">abstract:</span> </li>
 				<li><span class="field">license:</span> <a href="http://code.google.com/p/php-reader/wiki/License">New BSD License</a></li>
@@ -494,7 +494,7 @@
 		<span class="var-title">
 			<span class="var-type">integer</span>
 			<span class="var-name">$_encoding</span>
-			 = <span class="var-default"> ID3_Encoding::UTF8</span>			(line <span class="line-number">62</span>)
+						(line <span class="line-number">62</span>)
 		</span>
 	</div>
 
@@ -617,11 +617,12 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">getEncoding</span> (line <span class="line-number">106</span>)
+		<span class="method-title">getEncoding</span> (line <span class="line-number">120</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
 <p class="short-description">Returns the text encoding.</p>
+<p class="description"><p>All the strings read from a file are automatically converted to the  character encoding specified with the <var>encoding</var> option. See  <a href="../../php-reader/ID3/ID3v2.html">ID3v2</a> for details. This method returns the original text encoding  used to write the frame.</p></p>
 	<ul class="tags">
 				<li><span class="field">access:</span> public</li>
 			</ul>
@@ -647,7 +648,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">getText</span> (line <span class="line-number">121</span>)
+		<span class="method-title">getText</span> (line <span class="line-number">141</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -671,7 +672,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">getTexts</span> (line <span class="line-number">128</span>)
+		<span class="method-title">getTexts</span> (line <span class="line-number">148</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -695,11 +696,12 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">setEncoding</span> (line <span class="line-number">114</span>)
+		<span class="method-title">setEncoding</span> (line <span class="line-number">134</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
 <p class="short-description">Sets the text encoding.</p>
+<p class="description"><p>All the string written to the frame are done so using given character  encoding. No conversions of existing data take place upon the call to this  method thus all texts must be given in given character encoding.</p><p>The default character encoding used to write the frame is UTF-8.</p></p>
 	<ul class="tags">
 				<li><span class="field">see:</span> <a href="../../php-reader/ID3/ID3_Encoding.html">ID3_Encoding</a></li>
 				<li><span class="field">access:</span> public</li>
@@ -731,7 +733,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">setText</span> (line <span class="line-number">136</span>)
+		<span class="method-title">setText</span> (line <span class="line-number">156</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -763,7 +765,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">__toString</span> (line <span class="line-number">148</span>)
+		<span class="method-title">__toString</span> (line <span class="line-number">168</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -816,6 +818,7 @@
 					<p>Inherited From <span class="classname"><a href="../../php-reader/ID3/ID3_Object.html">ID3_Object</a></span></p>
 					<blockquote>
 													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#method__construct">ID3_Object::__construct()</a></span><br>
+													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#methodconvertString">ID3_Object::convertString()</a></span><br>
 													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#methoddecodeSynchsafe32">ID3_Object::decodeSynchsafe32()</a></span><br>
 													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#methoddecodeUnsynchronisation">ID3_Object::decodeUnsynchronisation()</a></span><br>
 													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#methodencodeSynchsafe32">ID3_Object::encodeSynchsafe32()</a></span><br>
@@ -890,7 +893,7 @@
 	</div>
 
 	<p class="notes" id="credit">
-		Documentation generated on Thu, 18 Dec 2008 16:20:06 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.1</a>
+		Documentation generated on Sun, 28 Dec 2008 22:28:10 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.1</a>
 	</p>
 	</div></body>
 </html>

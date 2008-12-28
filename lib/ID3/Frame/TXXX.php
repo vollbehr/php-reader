@@ -32,7 +32,7 @@
  * @subpackage ID3
  * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
  * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version    $Id: TXXX.php 105 2008-07-30 14:56:47Z svollbehr $
+ * @version    $Id: TXXX.php 129 2008-12-28 19:00:44Z svollbehr $
  */
 
 /**#@+ @ignore */
@@ -55,7 +55,7 @@ require_once("ID3/Frame/AbstractText.php");
  * @author     Ryan Butterfield <buttza@gmail.com>
  * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
  * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version    $Rev: 105 $
+ * @version    $Rev: 129 $
  */
 final class ID3_Frame_TXXX extends ID3_Frame_AbstractText
 {
@@ -72,28 +72,39 @@ final class ID3_Frame_TXXX extends ID3_Frame_AbstractText
   {
     ID3_Frame::__construct($reader, $options);
     
+    $this->_encoding = $this->getOption("encoding", ID3_Encoding::UTF8);
+    
     if ($reader === null)
       return;
     
-    $this->_encoding = Transform::fromUInt8($this->_data[0]);
+    $encoding = Transform::fromUInt8($this->_data[0]);
     $this->_data = substr($this->_data, 1);
     
-    switch ($this->_encoding) {
+    switch ($encoding) {
     case self::UTF16:
       list($this->_description, $this->_text) =
         $this->explodeString16($this->_data, 2);
-      $this->_description = Transform::fromString16($this->_description);
-      $this->_text = array(Transform::fromString16($this->_text));
+      $this->_description = $this->convertString
+        (Transform::fromString16($this->_description), "utf-16");
+      $this->_text = $this->convertString
+        (array(Transform::fromString16($this->_text)), "utf-16");
       break;
     case self::UTF16BE:
       list($this->_description, $this->_text) =
         $this->explodeString16($this->_data, 2);
-      $this->_description = Transform::fromString16BE($this->_description);
-      $this->_text = array(Transform::fromString16BE($this->_text));
+      $this->_description = $this->convertString
+        (Transform::fromString16BE($this->_description), "utf-16be");
+      $this->_text = $this->convertString
+        (array(Transform::fromString16BE($this->_text)), "utf-16be");
+      break;
+    case self::UTF8:
+      list($this->_description, $this->_text) = $this->convertString
+        ($this->explodeString8($this->_data, 2), "utf-8");
+      $this->_text = array($this->_text);
       break;
     default:
-      list($this->_description, $this->_text) =
-        $this->explodeString8($this->_data, 2);
+      list($this->_description, $this->_text) = $this->convertString
+        ($this->explodeString8($this->_data, 2), "iso-8859-1");
       $this->_text = array($this->_text);
     }
   }

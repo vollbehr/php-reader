@@ -32,7 +32,7 @@
  * @subpackage ID3
  * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
  * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version    $Id: ID3v2.php 107 2008-08-03 19:09:16Z svollbehr $
+ * @version    $Id: ID3v2.php 129 2008-12-28 19:00:44Z svollbehr $
  */
 
 /**#@+ @ignore */
@@ -66,7 +66,7 @@ require_once("ID3/Frame.php");
  * @author     Ryan Butterfield <buttza@gmail.com>
  * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
  * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version    $Rev: 107 $
+ * @version    $Rev: 129 $
  */
 final class ID3v2
 {
@@ -96,6 +96,10 @@ final class ID3v2
    * may also be given as the only parameter.
    *
    * The following options are currently recognized:
+   *   o encoding -- Indicates the encoding that all the texts are presented
+   *     with. By default this is set to ID3_Encoding::UTF8. See the
+   *     documentation of the {@link ID3_Encoding} interface for accepted
+   *     values. Conversions are carried out using iconv.
    *   o version -- The ID3v2 tag version to use in write operation. This option
    *     is automatically set when a tag is read from a file and defaults to
    *     version 4.0 for tag write.

@@ -32,7 +32,7 @@
  * @subpackage ID3
  * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
  * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version    $Id: Frame.php 107 2008-08-03 19:09:16Z svollbehr $
+ * @version    $Id: Frame.php 129 2008-12-28 19:00:44Z svollbehr $
  */
 
 /**#@+ @ignore */
@@ -49,7 +49,7 @@ require_once("ID3/Object.php");
  * @author     Sven Vollbehr <svollbehr@gmail.com>
  * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
  * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version    $Rev: 107 $
+ * @version    $Rev: 129 $
  */
 class ID3_Frame extends ID3_Object
 {
@@ -183,7 +183,7 @@ class ID3_Frame extends ID3_Object
       $this->_size = $dataLength;
       
       if ($this->hasFlag(self::UNSYNCHRONISATION) ||
-          $this->getOption("unsyncronisation", false) === true)
+          $this->getOption("unsynchronisation", false) === true)
         $this->_data = $this->decodeUnsynchronisation($this->_data);
     }
   }
@@ -246,7 +246,7 @@ class ID3_Frame extends ID3_Object
     $this->_data = $data;
     $this->_size = strlen($data);
   }
-
+  
   /**
    * Returns the frame raw data.
    *
@@ -285,8 +285,9 @@ class ID3_Frame extends ID3_Object
         $data = Transform::toUInt32BE($this->encodeSynchsafe32($this->_size)) .
           $data;
         $flags |= self::DATA_LENGTH_INDICATOR | self::UNSYNCHRONISATION;
-        $this->setOption("unsyncronisation", true);
-      }
+        $this->setOption("unsynchronisation", true);
+      } else
+        $flags &= ~(self::DATA_LENGTH_INDICATOR | self::UNSYNCHRONISATION);
     }
     return Transform::toString8(substr($this->_identifier, 0, 4), 4) .
       Transform::toUInt32BE($this->encodeSynchsafe32($size)) .

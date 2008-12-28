@@ -32,7 +32,7 @@
  * @subpackage ID3
  * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
  * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version    $Id: Object.php 114 2008-12-03 21:49:43Z svollbehr $
+ * @version    $Id: Object.php 129 2008-12-28 19:00:44Z svollbehr $
  */
 
 /**
@@ -44,7 +44,7 @@
  * @author     Ryan Butterfield <buttza@gmail.com>
  * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
  * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version    $Rev: 114 $
+ * @version    $Rev: 129 $
  */
 abstract class ID3_Object
 {
@@ -195,7 +195,7 @@ abstract class ID3_Object
   /**
    * Reverses the unsynchronisation scheme from the given data string.
    * 
-   * @see encodeUnsyncronisation
+   * @see encodeUnsynchronisation
    * @param string $data The input data.
    * @return string
    */
@@ -247,5 +247,43 @@ abstract class ID3_Object
   protected function explodeString8($value, $limit = null)
   {
     return preg_split("/\\x00/", $value, $limit);
+  }
+  
+  /**
+   * Converts string to requested character encoding and returns it. See the
+   * documentation of iconv for accepted values for encoding.
+   *
+   * @param string|Array $string
+   * @param string $encoding
+   */
+  protected function convertString($string, $encoding)
+  {
+    $target = $this->getOption("encoding", ID3_Encoding::UTF8);
+    switch ($target) {
+    case ID3_Encoding::UTF16:
+      $target = "utf-16";
+      break;
+    case ID3_Encoding::UTF16LE:
+      $target = "utf-16le";
+      break;
+    case ID3_Encoding::UTF16BE:
+      $target = "utf-16be";
+      break;
+    case ID3_Encoding::UTF8:
+      $target = "utf-8";
+      break;
+    default:
+      $target = "iso-8859-1";
+    }
+
+    if (strtolower($target) == strtolower($encoding))
+      return $string;
+    
+    if (is_array($string))
+      foreach ($string as $key => $value)
+        $string[$key] = iconv($encoding, $target, $value);
+    else
+      $string = iconv($encoding, $target, $string);
+    return $string;
   }
 }
