@@ -2,7 +2,8 @@
 /**
  * PHP Reader Library
  *
- * Copyright (c) 2008 The PHP Reader Project Workgroup. All rights reserved.
+ * Copyright (c) 2008-2009 The PHP Reader Project Workgroup. All rights
+ * reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -30,14 +31,13 @@
  *
  * @package    php-reader
  * @subpackage MPEG
- * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
+ * @copyright  Copyright (c) 2008-2009 The PHP Reader Project Workgroup
  * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version    $Id: Object.php 107 2008-08-03 19:09:16Z svollbehr $
+ * @version    $Id: Object.php 143 2009-02-21 18:32:53Z svollbehr $
  */
 
 /**#@+ @ignore */
 require_once("Reader.php");
-require_once("MPEG/Exception.php");
 /**#@-*/
 
 /**
@@ -46,9 +46,9 @@ require_once("MPEG/Exception.php");
  * @package    php-reader
  * @subpackage MPEG
  * @author     Sven Vollbehr <svollbehr@gmail.com>
- * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
+ * @copyright  Copyright (c) 2008-2009 The PHP Reader Project Workgroup
  * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version    $Rev: 107 $
+ * @version    $Rev: 143 $
  */
 abstract class MPEG_Object
 {
@@ -83,7 +83,7 @@ abstract class MPEG_Object
    *
    * @return Array
    */
-  public function getOptions() { return $this->_options; }
+  public final function getOptions() { return $this->_options; }
   
   /**
    * Returns the given option value, or the default value if the option is not
@@ -92,7 +92,7 @@ abstract class MPEG_Object
    * @param string $option The name of the option.
    * @param mixed $defaultValue The default value to be returned.
    */
-  public function getOption($option, $defaultValue = false)
+  public final function getOption($option, $defaultValue = false)
   {
     if (isset($this->_options[$option]))
       return $this->_options[$option];
@@ -104,7 +104,7 @@ abstract class MPEG_Object
    *
    * @param Array $options The options array.
    */
-  public function setOptions(&$options) { $this->_options = &$options; }
+  public final function setOptions(&$options) { $this->_options = &$options; }
   
   /**
    * Sets the given option the given value.
@@ -112,7 +112,7 @@ abstract class MPEG_Object
    * @param string $option The name of the option.
    * @param mixed $value The value to set for the option.
    */
-  public function setOption($option, $value)
+  public final function setOption($option, $value)
   {
     $this->_options[$option] = $value;
   }
@@ -126,13 +126,16 @@ abstract class MPEG_Object
    * 
    * @return integer
    */
-  protected function nextStartCode()
+  protected final function nextStartCode()
   {
     $buffer = "    ";
     for ($i = 0; $i < 4; $i++) {
       $start = $this->_reader->getOffset();
-      if (($buffer = substr($buffer, -4) . $this->_reader->read(512)) === false)
+      if (($buffer = substr($buffer, -4) .
+           $this->_reader->read(512)) === false) {
+        require_once("MPEG/Exception.php");
         throw new MPEG_Exception("Invalid data");
+      }
       $limit = strlen($buffer);
       $pos = 0;
       while ($pos < $limit - 3) {
@@ -150,6 +153,7 @@ abstract class MPEG_Object
     }
     
     /* No start code found within 2048 bytes, the maximum size of a pack */
+    require_once("MPEG/Exception.php");
     throw new MPEG_Exception("Invalid data");
   }
   
@@ -162,7 +166,7 @@ abstract class MPEG_Object
    * 
    * @return integer
    */
-  protected function prevStartCode()
+  protected final function prevStartCode()
   {
     $buffer = "    ";
     $start;
@@ -170,8 +174,10 @@ abstract class MPEG_Object
     while ($position > 0) {
       $start = 0;
       $position = $position - 512;
-      if ($position < 0)
+      if ($position < 0) {
+        require_once("MPEG/Exception.php");
         throw new MPEG_Exception("Invalid data");
+      }
       $this->_reader->setOffset($position);
       $buffer = $this->_reader->read(512) . substr($buffer, 0, 4);
       $pos = 512 - 8;
@@ -202,7 +208,7 @@ abstract class MPEG_Object
    * @param integer $seconds The time to format, in seconds
    * @return string
    */
-  protected function formatTime($seconds)
+  protected final function formatTime($seconds)
   {
     $milliseconds = round(($seconds - floor($seconds)) * 1000);
     $seconds = floor($seconds);
@@ -226,7 +232,10 @@ abstract class MPEG_Object
   {
     if (method_exists($this, "get" . ucfirst($name)))
       return call_user_func(array($this, "get" . ucfirst($name)));
-    else throw new MPEG_Exception("Unknown field: " . $name);
+    else {
+      require_once("MPEG/Exception.php");
+      throw new MPEG_Exception("Unknown field: " . $name);
+    }
   }
   
   /**
@@ -241,6 +250,9 @@ abstract class MPEG_Object
     if (method_exists($this, "set" . ucfirst($name)))
       call_user_func
         (array($this, "set" . ucfirst($name)), $value);
-    else throw new MPEG_Exception("Unknown field: " . $name);
+    else {
+      require_once("MPEG/Exception.php");
+      throw new MPEG_Exception("Unknown field: " . $name);
+    }
   }
 }

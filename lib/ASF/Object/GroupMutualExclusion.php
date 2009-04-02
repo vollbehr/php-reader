@@ -2,7 +2,8 @@
 /**
  * PHP Reader Library
  *
- * Copyright (c) 2008 The PHP Reader Project Workgroup. All rights reserved.
+ * Copyright (c) 2008-2009 The PHP Reader Project Workgroup. All rights
+ * reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -30,9 +31,9 @@
  *
  * @package    php-reader
  * @subpackage ASF
- * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
+ * @copyright  Copyright (c) 2008-2009 The PHP Reader Project Workgroup
  * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version    $Id: GroupMutualExclusion.php 108 2008-09-05 17:00:05Z svollbehr $
+ * @version    $Id: GroupMutualExclusion.php 139 2009-02-19 14:10:37Z svollbehr $
  */
 
 /**#@+ @ignore */
@@ -51,9 +52,9 @@ require_once("ASF/Object.php");
  * @package    php-reader
  * @subpackage ASF
  * @author     Sven Vollbehr <svollbehr@gmail.com>
- * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
+ * @copyright  Copyright (c) 2008-2009 The PHP Reader Project Workgroup
  * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version    $Rev: 108 $
+ * @version    $Rev: 139 $
  */
 final class ASF_Object_GroupMutualExclusion extends ASF_Object
 {
@@ -74,9 +75,13 @@ final class ASF_Object_GroupMutualExclusion extends ASF_Object
    * @param Reader $reader  The reader object.
    * @param Array  $options The options array.
    */
-  public function __construct($reader, &$options = array())
+  public function __construct($reader = null, &$options = array())
   {
     parent::__construct($reader, $options);
+    
+    if ($reader === null)
+      return;
+    
     $this->_exclusionType = $this->_reader->readGUID();
     $recordCount = $this->_reader->readUInt16LE();
     for ($i = 0; $i < $recordCount; $i++) {
@@ -97,6 +102,16 @@ final class ASF_Object_GroupMutualExclusion extends ASF_Object
   public function getExclusionType() { return $this->_exclusionType; }
   
   /**
+   * Sets the nature of the mutual exclusion relationship.
+   * 
+   * @param string $exclusionType The exclusion type.
+   */
+  public function setExclusionType($exclusionType)
+  {
+    $this->_exclusionType = $exclusionType;
+  }
+  
+  /**
    * Returns an array of records. Each record consists of the following keys.
    * 
    *   o streamNumbers -- Specifies the stream numbers for this record. Valid
@@ -105,4 +120,52 @@ final class ASF_Object_GroupMutualExclusion extends ASF_Object
    * @return Array
    */
   public function getRecords() { return $this->_records; }
+  
+  /**
+   * Sets an array of records. Each record is to consist of the following keys.
+   * 
+   *   o streamNumbers -- Specifies the stream numbers for this record. Valid
+   *     values are between 1 and 127.
+   * 
+   * @param Array $records The array of records
+   */
+  public function setRecords($records) { $this->_records = $records; }
+  
+  /**
+   * Returns the whether the object is required to be present, or whether
+   * minimum cardinality is 1.
+   * 
+   * @return boolean
+   */
+  public function isMandatory() { return false; }
+  
+  /**
+   * Returns whether multiple instances of this object can be present, or
+   * whether maximum cardinality is greater than 1.
+   * 
+   * @return boolean
+   */
+  public function isMultiple() { return true; }
+  
+  /**
+   * Returns the object data with headers.
+   *
+   * @return string
+   */
+  public function __toString()
+  {
+    $data =
+      Transform::toGUID($this->_exclusionType) .
+      Transform::toUInt16LE($recordCount = count($this->_records));
+    for ($i = 0; $i < $recordCount; $i++) {
+      $data .= 
+        Transform::toUInt16LE($streamNumbersCount = count($this->_records[$i]));
+      for ($j = 0; $j < $streamNumbersCount; $j++)
+        $data .= Transform::toUInt16LE($this->_records[$i][$j]["streamNumbers"]);
+    }
+    $this->setSize(24 /* for header */ + strlen($data));
+    return
+      Transform::toGUID($this->getIdentifier()) .
+      Transform::toInt64LE($this->getSize())  . $data;
+  }
 }

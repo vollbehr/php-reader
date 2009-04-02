@@ -2,7 +2,8 @@
 /**
  * PHP Reader Library
  *
- * Copyright (c) 2008 The PHP Reader Project Workgroup. All rights reserved.
+ * Copyright (c) 2008-2009 The PHP Reader Project Workgroup. All rights
+ * reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -30,9 +31,9 @@
  *
  * @package    php-reader
  * @subpackage ID3
- * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
+ * @copyright  Copyright (c) 2008-2009 The PHP Reader Project Workgroup
  * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version    $Id: SIGN.php 105 2008-07-30 14:56:47Z svollbehr $
+ * @version    $Id: SIGN.php 140 2009-02-19 14:30:29Z svollbehr $
  * @since      ID3v2.4.0
  */
 
@@ -51,9 +52,9 @@ require_once("ID3/Frame.php");
  * @subpackage ID3
  * @author     Sven Vollbehr <svollbehr@gmail.com>
  * @author     Ryan Butterfield <buttza@gmail.com>
- * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
+ * @copyright  Copyright (c) 2008-2009 The PHP Reader Project Workgroup
  * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version    $Rev: 105 $
+ * @version    $Rev: 140 $
  * @since      ID3v2.4.0
  */
 final class ID3_Frame_SIGN extends ID3_Frame
@@ -110,13 +111,12 @@ final class ID3_Frame_SIGN extends ID3_Frame
   public function setSignature($signature) { $this->_signature = $signature; }
   
   /**
-   * Returns the frame raw data.
+   * Returns the frame raw data without the header.
    *
    * @return string
    */
-  public function __toString()
+  protected function _getData()
   {
-    $this->setData(Transform::toUInt8($this->_group) . $this->_signature);
-    return parent::__toString();
+    return Transform::toUInt8($this->_group) . $this->_signature;
   }
 }

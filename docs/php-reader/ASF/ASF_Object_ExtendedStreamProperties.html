@@ -8,7 +8,7 @@
 			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
 		</head>
 		<body>
-			<div class="page-body">			
+			<div class="page-body">			
 <h2 class="class-name">Class ASF_Object_ExtendedStreamProperties</h2>
 
 <a name="sec-description"></a>
@@ -28,12 +28,12 @@
 <p class="description"><p>Typically, the basic <em>Stream Properties Object</em> is present in the  <em>Header Object</em>, and the <em>Extended Stream Properties Object</em> is  present in the <em>Header Extension Object</em>. Sometimes, however, the  <em>Stream Properties Object</em> for a stream may be embedded inside the  <em>Extended Stream Properties Object</em> for that stream. This approach  facilitates the creation of backward-compatible content.</p><p>This object has an optional provision to include application-specific or  implementation-specific data attached to the payloads of each digital media  sample stored within a <em>Data Packet</em>. This data can be looked at as  digital media sample properties and is stored in the <em>Replicated Data</em>  field of a payload header. The <em>Payload Extension Systems</em> fields of the  <em>Extended Stream Properties Object</em> describes what this data is and is  necessary for that data to be parsed, if present.</p></p>
 	<ul class="tags">
 				<li><span class="field">author:</span> Sven Vollbehr &lt;<a href="mailto:svollbehr@gmail.com">svollbehr@gmail.com</a>&gt;</li>
-				<li><span class="field">version:</span> $Rev: 108 $</li>
-				<li><span class="field">copyright:</span> Copyright (c) 2008 The PHP Reader Project Workgroup</li>
+				<li><span class="field">version:</span> $Rev: 145 $</li>
+				<li><span class="field">copyright:</span> Copyright (c) 2008-2009 The PHP Reader Project Workgroup</li>
 				<li><span class="field">license:</span> <a href="http://code.google.com/p/php-reader/wiki/License">New BSD License</a></li>
 			</ul>
 		<p class="notes">
-			Located in <a class="field" href="_ASF---Object---ExtendedStreamProperties.php.html">/ASF/Object/ExtendedStreamProperties.php</a> (line <span class="field">69</span>)
+			Located in <a class="field" href="_ASF---Object---ExtendedStreamProperties.php.html">/ASF/Object/ExtendedStreamProperties.php</a> (line <span class="field">70</span>)
 		</p>
 		
 				
@@ -180,11 +180,11 @@
 		</div>
 		<div class="info-box-body">			
 			<div class="method-summary">
-																																																																																																																												
+																																																																																																																																																																																																																																																																				
 												<div class="method-definition">
 											<span class="method-result">ASF_Object_ExtendedStreamProperties</span>
 										<a href="#__construct" title="details" class="method-name">__construct</a>
-											(<span class="var-type"><a href="../../php-reader/Reader.html">Reader</a></span>&nbsp;<span class="var-name">$reader</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">&$options</span> = <span class="var-default">array()</span>], <span class="var-type">Array</span>&nbsp;<span class="var-name">$options</span>)
+											([<span class="var-type"><a href="../../php-reader/Reader.html">Reader</a></span>&nbsp;<span class="var-name">$reader</span> = <span class="var-default">null</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">&$options</span> = <span class="var-default">array()</span>], <span class="var-type">Array</span>&nbsp;<span class="var-name">$options</span>)
 									</div>
 																<div class="method-definition">
 											<span class="method-result">integer</span>
@@ -256,6 +256,91 @@
 										<a href="#getStreamNumber" title="details" class="method-name">getStreamNumber</a>
 										()
 									</div>
+																<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#isMandatory" title="details" class="method-name">isMandatory</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#isMultiple" title="details" class="method-name">isMultiple</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setAlternateBufferSize" title="details" class="method-name">setAlternateBufferSize</a>
+											(<span class="var-type">integer</span>&nbsp;<span class="var-name">$alternateBufferSize</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setAlternateDataBitrate" title="details" class="method-name">setAlternateDataBitrate</a>
+											(<span class="var-type">integer</span>&nbsp;<span class="var-name">$alternateDataBitrate</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setAlternateInitialBufferFullness" title="details" class="method-name">setAlternateInitialBufferFullness</a>
+											(<span class="var-type">integer</span>&nbsp;<span class="var-name">$alternateInitialBufferFullness</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setAverageTimePerFrame" title="details" class="method-name">setAverageTimePerFrame</a>
+											(<span class="var-type">integer</span>&nbsp;<span class="var-name">$averageTimePerFrame</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setBufferSize" title="details" class="method-name">setBufferSize</a>
+											(<span class="var-type">integer</span>&nbsp;<span class="var-name">$bufferSize</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setDataBitrate" title="details" class="method-name">setDataBitrate</a>
+											(<span class="var-type">integer</span>&nbsp;<span class="var-name">$dataBitrate</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setEndTime" title="details" class="method-name">setEndTime</a>
+											(<span class="var-type">integer</span>&nbsp;<span class="var-name">$endTime</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setInitialBufferFullness" title="details" class="method-name">setInitialBufferFullness</a>
+											(<span class="var-type">integer</span>&nbsp;<span class="var-name">$initialBufferFullness</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setMaximumObjectSize" title="details" class="method-name">setMaximumObjectSize</a>
+											(<span class="var-type">integer</span>&nbsp;<span class="var-name">$maximumObjectSize</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setPayloadExtensionSystems" title="details" class="method-name">setPayloadExtensionSystems</a>
+											(<span class="var-type">Array</span>&nbsp;<span class="var-name">$payloadExtensionSystems</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setStartTime" title="details" class="method-name">setStartTime</a>
+											(<span class="var-type">integer</span>&nbsp;<span class="var-name">$startTime</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setStreamLanguageIndex" title="details" class="method-name">setStreamLanguageIndex</a>
+											(<span class="var-type">integer</span>&nbsp;<span class="var-name">$streamLanguageIndex</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setStreamNames" title="details" class="method-name">setStreamNames</a>
+											(<span class="var-type">Array</span>&nbsp;<span class="var-name">$streamNames</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setStreamNumber" title="details" class="method-name">setStreamNumber</a>
+											(<span class="var-type">integer</span>&nbsp;<span class="var-name">$streamNumber</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#__toString" title="details" class="method-name">__toString</a>
+										()
+									</div>
 								</div>
 		</div>
 	</div>		
@@ -275,7 +360,7 @@
 							
 					</div>
 		<div class="info-box-body">
-										<h4>Inherited Variables</h4>
+										<h4>Inherited Variables</h4>
 				<A NAME='inherited_vars'><!-- --></A>
 									<p>Inherited from <span class="classname"><a href="../../php-reader/ASF/ASF_Object.html">ASF_Object</a></span></p>
 					<blockquote>
@@ -305,10 +390,10 @@
 			<A NAME='method_detail'></A>
 
 <a name="method__construct" id="__construct"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">Constructor __construct</span> (line <span class="line-number">181</span>)
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">182</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -322,7 +407,7 @@
 		<span class="method-name">
 			__construct
 		</span>
-					(<span class="var-type"><a href="../../php-reader/Reader.html">Reader</a></span>&nbsp;<span class="var-name">$reader</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">&$options</span> = <span class="var-default">array()</span>], <span class="var-type">Array</span>&nbsp;<span class="var-name">$options</span>)
+					([<span class="var-type"><a href="../../php-reader/Reader.html">Reader</a></span>&nbsp;<span class="var-name">$reader</span> = <span class="var-default">null</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">&$options</span> = <span class="var-default">array()</span>], <span class="var-type">Array</span>&nbsp;<span class="var-name">$options</span>)
 			</div>
 	
 			<ul class="parameters">
@@ -346,10 +431,10 @@
 			
 	</div>
 <a name="methodgetAlternateBufferSize" id="getAlternateBufferSize"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">getAlternateBufferSize</span> (line <span class="line-number">302</span>)
+		<span class="method-title">getAlternateBufferSize</span> (line <span class="line-number">391</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -371,10 +456,10 @@
 			
 	</div>
 <a name="methodgetAlternateDataBitrate" id="getAlternateDataBitrate"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">getAlternateDataBitrate</span> (line <span class="line-number">288</span>)
+		<span class="method-title">getAlternateDataBitrate</span> (line <span class="line-number">360</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -397,10 +482,10 @@
 			
 	</div>
 <a name="methodgetAlternateInitialBufferFullness" id="getAlternateInitialBufferFullness"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">getAlternateInitialBufferFullness</span> (line <span class="line-number">316</span>)
+		<span class="method-title">getAlternateInitialBufferFullness</span> (line <span class="line-number">419</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -422,10 +507,10 @@
 			
 	</div>
 <a name="methodgetAverageTimePerFrame" id="getAverageTimePerFrame"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">getAverageTimePerFrame</span> (line <span class="line-number">340</span>)
+		<span class="method-title">getAverageTimePerFrame</span> (line <span class="line-number">470</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -446,10 +531,10 @@
 			
 	</div>
 <a name="methodgetBufferSize" id="getBufferSize"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">getBufferSize</span> (line <span class="line-number">260</span>)
+		<span class="method-title">getBufferSize</span> (line <span class="line-number">307</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -470,10 +555,10 @@
 			
 	</div>
 <a name="methodgetDataBitrate" id="getDataBitrate"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">getDataBitrate</span> (line <span class="line-number">252</span>)
+		<span class="method-title">getDataBitrate</span> (line <span class="line-number">284</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -494,10 +579,10 @@
 			
 	</div>
 <a name="methodgetEndTime" id="getEndTime"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">getEndTime</span> (line <span class="line-number">242</span>)
+		<span class="method-title">getEndTime</span> (line <span class="line-number">259</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -519,10 +604,10 @@
 			
 	</div>
 <a name="methodgetInitialBufferFullness" id="getInitialBufferFullness"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">getInitialBufferFullness</span> (line <span class="line-number">271</span>)
+		<span class="method-title">getInitialBufferFullness</span> (line <span class="line-number">329</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -544,10 +629,10 @@
 			
 	</div>
 <a name="methodgetMaximumObjectSize" id="getMaximumObjectSize"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">getMaximumObjectSize</span> (line <span class="line-number">327</span>)
+		<span class="method-title">getMaximumObjectSize</span> (line <span class="line-number">446</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -568,15 +653,15 @@
 			
 	</div>
 <a name="methodgetPayloadExtensionSystems" id="getPayloadExtensionSystems"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">getPayloadExtensionSystems</span> (line <span class="line-number">414</span>)
+		<span class="method-title">getPayloadExtensionSystems</span> (line <span class="line-number">601</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
 <p class="short-description">Returns an array of payload extension systems. Payload extensions provide a</p>
-<p class="description"><p>way for content creators to specify kinds of data that will appear in the  payload header for every payload from this stream. This system is used when  stream properties must be conveyed at the media object level. The  <em>Replicated Data</em> bytes in the payload header will contain these  properties in the order in which the <em>Payload Extension Systems</em>  appear in this object. A <em>Payload Extension System</em> must appear in the  <em>Extended Stream Properties Object</em> for each type of per-media-object  properties that will appear with the payloads for this stream.</p><p>The array contains the following keys: <ul><li>extensionSystemId -- Specifies a unique identifier for the extension
+<p class="description"><p>way for content creators to specify kinds of data that will appear in the  payload header for every payload from this stream. This system is used when  stream properties must be conveyed at the media object level. The  <em>Replicated Data</em> bytes in the payload header will contain these  properties in the order in which the <em>Payload Extension Systems</em>  appear in this object. A <em>Payload Extension System</em> must appear in the  <em>Extended Stream Properties Object</em> for each type of per-media-object  properties that will appear with the payloads for this stream.</p><p>The array entry contains the following keys: <ul><li>extensionSystemId -- Specifies a unique identifier for the extension
      system.</li><li>extensionDataSize -- Specifies the fixed size of the extension data for
      this system that will appear in the replicated data alongside every
      payload for this stream. If this extension system uses variable-size
@@ -600,10 +685,10 @@
 			
 	</div>
 <a name="methodgetStartTime" id="getStartTime"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">getStartTime</span> (line <span class="line-number">230</span>)
+		<span class="method-title">getStartTime</span> (line <span class="line-number">234</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -625,10 +710,10 @@
 			
 	</div>
 <a name="methodgetStreamLanguageIndex" id="getStreamLanguageIndex"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">getStreamLanguageIndex</span> (line <span class="line-number">368</span>)
+		<span class="method-title">getStreamLanguageIndex</span> (line <span class="line-number">524</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -650,15 +735,15 @@
 			
 	</div>
 <a name="methodgetStreamNames" id="getStreamNames"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">getStreamNames</span> (line <span class="line-number">384</span>)
+		<span class="method-title">getStreamNames</span> (line <span class="line-number">555</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
 <p class="short-description">Returns an array of Stream Names. Each stream name instance is potentially  localized into a specific language. The <em>Language Index</em> field  indicates the language in which the <em>Stream Name</em> has been written.</p>
-<p class="description"><p>The array contains the following keys: <ul><li>languageIndex -- The language index</li><li>streamName -- The localized stream name</li></ul></p></p>
+<p class="description"><p>The array entry contains the following keys: <ul><li>languageIndex -- The language index</li><li>streamName -- The localized stream name</li></ul></p></p>
 	<ul class="tags">
 				<li><span class="field">access:</span> public</li>
 			</ul>
@@ -675,10 +760,10 @@
 			
 	</div>
 <a name="methodgetStreamNumber" id="getStreamNumber"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">getStreamNumber</span> (line <span class="line-number">353</span>)
+		<span class="method-title">getStreamNumber</span> (line <span class="line-number">496</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -698,6 +783,515 @@
 		
 			
 	</div>
+<a name="methodisMandatory" id="isMandatory"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">isMandatory</span> (line <span class="line-number">643</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the whether the object is required to be present, or whether  minimum cardinality is 1.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			isMandatory
+		</span>
+				()
+			</div>
+	
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../../php-reader/ASF/ASF_Object.html#methodisMandatory">ASF_Object::isMandatory()</a></dt>
+						<dd>Returns the whether the object is required to be present, or whether  minimum cardinality is 1.</dd>
+					</dl>
+			
+	</div>
+<a name="methodisMultiple" id="isMultiple"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">isMultiple</span> (line <span class="line-number">651</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns whether multiple instances of this object can be present, or  whether maximum cardinality is greater than 1.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			isMultiple
+		</span>
+				()
+			</div>
+	
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../../php-reader/ASF/ASF_Object.html#methodisMultiple">ASF_Object::isMultiple()</a></dt>
+						<dd>Returns whether multiple instances of this object can be present, or  whether maximum cardinality is greater than 1.</dd>
+					</dl>
+			
+	</div>
+<a name="methodsetAlternateBufferSize" id="setAlternateBufferSize"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setAlternateBufferSize</span> (line <span class="line-number">405</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets the size BAlt, in milliseconds, of the leaky bucket used in the</p>
+<p class="description"><p><em>Alternate Data Bitrate</em> definition. This value is relevant in most  scenarios where the bit rate is not exactly constant, but it is especially  useful for streams that have highly variable bit rates. This field can  optionally be set to the same value as the <em>Buffer Size</em> field.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setAlternateBufferSize
+		</span>
+					(<span class="var-type">integer</span>&nbsp;<span class="var-name">$alternateBufferSize</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$alternateBufferSize</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetAlternateDataBitrate" id="setAlternateDataBitrate"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setAlternateDataBitrate</span> (line <span class="line-number">377</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets the leak rate RAlt, in bits per second, of a leaky bucket that</p>
+<p class="description"><p>contains the data portion of the stream without overflowing, excluding all  ASF <em>Data Packet</em> overhead. The size of the leaky bucket is specified  by the value of the <em>Alternate Buffer Size</em> field. This value is  relevant in most scenarios where the bit rate is not exactly constant, but  it is especially useful for streams that have highly variable bit rates.  This field can optionally be set to the same value as the <em>Data
+ Bitrate</em> field.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setAlternateDataBitrate
+		</span>
+					(<span class="var-type">integer</span>&nbsp;<span class="var-name">$alternateDataBitrate</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$alternateDataBitrate</span><span class="var-description">: The alternate leak rate.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetAlternateInitialBufferFullness" id="setAlternateInitialBufferFullness"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setAlternateInitialBufferFullness</span> (line <span class="line-number">434</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets the initial fullness, in milliseconds, of the leaky bucket used in the</p>
+<p class="description"><p><em>Alternate Data Bitrate</em> definition. This is the fullness of the  buffer at the instant before the first bit in the stream is dumped into the  bucket. Typically, this value is set to 0. This value does not exceed the  value of the <em>Alternate Buffer Size</em> field.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setAlternateInitialBufferFullness
+		</span>
+					(<span class="var-type">integer</span>&nbsp;<span class="var-name">$alternateInitialBufferFullness</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$alternateInitialBufferFullness</span><span class="var-description">: The alternate initial         fullness.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetAverageTimePerFrame" id="setAverageTimePerFrame"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setAverageTimePerFrame</span> (line <span class="line-number">483</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets the average time duration, measured in 100-nanosecond units, of  each frame. This number should be rounded to the nearest integer. This  field can optionally be set to 0 if the average time per frame is unknown  or unimportant. It is recommended that this field be set for video.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setAverageTimePerFrame
+		</span>
+					(<span class="var-type">integer</span>&nbsp;<span class="var-name">$averageTimePerFrame</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$averageTimePerFrame</span><span class="var-description">: The average time duration.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetBufferSize" id="setBufferSize"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setBufferSize</span> (line <span class="line-number">315</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets the size B, in milliseconds, of the leaky bucket used in the  <em>Data Bitrate</em> definition.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setBufferSize
+		</span>
+					(<span class="var-type">integer</span>&nbsp;<span class="var-name">$bufferSize</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$bufferSize</span><span class="var-description">: The size.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetDataBitrate" id="setDataBitrate"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setDataBitrate</span> (line <span class="line-number">296</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets the leak rate R, in bits per second, of a leaky bucket that  contains the data portion of the stream without overflowing, excluding all  ASF Data Packet overhead. The size of the leaky bucket is specified by the  value of the <em>Buffer Size</em> field.</p>
+<p class="description"><p>This field must be given a non-zero value.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setDataBitrate
+		</span>
+					(<span class="var-type">integer</span>&nbsp;<span class="var-name">$dataBitrate</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$dataBitrate</span><span class="var-description">: The leak rate.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetEndTime" id="setEndTime"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setEndTime</span> (line <span class="line-number">274</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets the presentation time of the last object plus the duration of play,</p>
+<p class="description"><p>indicating where this digital media stream ends within the context of the  timeline of the ASF file as a whole. This time value corresponds to  presentation times as they appear in the data packets (adjusted by the  preroll).</p><p>The given value must be given in units of milliseconds or optionally be set  to 0, in which case the field will be ignored.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setEndTime
+		</span>
+					(<span class="var-type">integer</span>&nbsp;<span class="var-name">$endTime</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$endTime</span><span class="var-description">: The presentation time of the last object plus the         duration of play.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetInitialBufferFullness" id="setInitialBufferFullness"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setInitialBufferFullness</span> (line <span class="line-number">343</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets the initial fullness, in milliseconds, of the leaky bucket used in the  <em>Data Bitrate</em> definition. This is the fullness of the buffer at the  instant before the first bit in the stream is dumped into the bucket.</p>
+<p class="description"><p>Typically, this value is set to 0. This value shall not exceed the value in  the <em>Buffer Size</em> field.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setInitialBufferFullness
+		</span>
+					(<span class="var-type">integer</span>&nbsp;<span class="var-name">$initialBufferFullness</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$initialBufferFullness</span><span class="var-description">: The initial fullness.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetMaximumObjectSize" id="setMaximumObjectSize"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setMaximumObjectSize</span> (line <span class="line-number">457</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets the maximum size of the largest sample stored in the data packets for  a stream. A value of 0 means unknown.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setMaximumObjectSize
+		</span>
+					(<span class="var-type">integer</span>&nbsp;<span class="var-name">$maximumObjectSize</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$maximumObjectSize</span><span class="var-description">: The maximum size of the largest sample.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetPayloadExtensionSystems" id="setPayloadExtensionSystems"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setPayloadExtensionSystems</span> (line <span class="line-number">632</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets an array of payload extension systems. Payload extensions provide a</p>
+<p class="description"><p>way for content creators to specify kinds of data that will appear in the  payload header for every payload from this stream. This system is used when  stream properties must be conveyed at the media object level. The  <em>Replicated Data</em> bytes in the payload header will contain these  properties in the order in which the <em>Payload Extension Systems</em>  appear in this object. A <em>Payload Extension System</em> must appear in the  <em>Extended Stream Properties Object</em> for each type of per-media-object  properties that will appear with the payloads for this stream.</p><p>The array enties are to contain the following keys: <ul><li>extensionSystemId -- Specifies a unique identifier for the extension
+     system.</li><li>extensionDataSize -- Specifies the fixed size of the extension data for
+     this system that will appear in the replicated data alongside every
+     payload for this stream. If this extension system uses variable-size
+     data, then this should be set to 0xffff. Note, however, that replicated
+     data length is limited to 255 bytes, which limits the total size of all
+     extension systems for a particular stream.</li><li>extensionSystemInfo -- Specifies additional information to describe
+     this extension system (optional).</li></ul></p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setPayloadExtensionSystems
+		</span>
+					(<span class="var-type">Array</span>&nbsp;<span class="var-name">$payloadExtensionSystems</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">Array</span>
+				<span class="var-name">$payloadExtensionSystems</span><span class="var-description">: The array of payload extension         systems.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetStartTime" id="setStartTime"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setStartTime</span> (line <span class="line-number">247</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets the presentation time of the first object, indicating where this  digital media stream starts within the context of the timeline of the ASF  file as a whole. This time value corresponds to presentation times as they  appear in the data packets (adjusted by the preroll).</p>
+<p class="description"><p>The given value must be in units of milliseconds or optionally be set to 0,  in which case the field will be ignored.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setStartTime
+		</span>
+					(<span class="var-type">integer</span>&nbsp;<span class="var-name">$startTime</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$startTime</span><span class="var-description">: The presentation time of the first object.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetStreamLanguageIndex" id="setStreamLanguageIndex"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setStreamLanguageIndex</span> (line <span class="line-number">539</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets the language, if any, which the content of the stream uses or assumes.</p>
+<p class="description"><p>Refer to the LanguageList description for the  details concerning how the <em>Stream Language Index</em> and <em>Language
+ Index</em> fields should be used. Note that this is an index into the  languages listed in the <em>Language List Object</em> rather than a language  identifier.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setStreamLanguageIndex
+		</span>
+					(<span class="var-type">integer</span>&nbsp;<span class="var-name">$streamLanguageIndex</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$streamLanguageIndex</span><span class="var-description">: The language index.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetStreamNames" id="setStreamNames"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setStreamNames</span> (line <span class="line-number">571</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets the array of stream names. Each stream name instance is potentially  localized into a specific language. The <em>Language Index</em> field  indicates the language in which the <em>Stream Name</em> has been written.</p>
+<p class="description"><p>The array entries are to contain the following keys: <ul><li>languageIndex -- The language index</li><li>streamName -- The localized stream name</li></ul></p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setStreamNames
+		</span>
+					(<span class="var-type">Array</span>&nbsp;<span class="var-name">$streamNames</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">Array</span>
+				<span class="var-name">$streamNames</span><span class="var-description">: The array of stream names</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetStreamNumber" id="setStreamNumber"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setStreamNumber</span> (line <span class="line-number">509</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets the number of this stream. 0 is an invalid stream number (that is,  other <em>Header Objects</em> use stream number 0 to refer to the entire file  as a whole rather than to a specific media stream within the file). Valid  values are between 1 and 127.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setStreamNumber
+		</span>
+					(<span class="var-type">integer</span>&nbsp;<span class="var-name">$streamNumber</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$streamNumber</span><span class="var-description">: The number of this stream.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="method__toString" id="__toString"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">__toString</span> (line <span class="line-number">658</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the object data with headers.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			__toString
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
 							<h4>Inherited Methods</h4>
 				<a name='inherited_methods'><!-- --></a>	
 									<!-- =========== Summary =========== -->
@@ -710,6 +1304,8 @@
 													<span class="method-name"><a href="../../php-reader/ASF/ASF_Object.html#methodgetOptions">ASF_Object::getOptions()</a></span><br>
 													<span class="method-name"><a href="../../php-reader/ASF/ASF_Object.html#methodgetParent">ASF_Object::getParent()</a></span><br>
 													<span class="method-name"><a href="../../php-reader/ASF/ASF_Object.html#methodgetSize">ASF_Object::getSize()</a></span><br>
+													<span class="method-name"><a href="../../php-reader/ASF/ASF_Object.html#methodisMandatory">ASF_Object::isMandatory()</a></span><br>
+													<span class="method-name"><a href="../../php-reader/ASF/ASF_Object.html#methodisMultiple">ASF_Object::isMultiple()</a></span><br>
 													<span class="method-name"><a href="../../php-reader/ASF/ASF_Object.html#methodsetIdentifier">ASF_Object::setIdentifier()</a></span><br>
 													<span class="method-name"><a href="../../php-reader/ASF/ASF_Object.html#methodsetOffset">ASF_Object::setOffset()</a></span><br>
 													<span class="method-name"><a href="../../php-reader/ASF/ASF_Object.html#methodsetOption">ASF_Object::setOption()</a></span><br>
@@ -745,7 +1341,7 @@
 		<span class="const-title">
 			<span class="const-name">AUDIO_MEDIA</span>
 			 = <span class="const-default"> &quot;f8699e40-5b4d-11cf-a8fd-00805f5c442b&quot;</span>
-			(line <span class="line-number">105</span>)
+			(line <span class="line-number">106</span>)
 		</span>
 	</div>
 
@@ -761,7 +1357,7 @@
 		<span class="const-title">
 			<span class="const-name">AUDIO_SPREAD</span>
 			 = <span class="const-default"> &quot;bfc3cd50-618f-11cf-8bb2-00aa00b4e220&quot;</span>
-			(line <span class="line-number">114</span>)
+			(line <span class="line-number">115</span>)
 		</span>
 	</div>
 
@@ -777,7 +1373,7 @@
 		<span class="const-title">
 			<span class="const-name">BINARY_MEDIA</span>
 			 = <span class="const-default"> &quot;3afb65e2-47ef-40f2-ac2c-70a90d71d343&quot;</span>
-			(line <span class="line-number">111</span>)
+			(line <span class="line-number">112</span>)
 		</span>
 	</div>
 
@@ -793,7 +1389,7 @@
 		<span class="const-title">
 			<span class="const-name">COMMAND_MEDIA</span>
 			 = <span class="const-default"> &quot;59dacfc0-59e6-11d0-a3ac-00a0c90348f6&quot;</span>
-			(line <span class="line-number">107</span>)
+			(line <span class="line-number">108</span>)
 		</span>
 	</div>
 
@@ -809,7 +1405,7 @@
 		<span class="const-title">
 			<span class="const-name">DEGRADABLE_JPEG_MEDIA</span>
 			 = <span class="const-default"> &quot;35907dE0-e415-11cf-a917-00805f5c442b&quot;</span>
-			(line <span class="line-number">109</span>)
+			(line <span class="line-number">110</span>)
 		</span>
 	</div>
 
@@ -825,7 +1421,7 @@
 		<span class="const-title">
 			<span class="const-name">FILE_TRANSFER_MEDIA</span>
 			 = <span class="const-default"> &quot;91bd222c-f21c-497a-8b6d-5aa86bfc0185&quot;</span>
-			(line <span class="line-number">110</span>)
+			(line <span class="line-number">111</span>)
 		</span>
 	</div>
 
@@ -841,7 +1437,7 @@
 		<span class="const-title">
 			<span class="const-name">JFIF_MEDIA</span>
 			 = <span class="const-default"> &quot;b61be100-5b4e-11cf-a8fD-00805f5c442b&quot;</span>
-			(line <span class="line-number">108</span>)
+			(line <span class="line-number">109</span>)
 		</span>
 	</div>
 
@@ -857,7 +1453,7 @@
 		<span class="const-title">
 			<span class="const-name">NO_CLEANPOINT</span>
 			 = <span class="const-default"> 4</span>
-			(line <span class="line-number">93</span>)
+			(line <span class="line-number">94</span>)
 		</span>
 	</div>
 
@@ -874,7 +1470,7 @@
 		<span class="const-title">
 			<span class="const-name">NO_ERROR_CORRECTION</span>
 			 = <span class="const-default"> &quot;20fb5700-5b55-11cf-a8fd-00805f5c442b&quot;</span>
-			(line <span class="line-number">113</span>)
+			(line <span class="line-number">114</span>)
 		</span>
 	</div>
 
@@ -890,7 +1486,7 @@
 		<span class="const-title">
 			<span class="const-name">PAYLOAD_EXTENSION_SYSTEM_CONTENT_TYPE</span>
 			 = <span class="const-default"><br />    &quot;d590dc20-07bc-436c-9cf7-f3bbfbf1a4dc&quot;</span>
-			(line <span class="line-number">120</span>)
+			(line <span class="line-number">121</span>)
 		</span>
 	</div>
 
@@ -906,7 +1502,7 @@
 		<span class="const-title">
 			<span class="const-name">PAYLOAD_EXTENSION_SYSTEM_ENCRYPTION_SAMPLE_ID</span>
 			 = <span class="const-default"><br />    &quot;6698b84e-0afa-4330-aeb2-1c0a98d7a44d&quot;</span>
-			(line <span class="line-number">126</span>)
+			(line <span class="line-number">127</span>)
 		</span>
 	</div>
 
@@ -922,7 +1518,7 @@
 		<span class="const-title">
 			<span class="const-name">PAYLOAD_EXTENSION_SYSTEM_FILE_NAME</span>
 			 = <span class="const-default"><br />    &quot;e165ec0e-19ed-45d7-b4a7-25cbd1e28e9b&quot;</span>
-			(line <span class="line-number">118</span>)
+			(line <span class="line-number">119</span>)
 		</span>
 	</div>
 
@@ -938,7 +1534,7 @@
 		<span class="const-title">
 			<span class="const-name">PAYLOAD_EXTENSION_SYSTEM_PIXEL_ASPECT_RATIO</span>
 			 = <span class="const-default"><br />    &quot;1b1ee554-f9ea-4bc8-821a-376b74e4c4b8&quot;</span>
-			(line <span class="line-number">122</span>)
+			(line <span class="line-number">123</span>)
 		</span>
 	</div>
 
@@ -954,7 +1550,7 @@
 		<span class="const-title">
 			<span class="const-name">PAYLOAD_EXTENSION_SYSTEM_SAMPLE_DURATION</span>
 			 = <span class="const-default"><br />    &quot;c6bd9450-867f-4907-83a3-c77921b733ad&quot;</span>
-			(line <span class="line-number">124</span>)
+			(line <span class="line-number">125</span>)
 		</span>
 	</div>
 
@@ -970,7 +1566,7 @@
 		<span class="const-title">
 			<span class="const-name">PAYLOAD_EXTENSION_SYSTEM_TIMECODE</span>
 			 = <span class="const-default"><br />    &quot;399595ec-8667-4e2d-8fdb-98814ce76c1e&quot;</span>
-			(line <span class="line-number">116</span>)
+			(line <span class="line-number">117</span>)
 		</span>
 	</div>
 
@@ -986,7 +1582,7 @@
 		<span class="const-title">
 			<span class="const-name">RELIABLE</span>
 			 = <span class="const-default"> 1</span>
-			(line <span class="line-number">77</span>)
+			(line <span class="line-number">78</span>)
 		</span>
 	</div>
 
@@ -1004,7 +1600,7 @@
 		<span class="const-title">
 			<span class="const-name">RESEND_LIVE_CLEANPOINTS</span>
 			 = <span class="const-default"> 8</span>
-			(line <span class="line-number">103</span>)
+			(line <span class="line-number">104</span>)
 		</span>
 	</div>
 
@@ -1022,7 +1618,7 @@
 		<span class="const-title">
 			<span class="const-name">SEEKABLE</span>
 			 = <span class="const-default"> 2</span>
-			(line <span class="line-number">85</span>)
+			(line <span class="line-number">86</span>)
 		</span>
 	</div>
 
@@ -1039,7 +1635,7 @@
 		<span class="const-title">
 			<span class="const-name">VIDEO_MEDIA</span>
 			 = <span class="const-default"> &quot;bc19efc0-5b4d-11cf-a8fd-00805f5c442b&quot;</span>
-			(line <span class="line-number">106</span>)
+			(line <span class="line-number">107</span>)
 		</span>
 	</div>
 
@@ -1047,12 +1643,157 @@
 	
 	
 </div>
-						
+							<h4>Inherited Constants</h4>
+				<A NAME='inherited_vars'><!-- --></A>
+									<p>Inherited from <span class="classname"><a href="../../php-reader/ASF/ASF_Object.html">ASF_Object</a></span></p>
+					<blockquote>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../php-reader/ASF/ASF_Object.html#constADVANCED_CONTENT_ENCRYPTION">ASF_Object::ADVANCED_CONTENT_ENCRYPTION</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../php-reader/ASF/ASF_Object.html#constADVANCED_MUTUAL_EXCLUSION">ASF_Object::ADVANCED_MUTUAL_EXCLUSION</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../php-reader/ASF/ASF_Object.html#constBANDWIDTH_SHARING">ASF_Object::BANDWIDTH_SHARING</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../php-reader/ASF/ASF_Object.html#constBITRATE_MUTUAL_EXCLUSION">ASF_Object::BITRATE_MUTUAL_EXCLUSION</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../php-reader/ASF/ASF_Object.html#constCODEC_LIST">ASF_Object::CODEC_LIST</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../php-reader/ASF/ASF_Object.html#constCOMPATIBILITY">ASF_Object::COMPATIBILITY</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../php-reader/ASF/ASF_Object.html#constCONTENT_BRANDING">ASF_Object::CONTENT_BRANDING</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../php-reader/ASF/ASF_Object.html#constCONTENT_DESCRIPTION">ASF_Object::CONTENT_DESCRIPTION</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../php-reader/ASF/ASF_Object.html#constCONTENT_ENCRYPTION">ASF_Object::CONTENT_ENCRYPTION</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../php-reader/ASF/ASF_Object.html#constDATA">ASF_Object::DATA</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../php-reader/ASF/ASF_Object.html#constDIGITAL_SIGNATURE">ASF_Object::DIGITAL_SIGNATURE</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../php-reader/ASF/ASF_Object.html#constERROR_CORRECTION">ASF_Object::ERROR_CORRECTION</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../php-reader/ASF/ASF_Object.html#constEXTENDED_CONTENT_DESCRIPTION">ASF_Object::EXTENDED_CONTENT_DESCRIPTION</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../php-reader/ASF/ASF_Object.html#constEXTENDED_CONTENT_ENCRYPTION">ASF_Object::EXTENDED_CONTENT_ENCRYPTION</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../php-reader/ASF/ASF_Object.html#constEXTENDED_STREAM_PROPERTIES">ASF_Object::EXTENDED_STREAM_PROPERTIES</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../php-reader/ASF/ASF_Object.html#constFILE_PROPERTIES">ASF_Object::FILE_PROPERTIES</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../php-reader/ASF/ASF_Object.html#constGROUP_MUTUAL_EXCLUSION">ASF_Object::GROUP_MUTUAL_EXCLUSION</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../php-reader/ASF/ASF_Object.html#constHEADER">ASF_Object::HEADER</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../php-reader/ASF/ASF_Object.html#constHEADER_EXTENSION">ASF_Object::HEADER_EXTENSION</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../php-reader/ASF/ASF_Object.html#constINDEX">ASF_Object::INDEX</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../php-reader/ASF/ASF_Object.html#constINDEX_PARAMETERS">ASF_Object::INDEX_PARAMETERS</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../php-reader/ASF/ASF_Object.html#constLANGUAGE_LIST">ASF_Object::LANGUAGE_LIST</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../php-reader/ASF/ASF_Object.html#constMARKER">ASF_Object::MARKER</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../php-reader/ASF/ASF_Object.html#constMEDIA_OBJECT_INDEX">ASF_Object::MEDIA_OBJECT_INDEX</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../php-reader/ASF/ASF_Object.html#constMEDIA_OBJECT_INDEX_PARAMETERS">ASF_Object::MEDIA_OBJECT_INDEX_PARAMETERS</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../php-reader/ASF/ASF_Object.html#constMETADATA">ASF_Object::METADATA</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../php-reader/ASF/ASF_Object.html#constMETADATA_LIBRARY">ASF_Object::METADATA_LIBRARY</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../php-reader/ASF/ASF_Object.html#constPADDING">ASF_Object::PADDING</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../php-reader/ASF/ASF_Object.html#constSCRIPT_COMMAND">ASF_Object::SCRIPT_COMMAND</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../php-reader/ASF/ASF_Object.html#constSIMPLE_INDEX">ASF_Object::SIMPLE_INDEX</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../php-reader/ASF/ASF_Object.html#constSTREAM_BITRATE_PROPERTIES">ASF_Object::STREAM_BITRATE_PROPERTIES</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../php-reader/ASF/ASF_Object.html#constSTREAM_PRIORITIZATION">ASF_Object::STREAM_PRIORITIZATION</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../php-reader/ASF/ASF_Object.html#constSTREAM_PROPERTIES">ASF_Object::STREAM_PROPERTIES</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../php-reader/ASF/ASF_Object.html#constTIMECODE_INDEX">ASF_Object::TIMECODE_INDEX</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../php-reader/ASF/ASF_Object.html#constTIMECODE_INDEX_PARAMETERS">ASF_Object::TIMECODE_INDEX_PARAMETERS</a></span><br>
+							</span>
+											</blockquote> 
+										
 		</div>
 	</div>
 
 	<p class="notes" id="credit">
-		Documentation generated on Thu, 01 Jan 2009 14:59:15 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.1</a>
+		Documentation generated on Thu, 02 Apr 2009 19:54:20 +0300 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.2</a>
 	</p>
 	</div></body>
-</html>
+</html>

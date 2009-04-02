@@ -8,7 +8,7 @@
 			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
 		</head>
 		<body>
-			<div class="page-body">			
+			<div class="page-body">			
 <h2 class="class-name">Class ISO14496_Box</h2>
 
 <a name="sec-description"></a>
@@ -26,12 +26,12 @@
 <p class="short-description">A base class for all ISO 14496-12 boxes.</p>
 	<ul class="tags">
 				<li><span class="field">author:</span> Sven Vollbehr &lt;<a href="mailto:svollbehr@gmail.com">svollbehr@gmail.com</a>&gt;</li>
-				<li><span class="field">version:</span> $Rev: 102 $</li>
-				<li><span class="field">copyright:</span> Copyright (c) 2008 PHP Reader Project Workgroup</li>
+				<li><span class="field">version:</span> $Rev: 141 $</li>
+				<li><span class="field">copyright:</span> Copyright (c) 2008-2009 PHP Reader Project Workgroup</li>
 				<li><span class="field">license:</span> <a href="http://code.google.com/p/php-reader/wiki/License">New BSD License</a></li>
 			</ul>
 		<p class="notes">
-			Located in <a class="field" href="_ISO14496---Box.php.html">/ISO14496/Box.php</a> (line <span class="field">52</span>)
+			Located in <a class="field" href="_ISO14496---Box.php.html">/ISO14496/Box.php</a> (line <span class="field">53</span>)
 		</p>
 		
 				
@@ -269,7 +269,7 @@
 		</div>
 		<div class="info-box-body">			
 			<div class="method-summary">
-																																																																																																																																																																																																																				
+																																																																																																																																																																																																																																				
 												<div class="method-definition">
 											<span class="method-result">ISO14496_Box</span>
 										<a href="#__construct" title="details" class="method-name">__construct</a>
@@ -293,7 +293,7 @@
 																<div class="method-definition">
 											<span class="method-result">Array</span>
 										<a href="#getBoxesByIdentifier" title="details" class="method-name">getBoxesByIdentifier</a>
-											(<span class="var-type"></span>&nbsp;<span class="var-name">$identifier</span>)
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$identifier</span>)
 									</div>
 																<div class="method-definition">
 											<span class="method-result">boolean</span>
@@ -333,12 +333,22 @@
 																<div class="method-definition">
 											<span class="method-result">boolean</span>
 										<a href="#hasBox" title="details" class="method-name">hasBox</a>
-											(<span class="var-type"></span>&nbsp;<span class="var-name">$identifier</span>)
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$identifier</span>)
 									</div>
 																<div class="method-definition">
 											<span class="method-result">boolean</span>
 										<a href="#isContainer" title="details" class="method-name">isContainer</a>
 										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#removeBox" title="details" class="method-name">removeBox</a>
+											(<span class="var-type"><a href="../../php-reader/ISO/ISO14496_Box.html">ISO14496_Box</a></span>&nbsp;<span class="var-name">$box</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#removeBoxesByIdentifier" title="details" class="method-name">removeBoxesByIdentifier</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$identifier</span>)
 									</div>
 																<div class="method-definition">
 											<span class="method-result">void</span>
@@ -419,13 +429,13 @@
 					</div>
 		<div class="info-box-body">
 			<a name="var$_reader" id="$_reader"><!-- --></A>
-<div class="evenrow">
+<div class="oddrow">
 
 	<div class="var-header">
 		<span class="var-title">
 			<span class="var-type"><a href="../../php-reader/Reader.html">Reader</a></span>
 			<span class="var-name">$_reader</span>
-						(line <span class="line-number">59</span>)
+						(line <span class="line-number">60</span>)
 		</span>
 	</div>
 
@@ -440,7 +450,7 @@
 		
 
 </div>
-						
+						
 		</div>
 	</div>
 	
@@ -458,10 +468,10 @@
 			<A NAME='method_detail'></A>
 
 <a name="method__construct" id="__construct"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">Constructor __construct</span> (line <span class="line-number">93</span>)
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">94</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -777,15 +787,16 @@
 				</ul>
 	</div>
 <a name="methodaddBox" id="addBox"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">addBox</span> (line <span class="line-number">354</span>)
+		<span class="method-title">addBox</span> (line <span class="line-number">382</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
 <p class="short-description">Adds a new box into the current box and returns it.</p>
 	<ul class="tags">
+				<li><span class="field">throws:</span> ISO14496_Exception if called on a non-container box</li>
 				<li><span class="field">access:</span> public</li>
 			</ul>
 	
@@ -806,10 +817,10 @@
 			
 	</div>
 <a name="methodconstructBoxes" id="constructBoxes"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">constructBoxes</span> (line <span class="line-number">248</span>)
+		<span class="method-title">constructBoxes</span> (line <span class="line-number">249</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -836,10 +847,10 @@
 			
 	</div>
 <a name="methodgetBoxes" id="getBoxes"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">getBoxes</span> (line <span class="line-number">312</span>)
+		<span class="method-title">getBoxes</span> (line <span class="line-number">314</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -861,10 +872,10 @@
 			
 	</div>
 <a name="methodgetBoxesByIdentifier" id="getBoxesByIdentifier"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">getBoxesByIdentifier</span> (line <span class="line-number">334</span>)
+		<span class="method-title">getBoxesByIdentifier</span> (line <span class="line-number">337</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -880,22 +891,22 @@
 		<span class="method-name">
 			getBoxesByIdentifier
 		</span>
-					(<span class="var-type"></span>&nbsp;<span class="var-name">$identifier</span>)
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$identifier</span>)
 			</div>
 	
 			<ul class="parameters">
 					<li>
-				<span class="var-type"></span>
-				<span class="var-name">$identifier</span>			</li>
+				<span class="var-type">string</span>
+				<span class="var-name">$identifier</span><span class="var-description">: The box identifier.</span>			</li>
 				</ul>
 		
 			
 	</div>
 <a name="methodgetContainer" id="getContainer"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">getContainer</span> (line <span class="line-number">231</span>)
+		<span class="method-title">getContainer</span> (line <span class="line-number">232</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -916,10 +927,10 @@
 			
 	</div>
 <a name="methodgetOffset" id="getOffset"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">getOffset</span> (line <span class="line-number">157</span>)
+		<span class="method-title">getOffset</span> (line <span class="line-number">158</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -940,10 +951,10 @@
 			
 	</div>
 <a name="methodgetOption" id="getOption"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">getOption</span> (line <span class="line-number">127</span>)
+		<span class="method-title">getOption</span> (line <span class="line-number">128</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -972,10 +983,10 @@
 			
 	</div>
 <a name="methodgetOptions" id="getOptions"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">getOptions</span> (line <span class="line-number">118</span>)
+		<span class="method-title">getOptions</span> (line <span class="line-number">119</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -996,10 +1007,10 @@
 			
 	</div>
 <a name="methodgetParent" id="getParent"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">getParent</span> (line <span class="line-number">210</span>)
+		<span class="method-title">getParent</span> (line <span class="line-number">211</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1020,10 +1031,10 @@
 			
 	</div>
 <a name="methodgetSize" id="getSize"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">getSize</span> (line <span class="line-number">172</span>)
+		<span class="method-title">getSize</span> (line <span class="line-number">173</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1044,10 +1055,10 @@
 			
 	</div>
 <a name="methodgetType" id="getType"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">getType</span> (line <span class="line-number">196</span>)
+		<span class="method-title">getType</span> (line <span class="line-number">197</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1068,10 +1079,10 @@
 			
 	</div>
 <a name="methodhasBox" id="hasBox"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">hasBox</span> (line <span class="line-number">298</span>)
+		<span class="method-title">hasBox</span> (line <span class="line-number">300</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1086,22 +1097,22 @@
 		<span class="method-name">
 			hasBox
 		</span>
-					(<span class="var-type"></span>&nbsp;<span class="var-name">$identifier</span>)
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$identifier</span>)
 			</div>
 	
 			<ul class="parameters">
 					<li>
-				<span class="var-type"></span>
-				<span class="var-name">$identifier</span>			</li>
+				<span class="var-type">string</span>
+				<span class="var-name">$identifier</span><span class="var-description">: The box identifier.</span>			</li>
 				</ul>
 		
 			
 	</div>
 <a name="methodisContainer" id="isContainer"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">isContainer</span> (line <span class="line-number">224</span>)
+		<span class="method-title">isContainer</span> (line <span class="line-number">225</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1121,11 +1132,72 @@
 		
 			
 	</div>
-<a name="methodsetContainer" id="setContainer"><!-- --></a>
+<a name="methodremoveBox" id="removeBox"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">removeBox</span> (line <span class="line-number">399</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Removes the given box.</p>
+	<ul class="tags">
+				<li><span class="field">throws:</span> ISO14496_Exception if called on a non-container box</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			removeBox
+		</span>
+					(<span class="var-type"><a href="../../php-reader/ISO/ISO14496_Box.html">ISO14496_Box</a></span>&nbsp;<span class="var-name">$box</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../../php-reader/ISO/ISO14496_Box.html">ISO14496_Box</a></span>
+				<span class="var-name">$box</span><span class="var-description">: The box to remove</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodremoveBoxesByIdentifier" id="removeBoxesByIdentifier"><!-- --></a>
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">setContainer</span> (line <span class="line-number">238</span>)
+		<span class="method-title">removeBoxesByIdentifier</span> (line <span class="line-number">364</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Removes any boxes matching the given box identifier.</p>
+<p class="description"><p>The identifier may contain wildcard characters &quot;*&quot; and &quot;?&quot;. The asterisk  matches against zero or more characters, and the question mark matches any  single character.</p><p>One may also use the shorthand unset($obj-&gt;identifier) to achieve the same  result. Wildcards cannot be used with the shorthand method.</p></p>
+	<ul class="tags">
+				<li><span class="field">throws:</span> ISO14496_Exception if called on a non-container box</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			removeBoxesByIdentifier
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$identifier</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$identifier</span><span class="var-description">: The box identifier.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetContainer" id="setContainer"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setContainer</span> (line <span class="line-number">239</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1151,10 +1223,10 @@
 			
 	</div>
 <a name="methodsetOffset" id="setOffset"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">setOffset</span> (line <span class="line-number">164</span>)
+		<span class="method-title">setOffset</span> (line <span class="line-number">165</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1180,10 +1252,10 @@
 			
 	</div>
 <a name="methodsetOption" id="setOption"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">setOption</span> (line <span class="line-number">147</span>)
+		<span class="method-title">setOption</span> (line <span class="line-number">148</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1212,10 +1284,10 @@
 			
 	</div>
 <a name="methodsetOptions" id="setOptions"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">setOptions</span> (line <span class="line-number">139</span>)
+		<span class="method-title">setOptions</span> (line <span class="line-number">140</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1244,10 +1316,10 @@
 			
 	</div>
 <a name="methodsetParent" id="setParent"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">setParent</span> (line <span class="line-number">217</span>)
+		<span class="method-title">setParent</span> (line <span class="line-number">218</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1276,10 +1348,10 @@
 			
 	</div>
 <a name="methodsetSize" id="setSize"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">setSize</span> (line <span class="line-number">182</span>)
+		<span class="method-title">setSize</span> (line <span class="line-number">183</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1306,10 +1378,10 @@
 			
 	</div>
 <a name="methodsetType" id="setType"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">setType</span> (line <span class="line-number">203</span>)
+		<span class="method-title">setType</span> (line <span class="line-number">204</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1335,10 +1407,10 @@
 			
 	</div>
 <a name="method__get" id="__get"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">__get</span> (line <span class="line-number">376</span>)
+		<span class="method-title">__get</span> (line <span class="line-number">422</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1377,10 +1449,10 @@
 				</ul>
 	</div>
 <a name="method__isset" id="__isset"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">__isset</span> (line <span class="line-number">412</span>)
+		<span class="method-title">__isset</span> (line <span class="line-number">458</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1406,10 +1478,10 @@
 			
 	</div>
 <a name="method__set" id="__set"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">__set</span> (line <span class="line-number">397</span>)
+		<span class="method-title">__set</span> (line <span class="line-number">443</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1438,10 +1510,10 @@
 			
 	</div>
 <a name="method__toString" id="__toString"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">__toString</span> (line <span class="line-number">434</span>)
+		<span class="method-title">__toString</span> (line <span class="line-number">480</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1515,10 +1587,10 @@
 				</ul>
 	</div>
 <a name="method__unset" id="__unset"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">__unset</span> (line <span class="line-number">423</span>)
+		<span class="method-title">__unset</span> (line <span class="line-number">469</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1549,7 +1621,7 @@
 
 
 	<p class="notes" id="credit">
-		Documentation generated on Thu, 01 Jan 2009 14:59:06 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.1</a>
+		Documentation generated on Thu, 02 Apr 2009 19:54:00 +0300 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.2</a>
 	</p>
 	</div></body>
-</html>
+</html>

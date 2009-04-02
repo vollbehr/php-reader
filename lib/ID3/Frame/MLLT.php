@@ -2,7 +2,8 @@
 /**
  * PHP Reader Library
  *
- * Copyright (c) 2008 The PHP Reader Project Workgroup. All rights reserved.
+ * Copyright (c) 2008-2009 The PHP Reader Project Workgroup. All rights
+ * reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -30,9 +31,9 @@
  *
  * @package    php-reader
  * @subpackage ID3
- * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
+ * @copyright  Copyright (c) 2008-2009 The PHP Reader Project Workgroup
  * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version    $Id: MLLT.php 75 2008-04-14 23:57:21Z svollbehr $
+ * @version    $Id: MLLT.php 143 2009-02-21 18:32:53Z svollbehr $
  */
 
 /**#@+ @ignore */
@@ -63,9 +64,9 @@ require_once("ID3/Frame.php");
  * @package    php-reader
  * @subpackage ID3
  * @author     Sven Vollbehr <svollbehr@gmail.com>
- * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
+ * @copyright  Copyright (c) 2008-2009 The PHP Reader Project Workgroup
  * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version    $Rev: 75 $
+ * @version    $Rev: 143 $
  */
 final class ID3_Frame_MLLT extends ID3_Frame
 {
@@ -91,8 +92,10 @@ final class ID3_Frame_MLLT extends ID3_Frame
   {
     parent::__construct($reader, $options);
     
-    if ($reader === null)
+    if ($reader === null) {
+      require_once("ID3/Exception.php");
       throw new ID3_Exception("Write not supported yet");
+    }
 
     $this->_frames = Transform::fromInt16BE(substr($this->_data, 0, 2));
     $this->_bytes = Transform::fromInt32BE(substr($this->_data, 2, 3));

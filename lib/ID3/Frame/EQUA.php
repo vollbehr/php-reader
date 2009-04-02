@@ -2,7 +2,8 @@
 /**
  * PHP Reader Library
  *
- * Copyright (c) 2008 The PHP Reader Project Workgroup. All rights reserved.
+ * Copyright (c) 2008-2009 The PHP Reader Project Workgroup. All rights
+ * reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -30,9 +31,9 @@
  *
  * @package    php-reader
  * @subpackage ID3
- * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
+ * @copyright  Copyright (c) 2008-2009 The PHP Reader Project Workgroup
  * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version    $Id: EQUA.php 105 2008-07-30 14:56:47Z svollbehr $
+ * @version    $Id: EQUA.php 143 2009-02-21 18:32:53Z svollbehr $
  * @deprecated ID3v2.3.0
  */
 
@@ -49,9 +50,9 @@ require_once("ID3/Frame.php");
  * @subpackage ID3
  * @author     Sven Vollbehr <svollbehr@gmail.com>
  * @author     Ryan Butterfield <buttza@gmail.com>
- * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
+ * @copyright  Copyright (c) 2008-2009 The PHP Reader Project Workgroup
  * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version    $Rev: 105 $
+ * @version    $Rev: 143 $
  * @deprecated ID3v2.3.0
  */
 final class ID3_Frame_EQUA extends ID3_Frame
@@ -73,9 +74,11 @@ final class ID3_Frame_EQUA extends ID3_Frame
       return;
     
     $adjustmentBits = Transform::fromInt8($this->_data[0]);
-    if ($adjustmentBits <= 8 || $adjustmentBits > 16)
+    if ($adjustmentBits <= 8 || $adjustmentBits > 16) {
+      require_once("ID3/Exception.php");
       throw new ID3_Exception
           ("Unsupported adjustment bit size of: " . $adjustmentBits);
+    }
     
     for ($i = 1; $i < strlen($this->_data); $i += 4) {
       $frequency = Transform::fromUInt16BE(substr($this->_data, $i, 2));
@@ -123,18 +126,17 @@ final class ID3_Frame_EQUA extends ID3_Frame
   }
   
   /**
-   * Returns the frame raw data.
+   * Returns the frame raw data without the header.
    *
    * @return string
    */
-  public function __toString()
+  protected function _getData()
   {
     $data = Transform::toInt8(16);
     foreach ($this->_adjustments as $frequency => $adjustment)
       $data .= Transform::toUInt16BE
         ($adjustment > 0 ? $frequency | 0x8000 : $frequency & ~0x8000) .
         Transform::toUInt16BE(abs($adjustment));
-    $this->setData($data);
-    return parent::__toString();
+    return $data;
   }
 }

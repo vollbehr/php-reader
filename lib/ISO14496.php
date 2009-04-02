@@ -32,7 +32,7 @@
  * @subpackage ISO 14496
  * @copyright  Copyright (c) 2008 PHP Reader Project Workgroup
  * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version    $Id: ISO14496.php 101 2008-05-13 20:28:13Z svollbehr $
+ * @version    $Id: ISO14496.php 138 2009-02-15 11:14:37Z svollbehr $
  */
 
 /**#@+ @ignore */
@@ -243,9 +243,9 @@ require_once("ISO14496/Box.php");
  * @author     Sven Vollbehr <svollbehr@gmail.com>
  * @copyright  Copyright (c) 2008 PHP Reader Project Workgroup
  * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version    $Rev: 101 $
+ * @version    $Rev: 138 $
  */
-class ISO14496 extends ISO14496_Box
+final class ISO14496 extends ISO14496_Box
 {
   /** @var string */
   private $_filename;

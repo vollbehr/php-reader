@@ -8,7 +8,7 @@
 			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
 		</head>
 		<body>
-			<div class="page-body">			
+			<div class="page-body">			
 <h2 class="class-name">Class Transform</h2>
 
 <a name="sec-description"></a>
@@ -27,8 +27,8 @@
 	<ul class="tags">
 				<li><span class="field">author:</span> Ryan Butterfield &lt;<a href="mailto:buttza@gmail.com">buttza@gmail.com</a>&gt;</li>
 				<li><span class="field">author:</span> Sven Vollbehr &lt;<a href="mailto:svollbehr@gmail.com">svollbehr@gmail.com</a>&gt;</li>
-				<li><span class="field">version:</span> $Rev: 105 $</li>
-				<li><span class="field">copyright:</span> Copyright (c) 2006-2008 The PHP Reader Project Workgroup</li>
+				<li><span class="field">version:</span> $Rev: 145 $</li>
+				<li><span class="field">copyright:</span> Copyright (c) 2006-2009 The PHP Reader Project Workgroup</li>
 				<li><span class="field">license:</span> <a href="http://code.google.com/p/php-reader/wiki/License">New BSD License</a></li>
 			</ul>
 		<p class="notes">
@@ -168,17 +168,7 @@
 																<div class="method-definition">
 					static 						<span class="method-result">string</span>
 										<a href="#fromString16" title="details" class="method-name">fromString16</a>
-											(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">&$order</span> = <span class="var-default">self::MACHINE_ENDIAN_ORDER</span>], <span class="var-type">integer</span>&nbsp;<span class="var-name">$order</span>)
-									</div>
-																<div class="method-definition">
-					static 						<span class="method-result">string</span>
-										<a href="#fromString16BE" title="details" class="method-name">fromString16BE</a>
-											(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
-									</div>
-																<div class="method-definition">
-					static 						<span class="method-result">string</span>
-										<a href="#fromString16LE" title="details" class="method-name">fromString16LE</a>
-											(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">&$order</span> = <span class="var-default">false</span>], [<span class="var-type">integer</span>&nbsp;<span class="var-name">$trimOrder</span> = <span class="var-default">false</span>], <span class="var-type">integer</span>&nbsp;<span class="var-name">$order</span>)
 									</div>
 																<div class="method-definition">
 					static 						<span class="method-result">integer</span>
@@ -293,22 +283,12 @@
 																<div class="method-definition">
 					static 						<span class="method-result">string</span>
 										<a href="#toString8" title="details" class="method-name">toString8</a>
-											(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$length</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$padding</span> = <span class="var-default">&quot;\0&quot;</span>])
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>, [<span class="var-type">integer</span>&nbsp;<span class="var-name">$length</span> = <span class="var-default">false</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$padding</span> = <span class="var-default">&quot;\0&quot;</span>])
 									</div>
 																<div class="method-definition">
 					static 						<span class="method-result">string</span>
 										<a href="#toString16" title="details" class="method-name">toString16</a>
-											(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>, [<span class="var-type">integer</span>&nbsp;<span class="var-name">$order</span> = <span class="var-default">self::MACHINE_ENDIAN_ORDER</span>])
-									</div>
-																<div class="method-definition">
-					static 						<span class="method-result">string</span>
-										<a href="#toString16BE" title="details" class="method-name">toString16BE</a>
-											(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
-									</div>
-																<div class="method-definition">
-					static 						<span class="method-result">string</span>
-										<a href="#toString16LE" title="details" class="method-name">toString16LE</a>
-											(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>, [<span class="var-type">integer</span>&nbsp;<span class="var-name">$order</span> = <span class="var-default">false</span>], [<span class="var-type">integer</span>&nbsp;<span class="var-name">$length</span> = <span class="var-default">false</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$padding</span> = <span class="var-default">&quot;\0&quot;</span>])
 									</div>
 																<div class="method-definition">
 					static 						<span class="method-result">integer</span>
@@ -336,7 +316,7 @@
 											(<span class="var-type">integer</span>&nbsp;<span class="var-name">$value</span>)
 									</div>
 								
-																																																																																																																																																																																																																																																																																																																																																																																																																				</div>
+																																																																																																																																																																																																																																																																																																																																																																																				</div>
 		</div>
 	</div>		
 
@@ -447,7 +427,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">static method fromGUID</span> (line <span class="line-number">732</span>)
+		<span class="method-title">static method fromGUID</span> (line <span class="line-number">698</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -477,7 +457,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">static method fromHHex</span> (line <span class="line-number">681</span>)
+		<span class="method-title">static method fromHHex</span> (line <span class="line-number">647</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -777,7 +757,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">static method fromLHex</span> (line <span class="line-number">704</span>)
+		<span class="method-title">static method fromLHex</span> (line <span class="line-number">670</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -807,7 +787,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">static method fromString8</span> (line <span class="line-number">549</span>)
+		<span class="method-title">static method fromString8</span> (line <span class="line-number">557</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -837,12 +817,12 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">static method fromString16</span> (line <span class="line-number">582</span>)
+		<span class="method-title">static method fromString16</span> (line <span class="line-number">610</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
-<p class="short-description">Returns UTF-16 formatted binary data as machine-ordered multibyte string.</p>
-<p class="description"><p>The byte order is determined from the byte order mark included in the  binary data string. The order parameter is updated if a BOM is found.</p></p>
+<p class="short-description">Returns binary data as multibyte Unicode string. Removes terminating zero.</p>
+<p class="description"><p>The byte order is possibly determined from the byte order mark included in  the binary data string. The order parameter is updated if the BOM is found.</p></p>
 	<ul class="tags">
 				<li><span class="field">access:</span> public</li>
 			</ul>
@@ -853,7 +833,7 @@
 		<span class="method-name">
 			fromString16
 		</span>
-					(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">&$order</span> = <span class="var-default">self::MACHINE_ENDIAN_ORDER</span>], <span class="var-type">integer</span>&nbsp;<span class="var-name">$order</span>)
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">&$order</span> = <span class="var-default">false</span>], [<span class="var-type">integer</span>&nbsp;<span class="var-name">$trimOrder</span> = <span class="var-default">false</span>], <span class="var-type">integer</span>&nbsp;<span class="var-name">$order</span>)
 			</div>
 	
 			<ul class="parameters">
@@ -862,71 +842,13 @@
 				<span class="var-name">$value</span><span class="var-description">: The binary data string.</span>			</li>
 					<li>
 				<span class="var-type">integer</span>
-				<span class="var-name">$order</span><span class="var-description">: The endian to decode using if no BOM was found.</span>			</li>
+				<span class="var-name">$order</span><span class="var-description">: The endianess of the string.</span>			</li>
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$trimOrder</span><span class="var-description">: Whether to remove the byte order mark from the                 string.</span>			</li>
 					<li>
 				<span class="var-type"></span>
 				<span class="var-name">&$order</span>			</li>
-				</ul>
-		
-			
-	</div>
-<a name="methodfromString16BE" id="fromString16BE"><!-- --></a>
-<div class="evenrow">
-	
-	<div class="method-header">
-		<span class="method-title">static method fromString16BE</span> (line <span class="line-number">655</span>)
-	</div> 
-	
-	<!-- ========== Info from phpDoc block ========= -->
-<p class="short-description">Returns big-endian ordered binary data as machine ordered multibyte string.</p>
-<p class="description"><p>Removes terminating zero.</p></p>
-	<ul class="tags">
-				<li><span class="field">access:</span> public</li>
-			</ul>
-	
-	<div class="method-signature">
-	    static
-		<span class="method-result">string</span>
-		<span class="method-name">
-			fromString16BE
-		</span>
-					(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
-			</div>
-	
-			<ul class="parameters">
-					<li>
-				<span class="var-type">string</span>
-				<span class="var-name">$value</span><span class="var-description">: The binary data string.</span>			</li>
-				</ul>
-		
-			
-	</div>
-<a name="methodfromString16LE" id="fromString16LE"><!-- --></a>
-<div class="oddrow">
-	
-	<div class="method-header">
-		<span class="method-title">static method fromString16LE</span> (line <span class="line-number">625</span>)
-	</div> 
-	
-	<!-- ========== Info from phpDoc block ========= -->
-<p class="short-description">Returns little-endian ordered binary data as machine ordered multibyte  string. Removes terminating zero.</p>
-	<ul class="tags">
-				<li><span class="field">access:</span> public</li>
-			</ul>
-	
-	<div class="method-signature">
-	    static
-		<span class="method-result">string</span>
-		<span class="method-name">
-			fromString16LE
-		</span>
-					(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
-			</div>
-	
-			<ul class="parameters">
-					<li>
-				<span class="var-type">string</span>
-				<span class="var-name">$value</span><span class="var-description">: The binary data string.</span>			</li>
 				</ul>
 		
 			
@@ -1225,7 +1147,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">static method toGUID</span> (line <span class="line-number">717</span>)
+		<span class="method-title">static method toGUID</span> (line <span class="line-number">683</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1255,7 +1177,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">static method toHHex</span> (line <span class="line-number">670</span>)
+		<span class="method-title">static method toHHex</span> (line <span class="line-number">636</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1555,7 +1477,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">static method toLHex</span> (line <span class="line-number">693</span>)
+		<span class="method-title">static method toLHex</span> (line <span class="line-number">659</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1585,11 +1507,11 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">static method toString8</span> (line <span class="line-number">538</span>)
+		<span class="method-title">static method toString8</span> (line <span class="line-number">542</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
-<p class="short-description">Returns string as binary data padded to given length with zeros.</p>
+<p class="short-description">Returns string as binary data padded to given length with zeros. If length  is smaller than the length of the string, it is considered as the length of  the padding.</p>
 	<ul class="tags">
 				<li><span class="field">access:</span> public</li>
 			</ul>
@@ -1600,7 +1522,7 @@
 		<span class="method-name">
 			toString8
 		</span>
-					(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$length</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$padding</span> = <span class="var-default">&quot;\0&quot;</span>])
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>, [<span class="var-type">integer</span>&nbsp;<span class="var-name">$length</span> = <span class="var-default">false</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$padding</span> = <span class="var-default">&quot;\0&quot;</span>])
 			</div>
 	
 			<ul class="parameters">
@@ -1608,11 +1530,11 @@
 				<span class="var-type">string</span>
 				<span class="var-name">$value</span><span class="var-description">: The input value.</span>			</li>
 					<li>
-				<span class="var-type"></span>
-				<span class="var-name">$length</span>			</li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$length</span><span class="var-description">: The length to which to pad the value.</span>			</li>
 					<li>
-				<span class="var-type"></span>
-				<span class="var-name">$padding</span>			</li>
+				<span class="var-type">string</span>
+				<span class="var-name">$padding</span><span class="var-description">: The padding character.</span>			</li>
 				</ul>
 		
 			
@@ -1621,11 +1543,12 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">static method toString16</span> (line <span class="line-number">563</span>)
+		<span class="method-title">static method toString16</span> (line <span class="line-number">578</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
-<p class="short-description">Returns machine-ordered multibyte string as UTF-16 defined-order binary  data. The byte order is stored using a byte order mask (BOM) in the binary  data string.</p>
+<p class="short-description">Returns the multibyte string as binary data with given byte order mark</p>
+<p class="description"><p>(BOM) and padded to given length with zeros. Length is given in unicode  characters so each character adds two zeros to the string. If length is  smaller than the length of the string, it is considered as the length of  the padding.</p><p>If byte order mark is <var>false</var> no mark is inserted to the binary  data.</p></p>
 	<ul class="tags">
 				<li><span class="field">access:</span> public</li>
 			</ul>
@@ -1636,7 +1559,7 @@
 		<span class="method-name">
 			toString16
 		</span>
-					(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>, [<span class="var-type">integer</span>&nbsp;<span class="var-name">$order</span> = <span class="var-default">self::MACHINE_ENDIAN_ORDER</span>])
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>, [<span class="var-type">integer</span>&nbsp;<span class="var-name">$order</span> = <span class="var-default">false</span>], [<span class="var-type">integer</span>&nbsp;<span class="var-name">$length</span> = <span class="var-default">false</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$padding</span> = <span class="var-default">&quot;\0&quot;</span>])
 			</div>
 	
 			<ul class="parameters">
@@ -1646,66 +1569,12 @@
 					<li>
 				<span class="var-type">integer</span>
 				<span class="var-name">$order</span><span class="var-description">: The byte order of the binary data string.</span>			</li>
-				</ul>
-		
-			
-	</div>
-<a name="methodtoString16BE" id="toString16BE"><!-- --></a>
-<div class="evenrow">
-	
-	<div class="method-header">
-		<span class="method-title">static method toString16BE</span> (line <span class="line-number">640</span>)
-	</div> 
-	
-	<!-- ========== Info from phpDoc block ========= -->
-<p class="short-description">Returns machine ordered multibyte string as big-endian ordered binary data.</p>
-	<ul class="tags">
-				<li><span class="field">access:</span> public</li>
-			</ul>
-	
-	<div class="method-signature">
-	    static
-		<span class="method-result">string</span>
-		<span class="method-name">
-			toString16BE
-		</span>
-					(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
-			</div>
-	
-			<ul class="parameters">
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$length</span><span class="var-description">: The length to which to pad the value.</span>			</li>
 					<li>
 				<span class="var-type">string</span>
-				<span class="var-name">$value</span><span class="var-description">: The input value.</span>			</li>
-				</ul>
-		
-			
-	</div>
-<a name="methodtoString16LE" id="toString16LE"><!-- --></a>
-<div class="oddrow">
-	
-	<div class="method-header">
-		<span class="method-title">static method toString16LE</span> (line <span class="line-number">610</span>)
-	</div> 
-	
-	<!-- ========== Info from phpDoc block ========= -->
-<p class="short-description">Returns machine-ordered multibyte string as little-endian ordered binary  data.</p>
-	<ul class="tags">
-				<li><span class="field">access:</span> public</li>
-			</ul>
-	
-	<div class="method-signature">
-	    static
-		<span class="method-result">string</span>
-		<span class="method-name">
-			toString16LE
-		</span>
-					(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
-			</div>
-	
-			<ul class="parameters">
-					<li>
-				<span class="var-type">string</span>
-				<span class="var-name">$value</span><span class="var-description">: The input value.</span>			</li>
+				<span class="var-name">$padding</span><span class="var-description">: The padding character.</span>			</li>
 				</ul>
 		
 			
@@ -1926,12 +1795,12 @@
 	
 	
 </div>
-						
+						
 		</div>
 	</div>
 
 	<p class="notes" id="credit">
-		Documentation generated on Thu, 01 Jan 2009 14:59:55 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.1</a>
+		Documentation generated on Thu, 02 Apr 2009 19:55:51 +0300 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.2</a>
 	</p>
 	</div></body>
-</html>
+</html>

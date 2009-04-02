@@ -2,7 +2,8 @@
 /**
  * PHP Reader Library
  *
- * Copyright (c) 2008 The PHP Reader Project Workgroup. All rights reserved.
+ * Copyright (c) 2008-2009 The PHP Reader Project Workgroup. All rights
+ * reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -30,9 +31,9 @@
  *
  * @package    php-reader
  * @subpackage ID3
- * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
+ * @copyright  Copyright (c) 2008-2009 The PHP Reader Project Workgroup
  * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version    $Id: MCDI.php 65 2008-04-02 15:22:46Z svollbehr $
+ * @version    $Id: MCDI.php 140 2009-02-19 14:30:29Z svollbehr $
  */
 
 /**#@+ @ignore */
@@ -56,9 +57,9 @@ require_once("ID3/Frame.php");
  * @package    php-reader
  * @subpackage ID3
  * @author     Sven Vollbehr <svollbehr@gmail.com>
- * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
+ * @copyright  Copyright (c) 2008-2009 The PHP Reader Project Workgroup
  * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version    $Rev: 65 $
+ * @version    $Rev: 140 $
  */
 final class ID3_Frame_MCDI extends ID3_Frame
 {
@@ -74,5 +75,12 @@ final class ID3_Frame_MCDI extends ID3_Frame
    * 
    * @param string $data The CD TOC binary dump string.
    */
-  public function setData($data) { parent::setData($data); }
+  public function setData($data) { $this->_data = $data; }
+  
+  /**
+   * Returns the frame raw data without the header.
+   *
+   * @return string
+   */
+  protected function _getData() { return $this->_data; }
 }

@@ -32,7 +32,7 @@
  * @subpackage MPEG
  * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
  * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version    $Id: XINGHeader.php 1 2008-07-06 10:43:41Z rbutterfield $
+ * @version    $Id: XINGHeader.php 138 2009-02-15 11:14:37Z svollbehr $
  */
 
 /**#@+ @ignore */
@@ -51,7 +51,7 @@ require_once("MPEG/ABS/Object.php");
  * @author     Sven Vollbehr <svollbehr@gmail.com>
  * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
  * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version    $Rev: 1 $
+ * @version    $Rev: 138 $
  */
 class MPEG_ABS_XINGHeader extends MPEG_ABS_Object
 {

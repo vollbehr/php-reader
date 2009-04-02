@@ -8,7 +8,7 @@
 			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
 		</head>
 		<body>
-			<div class="page-body">			
+			<div class="page-body">			
 <h2 class="class-name">Class ASF</h2>
 
 <a name="sec-description"></a>
@@ -19,7 +19,7 @@
 													<a href="#sec-vars">Vars</a>
 						|											<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
 						
-											<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+											<a href="#sec-consts">Constants</a>
 						
 			</div>
 	<div class="info-box-body">
@@ -29,8 +29,8 @@
  Format (ASF) Specification</a>. It is a file format that can contain various  types of information ranging from audio and video to script commands and  developer defined custom streams.</p><p>The ASF file consists of code blocks that are called content objects. Each  of these objects have a format of their own. They may contain other objects  or other specific data. Each supported object has been implemented as their  own classes to ease the correct use of the information.</p></p>
 	<ul class="tags">
 				<li><span class="field">author:</span> Sven Vollbehr &lt;<a href="mailto:svollbehr@gmail.com">svollbehr@gmail.com</a>&gt;</li>
-				<li><span class="field">version:</span> $Rev: 108 $</li>
-				<li><span class="field">copyright:</span> Copyright (c) 2006-2008 The PHP Reader Project Workgroup</li>
+				<li><span class="field">version:</span> $Rev: 139 $</li>
+				<li><span class="field">copyright:</span> Copyright (c) 2006-2009 The PHP Reader Project Workgroup</li>
 				<li><span class="field">license:</span> <a href="http://code.google.com/p/php-reader/wiki/License">New BSD License</a></li>
 			</ul>
 		<p class="notes">
@@ -48,54 +48,6 @@
 </div>
 
 
-	<a name="sec-const-summary"></a>
-	<div class="info-box">
-		<div class="info-box-title">Class Constant Summary</span></div>
-		<div class="nav-bar">
-			<a href="#sec-description">Description</a> |
-						<span class="disabled">Constants</span> (<a href="#sec-consts">details</a>)
-												<a href="#sec-vars">Vars</a>
-				 
-				|
-										| 
-									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
-							
-					</div>
-		<div class="info-box-body">
-			<div class="const-summary">
-								<div class="const-title">
-					<img src="../../media/images/Constant.png" alt=" " />
-					<a href="#DATA" title="details" class="const-name">DATA</a> = 					<span class="var-type"> &quot;75b22636-668e-11cf-a6d9-00aa0062ce6c&quot;</span>
-
-				</div>
-								<div class="const-title">
-					<img src="../../media/images/Constant.png" alt=" " />
-					<a href="#HEADER" title="details" class="const-name">HEADER</a> = 					<span class="var-type"> &quot;75b22630-668e-11cf-a6d9-00aa0062ce6c&quot;</span>
-
-				</div>
-								<div class="const-title">
-					<img src="../../media/images/Constant.png" alt=" " />
-					<a href="#INDEX" title="details" class="const-name">INDEX</a> = 					<span class="var-type"> &quot;d6e229d3-35da-11d1-9034-00a0c90349be&quot;</span>
-
-				</div>
-								<div class="const-title">
-					<img src="../../media/images/Constant.png" alt=" " />
-					<a href="#MEDIA_OBJECT_INDEX" title="details" class="const-name">MEDIA_OBJECT_INDEX</a> = 					<span class="var-type"> &quot;feb103f8-12ad-4c64-840f-2a1d2f7ad48c&quot;</span>
-
-				</div>
-								<div class="const-title">
-					<img src="../../media/images/Constant.png" alt=" " />
-					<a href="#SIMPLE_INDEX" title="details" class="const-name">SIMPLE_INDEX</a> = 					<span class="var-type"> &quot;33000890-e5b1-11cf-89f4-00a0c90349cb&quot;</span>
-
-				</div>
-								<div class="const-title">
-					<img src="../../media/images/Constant.png" alt=" " />
-					<a href="#TIMECODE_INDEX" title="details" class="const-name">TIMECODE_INDEX</a> = 					<span class="var-type"> &quot;3cb73fd0-0c4a-4803-953d-edf7b6228f0c&quot;</span>
-
-				</div>
-							</div>
-		</div>
-	</div>
 
 
 	<a name="sec-method-summary"></a>
@@ -103,7 +55,7 @@
 		<div class="info-box-title">Method Summary</span></div>
 		<div class="nav-bar">
 			<a href="#sec-description">Description</a> |
-															<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+															<a href="#sec-consts">Constants</a>
 							
 															<a href="#sec-vars">Vars</a>
 				 
@@ -112,7 +64,7 @@
 		</div>
 		<div class="info-box-body">			
 			<div class="method-summary">
-																																												
+																																																												
 												<div class="method-definition">
 											<span class="method-result">ASF</span>
 										<a href="#__construct" title="details" class="method-name">__construct</a>
@@ -134,9 +86,19 @@
 										()
 									</div>
 																<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#isMandatory" title="details" class="method-name">isMandatory</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#isMultiple" title="details" class="method-name">isMultiple</a>
+										()
+									</div>
+																<div class="method-definition">
 											<span class="method-result">void</span>
 										<a href="#write" title="details" class="method-name">write</a>
-										()
+											([<span class="var-type"></span>&nbsp;<span class="var-name">$filename</span> = <span class="var-default">false</span>])
 									</div>
 								</div>
 		</div>
@@ -150,14 +112,14 @@
 										<a href="#sec-var-summary">Vars</a> (<span class="disabled">details</span>)
 						
 			
-												<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+												<a href="#sec-consts">Constants</a>
 							
 										| 
 									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
 							
 					</div>
 		<div class="info-box-body">
-										<h4>Inherited Variables</h4>
+										<h4>Inherited Variables</h4>
 				<A NAME='inherited_vars'><!-- --></A>
 									<p>Inherited from <span class="classname"><a href="../../php-reader/ASF/ASF_Object.html">ASF_Object</a></span></p>
 					<blockquote>
@@ -178,7 +140,7 @@
 		<div class="nav-bar">
 			<a href="#sec-description">Description</a> |
 															<a href="#sec-vars">Vars</a>
-																			<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+																			<a href="#sec-consts">Constants</a>
 							
 										<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
 						
@@ -187,10 +149,10 @@
 			<A NAME='method_detail'></A>
 
 <a name="method__construct" id="__construct"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">Constructor __construct</span> (line <span class="line-number">89</span>)
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">82</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -228,10 +190,10 @@
 			
 	</div>
 <a name="methodgetData" id="getData"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">getData</span> (line <span class="line-number">123</span>)
+		<span class="method-title">getData</span> (line <span class="line-number">116</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -252,10 +214,10 @@
 			
 	</div>
 <a name="methodgetHeader" id="getHeader"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">getHeader</span> (line <span class="line-number">112</span>)
+		<span class="method-title">getHeader</span> (line <span class="line-number">105</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -276,10 +238,10 @@
 			
 	</div>
 <a name="methodgetIndices" id="getIndices"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">getIndices</span> (line <span class="line-number">134</span>)
+		<span class="method-title">getIndices</span> (line <span class="line-number">127</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -299,16 +261,75 @@
 		
 			
 	</div>
-<a name="methodwrite" id="write"><!-- --></a>
+<a name="methodisMandatory" id="isMandatory"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">isMandatory</span> (line <span class="line-number">207</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the whether the object is required to be present, or whether  minimum cardinality is 1.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			isMandatory
+		</span>
+				()
+			</div>
+	
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../../php-reader/ASF/ASF_Object.html#methodisMandatory">ASF_Object::isMandatory()</a></dt>
+						<dd>Returns the whether the object is required to be present, or whether  minimum cardinality is 1.</dd>
+					</dl>
+			
+	</div>
+<a name="methodisMultiple" id="isMultiple"><!-- --></a>
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">write</span> (line <span class="line-number">147</span>)
+		<span class="method-title">isMultiple</span> (line <span class="line-number">215</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns whether multiple instances of this object can be present, or  whether maximum cardinality is greater than 1.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			isMultiple
+		</span>
+				()
+			</div>
+	
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../../php-reader/ASF/ASF_Object.html#methodisMultiple">ASF_Object::isMultiple()</a></dt>
+						<dd>Returns whether multiple instances of this object can be present, or  whether maximum cardinality is greater than 1.</dd>
+					</dl>
+			
+	</div>
+<a name="methodwrite" id="write"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">write</span> (line <span class="line-number">137</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
 <p class="short-description">Writes the changes back to the original media file.</p>
-<p class="description"><p>Please note: currently the method writes only Content Description and  Extended Content Description Objects.</p></p>
 	<ul class="tags">
 				<li><span class="field">access:</span> public</li>
 			</ul>
@@ -318,9 +339,14 @@
 		<span class="method-name">
 			write
 		</span>
-				()
+					([<span class="var-type"></span>&nbsp;<span class="var-name">$filename</span> = <span class="var-default">false</span>])
 			</div>
 	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$filename</span>			</li>
+				</ul>
 		
 			
 	</div>
@@ -333,9 +359,15 @@
 													<span class="method-name"><a href="../../php-reader/ASF/ASF_Object_Container.html#methodconstructObjects">ASF_Object_Container::constructObjects()</a></span><br>
 													<span class="method-name"><a href="../../php-reader/ASF/ASF_Object_Container.html#methodgetObjects">ASF_Object_Container::getObjects()</a></span><br>
 													<span class="method-name"><a href="../../php-reader/ASF/ASF_Object_Container.html#methodgetObjectsByIdentifier">ASF_Object_Container::getObjectsByIdentifier()</a></span><br>
+													<span class="method-name"><a href="../../php-reader/ASF/ASF_Object_Container.html#methodgetObjectsByName">ASF_Object_Container::getObjectsByName()</a></span><br>
 													<span class="method-name"><a href="../../php-reader/ASF/ASF_Object_Container.html#methodhasObject">ASF_Object_Container::hasObject()</a></span><br>
+													<span class="method-name"><a href="../../php-reader/ASF/ASF_Object_Container.html#methodremoveObject">ASF_Object_Container::removeObject()</a></span><br>
+													<span class="method-name"><a href="../../php-reader/ASF/ASF_Object_Container.html#methodremoveObjectsByIdentifier">ASF_Object_Container::removeObjectsByIdentifier()</a></span><br>
+													<span class="method-name"><a href="../../php-reader/ASF/ASF_Object_Container.html#methodremoveObjectsByName">ASF_Object_Container::removeObjectsByName()</a></span><br>
 													<span class="method-name"><a href="../../php-reader/ASF/ASF_Object_Container.html#method__get">ASF_Object_Container::__get()</a></span><br>
 													<span class="method-name"><a href="../../php-reader/ASF/ASF_Object_Container.html#method__isset">ASF_Object_Container::__isset()</a></span><br>
+													<span class="method-name"><a href="../../php-reader/ASF/ASF_Object_Container.html#method__set">ASF_Object_Container::__set()</a></span><br>
+													<span class="method-name"><a href="../../php-reader/ASF/ASF_Object_Container.html#method__unset">ASF_Object_Container::__unset()</a></span><br>
 											</blockquote>
 									<!-- =========== Summary =========== -->
 					<p>Inherited From <span class="classname"><a href="../../php-reader/ASF/ASF_Object.html">ASF_Object</a></span></p>
@@ -347,6 +379,8 @@
 													<span class="method-name"><a href="../../php-reader/ASF/ASF_Object.html#methodgetOptions">ASF_Object::getOptions()</a></span><br>
 													<span class="method-name"><a href="../../php-reader/ASF/ASF_Object.html#methodgetParent">ASF_Object::getParent()</a></span><br>
 													<span class="method-name"><a href="../../php-reader/ASF/ASF_Object.html#methodgetSize">ASF_Object::getSize()</a></span><br>
+													<span class="method-name"><a href="../../php-reader/ASF/ASF_Object.html#methodisMandatory">ASF_Object::isMandatory()</a></span><br>
+													<span class="method-name"><a href="../../php-reader/ASF/ASF_Object.html#methodisMultiple">ASF_Object::isMultiple()</a></span><br>
 													<span class="method-name"><a href="../../php-reader/ASF/ASF_Object.html#methodsetIdentifier">ASF_Object::setIdentifier()</a></span><br>
 													<span class="method-name"><a href="../../php-reader/ASF/ASF_Object.html#methodsetOffset">ASF_Object::setOffset()</a></span><br>
 													<span class="method-name"><a href="../../php-reader/ASF/ASF_Object.html#methodsetOption">ASF_Object::setOption()</a></span><br>
@@ -374,108 +408,157 @@
 							
 					</div>
 		<div class="info-box-body">
-			<a name="constDATA" id="DATA"><!-- --></A>
-<div class="evenrow">
-
-	<div class="const-header">
-		<img src="../../media/images/Variable.png" />
-		<span class="const-title">
-			<span class="const-name">DATA</span>
-			 = <span class="const-default"> &quot;75b22636-668e-11cf-a6d9-00aa0062ce6c&quot;</span>
-			(line <span class="line-number">66</span>)
-		</span>
-	</div>
-
-	<!-- ========== Info from phpDoc block ========= -->
-	
-	
-</div>
-<a name="constHEADER" id="HEADER"><!-- --></A>
-<div class="oddrow">
-
-	<div class="const-header">
-		<img src="../../media/images/Variable.png" />
-		<span class="const-title">
-			<span class="const-name">HEADER</span>
-			 = <span class="const-default"> &quot;75b22630-668e-11cf-a6d9-00aa0062ce6c&quot;</span>
-			(line <span class="line-number">65</span>)
-		</span>
-	</div>
-
-	<!-- ========== Info from phpDoc block ========= -->
-	
-	
-</div>
-<a name="constINDEX" id="INDEX"><!-- --></A>
-<div class="evenrow">
-
-	<div class="const-header">
-		<img src="../../media/images/Variable.png" />
-		<span class="const-title">
-			<span class="const-name">INDEX</span>
-			 = <span class="const-default"> &quot;d6e229d3-35da-11d1-9034-00a0c90349be&quot;</span>
-			(line <span class="line-number">68</span>)
-		</span>
-	</div>
-
-	<!-- ========== Info from phpDoc block ========= -->
-	
-	
-</div>
-<a name="constMEDIA_OBJECT_INDEX" id="MEDIA_OBJECT_INDEX"><!-- --></A>
-<div class="oddrow">
-
-	<div class="const-header">
-		<img src="../../media/images/Variable.png" />
-		<span class="const-title">
-			<span class="const-name">MEDIA_OBJECT_INDEX</span>
-			 = <span class="const-default"> &quot;feb103f8-12ad-4c64-840f-2a1d2f7ad48c&quot;</span>
-			(line <span class="line-number">69</span>)
-		</span>
-	</div>
-
-	<!-- ========== Info from phpDoc block ========= -->
-	
-	
-</div>
-<a name="constSIMPLE_INDEX" id="SIMPLE_INDEX"><!-- --></A>
-<div class="evenrow">
-
-	<div class="const-header">
-		<img src="../../media/images/Variable.png" />
-		<span class="const-title">
-			<span class="const-name">SIMPLE_INDEX</span>
-			 = <span class="const-default"> &quot;33000890-e5b1-11cf-89f4-00a0c90349cb&quot;</span>
-			(line <span class="line-number">67</span>)
-		</span>
-	</div>
-
-	<!-- ========== Info from phpDoc block ========= -->
-	
-	
-</div>
-<a name="constTIMECODE_INDEX" id="TIMECODE_INDEX"><!-- --></A>
-<div class="oddrow">
-
-	<div class="const-header">
-		<img src="../../media/images/Variable.png" />
-		<span class="const-title">
-			<span class="const-name">TIMECODE_INDEX</span>
-			 = <span class="const-default"> &quot;3cb73fd0-0c4a-4803-953d-edf7b6228f0c&quot;</span>
-			(line <span class="line-number">70</span>)
-		</span>
-	</div>
-
-	<!-- ========== Info from phpDoc block ========= -->
-	
-	
-</div>
-						
+										<h4>Inherited Constants</h4>
+				<A NAME='inherited_vars'><!-- --></A>
+									<p>Inherited from <span class="classname"><a href="../../php-reader/ASF/ASF_Object.html">ASF_Object</a></span></p>
+					<blockquote>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../php-reader/ASF/ASF_Object.html#constADVANCED_CONTENT_ENCRYPTION">ASF_Object::ADVANCED_CONTENT_ENCRYPTION</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../php-reader/ASF/ASF_Object.html#constADVANCED_MUTUAL_EXCLUSION">ASF_Object::ADVANCED_MUTUAL_EXCLUSION</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../php-reader/ASF/ASF_Object.html#constBANDWIDTH_SHARING">ASF_Object::BANDWIDTH_SHARING</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../php-reader/ASF/ASF_Object.html#constBITRATE_MUTUAL_EXCLUSION">ASF_Object::BITRATE_MUTUAL_EXCLUSION</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../php-reader/ASF/ASF_Object.html#constCODEC_LIST">ASF_Object::CODEC_LIST</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../php-reader/ASF/ASF_Object.html#constCOMPATIBILITY">ASF_Object::COMPATIBILITY</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../php-reader/ASF/ASF_Object.html#constCONTENT_BRANDING">ASF_Object::CONTENT_BRANDING</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../php-reader/ASF/ASF_Object.html#constCONTENT_DESCRIPTION">ASF_Object::CONTENT_DESCRIPTION</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../php-reader/ASF/ASF_Object.html#constCONTENT_ENCRYPTION">ASF_Object::CONTENT_ENCRYPTION</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../php-reader/ASF/ASF_Object.html#constDATA">ASF_Object::DATA</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../php-reader/ASF/ASF_Object.html#constDIGITAL_SIGNATURE">ASF_Object::DIGITAL_SIGNATURE</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../php-reader/ASF/ASF_Object.html#constERROR_CORRECTION">ASF_Object::ERROR_CORRECTION</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../php-reader/ASF/ASF_Object.html#constEXTENDED_CONTENT_DESCRIPTION">ASF_Object::EXTENDED_CONTENT_DESCRIPTION</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../php-reader/ASF/ASF_Object.html#constEXTENDED_CONTENT_ENCRYPTION">ASF_Object::EXTENDED_CONTENT_ENCRYPTION</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../php-reader/ASF/ASF_Object.html#constEXTENDED_STREAM_PROPERTIES">ASF_Object::EXTENDED_STREAM_PROPERTIES</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../php-reader/ASF/ASF_Object.html#constFILE_PROPERTIES">ASF_Object::FILE_PROPERTIES</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../php-reader/ASF/ASF_Object.html#constGROUP_MUTUAL_EXCLUSION">ASF_Object::GROUP_MUTUAL_EXCLUSION</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../php-reader/ASF/ASF_Object.html#constHEADER">ASF_Object::HEADER</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../php-reader/ASF/ASF_Object.html#constHEADER_EXTENSION">ASF_Object::HEADER_EXTENSION</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../php-reader/ASF/ASF_Object.html#constINDEX">ASF_Object::INDEX</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../php-reader/ASF/ASF_Object.html#constINDEX_PARAMETERS">ASF_Object::INDEX_PARAMETERS</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../php-reader/ASF/ASF_Object.html#constLANGUAGE_LIST">ASF_Object::LANGUAGE_LIST</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../php-reader/ASF/ASF_Object.html#constMARKER">ASF_Object::MARKER</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../php-reader/ASF/ASF_Object.html#constMEDIA_OBJECT_INDEX">ASF_Object::MEDIA_OBJECT_INDEX</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../php-reader/ASF/ASF_Object.html#constMEDIA_OBJECT_INDEX_PARAMETERS">ASF_Object::MEDIA_OBJECT_INDEX_PARAMETERS</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../php-reader/ASF/ASF_Object.html#constMETADATA">ASF_Object::METADATA</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../php-reader/ASF/ASF_Object.html#constMETADATA_LIBRARY">ASF_Object::METADATA_LIBRARY</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../php-reader/ASF/ASF_Object.html#constPADDING">ASF_Object::PADDING</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../php-reader/ASF/ASF_Object.html#constSCRIPT_COMMAND">ASF_Object::SCRIPT_COMMAND</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../php-reader/ASF/ASF_Object.html#constSIMPLE_INDEX">ASF_Object::SIMPLE_INDEX</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../php-reader/ASF/ASF_Object.html#constSTREAM_BITRATE_PROPERTIES">ASF_Object::STREAM_BITRATE_PROPERTIES</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../php-reader/ASF/ASF_Object.html#constSTREAM_PRIORITIZATION">ASF_Object::STREAM_PRIORITIZATION</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../php-reader/ASF/ASF_Object.html#constSTREAM_PROPERTIES">ASF_Object::STREAM_PROPERTIES</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../php-reader/ASF/ASF_Object.html#constTIMECODE_INDEX">ASF_Object::TIMECODE_INDEX</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../php-reader/ASF/ASF_Object.html#constTIMECODE_INDEX_PARAMETERS">ASF_Object::TIMECODE_INDEX_PARAMETERS</a></span><br>
+							</span>
+											</blockquote> 
+										
 		</div>
 	</div>
 
 	<p class="notes" id="credit">
-		Documentation generated on Thu, 01 Jan 2009 14:59:05 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.1</a>
+		Documentation generated on Thu, 02 Apr 2009 19:53:58 +0300 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.2</a>
 	</p>
 	</div></body>
-</html>
+</html>

@@ -2,7 +2,8 @@
 /**
  * PHP Reader Library
  *
- * Copyright (c) 2008 The PHP Reader Project Workgroup. All rights reserved.
+ * Copyright (c) 2008-2009 The PHP Reader Project Workgroup. All rights
+ * reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -30,9 +31,9 @@
  *
  * @package    php-reader
  * @subpackage ASF
- * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
+ * @copyright  Copyright (c) 2008-2009 The PHP Reader Project Workgroup
  * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version    $Id: LanguageList.php 102 2008-06-23 20:41:20Z svollbehr $
+ * @version    $Id: LanguageList.php 145 2009-03-25 22:18:50Z svollbehr $
  */
 
 /**#@+ @ignore */
@@ -47,9 +48,9 @@ require_once("ASF/Object.php");
  * @package    php-reader
  * @subpackage ASF
  * @author     Sven Vollbehr <svollbehr@gmail.com>
- * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
+ * @copyright  Copyright (c) 2008-2009 The PHP Reader Project Workgroup
  * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version    $Rev: 102 $
+ * @version    $Rev: 145 $
  */
 final class ASF_Object_LanguageList extends ASF_Object
 {
@@ -63,14 +64,17 @@ final class ASF_Object_LanguageList extends ASF_Object
    * @param Reader $reader  The reader object.
    * @param Array  $options The options array.
    */
-  public function __construct($reader, &$options = array())
+  public function __construct($reader = null, &$options = array())
   {
     parent::__construct($reader, $options);
+    
+    if ($reader === null)
+      return;
     
     $languageIdRecordsCount = $this->_reader->readUInt16LE();
     for ($i = 0; $i < $languageIdRecordsCount; $i++) {
       $languageIdLength = $this->_reader->readInt8();
-      $languageId = $this->_reader->readString16LE($languageIdLength);
+      $languageId = $this->_reader->readString16($languageIdLength);
       $this->_languages[] = iconv
         ("utf-16le", $this->getOption("encoding"), $languageId);
     }
@@ -81,5 +85,48 @@ final class ASF_Object_LanguageList extends ASF_Object
    *
    * @return Array
    */
-  public function getLanguage() { return $this->_languages; }
+  public function getLanguages() { return $this->_languages; }
+
+  /**
+   * Sets the array of language ids.
+   * 
+   * @param Array $languages The array of language ids.
+   */
+  public function setLanguages($languages) { $this->_languages = $languages; }
+  
+  /**
+   * Returns the whether the object is required to be present, or whether
+   * minimum cardinality is 1.
+   * 
+   * @return boolean
+   */
+  public function isMandatory() { return false; }
+  
+  /**
+   * Returns whether multiple instances of this object can be present, or
+   * whether maximum cardinality is greater than 1.
+   * 
+   * @return boolean
+   */
+  public function isMultiple() { return false; }
+  
+  /**
+   * Returns the object data with headers.
+   *
+   * @return string
+   */
+  public function __toString()
+  {
+    $data = Transform::toUInt16LE
+      ($languageIdRecordsCount = count($this->_languages));
+    for ($i = 0; $i < $languageIdRecordsCount; $i++)
+      $data .=
+        Transform::toInt8(strlen($languageId = iconv
+          ($this->getOption("encoding"), "utf-16le", $this->_languages[$i]) .
+          "\0\0")) . Transform::toString16($languageId);
+    $this->setSize(24 /* for header */ + strlen($data));
+    return
+      Transform::toGUID($this->getIdentifier()) .
+      Transform::toInt64LE($this->getSize())  . $data;
+  }
 }

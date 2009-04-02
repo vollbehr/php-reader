@@ -2,7 +2,8 @@
 /**
  * PHP Reader Library
  *
- * Copyright (c) 2008 The PHP Reader Project Workgroup. All rights reserved.
+ * Copyright (c) 2008-2009 The PHP Reader Project Workgroup. All rights
+ * reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -30,9 +31,9 @@
  *
  * @package    php-reader
  * @subpackage ID3
- * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
+ * @copyright  Copyright (c) 2008-2009 The PHP Reader Project Workgroup
  * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version    $Id: USER.php 129 2008-12-28 19:00:44Z svollbehr $
+ * @version    $Id: USER.php 145 2009-03-25 22:18:50Z svollbehr $
  */
 
 /**#@+ @ignore */
@@ -52,9 +53,9 @@ require_once("ID3/Language.php");
  * @subpackage ID3
  * @author     Sven Vollbehr <svollbehr@gmail.com>
  * @author     Ryan Butterfield <buttza@gmail.com>
- * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
+ * @copyright  Copyright (c) 2008-2009 The PHP Reader Project Workgroup
  * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version    $Rev: 129 $
+ * @version    $Rev: 145 $
  */
 final class ID3_Frame_USER extends ID3_Frame
   implements ID3_Encoding, ID3_Language
@@ -91,19 +92,19 @@ final class ID3_Frame_USER extends ID3_Frame
 
     switch ($encoding) {
     case self::UTF16:
-      $this->_text = $this->convertString
+      $this->_text = $this->_convertString
         (Transform::fromString16($this->_data), "utf-16");
       break;
     case self::UTF16BE:
-      $this->_text = $this->convertString
-        (Transform::fromString16BE($this->_data), "utf-16be");
+      $this->_text = $this->_convertString
+        (Transform::fromString16($this->_data), "utf-16be");
       break;
     case self::UTF8:
-      $this->_text = $this->convertString
+      $this->_text = $this->_convertString
         (Transform::fromString8($this->_data), "utf-8");
       break;
     default:
-      $this->_text = $this->convertString
+      $this->_text = $this->_convertString
         (Transform::fromString8($this->_data), "iso-8859-1");
     }
   }
@@ -180,27 +181,25 @@ final class ID3_Frame_USER extends ID3_Frame
   }
   
   /**
-   * Returns the frame raw data.
+   * Returns the frame raw data without the header.
    *
    * @return string
    */
-  public function __toString()
+  protected function _getData()
   {
     $data = Transform::toUInt8($this->_encoding) . $this->_language;
     switch ($this->_encoding) {
-    case self::UTF16:
     case self::UTF16LE:
       $data .= Transform::toString16
-        ($this->_text, $this->_encoding == self::UTF16 ?
-         Transform::MACHINE_ENDIAN_ORDER : Transform::LITTLE_ENDIAN_ORDER);
+        ($this->_text, Transform::MACHINE_ENDIAN_ORDER);
       break;
+    case self::UTF16:
     case self::UTF16BE:
-      $data .= Transform::toString16BE($this->_text);
+      $data .= Transform::toString16($this->_text);
       break;
     default:
       $data .= $this->_text;
     }
-    $this->setData($data);
-    return parent::__toString();
+    return $data;
   }
 }

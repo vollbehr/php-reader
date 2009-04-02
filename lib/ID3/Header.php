@@ -2,7 +2,8 @@
 /**
  * PHP Reader Library
  *
- * Copyright (c) 2008 The PHP Reader Project Workgroup. All rights reserved.
+ * Copyright (c) 2008-2009 The PHP Reader Project Workgroup. All rights
+ * reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -30,9 +31,9 @@
  *
  * @package    php-reader
  * @subpackage ID3
- * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
+ * @copyright  Copyright (c) 2008-2009 The PHP Reader Project Workgroup
  * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version    $Id: Header.php 107 2008-08-03 19:09:16Z svollbehr $
+ * @version    $Id: Header.php 140 2009-02-19 14:30:29Z svollbehr $
  */
 
 /**#@+ @ignore */
@@ -46,9 +47,9 @@ require_once("ID3/Object.php");
  * @package    php-reader
  * @subpackage ID3
  * @author     Sven Vollbehr <svollbehr@gmail.com>
- * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
+ * @copyright  Copyright (c) 2008-2009 The PHP Reader Project Workgroup
  * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version    $Rev: 107 $
+ * @version    $Rev: 140 $
  */
 final class ID3_Header extends ID3_Object
 {
@@ -97,7 +98,7 @@ final class ID3_Header extends ID3_Object
     $this->_version = $options["version"] =
       $this->_reader->readInt8() + $this->_reader->readInt8() / 10;
     $this->_flags = $this->_reader->readInt8();
-    $this->_size = $this->decodeSynchsafe32($this->_reader->readUInt32BE());
+    $this->_size = $this->_decodeSynchsafe32($this->_reader->readUInt32BE());
   }
   
   /**
@@ -159,7 +160,7 @@ final class ID3_Header extends ID3_Object
   public function setSize($size) { $this->_size = $size; }
   
   /**
-   * Returns the header/footer raw data without the identifier.
+   * Returns the header/footer data without the identifier.
    *
    * @return string
    */
@@ -168,6 +169,6 @@ final class ID3_Header extends ID3_Object
     return Transform::toInt8(floor($this->_version)) .
       Transform::toInt8(($this->_version - floor($this->_version)) * 10) .
       Transform::toInt8($this->_flags) .
-      Transform::toUInt32BE($this->encodeSynchsafe32($this->_size));
+      Transform::toUInt32BE($this->_encodeSynchsafe32($this->_size));
   }
 }

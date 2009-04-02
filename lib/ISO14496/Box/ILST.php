@@ -32,7 +32,7 @@
  * @subpackage ISO 14496
  * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
  * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version    $Id: ILST.php 101 2008-05-13 20:28:13Z svollbehr $
+ * @version    $Id: ILST.php 143 2009-02-21 18:32:53Z svollbehr $
  */
 
 /**#@+ @ignore */
@@ -76,7 +76,7 @@ require_once("ISO14496/Box.php");
  * @author     Sven Vollbehr <svollbehr@gmail.com>
  * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
  * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version    $Rev: 101 $
+ * @version    $Rev: 143 $
  * @since      iTunes/iPod specific
  */
 final class ISO14496_Box_ILST extends ISO14496_Box
@@ -129,7 +129,7 @@ final class ISO14496_Box_ILST extends ISO14496_Box
  * @author     Sven Vollbehr <svollbehr@gmail.com>
  * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
  * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version    $Rev: 101 $
+ * @version    $Rev: 143 $
  * @since      iTunes/iPod specific
  * @ignore
  */
@@ -160,7 +160,7 @@ require_once("ISO14496/Box/Full.php");
  * @author     Sven Vollbehr <svollbehr@gmail.com>
  * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
  * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version    $Rev: 101 $
+ * @version    $Rev: 143 $
  * @since      iTunes/iPod specific
  */
 final class ISO14496_Box_DATA extends ISO14496_Box_Full
@@ -254,6 +254,7 @@ final class ISO14496_Box_DATA extends ISO14496_Box_Full
       return $this;
     if (method_exists($this, "get" . ucfirst($name)))
       return call_user_func(array($this, "get" . ucfirst($name)));
+    require_once("ISO14496/Exception.php");
     throw new ISO14496_Exception("Unknown box/field: " . $name);
   }
   

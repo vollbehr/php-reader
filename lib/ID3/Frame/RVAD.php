@@ -2,7 +2,8 @@
 /**
  * PHP Reader Library
  *
- * Copyright (c) 2008 The PHP Reader Project Workgroup. All rights reserved.
+ * Copyright (c) 2008-2009 The PHP Reader Project Workgroup. All rights
+ * reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -30,9 +31,9 @@
  *
  * @package    php-reader
  * @subpackage ID3
- * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
+ * @copyright  Copyright (c) 2008-2009 The PHP Reader Project Workgroup
  * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version    $Id: RVAD.php 105 2008-07-30 14:56:47Z svollbehr $
+ * @version    $Id: RVAD.php 143 2009-02-21 18:32:53Z svollbehr $
  * @deprecated ID3v2.3.0
  */
 
@@ -54,9 +55,9 @@ require_once("ID3/Frame.php");
  * @subpackage ID3
  * @author     Sven Vollbehr <svollbehr@gmail.com>
  * @author     Ryan Butterfield <buttza@gmail.com>
- * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
+ * @copyright  Copyright (c) 2008-2009 The PHP Reader Project Workgroup
  * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version    $Rev: 105 $
+ * @version    $Rev: 143 $
  * @deprecated ID3v2.3.0
  */
 final class ID3_Frame_RVAD extends ID3_Frame
@@ -119,9 +120,11 @@ final class ID3_Frame_RVAD extends ID3_Frame
     
     $flags = Transform::fromInt8($this->_data[0]);
     $descriptionBits = Transform::fromInt8($this->_data[1]);
-    if ($descriptionBits <= 8 || $descriptionBits > 16)
+    if ($descriptionBits <= 8 || $descriptionBits > 16) {
+      require_once("ID3/Exception.php");
       throw new ID3_Exception
           ("Unsupported description bit size of: " . $descriptionBits);
+    }
     
     $this->_adjustments[self::right] =
       ($flags & 0x1) == 0x1 ?
@@ -197,11 +200,11 @@ final class ID3_Frame_RVAD extends ID3_Frame
   }
   
   /**
-   * Returns the frame raw data.
+   * Returns the frame raw data without the header.
    *
    * @return string
    */
-  public function __toString()
+  protected function _getData()
   {
     $flags = 0;
     if ($this->_adjustments[self::right] > 0)
@@ -246,7 +249,6 @@ final class ID3_Frame_RVAD extends ID3_Frame
         Transform::toUInt16BE(abs($this->_adjustments[self::bass])) .
         Transform::toUInt16BE(abs($this->_adjustments[self::peakBass]));
     }
-    $this->setData(Transform::toInt8($flags) . $data);
-    return parent::__toString();
+    return Transform::toInt8($flags) . $data;
   }
 }

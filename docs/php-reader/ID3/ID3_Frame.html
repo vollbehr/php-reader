@@ -8,7 +8,7 @@
 			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
 		</head>
 		<body>
-			<div class="page-body">			
+			<div class="page-body">			
 <h2 class="class-name">Class ID3_Frame</h2>
 
 <a name="sec-description"></a>
@@ -28,12 +28,13 @@
 <p class="short-description">A base class for all ID3v2 frames as described in the  <a href="http://www.id3.org/id3v2.4.0-frames">ID3v2 frames document</a>.</p>
 	<ul class="tags">
 				<li><span class="field">author:</span> Sven Vollbehr &lt;<a href="mailto:svollbehr@gmail.com">svollbehr@gmail.com</a>&gt;</li>
-				<li><span class="field">version:</span> $Rev: 129 $</li>
-				<li><span class="field">copyright:</span> Copyright (c) 2008 The PHP Reader Project Workgroup</li>
+				<li><span class="field">version:</span> $Rev: 140 $</li>
+				<li><span class="field">copyright:</span> Copyright (c) 2008-2009 The PHP Reader Project Workgroup</li>
+				<li><span class="field">abstract:</span> </li>
 				<li><span class="field">license:</span> <a href="http://code.google.com/p/php-reader/wiki/License">New BSD License</a></li>
 			</ul>
 		<p class="notes">
-			Located in <a class="field" href="_ID3---Frame.php.html">/ID3/Frame.php</a> (line <span class="field">54</span>)
+			Located in <a class="field" href="_ID3---Frame.php.html">/ID3/Frame.php</a> (line <span class="field">55</span>)
 		</p>
 		
 				
@@ -244,6 +245,12 @@
 										</td>
 				</tr>
 								<tr>
+					<td style="padding-right: 2em"><a href="../../php-reader/ID3/ID3_Frame_Unknown.html">ID3_Frame_Unknown</a></td>
+					<td>
+											This class represents a frame that is not known to the library.
+										</td>
+				</tr>
+								<tr>
 					<td style="padding-right: 2em"><a href="../../php-reader/ID3/ID3_Frame_USER.html">ID3_Frame_USER</a></td>
 					<td>
 											The <em>Terms of use frame</em> contains a brief description of the terms of
@@ -385,11 +392,6 @@
 									</div>
 																<div class="method-definition">
 											<span class="method-result">void</span>
-										<a href="#setData" title="details" class="method-name">setData</a>
-											(<span class="var-type">string</span>&nbsp;<span class="var-name">$data</span>)
-									</div>
-																<div class="method-definition">
-											<span class="method-result">void</span>
 										<a href="#setFlags" title="details" class="method-name">setFlags</a>
 											(<span class="var-type">string</span>&nbsp;<span class="var-name">$flags</span>)
 									</div>
@@ -397,6 +399,11 @@
 											<span class="method-result">void</span>
 										<a href="#setIdentifier" title="details" class="method-name">setIdentifier</a>
 											(<span class="var-type">string</span>&nbsp;<span class="var-name">$identifier</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#_getData" title="details" class="method-name">_getData</a>
+										()
 									</div>
 																<div class="method-definition">
 											<span class="method-result">string</span>
@@ -424,13 +431,13 @@
 					</div>
 		<div class="info-box-body">
 			<a name="var$_data" id="$_data"><!-- --></A>
-<div class="oddrow">
+<div class="evenrow">
 
 	<div class="var-header">
 		<span class="var-title">
 			<span class="var-type">string</span>
 			<span class="var-name">$_data</span>
-			 = <span class="var-default"> &quot;&quot;</span>			(line <span class="line-number">134</span>)
+			 = <span class="var-default"> &quot;&quot;</span>			(line <span class="line-number">135</span>)
 		</span>
 	</div>
 
@@ -445,7 +452,7 @@
 		
 
 </div>
-							<h4>Inherited Variables</h4>
+							<h4>Inherited Variables</h4>
 				<A NAME='inherited_vars'><!-- --></A>
 									<p>Inherited from <span class="classname"><a href="../../php-reader/ID3/ID3_Object.html">ID3_Object</a></span></p>
 					<blockquote>
@@ -473,10 +480,10 @@
 			<A NAME='method_detail'></A>
 
 <a name="method__construct" id="__construct"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">Constructor __construct</span> (line <span class="line-number">144</span>)
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">145</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -651,10 +658,10 @@
 				</ul>
 	</div>
 <a name="methodgetFlags" id="getFlags"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">getFlags</span> (line <span class="line-number">230</span>)
+		<span class="method-title">getFlags</span> (line <span class="line-number">235</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -680,10 +687,10 @@
 			
 	</div>
 <a name="methodgetIdentifier" id="getIdentifier"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">getIdentifier</span> (line <span class="line-number">196</span>)
+		<span class="method-title">getIdentifier</span> (line <span class="line-number">198</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -704,10 +711,10 @@
 			
 	</div>
 <a name="methodgetSize" id="getSize"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">getSize</span> (line <span class="line-number">214</span>)
+		<span class="method-title">getSize</span> (line <span class="line-number">216</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -736,10 +743,10 @@
 				</ul>
 	</div>
 <a name="methodhasFlag" id="hasFlag"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">hasFlag</span> (line <span class="line-number">223</span>)
+		<span class="method-title">hasFlag</span> (line <span class="line-number">225</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -764,48 +771,11 @@
 		
 			
 	</div>
-<a name="methodsetData" id="setData"><!-- --></a>
-<div class="oddrow">
-	
-	<div class="method-header">
-		<span class="method-title">setData</span> (line <span class="line-number">244</span>)
-	</div> 
-	
-	<!-- ========== Info from phpDoc block ========= -->
-<p class="short-description">Sets the frame raw data.</p>
-	<ul class="tags">
-				<li><span class="field">access:</span> protected</li>
-			</ul>
-	
-	<div class="method-signature">
-		<span class="method-result">void</span>
-		<span class="method-name">
-			setData
-		</span>
-					(<span class="var-type">string</span>&nbsp;<span class="var-name">$data</span>)
-			</div>
-	
-			<ul class="parameters">
-					<li>
-				<span class="var-type">string</span>
-				<span class="var-name">$data</span>			</li>
-				</ul>
-		
-			
-			<hr class="separator" />
-		<div class="notes">Redefined in descendants as:</div>
-		<ul class="redefinitions">
-					<li>
-				<a href="../../php-reader/ID3/ID3_Frame_MCDI.html#methodsetData">ID3_Frame_MCDI::setData()</a>
-								: Sets the CD TOC binary dump.
-							</li>
-				</ul>
-	</div>
 <a name="methodsetFlags" id="setFlags"><!-- --></a>
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">setFlags</span> (line <span class="line-number">237</span>)
+		<span class="method-title">setFlags</span> (line <span class="line-number">242</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -834,7 +804,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">setIdentifier</span> (line <span class="line-number">203</span>)
+		<span class="method-title">setIdentifier</span> (line <span class="line-number">205</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -859,15 +829,176 @@
 		
 			
 	</div>
-<a name="method__toString" id="__toString"><!-- --></a>
+<a name="method_getData" id="_getData"><!-- --></a>
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">__toString</span> (line <span class="line-number">255</span>)
+		<span class="method-title">_getData</span> (line <span class="line-number">249</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
-<p class="short-description">Returns the frame raw data.</p>
+<p class="short-description">Returns the frame raw data without the header.</p>
+	<ul class="tags">
+				<li><span class="field">abstract:</span> </li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			_getData
+		</span>
+				()
+			</div>
+	
+		
+			
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../../php-reader/ID3/ID3_Frame_AbstractLink.html#method_getData">ID3_Frame_AbstractLink::_getData()</a>
+								: Returns the frame raw data without the header.
+							</li>
+					<li>
+				<a href="../../php-reader/ID3/ID3_Frame_WXXX.html#method_getData">ID3_Frame_WXXX::_getData()</a>
+								: Returns the frame raw data without the header.
+							</li>
+					<li>
+				<a href="../../php-reader/ID3/ID3_Frame_AbstractText.html#method_getData">ID3_Frame_AbstractText::_getData()</a>
+								: Returns the frame raw data without the header.
+							</li>
+					<li>
+				<a href="../../php-reader/ID3/ID3_Frame_TXXX.html#method_getData">ID3_Frame_TXXX::_getData()</a>
+								: Returns the frame raw data without the header.
+							</li>
+					<li>
+				<a href="../../php-reader/ID3/ID3_Frame_AENC.html#method_getData">ID3_Frame_AENC::_getData()</a>
+								: Returns the frame raw data without the header.
+							</li>
+					<li>
+				<a href="../../php-reader/ID3/ID3_Frame_APIC.html#method_getData">ID3_Frame_APIC::_getData()</a>
+								: Returns the frame raw data without the header.
+							</li>
+					<li>
+				<a href="../../php-reader/ID3/ID3_Frame_COMM.html#method_getData">ID3_Frame_COMM::_getData()</a>
+								: Returns the frame raw data without the header.
+							</li>
+					<li>
+				<a href="../../php-reader/ID3/ID3_Frame_COMR.html#method_getData">ID3_Frame_COMR::_getData()</a>
+								: Returns the frame raw data without the header.
+							</li>
+					<li>
+				<a href="../../php-reader/ID3/ID3_Frame_ENCR.html#method_getData">ID3_Frame_ENCR::_getData()</a>
+								: Returns the frame raw data without the header.
+							</li>
+					<li>
+				<a href="../../php-reader/ID3/ID3_Frame_EQU2.html#method_getData">ID3_Frame_EQU2::_getData()</a>
+								: Returns the frame raw data without the header.
+							</li>
+					<li>
+				<a href="../../php-reader/ID3/ID3_Frame_EQUA.html#method_getData">ID3_Frame_EQUA::_getData()</a>
+								: Returns the frame raw data without the header.
+							</li>
+					<li>
+				<a href="../../php-reader/ID3/ID3_Frame_ETCO.html#method_getData">ID3_Frame_ETCO::_getData()</a>
+								: Returns the frame raw data without the header.
+							</li>
+					<li>
+				<a href="../../php-reader/ID3/ID3_Frame_GEOB.html#method_getData">ID3_Frame_GEOB::_getData()</a>
+								: Returns the frame raw data without the header.
+							</li>
+					<li>
+				<a href="../../php-reader/ID3/ID3_Frame_GRID.html#method_getData">ID3_Frame_GRID::_getData()</a>
+								: Returns the frame raw data without the header.
+							</li>
+					<li>
+				<a href="../../php-reader/ID3/ID3_Frame_IPLS.html#method_getData">ID3_Frame_IPLS::_getData()</a>
+								: Returns the frame raw data without the header.
+							</li>
+					<li>
+				<a href="../../php-reader/ID3/ID3_Frame_LINK.html#method_getData">ID3_Frame_LINK::_getData()</a>
+								: Returns the frame raw data without the header.
+							</li>
+					<li>
+				<a href="../../php-reader/ID3/ID3_Frame_MCDI.html#method_getData">ID3_Frame_MCDI::_getData()</a>
+								: Returns the frame raw data without the header.
+							</li>
+					<li>
+				<a href="../../php-reader/ID3/ID3_Frame_OWNE.html#method_getData">ID3_Frame_OWNE::_getData()</a>
+								: Returns the frame raw data without the header.
+							</li>
+					<li>
+				<a href="../../php-reader/ID3/ID3_Frame_PCNT.html#method_getData">ID3_Frame_PCNT::_getData()</a>
+								: Returns the frame raw data without the header.
+							</li>
+					<li>
+				<a href="../../php-reader/ID3/ID3_Frame_POPM.html#method_getData">ID3_Frame_POPM::_getData()</a>
+								: Returns the frame raw data without the header.
+							</li>
+					<li>
+				<a href="../../php-reader/ID3/ID3_Frame_POSS.html#method_getData">ID3_Frame_POSS::_getData()</a>
+								: Returns the frame raw data without the header.
+							</li>
+					<li>
+				<a href="../../php-reader/ID3/ID3_Frame_PRIV.html#method_getData">ID3_Frame_PRIV::_getData()</a>
+								: Returns the frame raw data without the header.
+							</li>
+					<li>
+				<a href="../../php-reader/ID3/ID3_Frame_RBUF.html#method_getData">ID3_Frame_RBUF::_getData()</a>
+								: Returns the frame raw data without the header.
+							</li>
+					<li>
+				<a href="../../php-reader/ID3/ID3_Frame_RVA2.html#method_getData">ID3_Frame_RVA2::_getData()</a>
+								: Returns the frame raw data without the header.
+							</li>
+					<li>
+				<a href="../../php-reader/ID3/ID3_Frame_RVAD.html#method_getData">ID3_Frame_RVAD::_getData()</a>
+								: Returns the frame raw data without the header.
+							</li>
+					<li>
+				<a href="../../php-reader/ID3/ID3_Frame_RVRB.html#method_getData">ID3_Frame_RVRB::_getData()</a>
+								: Returns the frame raw data without the header.
+							</li>
+					<li>
+				<a href="../../php-reader/ID3/ID3_Frame_SEEK.html#method_getData">ID3_Frame_SEEK::_getData()</a>
+								: Returns the frame raw data without the header.
+							</li>
+					<li>
+				<a href="../../php-reader/ID3/ID3_Frame_SIGN.html#method_getData">ID3_Frame_SIGN::_getData()</a>
+								: Returns the frame raw data without the header.
+							</li>
+					<li>
+				<a href="../../php-reader/ID3/ID3_Frame_SYLT.html#method_getData">ID3_Frame_SYLT::_getData()</a>
+								: Returns the frame raw data without the header.
+							</li>
+					<li>
+				<a href="../../php-reader/ID3/ID3_Frame_SYTC.html#method_getData">ID3_Frame_SYTC::_getData()</a>
+								: Returns the frame raw data without the header.
+							</li>
+					<li>
+				<a href="../../php-reader/ID3/ID3_Frame_Unknown.html#method_getData">ID3_Frame_Unknown::_getData()</a>
+								: Returns the frame raw data without the header.
+							</li>
+					<li>
+				<a href="../../php-reader/ID3/ID3_Frame_USER.html#method_getData">ID3_Frame_USER::_getData()</a>
+								: Returns the frame raw data without the header.
+							</li>
+					<li>
+				<a href="../../php-reader/ID3/ID3_Frame_USLT.html#method_getData">ID3_Frame_USLT::_getData()</a>
+								: Returns the frame raw data without the header.
+							</li>
+				</ul>
+	</div>
+<a name="method__toString" id="__toString"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">__toString</span> (line <span class="line-number">256</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the frame data with the header.</p>
 	<ul class="tags">
 				<li><span class="field">access:</span> public</li>
 			</ul>
@@ -881,135 +1012,13 @@
 			</div>
 	
 		
-			
 			<hr class="separator" />
-		<div class="notes">Redefined in descendants as:</div>
-		<ul class="redefinitions">
-					<li>
-				<a href="../../php-reader/ID3/ID3_Frame_AbstractLink.html#method__toString">ID3_Frame_AbstractLink::__toString()</a>
-								: Returns the frame raw data.
-							</li>
-					<li>
-				<a href="../../php-reader/ID3/ID3_Frame_WXXX.html#method__toString">ID3_Frame_WXXX::__toString()</a>
-								: Returns the frame raw data.
-							</li>
-					<li>
-				<a href="../../php-reader/ID3/ID3_Frame_AbstractText.html#method__toString">ID3_Frame_AbstractText::__toString()</a>
-								: Returns the frame raw data.
-							</li>
-					<li>
-				<a href="../../php-reader/ID3/ID3_Frame_TXXX.html#method__toString">ID3_Frame_TXXX::__toString()</a>
-								: Returns the frame raw data.
-							</li>
-					<li>
-				<a href="../../php-reader/ID3/ID3_Frame_AENC.html#method__toString">ID3_Frame_AENC::__toString()</a>
-								: Returns the frame raw data.
-							</li>
-					<li>
-				<a href="../../php-reader/ID3/ID3_Frame_APIC.html#method__toString">ID3_Frame_APIC::__toString()</a>
-								: Returns the frame raw data.
-							</li>
-					<li>
-				<a href="../../php-reader/ID3/ID3_Frame_COMM.html#method__toString">ID3_Frame_COMM::__toString()</a>
-								: Returns the frame raw data.
-							</li>
-					<li>
-				<a href="../../php-reader/ID3/ID3_Frame_COMR.html#method__toString">ID3_Frame_COMR::__toString()</a>
-								: Returns the frame raw data.
-							</li>
-					<li>
-				<a href="../../php-reader/ID3/ID3_Frame_ENCR.html#method__toString">ID3_Frame_ENCR::__toString()</a>
-								: Returns the frame raw data.
-							</li>
-					<li>
-				<a href="../../php-reader/ID3/ID3_Frame_EQU2.html#method__toString">ID3_Frame_EQU2::__toString()</a>
-								: Returns the frame raw data.
-							</li>
-					<li>
-				<a href="../../php-reader/ID3/ID3_Frame_EQUA.html#method__toString">ID3_Frame_EQUA::__toString()</a>
-								: Returns the frame raw data.
-							</li>
-					<li>
-				<a href="../../php-reader/ID3/ID3_Frame_ETCO.html#method__toString">ID3_Frame_ETCO::__toString()</a>
-								: Returns the frame raw data.
-							</li>
-					<li>
-				<a href="../../php-reader/ID3/ID3_Frame_GEOB.html#method__toString">ID3_Frame_GEOB::__toString()</a>
-								: Returns the frame raw data.
-							</li>
-					<li>
-				<a href="../../php-reader/ID3/ID3_Frame_GRID.html#method__toString">ID3_Frame_GRID::__toString()</a>
-								: Returns the frame raw data.
-							</li>
-					<li>
-				<a href="../../php-reader/ID3/ID3_Frame_IPLS.html#method__toString">ID3_Frame_IPLS::__toString()</a>
-								: Returns the frame raw data.
-							</li>
-					<li>
-				<a href="../../php-reader/ID3/ID3_Frame_LINK.html#method__toString">ID3_Frame_LINK::__toString()</a>
-								: Returns the frame raw data.
-							</li>
-					<li>
-				<a href="../../php-reader/ID3/ID3_Frame_OWNE.html#method__toString">ID3_Frame_OWNE::__toString()</a>
-								: Returns the frame raw data.
-							</li>
-					<li>
-				<a href="../../php-reader/ID3/ID3_Frame_PCNT.html#method__toString">ID3_Frame_PCNT::__toString()</a>
-								: Returns the frame raw data.
-							</li>
-					<li>
-				<a href="../../php-reader/ID3/ID3_Frame_POPM.html#method__toString">ID3_Frame_POPM::__toString()</a>
-								: Returns the frame raw data.
-							</li>
-					<li>
-				<a href="../../php-reader/ID3/ID3_Frame_POSS.html#method__toString">ID3_Frame_POSS::__toString()</a>
-								: Returns the frame raw data.
-							</li>
-					<li>
-				<a href="../../php-reader/ID3/ID3_Frame_PRIV.html#method__toString">ID3_Frame_PRIV::__toString()</a>
-								: Returns the frame raw data.
-							</li>
-					<li>
-				<a href="../../php-reader/ID3/ID3_Frame_RBUF.html#method__toString">ID3_Frame_RBUF::__toString()</a>
-								: Returns the frame raw data.
-							</li>
-					<li>
-				<a href="../../php-reader/ID3/ID3_Frame_RVA2.html#method__toString">ID3_Frame_RVA2::__toString()</a>
-								: Returns the frame raw data.
-							</li>
-					<li>
-				<a href="../../php-reader/ID3/ID3_Frame_RVAD.html#method__toString">ID3_Frame_RVAD::__toString()</a>
-								: Returns the frame raw data.
-							</li>
-					<li>
-				<a href="../../php-reader/ID3/ID3_Frame_RVRB.html#method__toString">ID3_Frame_RVRB::__toString()</a>
-								: Returns the frame raw data.
-							</li>
-					<li>
-				<a href="../../php-reader/ID3/ID3_Frame_SEEK.html#method__toString">ID3_Frame_SEEK::__toString()</a>
-								: Returns the frame raw data.
-							</li>
-					<li>
-				<a href="../../php-reader/ID3/ID3_Frame_SIGN.html#method__toString">ID3_Frame_SIGN::__toString()</a>
-								: Returns the frame raw data.
-							</li>
-					<li>
-				<a href="../../php-reader/ID3/ID3_Frame_SYLT.html#method__toString">ID3_Frame_SYLT::__toString()</a>
-								: Returns the frame raw data.
-							</li>
-					<li>
-				<a href="../../php-reader/ID3/ID3_Frame_SYTC.html#method__toString">ID3_Frame_SYTC::__toString()</a>
-								: Returns the frame raw data.
-							</li>
-					<li>
-				<a href="../../php-reader/ID3/ID3_Frame_USER.html#method__toString">ID3_Frame_USER::__toString()</a>
-								: Returns the frame raw data.
-							</li>
-					<li>
-				<a href="../../php-reader/ID3/ID3_Frame_USLT.html#method__toString">ID3_Frame_USLT::__toString()</a>
-								: Returns the frame raw data.
-							</li>
-				</ul>
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../../php-reader/ID3/ID3_Object.html#method__toString">ID3_Object::__toString()</a></dt>
+						<dd>Returns the object data.</dd>
+					</dl>
+			
 	</div>
 							<h4>Inherited Methods</h4>
 				<a name='inherited_methods'><!-- --></a>	
@@ -1017,19 +1026,20 @@
 					<p>Inherited From <span class="classname"><a href="../../php-reader/ID3/ID3_Object.html">ID3_Object</a></span></p>
 					<blockquote>
 													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#method__construct">ID3_Object::__construct()</a></span><br>
-													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#methodconvertString">ID3_Object::convertString()</a></span><br>
-													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#methoddecodeSynchsafe32">ID3_Object::decodeSynchsafe32()</a></span><br>
-													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#methoddecodeUnsynchronisation">ID3_Object::decodeUnsynchronisation()</a></span><br>
-													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#methodencodeSynchsafe32">ID3_Object::encodeSynchsafe32()</a></span><br>
-													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#methodencodeUnsynchronisation">ID3_Object::encodeUnsynchronisation()</a></span><br>
-													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#methodexplodeString8">ID3_Object::explodeString8()</a></span><br>
-													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#methodexplodeString16">ID3_Object::explodeString16()</a></span><br>
 													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#methodgetOption">ID3_Object::getOption()</a></span><br>
 													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#methodgetOptions">ID3_Object::getOptions()</a></span><br>
 													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#methodsetOption">ID3_Object::setOption()</a></span><br>
 													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#methodsetOptions">ID3_Object::setOptions()</a></span><br>
+													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#method_convertString">ID3_Object::_convertString()</a></span><br>
+													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#method_decodeSynchsafe32">ID3_Object::_decodeSynchsafe32()</a></span><br>
+													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#method_decodeUnsynchronisation">ID3_Object::_decodeUnsynchronisation()</a></span><br>
+													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#method_encodeSynchsafe32">ID3_Object::_encodeSynchsafe32()</a></span><br>
+													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#method_encodeUnsynchronisation">ID3_Object::_encodeUnsynchronisation()</a></span><br>
+													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#method_explodeString8">ID3_Object::_explodeString8()</a></span><br>
+													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#method_explodeString16">ID3_Object::_explodeString16()</a></span><br>
 													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#method__get">ID3_Object::__get()</a></span><br>
 													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#method__set">ID3_Object::__set()</a></span><br>
+													<span class="method-name"><a href="../../php-reader/ID3/ID3_Object.html#method__toString">ID3_Object::__toString()</a></span><br>
 											</blockquote>
 										
 		</div>
@@ -1051,14 +1061,14 @@
 					</div>
 		<div class="info-box-body">
 			<a name="constCOMPRESSION" id="COMPRESSION"><!-- --></A>
-<div class="oddrow">
+<div class="evenrow">
 
 	<div class="const-header">
 		<img src="../../media/images/Variable.png" />
 		<span class="const-title">
 			<span class="const-name">COMPRESSION</span>
 			 = <span class="const-default"> 8</span>
-			(line <span class="line-number">90</span>)
+			(line <span class="line-number">91</span>)
 		</span>
 	</div>
 
@@ -1072,14 +1082,14 @@
 	
 </div>
 <a name="constDATA_LENGTH_INDICATOR" id="DATA_LENGTH_INDICATOR"><!-- --></A>
-<div class="evenrow">
+<div class="oddrow">
 
 	<div class="const-header">
 		<img src="../../media/images/Variable.png" />
 		<span class="const-title">
 			<span class="const-name">DATA_LENGTH_INDICATOR</span>
 			 = <span class="const-default"> 1</span>
-			(line <span class="line-number">118</span>)
+			(line <span class="line-number">119</span>)
 		</span>
 	</div>
 
@@ -1092,14 +1102,14 @@
 	
 </div>
 <a name="constDISCARD_ON_FILECHANGE" id="DISCARD_ON_FILECHANGE"><!-- --></A>
-<div class="oddrow">
+<div class="evenrow">
 
 	<div class="const-header">
 		<img src="../../media/images/Variable.png" />
 		<span class="const-title">
 			<span class="const-name">DISCARD_ON_FILECHANGE</span>
 			 = <span class="const-default"> 8192</span>
-			(line <span class="line-number">68</span>)
+			(line <span class="line-number">69</span>)
 		</span>
 	</div>
 
@@ -1109,14 +1119,14 @@
 	
 </div>
 <a name="constDISCARD_ON_TAGCHANGE" id="DISCARD_ON_TAGCHANGE"><!-- --></A>
-<div class="evenrow">
+<div class="oddrow">
 
 	<div class="const-header">
 		<img src="../../media/images/Variable.png" />
 		<span class="const-title">
 			<span class="const-name">DISCARD_ON_TAGCHANGE</span>
 			 = <span class="const-default"> 16384</span>
-			(line <span class="line-number">61</span>)
+			(line <span class="line-number">62</span>)
 		</span>
 	</div>
 
@@ -1126,14 +1136,14 @@
 	
 </div>
 <a name="constENCRYPTION" id="ENCRYPTION"><!-- --></A>
-<div class="oddrow">
+<div class="evenrow">
 
 	<div class="const-header">
 		<img src="../../media/images/Variable.png" />
 		<span class="const-title">
 			<span class="const-name">ENCRYPTION</span>
 			 = <span class="const-default"> 4</span>
-			(line <span class="line-number">102</span>)
+			(line <span class="line-number">103</span>)
 		</span>
 	</div>
 
@@ -1147,14 +1157,14 @@
 	
 </div>
 <a name="constGROUPING_IDENTITY" id="GROUPING_IDENTITY"><!-- --></A>
-<div class="evenrow">
+<div class="oddrow">
 
 	<div class="const-header">
 		<img src="../../media/images/Variable.png" />
 		<span class="const-title">
 			<span class="const-name">GROUPING_IDENTITY</span>
 			 = <span class="const-default"> 32</span>
-			(line <span class="line-number">82</span>)
+			(line <span class="line-number">83</span>)
 		</span>
 	</div>
 
@@ -1164,14 +1174,14 @@
 	
 </div>
 <a name="constREAD_ONLY" id="READ_ONLY"><!-- --></A>
-<div class="oddrow">
+<div class="evenrow">
 
 	<div class="const-header">
 		<img src="../../media/images/Variable.png" />
 		<span class="const-title">
 			<span class="const-name">READ_ONLY</span>
 			 = <span class="const-default"> 4096</span>
-			(line <span class="line-number">75</span>)
+			(line <span class="line-number">76</span>)
 		</span>
 	</div>
 
@@ -1181,14 +1191,14 @@
 	
 </div>
 <a name="constUNSYNCHRONISATION" id="UNSYNCHRONISATION"><!-- --></A>
-<div class="evenrow">
+<div class="oddrow">
 
 	<div class="const-header">
 		<img src="../../media/images/Variable.png" />
 		<span class="const-title">
 			<span class="const-name">UNSYNCHRONISATION</span>
 			 = <span class="const-default"> 2</span>
-			(line <span class="line-number">110</span>)
+			(line <span class="line-number">111</span>)
 		</span>
 	</div>
 
@@ -1200,12 +1210,12 @@
 	
 	
 </div>
-						
+						
 		</div>
 	</div>
 
 	<p class="notes" id="credit">
-		Documentation generated on Thu, 01 Jan 2009 14:59:16 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.1</a>
+		Documentation generated on Thu, 02 Apr 2009 19:54:23 +0300 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.2</a>
 	</p>
 	</div></body>
-</html>
+</html>
