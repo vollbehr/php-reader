@@ -32,17 +32,17 @@
  * @subpackage Tests
  * @copyright  Copyright (c) 2008 The PHP Reader Project Workgroup
  * @license    http://code.google.com/p/php-reader/wiki/License New BSD License
- * @version    $Id: TestAll.php 107 2008-08-03 19:09:16Z svollbehr $
+ * @version    $Id: TestAll.php 179 2010-03-09 14:36:37Z svollbehr $
  */
 
 /**#@+ @ignore */
-require_once("PHPUnit/Framework.php");
-require_once("PHPUnit/TextUI/TestRunner.php");
+require_once 'PHPUnit/Framework.php';
+require_once 'PHPUnit/TextUI/TestRunner.php';
 
-ini_set("include_path", ini_get("include_path") . PATH_SEPARATOR . "../src/");
-ini_set("memory_limit", "16M");
+ini_set('include_path', ini_get('include_path') . PATH_SEPARATOR . '../src/');
+ini_set('memory_limit', '32M');
 
-$suite = new PHPUnit_Framework_TestSuite("PHP Reader");
+$suite = new PHPUnit_Framework_TestSuite('PHP Reader');
 
 $dir = opendir(dirname(__FILE__));
 while (($file = readdir($dir)) !== false) {
