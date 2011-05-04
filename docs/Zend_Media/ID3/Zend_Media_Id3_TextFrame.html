@@ -37,7 +37,7 @@
 	<ul class="tags">
 				<li><span class="field">author:</span> Ryan Butterfield &lt;<a href="mailto:buttza@gmail.com">buttza@gmail.com</a>&gt;</li>
 				<li><span class="field">author:</span> Sven Vollbehr &lt;<a href="mailto:sven@vollbehr.eu">sven@vollbehr.eu</a>&gt;</li>
-				<li><span class="field">version:</span> $Id: TextFrame.php 177 2010-03-09 13:13:34Z svollbehr $</li>
+				<li><span class="field">version:</span> $Id: TextFrame.php 203 2010-10-14 05:42:20Z svollbehr $</li>
 				<li><span class="field">copyright:</span> Copyright (c) 2005-2009 Zend Technologies USA Inc. (http://www.zend.com)</li>
 				<li><span class="field">abstract:</span> </li>
 				<li><span class="field">license:</span> <a href="http://framework.zend.com/license/new-bsd">New BSD License</a></li>
@@ -488,10 +488,34 @@
 								 alt=" class"
 								 title=" class"
 								 style="vertical-align: center"/>
+						<a href="../../Zend_Media/ID3/Zend_Media_Id3_Frame_Tso2.html">Zend_Media_Id3_Frame_Tso2</a>
+					</td>
+					<td>
+											This non-standard frame is used by iTunes in ID3v2.3.0 for sorting the names of the  Album Artist(s) of a track, that specified in the &quot;TPE1&quot; frame.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; white-space: nowrap">
+						<img src="../../media/images/Class.png"
+								 alt=" class"
+								 title=" class"
+								 style="vertical-align: center"/>
 						<a href="../../Zend_Media/ID3/Zend_Media_Id3_Frame_Tsoa.html">Zend_Media_Id3_Frame_Tsoa</a>
 					</td>
 					<td>
 											The <em>Album sort order</em> frame defines a string which should be used  instead of the <a href="../../Zend_Media/ID3/Zend_Media_Id3_Frame_Talb.html">TALB</a> album name frame for  sorting purposes.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; white-space: nowrap">
+						<img src="../../media/images/Class.png"
+								 alt=" class"
+								 title=" class"
+								 style="vertical-align: center"/>
+						<a href="../../Zend_Media/ID3/Zend_Media_Id3_Frame_Tsoc.html">Zend_Media_Id3_Frame_Tsoc</a>
+					</td>
+					<td>
+											This non-standard frame is used by iTunes in ID3v2.3.0 for sorting the names of the  Composer(s) of a track, which is/are specified in the &quot;TCOM&quot; frame.
 										</td>
 				</tr>
 								<tr>
@@ -853,7 +877,7 @@
 	
 	<!-- ========== Info from phpDoc block ========= -->
 <p class="short-description">Returns the text encoding.</p>
-<p class="description"><p>All the strings read from a file are automatically converted to the  character encoding specified with the <var>encoding</var> option. See  <a href="../../Zend_Media/ID3/Zend_Media_Id3v2.html">Zend_Media_Id3v2</a> for details. This method returns that character  encoding, or any value set after read, translated into a string form  regarless if it was set using a <a href="../../Zend_Media/ID3/Zend_Media_Id3_Encoding.html">Zend_Media_Id3_Encoding</a> constant  or a string.</p></p>
+<p class="description"><p>All the strings read from a file are automatically converted to the  character encoding specified with the <var>encoding</var> option. See  <a href="../../Zend_Media/ID3/Zend_Media_Id3v2.html">Zend_Media_Id3v2</a> for details. This method returns that character  encoding, or any value set after read, translated into a string form  regardless if it was set using a <a href="../../Zend_Media/ID3/Zend_Media_Id3_Encoding.html">Zend_Media_Id3_Encoding</a> constant  or a string.</p></p>
 	<ul class="tags">
 				<li><span class="field">access:</span> public</li>
 			</ul>
@@ -1177,7 +1201,7 @@
 	</div>
 	
 	<p class="notes" id="credit">
-		Documentation generated on Tue, 09 Mar 2010 16:58:59 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+		Documentation generated on Wed, 04 May 2011 08:36:59 +0300 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
 	</p>
 	</div></body>
 </html>

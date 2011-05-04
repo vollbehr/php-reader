@@ -17,7 +17,7 @@
  * @subpackage ID3
  * @copyright  Copyright (c) 2005-2009 Zend Technologies USA Inc. (http://www.zend.com) 
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
- * @version    $Id: Header.php 177 2010-03-09 13:13:34Z svollbehr $
+ * @version    $Id: Header.php 216 2011-05-02 14:59:16Z svollbehr $
  */
 
 /**#@+ @ignore */
@@ -34,7 +34,7 @@ require_once 'Zend/Media/Id3/Object.php';
  * @author     Sven Vollbehr <sven@vollbehr.eu>
  * @copyright  Copyright (c) 2005-2009 Zend Technologies USA Inc. (http://www.zend.com) 
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
- * @version    $Id: Header.php 177 2010-03-09 13:13:34Z svollbehr $
+ * @version    $Id: Header.php 216 2011-05-02 14:59:16Z svollbehr $
  */
 final class Zend_Media_Id3_Header extends Zend_Media_Id3_Object
 {
@@ -81,10 +81,9 @@ final class Zend_Media_Id3_Header extends Zend_Media_Id3_Object
             return;
 
         $this->_version = $options['version'] =
-            $this->_reader->readInt8() + $this->_reader->readInt8() / 10;
-        $this->_flags = $this->_reader->readInt8();
-        $this->_size =
-            $this->_decodeSynchsafe32($this->_reader->readUInt32BE());
+            $this->_reader->readUInt8() + $this->_reader->readUInt8() / 10;
+        $this->_flags = $this->_reader->readUInt8();
+        $this->_size = $this->_decodeSynchsafe32($this->_reader->readUInt32BE());
     }
 
     /**
@@ -171,9 +170,9 @@ final class Zend_Media_Id3_Header extends Zend_Media_Id3_Object
      */
     public function write($writer)
     {
-        $writer->writeInt8(floor($this->_version))
-               ->writeInt8(($this->_version - floor($this->_version)) * 10)
-               ->writeInt8($this->_flags)
+        $writer->writeUInt8(floor($this->_version))
+               ->writeUInt8(($this->_version - floor($this->_version)) * 10)
+               ->writeUInt8($this->_flags)
                ->writeUInt32BE($this->_encodeSynchsafe32($this->_size));
     }
 }

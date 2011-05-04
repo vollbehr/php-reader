@@ -33,7 +33,7 @@
 				<li><span class="field">author:</span> Marc Bennewitz &lt;<a href="mailto:marc-bennewitz@arcor.de">marc-bennewitz@arcor.de</a>&gt;</li>
 				<li><span class="field">author:</span> Sven Vollbehr &lt;<a href="mailto:sven@vollbehr.eu">sven@vollbehr.eu</a>&gt;</li>
 				<li><span class="field">author:</span> Ryan Butterfield &lt;<a href="mailto:buttza@gmail.com">buttza@gmail.com</a>&gt;</li>
-				<li><span class="field">version:</span> $Id: Reader.php 177 2010-03-09 13:13:34Z svollbehr $</li>
+				<li><span class="field">version:</span> $Id: Reader.php 214 2011-04-30 08:19:28Z svollbehr $</li>
 				<li><span class="field">copyright:</span> Copyright (c) 2005-2010 Zend Technologies USA Inc. (http://www.zend.com)</li>
 				<li><span class="field">license:</span> <a href="http://framework.zend.com/license/new-bsd">New BSD License</a></li>
 			</ul>
@@ -172,7 +172,7 @@
 		</div>
 		<div class="info-box-body">			
 			<div class="method-summary">
-																																																																																																																																																																																																																																																																																																																																<div class="method-definition">
+																																																																																																																																																																																																																																																																																																																																																																																<div class="method-definition">
 					<img src="../media/images/Constructor.png" alt=" "/>
 											<span class="method-result">Zend_Io_Reader</span>
 										<a href="#__construct" title="details" class="method-name">__construct</a>
@@ -283,6 +283,24 @@
 																<div class="method-definition">
 					<img src="../media/images/Method.png" alt=" "/>
 											<span class="method-result">integer</span>
+										<a href="#readInt24" title="details" class="method-name">readInt24</a>
+										()
+									</div>
+																<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">integer</span>
+										<a href="#readInt24BE" title="details" class="method-name">readInt24BE</a>
+										()
+									</div>
+																<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">integer</span>
+										<a href="#readInt24LE" title="details" class="method-name">readInt24LE</a>
+										()
+									</div>
+																<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">integer</span>
 										<a href="#readInt32" title="details" class="method-name">readInt32</a>
 										()
 									</div>
@@ -350,6 +368,24 @@
 					<img src="../media/images/Method.png" alt=" "/>
 											<span class="method-result">integer</span>
 										<a href="#readUInt16LE" title="details" class="method-name">readUInt16LE</a>
+										()
+									</div>
+																<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">integer</span>
+										<a href="#readUInt24" title="details" class="method-name">readUInt24</a>
+										()
+									</div>
+																<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">integer</span>
+										<a href="#readUInt24BE" title="details" class="method-name">readUInt24BE</a>
+										()
+									</div>
+																<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">integer</span>
+										<a href="#readUInt24LE" title="details" class="method-name">readUInt24LE</a>
 										()
 									</div>
 																<div class="method-definition">
@@ -594,7 +630,7 @@
 	
 	<div class="method-header">
 		<img src="../media/images/Method.png" />
-		<span class="method-title">close</span> (line <span class="line-number">709</span>)
+		<span class="method-title">close</span> (line <span class="line-number">817</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -726,7 +762,7 @@
 	
 	<div class="method-header">
 		<img src="../media/images/Method.png" />
-		<span class="method-title">readDoubleBE</span> (line <span class="line-number">565</span>)
+		<span class="method-title">readDoubleBE</span> (line <span class="line-number">673</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -752,7 +788,7 @@
 	
 	<div class="method-header">
 		<img src="../media/images/Method.png" />
-		<span class="method-title">readDoubleLE</span> (line <span class="line-number">549</span>)
+		<span class="method-title">readDoubleLE</span> (line <span class="line-number">657</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -778,7 +814,7 @@
 	
 	<div class="method-header">
 		<img src="../media/images/Method.png" />
-		<span class="method-title">readFloatBE</span> (line <span class="line-number">520</span>)
+		<span class="method-title">readFloatBE</span> (line <span class="line-number">628</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -804,7 +840,7 @@
 	
 	<div class="method-header">
 		<img src="../media/images/Method.png" />
-		<span class="method-title">readFloatLE</span> (line <span class="line-number">504</span>)
+		<span class="method-title">readFloatLE</span> (line <span class="line-number">612</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -830,7 +866,7 @@
 	
 	<div class="method-header">
 		<img src="../media/images/Method.png" />
-		<span class="method-title">readGuid</span> (line <span class="line-number">671</span>)
+		<span class="method-title">readGuid</span> (line <span class="line-number">779</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -856,7 +892,7 @@
 	
 	<div class="method-header">
 		<img src="../media/images/Method.png" />
-		<span class="method-title">readHHex</span> (line <span class="line-number">643</span>)
+		<span class="method-title">readHHex</span> (line <span class="line-number">751</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -986,12 +1022,90 @@
 		
 			
 	</div>
-<a name="methodreadInt32" id="readInt32"><!-- --></a>
+<a name="methodreadInt24" id="readInt24"><!-- --></a>
 <div class="evenrow">
 	
 	<div class="method-header">
 		<img src="../media/images/Method.png" />
-		<span class="method-title">readInt32</span> (line <span class="line-number">389</span>)
+		<span class="method-title">readInt24</span> (line <span class="line-number">391</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Reads 3 bytes from the stream and returns machine ordered binary data  as signed 24-bit integer.</p>
+	<ul class="tags">
+				<li><span class="field">throws:</span> Zend_Io_Exception if an I/O error occurs</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">integer</span>
+		<span class="method-name">
+			readInt24
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodreadInt24BE" id="readInt24BE"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">readInt24BE</span> (line <span class="line-number">375</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Reads 3 bytes from the stream and returns big-endian ordered binary data  as signed 24-bit integer.</p>
+	<ul class="tags">
+				<li><span class="field">throws:</span> Zend_Io_Exception if an I/O error occurs</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">integer</span>
+		<span class="method-name">
+			readInt24BE
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodreadInt24LE" id="readInt24LE"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">readInt24LE</span> (line <span class="line-number">359</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Reads 3 bytes from the stream and returns little-endian ordered binary  data as signed 24-bit integer.</p>
+	<ul class="tags">
+				<li><span class="field">throws:</span> Zend_Io_Exception if an I/O error occurs</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">integer</span>
+		<span class="method-name">
+			readInt24LE
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodreadInt32" id="readInt32"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">readInt32</span> (line <span class="line-number">497</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1013,11 +1127,11 @@
 			
 	</div>
 <a name="methodreadInt32BE" id="readInt32BE"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
 		<img src="../media/images/Method.png" />
-		<span class="method-title">readInt32BE</span> (line <span class="line-number">374</span>)
+		<span class="method-title">readInt32BE</span> (line <span class="line-number">482</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1039,11 +1153,11 @@
 			
 	</div>
 <a name="methodreadInt32LE" id="readInt32LE"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
 		<img src="../media/images/Method.png" />
-		<span class="method-title">readInt32LE</span> (line <span class="line-number">359</span>)
+		<span class="method-title">readInt32LE</span> (line <span class="line-number">467</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1065,11 +1179,11 @@
 			
 	</div>
 <a name="methodreadInt64BE" id="readInt64BE"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
 		<img src="../media/images/Method.png" />
-		<span class="method-title">readInt64BE</span> (line <span class="line-number">477</span>)
+		<span class="method-title">readInt64BE</span> (line <span class="line-number">585</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1092,11 +1206,11 @@
 			
 	</div>
 <a name="methodreadInt64LE" id="readInt64LE"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
 		<img src="../media/images/Method.png" />
-		<span class="method-title">readInt64LE</span> (line <span class="line-number">459</span>)
+		<span class="method-title">readInt64LE</span> (line <span class="line-number">567</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1119,11 +1233,11 @@
 			
 	</div>
 <a name="methodreadLHex" id="readLHex"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
 		<img src="../media/images/Method.png" />
-		<span class="method-title">readLHex</span> (line <span class="line-number">658</span>)
+		<span class="method-title">readLHex</span> (line <span class="line-number">766</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1150,11 +1264,11 @@
 			
 	</div>
 <a name="methodreadString8" id="readString8"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
 		<img src="../media/images/Method.png" />
-		<span class="method-title">readString8</span> (line <span class="line-number">584</span>)
+		<span class="method-title">readString8</span> (line <span class="line-number">692</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1184,11 +1298,11 @@
 			
 	</div>
 <a name="methodreadString16" id="readString16"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
 		<img src="../media/images/Method.png" />
-		<span class="method-title">readString16</span> (line <span class="line-number">605</span>)
+		<span class="method-title">readString16</span> (line <span class="line-number">713</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1225,7 +1339,7 @@
 			
 	</div>
 <a name="methodreadUInt8" id="readUInt8"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
 		<img src="../media/images/Method.png" />
@@ -1251,7 +1365,7 @@
 			
 	</div>
 <a name="methodreadUInt16" id="readUInt16"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
 		<img src="../media/images/Method.png" />
@@ -1277,7 +1391,7 @@
 			
 	</div>
 <a name="methodreadUInt16BE" id="readUInt16BE"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
 		<img src="../media/images/Method.png" />
@@ -1303,7 +1417,7 @@
 			
 	</div>
 <a name="methodreadUInt16LE" id="readUInt16LE"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
 		<img src="../media/images/Method.png" />
@@ -1328,12 +1442,90 @@
 		
 			
 	</div>
+<a name="methodreadUInt24" id="readUInt24"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">readUInt24</span> (line <span class="line-number">443</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Reads 3 bytes from the stream and returns machine ordered binary data  as unsigned 24-bit integer.</p>
+	<ul class="tags">
+				<li><span class="field">throws:</span> Zend_Io_Exception if an I/O error occurs</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">integer</span>
+		<span class="method-name">
+			readUInt24
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodreadUInt24BE" id="readUInt24BE"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">readUInt24BE</span> (line <span class="line-number">431</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Reads 3 bytes from the stream and returns big-endian ordered binary data  as unsigned 24-bit integer.</p>
+	<ul class="tags">
+				<li><span class="field">throws:</span> Zend_Io_Exception if an I/O error occurs</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">integer</span>
+		<span class="method-name">
+			readUInt24BE
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodreadUInt24LE" id="readUInt24LE"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">readUInt24LE</span> (line <span class="line-number">419</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Reads 3 bytes from the stream and returns little-endian ordered binary  data as unsigned 24-bit integer.</p>
+	<ul class="tags">
+				<li><span class="field">throws:</span> Zend_Io_Exception if an I/O error occurs</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">integer</span>
+		<span class="method-name">
+			readUInt24LE
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
 <a name="methodreadUInt32" id="readUInt32"><!-- --></a>
 <div class="evenrow">
 	
 	<div class="method-header">
 		<img src="../media/images/Method.png" />
-		<span class="method-title">readUInt32</span> (line <span class="line-number">437</span>)
+		<span class="method-title">readUInt32</span> (line <span class="line-number">545</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1359,7 +1551,7 @@
 	
 	<div class="method-header">
 		<img src="../media/images/Method.png" />
-		<span class="method-title">readUInt32BE</span> (line <span class="line-number">419</span>)
+		<span class="method-title">readUInt32BE</span> (line <span class="line-number">527</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1385,7 +1577,7 @@
 	
 	<div class="method-header">
 		<img src="../media/images/Method.png" />
-		<span class="method-title">readUInt32LE</span> (line <span class="line-number">401</span>)
+		<span class="method-title">readUInt32LE</span> (line <span class="line-number">509</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1411,7 +1603,7 @@
 	
 	<div class="method-header">
 		<img src="../media/images/Method.png" />
-		<span class="method-title">reset</span> (line <span class="line-number">693</span>)
+		<span class="method-title">reset</span> (line <span class="line-number">801</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1499,7 +1691,7 @@
 	
 	<div class="method-header">
 		<img src="../media/images/Method.png" />
-		<span class="method-title">__get</span> (line <span class="line-number">757</span>)
+		<span class="method-title">__get</span> (line <span class="line-number">865</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1529,7 +1721,7 @@
 	
 	<div class="method-header">
 		<img src="../media/images/Method.png" />
-		<span class="method-title">__set</span> (line <span class="line-number">775</span>)
+		<span class="method-title">__set</span> (line <span class="line-number">883</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1629,7 +1821,7 @@
 	</div>
 	
 	<p class="notes" id="credit">
-		Documentation generated on Tue, 09 Mar 2010 16:58:50 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+		Documentation generated on Wed, 04 May 2011 08:36:54 +0300 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
 	</p>
 	</div></body>
 </html>

@@ -14,9 +14,10 @@
  *
  * @category   Zend
  * @package    Zend_Mime
+ * @subpackage Magic
  * @copyright  Copyright (c) 2005-2009 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
- * @version    $Id: Magic.php 177 2010-03-09 13:13:34Z svollbehr $
+ * @version    $Id: Magic.php 193 2010-04-08 14:46:41Z svollbehr $
  */
 
 /**#@+ @ignore */
@@ -56,10 +57,11 @@ require_once 'Zend/Io/FileReader.php';
  *
  * @category   Zend
  * @package    Zend_Mime
+ * @subpackage Magic
  * @author     Sven Vollbehr <sven@vollbehr.eu>
  * @copyright  Copyright (c) 2005-2010 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
- * @version    $Id: Magic.php 177 2010-03-09 13:13:34Z svollbehr $
+ * @version    $Id: Magic.php 193 2010-04-08 14:46:41Z svollbehr $
  */
 final class Zend_Mime_Magic
 {

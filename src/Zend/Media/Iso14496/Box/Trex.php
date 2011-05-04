@@ -29,7 +29,7 @@
  * @subpackage ISO14496
  * @copyright  Copyright (c) 2005-2009 Zend Technologies USA Inc. (http://www.zend.com) 
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
- * @version    $Id: Trex.php 177 2010-03-09 13:13:34Z svollbehr $
+ * @version    $Id: Trex.php 212 2011-04-30 06:14:16Z svollbehr $
  */
 
 /**#@+ @ignore */
@@ -47,7 +47,7 @@ require_once 'Zend/Media/Iso14496/FullBox.php';
  * @author     Sven Vollbehr <sven@vollbehr.eu>
  * @copyright  Copyright (c) 2005-2009 Zend Technologies USA Inc. (http://www.zend.com) 
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
- * @version    $Id: Trex.php 177 2010-03-09 13:13:34Z svollbehr $
+ * @version    $Id: Trex.php 212 2011-04-30 06:14:16Z svollbehr $
  */
 final class Zend_Media_Iso14496_Box_Trex extends Zend_Media_Iso14496_FullBox
 {
@@ -120,7 +120,7 @@ final class Zend_Media_Iso14496_Box_Trex extends Zend_Media_Iso14496_FullBox
      *
      * @param integer $defaultSampleDescriptionIndex The description index.
      */
-    public function getDefaultSampleDescriptionIndex
+    public function setDefaultSampleDescriptionIndex
         ($defaultSampleDescriptionIndex)
     {
         $this->_defaultSampleDescriptionIndex = $defaultSampleDescriptionIndex;

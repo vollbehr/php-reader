@@ -17,7 +17,7 @@
  * @subpackage ID3
  * @copyright  Copyright (c) 2005-2009 Zend Technologies USA Inc. (http://www.zend.com) 
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
- * @version    $Id: Apic.php 177 2010-03-09 13:13:34Z svollbehr $
+ * @version    $Id: Apic.php 215 2011-04-30 10:37:09Z svollbehr $
  */
 
 /**#@+ @ignore */
@@ -40,7 +40,7 @@ require_once 'Zend/Media/Id3/Encoding.php';
  * @author     Ryan Butterfield <buttza@gmail.com>
  * @copyright  Copyright (c) 2005-2009 Zend Technologies USA Inc. (http://www.zend.com) 
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
- * @version    $Id: Apic.php 177 2010-03-09 13:13:34Z svollbehr $
+ * @version    $Id: Apic.php 215 2011-04-30 10:37:09Z svollbehr $
  */
 final class Zend_Media_Id3_Frame_Apic extends Zend_Media_Id3_Frame
     implements Zend_Media_Id3_Encoding
@@ -285,6 +285,6 @@ final class Zend_Media_Id3_Frame_Apic extends Zend_Media_Id3_Frame
                 $writer->writeString8($this->_description, 1);
                 break;
         }
-        $writer->writeString8($this->_imageData);
+        $writer->write($this->_imageData);
     }
 }

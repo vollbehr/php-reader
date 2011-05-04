@@ -17,7 +17,7 @@
  * @subpackage MPEG
  * @copyright  Copyright (c) 2005-2010 Zend Technologies USA Inc. (http://www.zend.com) 
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
- * @version    $Id: Abs.php 177 2010-03-09 13:13:34Z svollbehr $
+ * @version    $Id: Abs.php 208 2010-12-28 13:48:09Z svollbehr $
  */
 
 /**#@+ @ignore */
@@ -44,7 +44,7 @@ require_once 'Zend/Media/Mpeg/Abs/Frame.php';
  * @author     Sven Vollbehr <sven@vollbehr.eu>
  * @copyright  Copyright (c) 2005-2010 Zend Technologies USA Inc. (http://www.zend.com) 
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
- * @version    $Id: Abs.php 177 2010-03-09 13:13:34Z svollbehr $
+ * @version    $Id: Abs.php 208 2010-12-28 13:48:09Z svollbehr $
  * @todo       Implement validation routines
  */
 final class Zend_Media_Mpeg_Abs extends Zend_Media_Mpeg_Abs_Object
@@ -139,13 +139,43 @@ final class Zend_Media_Mpeg_Abs extends Zend_Media_Mpeg_Abs_Object
         }
         $this->_reader->setOffset($offset);
 
-        /* Skip ID3v2 tag */
-        if ($this->_reader->readString8(3) == 'ID3') {
+        /* Skip ID3v2 tags (some files errorneusly contain multiple tags) */
+        while ($this->_reader->readString8(3) == 'ID3') {
             require_once 'Zend/Media/Id3/Header.php';
             $header = new Zend_Media_Id3_Header($this->_reader);
             $this->_reader->skip
                 ($header->getSize() +
                  ($header->hasFlag(Zend_Media_Id3_Header::FOOTER) ? 10 : 0));
+            $offset = $this->_reader->getOffset();
+        }
+        $this->_reader->setOffset($offset);
+
+        /* Check whether the ABS is contained within a RIFF chunk */
+        $offset = $this->_reader->getOffset();
+
+        if ($this->_reader->readString8(4) == 'RIFF') {
+            $riffSize = $this->_reader->readUInt32LE();
+            $riffType = $this->_reader->read(4); // WAVE
+
+            while ($this->_reader->getOffset() < $offset + 8 + $riffSize - 1) {
+                $chunkId = $this->_reader->read(4);
+                $chunkSize = $this->_reader->readUInt32LE();
+
+                if ($chunkId == 'fmt ') {
+                    if ($this->_reader->readInt16LE() != 85) { // 85: MPEG-1 Layer 3 Codec
+                        require_once 'Zend/Media/Mpeg/Exception.php';
+                        throw new Zend_Media_Mpeg_Exception
+                            ('File does not contain a valid MPEG Audio Bit Stream (Contains RIFF with no MPEG ABS)');
+                    } else {
+                        $this->_reader->skip($chunkSize - 2);
+                    }
+                } else if ($chunkId == 'data') {
+                    $offset = $this->_reader->getOffset();
+                    break;
+                } else {
+                    $this->_reader->skip($chunkSize);
+                }
+            }
         } else {
             $this->_reader->setOffset($offset);
         }
@@ -196,8 +226,9 @@ final class Zend_Media_Mpeg_Abs extends Zend_Media_Mpeg_Abs_Object
 
         /* Read necessary frames */
         if ($this->getOption('readmode', 'lazy') == 'lazy') {
-            if (($header = $this->_xingHeader) !== null ||
-                    ($header = $this->_vbriHeader) !== null) {
+            if ((($header = $this->_xingHeader) !== null ||
+                 ($header = $this->_vbriHeader) !== null) &&
+                 $header->getFrames() != 0) {
                 $this->_estimatedPlayDuration = $header->getFrames() *
                     $firstFrame->getSamples() /
                     $firstFrame->getSamplingFrequency();
@@ -240,7 +271,7 @@ final class Zend_Media_Mpeg_Abs extends Zend_Media_Mpeg_Abs_Object
      */
     public function hasXingHeader() 
     {
-        return $this->_xingHeader === null; 
+        return $this->_xingHeader !== null;
     }
 
     /**
@@ -262,7 +293,7 @@ final class Zend_Media_Mpeg_Abs extends Zend_Media_Mpeg_Abs_Object
      */
     public function hasLameHeader() 
     {
-        return $this->_lameHeader === null; 
+        return $this->_lameHeader !== null;
     }
 
     /**
@@ -277,14 +308,14 @@ final class Zend_Media_Mpeg_Abs extends Zend_Media_Mpeg_Abs_Object
     }
 
     /**
-     * Returns <var>true</var> if the audio bitstream contains the Fraunhofer IIS
-     * VBR header, or <var>false</var> otherwise.
+     * Returns <var>true</var> if the audio bitstream contains the Fraunhofer
+     * IIS VBR header, or <var>false</var> otherwise.
      *
      * @return boolean
      */
     public function hasVbriHeader() 
     {
-        return $this->_vbriHeader === null; 
+        return $this->_vbriHeader !== null;
     }
 
     /**
@@ -299,8 +330,8 @@ final class Zend_Media_Mpeg_Abs extends Zend_Media_Mpeg_Abs_Object
     }
 
     /**
-     * Returns the bitrate estimate. This value is either fetched from one of the
-     * headers or calculated based on the read frames.
+     * Returns the bitrate estimate. This value is either fetched from one of
+     * the headers or calculated based on the read frames.
      *
      * @return integer
      */
@@ -310,8 +341,8 @@ final class Zend_Media_Mpeg_Abs extends Zend_Media_Mpeg_Abs_Object
     }
 
     /**
-     * For variable bitrate files this method returns the exact average bitrate of
-     * the whole file.
+     * For variable bitrate files this method returns the exact average bitrate
+     * of the whole file.
      *
      * @return integer
      */
@@ -403,7 +434,7 @@ final class Zend_Media_Mpeg_Abs extends Zend_Media_Mpeg_Abs_Object
             $this->_reader->setOffset($this->_lastFrameOffset);
         }
 
-        for ($i = 0; $this->_reader->getOffset() < $this->_bytes; $i++) {
+        for ($i = 0; ($j = $this->_reader->getOffset()) < $this->_bytes; $i++) {
             $options = $this->getOptions();
             $frame = new Zend_Media_Mpeg_Abs_Frame($this->_reader, $options);
 
@@ -416,7 +447,9 @@ final class Zend_Media_Mpeg_Abs extends Zend_Media_Mpeg_Abs_Object
             if ($limit === null) {
                 $this->_lastFrameOffset = $this->_reader->getOffset();
             }
-            if ($limit !== null && ($i + 1) == $limit) {
+            if (($limit !== null && (($i + 1) == $limit)) ||
+                ($limit !== null &&
+                 ($j + $frame->getLength() >= $this->_bytes))) {
                 $this->_lastFrameOffset = $this->_reader->getOffset();
                 break;
             }
