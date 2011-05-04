@@ -17,7 +17,7 @@
  * @subpackage MPEG
  * @copyright  Copyright (c) 2005-2010 Zend Technologies USA Inc. (http://www.zend.com) 
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
- * @version    $Id: Frame.php 177 2010-03-09 13:13:34Z svollbehr $
+ * @version    $Id: Frame.php 208 2010-12-28 13:48:09Z svollbehr $
  */
 
 /**#@+ @ignore */
@@ -40,7 +40,7 @@ require_once 'Zend/Media/Mpeg/Abs/Object.php';
  * @author     Sven Vollbehr <sven@vollbehr.eu>
  * @copyright  Copyright (c) 2005-2010 Zend Technologies USA Inc. (http://www.zend.com) 
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
- * @version    $Id: Frame.php 177 2010-03-09 13:13:34Z svollbehr $
+ * @version    $Id: Frame.php 208 2010-12-28 13:48:09Z svollbehr $
  */
 final class Zend_Media_Mpeg_Abs_Frame extends Zend_Media_Mpeg_Abs_Object
 {
@@ -230,6 +230,11 @@ final class Zend_Media_Mpeg_Abs_Frame extends Zend_Media_Mpeg_Abs_Object
         $this->_offset = $this->_reader->getOffset();
 
         $header = $this->_reader->readUInt32BE();
+        if (!Zend_Bit_Twiddling::testAllBits(Zend_Bit_Twiddling::getValue($header, 21, 32), 0xffe)) {
+            require_once 'Zend/Media/Mpeg/Exception.php';
+            throw new Zend_Media_Mpeg_Exception
+                ('File does not contain a valid MPEG Audio Bit Stream (Invalid frame sync)');
+        }
         $this->_version = Zend_Bit_Twiddling::getValue($header, 19, 20);
         $this->_frequencyType = Zend_Bit_Twiddling::testBit($header, 19);
         $this->_layer = Zend_Bit_Twiddling::getValue($header, 17, 18);

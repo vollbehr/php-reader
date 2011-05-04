@@ -17,7 +17,7 @@
  * @subpackage ID3
  * @copyright  Copyright (c) 2005-2009 Zend Technologies USA Inc. (http://www.zend.com) 
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
- * @version    $Id: Frame.php 177 2010-03-09 13:13:34Z svollbehr $
+ * @version    $Id: Frame.php 215 2011-04-30 10:37:09Z svollbehr $
  */
 
 /**#@+ @ignore */
@@ -36,7 +36,7 @@ require_once 'Zend/Io/StringWriter.php';
  * @author     Sven Vollbehr <sven@vollbehr.eu>
  * @copyright  Copyright (c) 2005-2009 Zend Technologies USA Inc. (http://www.zend.com) 
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
- * @version    $Id: Frame.php 177 2010-03-09 13:13:34Z svollbehr $
+ * @version    $Id: Frame.php 215 2011-04-30 10:37:09Z svollbehr $
  */
 abstract class Zend_Media_Id3_Frame extends Zend_Media_Id3_Object
 {
@@ -314,12 +314,13 @@ abstract class Zend_Media_Id3_Frame extends Zend_Media_Id3_Object
         }
 
         $writer->writeString8(substr($this->_identifier, 0, 4), 4, " ")
-               ->writeUInt32BE($this->_encodeSynchsafe32($size))
+               ->writeUInt32BE($this->getOption('version', 4) < 4 ? $size : $this->_encodeSynchsafe32($size))
                ->writeUInt16BE($flags);
         
         if (($flags & self::DATA_LENGTH_INDICATOR) ==
                 self::DATA_LENGTH_INDICATOR) {
-            $writer->writeUInt32BE($this->_encodeSynchsafe32($this->_size));
+            $writer->writeUInt32BE
+                ($this->getOption('version', 4) < 4 ? $this->_size : $this->_encodeSynchsafe32($this->_size));
         }
         $writer->write($data);
     }

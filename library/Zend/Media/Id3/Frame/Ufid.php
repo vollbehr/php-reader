@@ -17,7 +17,7 @@
  * @subpackage ID3
  * @copyright  Copyright (c) 2005-2009 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
- * @version    $Id: Ufid.php 177 2010-03-09 13:13:34Z svollbehr $
+ * @version    $Id: Ufid.php 194 2010-04-08 14:47:11Z svollbehr $
  */
 
 /**#@+ @ignore */
@@ -47,7 +47,7 @@ require_once 'Zend/Media/Id3/Frame.php';
  * @author     Arlo Kleijweg <arlo.kleijweg@gmail.com>
  * @copyright  Copyright (c) 2005-2009 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
- * @version    $Id: Ufid.php 177 2010-03-09 13:13:34Z svollbehr $
+ * @version    $Id: Ufid.php 194 2010-04-08 14:47:11Z svollbehr $
  */
 final class Zend_Media_Id3_Frame_Ufid extends Zend_Media_Id3_Frame
 {
@@ -73,7 +73,8 @@ final class Zend_Media_Id3_Frame_Ufid extends Zend_Media_Id3_Frame
         }
 
         list($this->_owner, $this->_fileIdentifier) =
-            $this->_explodeString8($this->_data, 2);
+            $this->_explodeString8
+                ($this->_reader->read($this->_reader->getSize()), 2);
     }
 
     /**

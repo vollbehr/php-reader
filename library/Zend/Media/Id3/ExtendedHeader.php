@@ -17,7 +17,7 @@
  * @subpackage ID3
  * @copyright  Copyright (c) 2005-2009 Zend Technologies USA Inc. (http://www.zend.com) 
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
- * @version    $Id: ExtendedHeader.php 177 2010-03-09 13:13:34Z svollbehr $
+ * @version    $Id: ExtendedHeader.php 211 2011-01-12 15:43:48Z svollbehr $
  */
 
 /**#@+ @ignore */
@@ -36,7 +36,7 @@ require_once 'Zend/Media/Id3/Object.php';
  * @author     Ryan Butterfield <buttza@gmail.com>
  * @copyright  Copyright (c) 2005-2009 Zend Technologies USA Inc. (http://www.zend.com) 
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
- * @version    $Id: ExtendedHeader.php 177 2010-03-09 13:13:34Z svollbehr $
+ * @version    $Id: ExtendedHeader.php 211 2011-01-12 15:43:48Z svollbehr $
  */
 final class Zend_Media_Id3_ExtendedHeader extends Zend_Media_Id3_Object
 {
@@ -126,7 +126,7 @@ final class Zend_Media_Id3_ExtendedHeader extends Zend_Media_Id3_Object
                 $this->_reader->skip(1);
                 $this->_crc =
                     $this->_reader->readInt8() * (0xfffffff + 1) +
-                    _decodeSynchsafe32($this->_reader->readUInt32BE());
+                    $this->_decodeSynchsafe32($this->_reader->readUInt32BE());
             }
             if ($this->hasFlag(self::RESTRICTED)) {
                 $this->_reader->skip(1);

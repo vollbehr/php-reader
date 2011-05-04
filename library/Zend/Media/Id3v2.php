@@ -17,7 +17,7 @@
  * @subpackage ID3
  * @copyright  Copyright (c) 2005-2009 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
- * @version    $Id: Id3v2.php 177 2010-03-09 13:13:34Z svollbehr $
+ * @version    $Id: Id3v2.php 218 2011-05-02 19:35:18Z svollbehr $
  */
 
 /**#@+ @ignore */
@@ -49,7 +49,7 @@ require_once 'Zend/Media/Id3/Header.php';
  * @author     Ryan Butterfield <buttza@gmail.com>
  * @copyright  Copyright (c) 2005-2009 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
- * @version    $Id: Id3v2.php 177 2010-03-09 13:13:34Z svollbehr $
+ * @version    $Id: Id3v2.php 218 2011-05-02 19:35:18Z svollbehr $
  */
 final class Zend_Media_Id3v2 extends Zend_Media_Id3_Object
 {
@@ -81,6 +81,12 @@ final class Zend_Media_Id3v2 extends Zend_Media_Id3_Object
      *   o version -- The ID3v2 tag version to use in write operation. This
      *     option is automatically set when a tag is read from a file and
      *     defaults to version 4.0 for tag write.
+     *   o compat -- Normally unsynchronization is handled automatically behind
+     *     the scenes. However, current versions of Windows operating system and
+     *     Windows Media Player, just to name a few, do not support ID3v2.4 tags
+     *     nor ID3v2.3 tags with unsynchronization. Hence, for compatibility
+     *     reasons, this option is made available to disable automatic tag level
+     *     unsynchronization scheme that version 3.0 supports.
      *   o readonly -- Indicates that the tag is read from a temporary file or
      *     another source it cannot be written back to. The tag can, however,
      *     still be written to another file.
@@ -150,9 +156,9 @@ final class Zend_Media_Id3v2 extends Zend_Media_Id3_Object
                 ($this->_decodeUnsynchronisation($data));
             $tagSize = $this->_reader->getSize();
         }
-        $this->clearOption('unsyncronisation');
+        $this->clearOption('unsynchronisation');
         if ($this->_header->hasFlag(Zend_Media_Id3_Header::UNSYNCHRONISATION)) {
-            $this->setOption('unsyncronisation', true);
+            $this->setOption('unsynchronisation', true);
         }
         if ($this->_header->hasFlag(Zend_Media_Id3_Header::EXTENDED_HEADER)) {
             require_once 'Zend/Media/Id3/ExtendedHeader.php';
@@ -340,7 +346,9 @@ final class Zend_Media_Id3v2 extends Zend_Media_Id3_Object
             str_replace(array('*', '?'), array('.*', '.'), $identifier) . '$/i';
         foreach ($this->_frames as $identifier => $frames) {
             if (preg_match($searchPattern, $identifier)) {
-                unset($this->_frames[$identifier]);
+                foreach ($frames as $key => $value) {
+                    unset($this->_frames[$identifier][$key]);
+                }
             }
         }
     }
@@ -431,8 +439,8 @@ final class Zend_Media_Id3v2 extends Zend_Media_Id3_Object
      * here as an argument. Regardless, the write operation will override
      * previous tag information, if found.
      *
-     * If write is called without setting any frames to the tag, the tag is
-     * removed from the file.
+     * If write is called on a tag without any frames to it, current tag is
+     * removed from the file altogether.
      *
      * @param string|Zend_Io_Writer $filename The optional path to the file, use
      *                                        null to save to the same file.
@@ -441,8 +449,7 @@ final class Zend_Media_Id3v2 extends Zend_Media_Id3_Object
     {
         if ($filename === null && ($filename = $this->_filename) === null) {
             require_once 'Zend/Media/Id3/Exception.php';
-            throw new Zend_Media_Id3_Exception
-                ('No file given to write to');
+            throw new Zend_Media_Id3_Exception('No file given to write to');
         } else if ($filename !== null && $filename instanceof Zend_Io_Writer) {
             require_once 'Zend/Io/Writer.php';
             $this->_writeData($filename);
@@ -463,6 +470,18 @@ final class Zend_Media_Id3v2 extends Zend_Media_Id3_Object
                 ('Unable to open file for writing: ' . $filename);
         }
 
+        $hasNoFrames = true;
+        foreach ($this->_frames as $identifier => $instances) {
+            if (count($instances) > 0) {
+                $hasNoFrames = false;
+                break;
+            }
+        }
+        if ($hasNoFrames === true) {
+            $this->remove(new Zend_Io_Reader($fd));
+            return;
+        }
+
         if ($this->_reader !== null) {
             $oldTagSize = 10 /* header */ + $this->_header->getSize();
         } else {
@@ -477,29 +496,29 @@ final class Zend_Media_Id3v2 extends Zend_Media_Id3_Object
         require_once 'Zend/Io/StringWriter.php';
         $tag = new Zend_Io_StringWriter();
         $this->_writeData($tag);
-        $tagSize = empty($this->_frames) ? 0 : $tag->getSize();
+        $tagSize = $tag->getSize();
 
-        if ($tagSize > $oldTagSize || $tagSize == 0) {
+        if ($tagSize > $oldTagSize) {
             fseek($fd, 0, SEEK_END);
             $oldFileSize = ftell($fd);
             ftruncate
                 ($fd, $newFileSize = $tagSize - $oldTagSize + $oldFileSize);
             for ($i = 1, $cur = $oldFileSize; $cur > 0; $cur -= 1024, $i++) {
               if ($cur >= 1024) {
-                fseek($fd, $off=-(($i * 1024) +
+                fseek($fd, -(($i * 1024) +
                       ($newFileSize - $oldFileSize)), SEEK_END);
                 $buffer = fread($fd, 1024);
-                fseek($fd, $off=-($i * 1024), SEEK_END);
+                fseek($fd, -($i * 1024), SEEK_END);
                 $bytes = fwrite($fd, $buffer, 1024);
               } else {
                 fseek($fd, 0);
                 $buffer = fread($fd, $cur);
-                fseek($fd, $off=$newFileSize % 1024 - $cur);
+                fseek($fd, $newFileSize - $oldFileSize);
                 $bytes = fwrite($fd, $buffer, $cur);
               }
             }
             if (($remaining = $oldFileSize % 1024) != 0) {
-
+                // huh?
             }
             fseek($fd, 0, SEEK_END);
         }
@@ -521,7 +540,7 @@ final class Zend_Media_Id3v2 extends Zend_Media_Id3_Object
      */
     private function _writeData($writer)
     {
-        $this->clearOption('unsyncronisation');
+        $this->clearOption('unsynchronisation');
 
         $buffer = new Zend_Io_StringWriter();
         foreach ($this->_frames as $frames) {
@@ -533,17 +552,10 @@ final class Zend_Media_Id3v2 extends Zend_Media_Id3_Object
         $frameDataLength = strlen($frameData);
         $paddingLength = 0;
 
-        // ID3v2.4.0 supports frame level unsynchronisation. The corresponding
-        // option is set to true when any of the frames use the
-        // unsynchronisation scheme.
-        if ($this->getOption('unsyncronisation', false) === true) {
-            $this->_header->setFlags
-                ($this->_header->getFlags() |
-                 Zend_Media_Id3_Header::UNSYNCHRONISATION);
-        }
-
-        // ID3v2.3.0 supports only tag level unsynchronisation
-        if ($this->getOption('version', 4) < 4) {
+        // ID3v2.4.0 supports frame level unsynchronisation while
+        // ID3v2.3.0 supports only tag level unsynchronisation.
+        if ($this->getOption('version', 4) < 4 &&
+                $this->getOption('compat', false) !== true) {
             $frameData = $this->_encodeUnsynchronisation($frameData);
             if (($len = strlen($frameData)) != $frameDataLength) {
                 $frameDataLength = $len;
@@ -614,6 +626,36 @@ final class Zend_Media_Id3v2 extends Zend_Media_Id3_Object
     }
 
     /**
+     * Removes the ID3v2 tag altogether.
+     *
+     * @param string $filename The path to the file.
+     */
+    public static function remove($filename)
+    {
+        if ($filename instanceof Zend_Io_Reader) {
+            $reader = &$filename;
+        } else {
+            require_once 'Zend/Io/FileReader.php';
+            $reader = new Zend_Io_FileReader($filename, 'r+b');
+        }
+
+        $fileSize = $reader->getSize();
+        if ($reader->read(3) == 'ID3') {
+            $header = new Zend_Media_Id3_Header($reader);
+            $tagSize = 10 /* header */ + $header->getSize();
+        } else return;
+
+        $fd = $reader->getFileDescriptor();
+        for ($i = 0; $tagSize + ($i * 1024) < $fileSize; $i++) {
+            fseek($fd, $tagSize + ($i * 1024));
+            $buffer = fread($fd, 1024);
+            fseek($fd, ($i * 1024));
+            $bytes = fwrite($fd, $buffer, 1024);
+        }
+        ftruncate($fd, $fileSize - $tagSize);
+    }
+
+    /**
      * Magic function so that $obj->value will work. The method will attempt to
      * return the first frame that matches the identifier.
      *
@@ -627,7 +669,7 @@ final class Zend_Media_Id3v2 extends Zend_Media_Id3_Object
      */
     public function __get($name)
     {
-        if (isset($this->_frames[strtoupper($name)])) {
+        if (!empty($this->_frames[strtoupper($name)])) {
             return $this->_frames[strtoupper($name)][0];
         }
         if (method_exists($this, 'get' . ucfirst($name))) {

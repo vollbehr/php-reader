@@ -17,7 +17,7 @@
  * @subpackage MPEG
  * @copyright  Copyright (c) 2005-2010 Zend Technologies USA Inc. (http://www.zend.com) 
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
- * @version    $Id: Ps.php 177 2010-03-09 13:13:34Z svollbehr $
+ * @version    $Id: Ps.php 208 2010-12-28 13:48:09Z svollbehr $
  */
 
 /**#@+ @ignore */
@@ -43,7 +43,7 @@ require_once 'Zend/Media/Mpeg/Object.php';
  * @author     Sven Vollbehr <sven@vollbehr.eu>
  * @copyright  Copyright (c) 2005-2010 Zend Technologies USA Inc. (http://www.zend.com) 
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
- * @version    $Id: Ps.php 177 2010-03-09 13:13:34Z svollbehr $
+ * @version    $Id: Ps.php 208 2010-12-28 13:48:09Z svollbehr $
  * @todo       Full implementation
  */
 final class Zend_Media_Mpeg_Ps extends Zend_Media_Mpeg_Object
@@ -85,7 +85,6 @@ final class Zend_Media_Mpeg_Ps extends Zend_Media_Mpeg_Object
         do {
             do {
                 $startCode = $this->nextStartCode();
-                echo "STARTCODE: $startCode\n";
             } while ($startCode != 0x1b3 && $startCode != 0x1b8);
 
             if ($startCode == 0x1b3 /* sequence_header_code */ &&
@@ -93,7 +92,9 @@ final class Zend_Media_Mpeg_Ps extends Zend_Media_Mpeg_Object
                 $i1 = $this->_reader->readUInt32BE();
                 $i2 = $this->_reader->readUInt32BE();
                 if (!Zend_Bit_Twiddling::testAllBits($i2, 0x2000)) {
-                    throw new RuntimeException('Invalid mark');
+                    require_once 'Zend/Media/Mpeg/Exception.php';
+                    throw new Zend_Media_Mpeg_Exception
+                        ('File does not contain a valid MPEG Program Stream (Invalid mark)');
                 }
                 $pictureRate = $rates[Zend_Bit_Twiddling::getValue($i1, 4, 8)];
                 $foundSeqHdr = true;
