@@ -1,0 +1,40 @@
+# Dependencies
+/vendor/
+/var/
+/composer.phar
+
+# Test and coverage artifacts
+/.phpunit.result.cache
+/.phpunit.cache/
+/coverage/
+
+# Code style / analysis caches
+/.php-cs-fixer.cache
+/.php-cs-fixer.cache.*
+/.psalm/
+/phpstan.tmp/
+
+# Documentation outputs
+/docs/.phpdoc-cache/
+/docs/api/
+/docs/model/
+
+# IDE configuration
+/.idea/
+/.vscode/
+*.iml
+.phpstorm.meta.php
+/.phpstorm.meta/
+
+# Editor swap / backup files
+*~
+*.swp
+*.swo
+
+# OS generated files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+
+# Subversion directories
+.svn/
