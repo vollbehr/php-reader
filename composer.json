@@ -1,0 +1,51 @@
+{
+    "name": "vollbehr/php-reader",
+    "description": "Modernised media metadata reader supporting ID3, ASF, MPEG, ISO and other base media formats.",
+    "homepage": "https://github.com/vollbehr/php-reader",
+    "type": "library",
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "Sven Vollbehr",
+            "email": "sven@vollbehr.io"
+        }
+    ],
+    "require": {
+        "php": "^8.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Vollbehr\\": "src/Vollbehr/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Vollbehr\\Tests\\": "tests/",
+            "Vollbehr\\Bridge\\Laminas\\": "packages/laminas-bridge/src/",
+            "Vollbehr\\Bridge\\Symfony\\": "packages/symfony-bundle/src/",
+            "Vollbehr\\Bridge\\Laravel\\": "packages/laravel-bridge/src/"
+        }
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.87",
+        "illuminate/config": "^10.0|^11.0",
+        "illuminate/container": "^10.0|^11.0",
+        "illuminate/support": "^10.0|^11.0",
+        "laminas/laminas-modulemanager": "^2.17",
+        "laminas/laminas-servicemanager": "^3.20",
+        "phpdocumentor/phpdocumentor": "^3.8",
+        "phpunit/phpunit": "^10.5",
+        "rector/rector": "^2.1",
+        "symfony/config": "^6.4|^7.0",
+        "symfony/dependency-injection": "^6.4|^7.0",
+        "symfony/http-kernel": "^6.4|^7.0",
+        "symfony/var-dumper": "^7.0"
+    },
+    "scripts": {
+        "test": "phpunit",
+        "docs": "phpdoc --config=phpdoc.xml"
+    },
+    "funding": [
+        { "type": "github", "url": "https://github.com/sponsors/svollbehr" }
+    ]
+}
