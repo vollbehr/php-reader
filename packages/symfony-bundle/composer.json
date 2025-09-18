@@ -1,0 +1,41 @@
+{
+    "name": "vollbehr/php-reader-symfony-bundle",
+    "description": "Symfony bundle for vollbehr/php-reader.",
+    "type": "symfony-bundle",
+    "license": "BSD-3-Clause",
+    "homepage": "https://github.com/vollbehr/php-reader",
+    "keywords": [
+        "id3",
+        "metadata",
+        "php-reader",
+        "symfony"
+    ],
+    "authors": [
+        {
+            "name": "Sven Vollbehr",
+            "email": "sven@vollbehr.io"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/vollbehr/php-reader/issues",
+        "source": "https://github.com/vollbehr/php-reader"
+    },
+    "require": {
+        "php": "^8.2",
+        "vollbehr/php-reader": "^1.9",
+        "symfony/dependency-injection": "^6.4|^7.0",
+        "symfony/config": "^6.4|^7.0",
+        "symfony/http-kernel": "^6.4|^7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Vollbehr\\Bridge\\Symfony\\": "src/"
+        }
+    },
+    "extra": {
+        "symfony": {
+            "bundle": "Vollbehr\\Bridge\\Symfony\\PhpReaderBundle",
+            "extension": "Vollbehr\\Bridge\\Symfony\\DependencyInjection\\PhpReaderExtension"
+        }
+    }
+}

@@ -1,0 +1,40 @@
+{
+    "name": "vollbehr/php-reader-laravel",
+    "description": "Laravel integration bridge for vollbehr/php-reader.",
+    "type": "library",
+    "license": "BSD-3-Clause",
+    "homepage": "https://github.com/vollbehr/php-reader",
+    "keywords": [
+        "id3",
+        "laravel",
+        "metadata",
+        "php-reader"
+    ],
+    "authors": [
+        {
+            "name": "Sven Vollbehr",
+            "email": "sven@vollbehr.io"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/vollbehr/php-reader/issues",
+        "source": "https://github.com/vollbehr/php-reader"
+    },
+    "require": {
+        "php": "^8.2",
+        "vollbehr/php-reader": "^1.9",
+        "illuminate/support": "^10.0|^11.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Vollbehr\\Bridge\\Laravel\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Vollbehr\\Bridge\\Laravel\\PhpReaderServiceProvider"
+            ]
+        }
+    }
+}
