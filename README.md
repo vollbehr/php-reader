@@ -10,12 +10,11 @@ a comprehensive test suite and documentation set.
 | Component | Capabilities | Read | Write | Typical extensions |
 | --- | --- | --- | --- | --- |
 | `Vollbehr\\Media\\Asf` | Advanced Systems Format containers, including metadata objects | ✓ | ✓ | ASF, WMA, WMV |
-| `Vollbehr\\Media\\Flac` | Free Lossless Audio Codec (FLAC) | Planned | ✓ | - | FLAC |
+| `Vollbehr\\Media\\Flac` | Free Lossless Audio Codec (FLAC) | ✓ | - | FLAC |
 | `Vollbehr\\Media\\Id3v1` | ID3v1.0 and ID3v1.1 tags | ✓ | ✓ | MP3 |
 | `Vollbehr\\Media\\Id3v2` | ID3v2.3.0 and ID3v2.4.0 frames | ✓ | ✓ | MP3 |
 | `Vollbehr\\Media\\Iso14496` | ISO/IEC 14496-12 Base Media File Format (QuickTime/MP4) and Extensions (iTunes ILST, Nero NDRM, and ID32) | ✓ | ✓ | MP4, M4A, M4V, 3GP, MOV, QT |
-| `Vollbehr\\Media\\Iso14496` | ISO/IEC 23001-7 Extensions (Common Encryption TENC, PSSH) | ✓ | ✓ | MP4, M4A, M4V, 3GP, MOV, QT|
-
+| `Vollbehr\\Media\\Iso14496` | ISO/IEC 23001-7 Extensions (Common Encryption TENC, PSSH) | ✓ | ✓ | MP4, M4A, M4V, 3GP, MOV, QT |
 | `Vollbehr\\Media\\Mpeg\\Abs` | MPEG Audio Bit Stream (ISO/IEC 11172-3, 13818-3) | ✓ | – | MP1, MP2, MP3 |
 | `Vollbehr\\Media\\Mpeg\\Ps` | MPEG Program Stream (ISO/IEC 11172-1, 13818-1) with duration and stream descriptors | ✓ | – | MPG, MPEG, VOB, EVO |
 | `Vollbehr\\Media\\Riff` | RIFF or Resource Interchange File Format | ✓ | – | RIFF |
@@ -30,10 +29,10 @@ are bundled for binary parsing and bitwise manipulation.
 ## Feature Requests
 
 | Capabilities | Typical extensions | Issue to vote |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- |
 | EXIF or Exchangeable Image File Format | JPEG, TIFF, RIFF | Not yet implemented (vote for issue 18) |
 | Flash Video | FLV, F4V, F4P, F4A, F4B | Not yet implemented (vote for issue 36) |
-| MP4 / AVC profiles derived from ISO/IEC 14496-12 | | Not yet implemented as this requires access to commercial specifications. If you are in need of these, consider supporting the project by funding the commercial specifications.| 
+| MP4 / AVC profiles derived from ISO/IEC 14496-12 | MP4, AVC | Not yet implemented as this requires access to commercial specifications. If you are in need of these, consider supporting the project by funding the commercial specifications.| 
 
 
 ## Requirements
@@ -80,7 +79,7 @@ The core library is framework-agnostic. Optional bridge packages provide first-c
 - **Laravel** – [`vollbehr/php-reader-laravel`](packages/laravel-bridge) registers
   `PhpReaderServiceProvider`, publishes the package config, and exposes the `FileReaderFactory`
   through the service container.
-- **Symfony** – [`vollbehr/php-reader-symfony-bundle`](packages/symfony-bundle) contributes
+- **Symfony** – [`vollbehr/php-reader-symfony`](packages/symfony) contributes
   `PhpReaderBundle` with configuration options such as `default_file_mode`.
 - **Laminas** – [`vollbehr/php-reader-laminas`](packages/laminas-bridge) supplies a `Module`,
   `ConfigProvider`, and service manager factory for the `FileReaderFactory`.

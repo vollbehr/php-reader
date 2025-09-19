@@ -1,5 +1,5 @@
 {
-    "name": "vollbehr/php-reader-symfony-bundle",
+    "name": "vollbehr/php-reader-symfony",
     "description": "Symfony bundle for vollbehr/php-reader.",
     "type": "symfony-bundle",
     "license": "BSD-3-Clause",
