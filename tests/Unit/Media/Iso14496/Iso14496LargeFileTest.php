@@ -5,19 +5,46 @@ declare(strict_types=1);
 namespace Vollbehr\Tests\Unit\Media\Iso14496;
 
 use PHPUnit\Framework\TestCase;
-use Vollbehr\Io\StringReader;
+use Vollbehr\Io\Exception as IoException;
+use Vollbehr\Io\Reader;
 use Vollbehr\Media\Iso14496;
 
 if (!class_exists('\Vollbehr\Media\Iso14496\Box\Box')) {
     class_alias(\Vollbehr\Media\Iso14496\Box::class, '\Vollbehr\Media\Iso14496\Box\Box');
 }
 
-final class LargeFileStringReader extends StringReader
+/**
+ * Custom reader that simulates a large file without ballooning memory usage.
+ */
+final class LargeFileStringReader extends Reader
 {
     public function __construct(string $data, int $simulatedSize)
     {
-        parent::__construct($data);
-        $this->_size = self::normaliseLength($simulatedSize);
+        $stream = tmpfile();
+        if ($stream === false) {
+            throw new IoException('Unable to open temporary stream');
+        }
+
+        try {
+            if (fwrite($stream, $data) === false) {
+                throw new IoException('Unable to write data to temporary stream');
+            }
+
+            rewind($stream);
+
+            parent::__construct($stream);
+            $this->_size = self::normaliseLength($simulatedSize);
+        } catch (\Throwable $exception) {
+            fclose($stream);
+
+            throw $exception;
+        }
+    }
+
+    public function __destruct()
+    {
+        $this->close();
+        parent::__destruct();
     }
 }
 
