@@ -29,11 +29,12 @@
  * @subpackage ISO14496
  * @copyright  Copyright (c) 2005-2009 Zend Technologies USA Inc. (http://www.zend.com) 
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
- * @version    $Id: Id32.php 177 2010-03-09 13:13:34Z svollbehr $
+ * @version    $Id: Id32.php 259 2012-03-05 18:58:07Z svollbehr $
  */
 
 /**#@+ @ignore */
 require_once 'Zend/Media/Iso14496/FullBox.php';
+require_once 'Zend/Media/Id3v2.php';
 /**#@-*/
 
 /**
@@ -48,7 +49,7 @@ require_once 'Zend/Media/Iso14496/FullBox.php';
  * @author     Sven Vollbehr <sven@vollbehr.eu>
  * @copyright  Copyright (c) 2005-2009 Zend Technologies USA Inc. (http://www.zend.com) 
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
- * @version    $Id: Id32.php 177 2010-03-09 13:13:34Z svollbehr $
+ * @version    $Id: Id32.php 259 2012-03-05 18:58:07Z svollbehr $
  */
 final class Zend_Media_Iso14496_Box_Id32 extends Zend_Media_Iso14496_FullBox
 {

@@ -17,7 +17,7 @@
  * @subpackage ID3
  * @copyright  Copyright (c) 2005-2009 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
- * @version    $Id: Ufid.php 194 2010-04-08 14:47:11Z svollbehr $
+ * @version    $Id: Ufid.php 273 2012-08-21 17:22:52Z svollbehr $
  */
 
 /**#@+ @ignore */
@@ -29,7 +29,7 @@ require_once 'Zend/Media/Id3/Frame.php';
  * the audio file in a database, that may provide more information relevant to
  * the content. Since standardisation of such a database is beyond this document,
  * all UFID frames begin with an 'owner identifier' field. It is a null-
- * terminated string with a URL [URL] containing an email address, or a link to
+ * terminated string with a URL containing an email address, or a link to
  * a location where an email address can be found, that belongs to the
  * organisation responsible for this specific database implementation.
  * Questions regarding the database should be sent to the indicated email
@@ -47,7 +47,7 @@ require_once 'Zend/Media/Id3/Frame.php';
  * @author     Arlo Kleijweg <arlo.kleijweg@gmail.com>
  * @copyright  Copyright (c) 2005-2009 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
- * @version    $Id: Ufid.php 194 2010-04-08 14:47:11Z svollbehr $
+ * @version    $Id: Ufid.php 273 2012-08-21 17:22:52Z svollbehr $
  */
 final class Zend_Media_Id3_Frame_Ufid extends Zend_Media_Id3_Frame
 {

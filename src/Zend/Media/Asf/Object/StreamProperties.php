@@ -17,7 +17,7 @@
  * @subpackage ASF
  * @copyright  Copyright (c) 2005-2010 Zend Technologies USA Inc. (http://www.zend.com) 
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
- * @version    $Id: StreamProperties.php 177 2010-03-09 13:13:34Z svollbehr $
+ * @version    $Id: StreamProperties.php 254 2011-07-07 09:14:41Z svollbehr $
  */
 
 /**#@+ @ignore */
@@ -41,7 +41,7 @@ require_once 'Zend/Media/Asf/Object.php';
  * @author     Sven Vollbehr <sven@vollbehr.eu>
  * @copyright  Copyright (c) 2005-2010 Zend Technologies USA Inc. (http://www.zend.com) 
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
- * @version    $Id: StreamProperties.php 177 2010-03-09 13:13:34Z svollbehr $
+ * @version    $Id: StreamProperties.php 254 2011-07-07 09:14:41Z svollbehr $
  */
 final class Zend_Media_Asf_Object_StreamProperties extends Zend_Media_Asf_Object
 {
@@ -163,12 +163,12 @@ final class Zend_Media_Asf_Object_StreamProperties extends Zend_Media_Asf_Object
                 // break intentionally omitted
             case self::BINARY_MEDIA:
                 $this->_typeSpecificData = array
-                    ('majorMediaType' => $this->_reader->getGUID(),
-                     'mediaSubtype' => $this->_reader->getGUID(),
+                    ('majorMediaType' => $this->_reader->readGUID(),
+                     'mediaSubtype' => $this->_reader->readGUID(),
                      'fixedSizeSamples' => $this->_reader->readUInt32LE(),
                      'temporalCompression' => $this->_reader->readUInt32LE(),
                      'sampleSize' => $this->_reader->readUInt32LE(),
-                     'formatType' => $this->_reader->getGUID());
+                     'formatType' => $this->_reader->readGUID());
                 $formatDataSize = $this->_reader->readUInt32LE();
                 $this->_typeSpecificData['formatData'] =
                     $this->_reader->read($formatDataSize);

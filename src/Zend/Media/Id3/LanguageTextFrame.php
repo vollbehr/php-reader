@@ -17,7 +17,7 @@
  * @subpackage ID3
  * @copyright  Copyright (c) 2005-2009 Zend Technologies USA Inc. (http://www.zend.com) 
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
- * @version    $Id: LanguageTextFrame.php 177 2010-03-09 13:13:34Z svollbehr $
+ * @version    $Id: LanguageTextFrame.php 255 2012-01-21 19:46:18Z svollbehr $
  */
 
 /**#@+ @ignore */
@@ -35,7 +35,7 @@ require_once 'Zend/Media/Id3/Language.php';
  * @author     Sven Vollbehr <sven@vollbehr.eu>
  * @copyright  Copyright (c) 2005-2009 Zend Technologies USA Inc. (http://www.zend.com) 
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
- * @version    $Id: LanguageTextFrame.php 177 2010-03-09 13:13:34Z svollbehr $
+ * @version    $Id: LanguageTextFrame.php 255 2012-01-21 19:46:18Z svollbehr $
  */
 abstract class Zend_Media_Id3_LanguageTextFrame extends Zend_Media_Id3_Frame
     implements Zend_Media_Id3_Encoding, Zend_Media_Id3_Language
@@ -81,7 +81,7 @@ abstract class Zend_Media_Id3_LanguageTextFrame extends Zend_Media_Id3_Frame
 
         $encoding = $this->_reader->readUInt8();
         $this->_language = strtolower($this->_reader->read(3));
-        if ($this->_language == 'xxx') {
+        if ($this->_language == 'xxx' || trim($this->_language, "\0") == '') {
             $this->_language = 'und';
         }
 

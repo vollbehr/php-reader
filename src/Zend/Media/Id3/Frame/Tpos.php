@@ -17,7 +17,7 @@
  * @subpackage ID3
  * @copyright  Copyright (c) 2005-2009 Zend Technologies USA Inc. (http://www.zend.com) 
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
- * @version    $Id: Tpos.php 177 2010-03-09 13:13:34Z svollbehr $
+ * @version    $Id: Tpos.php 273 2012-08-21 17:22:52Z svollbehr $
  */
 
 /**#@+ @ignore */
@@ -37,7 +37,7 @@ require_once 'Zend/Media/Id3/TextFrame.php';
  * @author     Sven Vollbehr <sven@vollbehr.eu>
  * @copyright  Copyright (c) 2005-2009 Zend Technologies USA Inc. (http://www.zend.com) 
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
- * @version    $Id: Tpos.php 177 2010-03-09 13:13:34Z svollbehr $
+ * @version    $Id: Tpos.php 273 2012-08-21 17:22:52Z svollbehr $
  */
 final class Zend_Media_Id3_Frame_Tpos extends Zend_Media_Id3_TextFrame
 {
@@ -53,16 +53,12 @@ final class Zend_Media_Id3_Frame_Tpos extends Zend_Media_Id3_TextFrame
      */
     public function __construct($reader = null, &$options = array())
     {
-        Zend_Media_Id3_Frame::__construct($reader, $options);
-
-        $this->setEncoding(Zend_Media_Id3_Encoding::ISO88591);
+        parent::__construct($reader, $options);
 
         if ($this->_reader === null) {
             return;
         }
 
-        $this->_reader->skip(1);
-        $this->setText($this->_reader->readString8($this->_reader->getSize()));
         @list ($this->_number, $this->_total) = explode("/", $this->getText());
     }
 

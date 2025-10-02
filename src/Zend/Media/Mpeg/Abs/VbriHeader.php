@@ -17,7 +17,7 @@
  * @subpackage MPEG
  * @copyright  Copyright (c) 2005-2010 Zend Technologies USA Inc. (http://www.zend.com) 
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
- * @version    $Id: VbriHeader.php 177 2010-03-09 13:13:34Z svollbehr $
+ * @version    $Id: VbriHeader.php 234 2011-05-25 14:49:36Z svollbehr $
  */
 
 /**#@+ @ignore */
@@ -36,7 +36,7 @@ require_once 'Zend/Media/Mpeg/Abs/Object.php';
  * @author     Sven Vollbehr <sven@vollbehr.eu>
  * @copyright  Copyright (c) 2005-2010 Zend Technologies USA Inc. (http://www.zend.com) 
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
- * @version    $Id: VbriHeader.php 177 2010-03-09 13:13:34Z svollbehr $
+ * @version    $Id: VbriHeader.php 234 2011-05-25 14:49:36Z svollbehr $
  */
 class Zend_Media_Mpeg_Abs_VbriHeader extends Zend_Media_Mpeg_Abs_Object
 {
@@ -73,6 +73,8 @@ class Zend_Media_Mpeg_Abs_VbriHeader extends Zend_Media_Mpeg_Abs_Object
      */
     public function __construct($reader, &$options = array())
     {
+        parent::__construct($reader, $options);
+        
         $offset = $this->_reader->getOffset();
         $this->_version = $this->_reader->readUInt16BE();
         $this->_delay = $this->_reader->readUInt16BE();

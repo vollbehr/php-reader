@@ -17,7 +17,7 @@
  * @subpackage ID3
  * @copyright  Copyright (c) 2005-2009 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
- * @version    $Id: Id3v2.php 218 2011-05-02 19:35:18Z svollbehr $
+ * @version    $Id: Id3v2.php 273 2012-08-21 17:22:52Z svollbehr $
  */
 
 /**#@+ @ignore */
@@ -49,7 +49,7 @@ require_once 'Zend/Media/Id3/Header.php';
  * @author     Ryan Butterfield <buttza@gmail.com>
  * @copyright  Copyright (c) 2005-2009 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
- * @version    $Id: Id3v2.php 218 2011-05-02 19:35:18Z svollbehr $
+ * @version    $Id: Id3v2.php 273 2012-08-21 17:22:52Z svollbehr $
  */
 final class Zend_Media_Id3v2 extends Zend_Media_Id3_Object
 {
@@ -362,6 +362,9 @@ final class Zend_Media_Id3v2 extends Zend_Media_Id3_Object
     public function addFrame($frame)
     {
         $frame->setOptions($this->getOptions());
+        $frame->setEncoding
+            ($this->getOption('encoding', $this->getOption('version', 4) < 4 ?
+             Zend_Media_Id3_Encoding::ISO88591 : Zend_Media_Id3_Encoding::UTF));
         if (!$this->hasFrame($frame->getIdentifier())) {
             $this->_frames[$frame->getIdentifier()] = array();
         }

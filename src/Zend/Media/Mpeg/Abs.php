@@ -17,7 +17,7 @@
  * @subpackage MPEG
  * @copyright  Copyright (c) 2005-2010 Zend Technologies USA Inc. (http://www.zend.com) 
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
- * @version    $Id: Abs.php 208 2010-12-28 13:48:09Z svollbehr $
+ * @version    $Id: Abs.php 261 2012-03-05 20:43:15Z svollbehr $
  */
 
 /**#@+ @ignore */
@@ -42,9 +42,9 @@ require_once 'Zend/Media/Mpeg/Abs/Frame.php';
  * @subpackage MPEG
  * @author     Ryan Butterfield <buttza@gmail.com>
  * @author     Sven Vollbehr <sven@vollbehr.eu>
- * @copyright  Copyright (c) 2005-2010 Zend Technologies USA Inc. (http://www.zend.com) 
+ * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com) 
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
- * @version    $Id: Abs.php 208 2010-12-28 13:48:09Z svollbehr $
+ * @version    $Id: Abs.php 261 2012-03-05 20:43:15Z svollbehr $
  * @todo       Implement validation routines
  */
 final class Zend_Media_Mpeg_Abs extends Zend_Media_Mpeg_Abs_Object
@@ -181,15 +181,13 @@ final class Zend_Media_Mpeg_Abs extends Zend_Media_Mpeg_Abs_Object
         }
 
         /* Check for VBR headers */
-        $offset = $this->_reader->getOffset();
-
         $this->_frames[] = $firstFrame =
             new Zend_Media_Mpeg_Abs_Frame($this->_reader, $options);
 
-        $postoffset = $this->_reader->getOffset();
+        $offset = $this->_reader->getOffset();
 
         $this->_reader->setOffset
-            ($offset + 4 + self::$sidesizes
+            ($firstFrame->getOffset() + 4 + self::$sidesizes
              [$firstFrame->getFrequencyType()][$firstFrame->getMode()]);
         if (($xing = $this->_reader->readString8(4)) == 'Xing' ||
                 $xing == 'Info') {
@@ -207,7 +205,7 @@ final class Zend_Media_Mpeg_Abs extends Zend_Media_Mpeg_Abs_Object
             array_pop($this->_frames);
         }
 
-        $this->_reader->setOffset($offset + 4 + 32);
+        $this->_reader->setOffset($firstFrame->getOffset() + 4 + 32);
         if ($this->_reader->readString8(4) == 'VBRI') {
             require_once 'Zend/Media/Mpeg/Abs/VbriHeader.php';
             $this->_vbriHeader =
@@ -217,7 +215,7 @@ final class Zend_Media_Mpeg_Abs extends Zend_Media_Mpeg_Abs_Object
             array_pop($this->_frames);
         }
 
-        $this->_reader->setOffset($postoffset);
+        $this->_reader->setOffset($offset);
 
         // Ensure we always have read at least one frame
         if (empty($this->_frames)) {
@@ -242,7 +240,7 @@ final class Zend_Media_Mpeg_Abs extends Zend_Media_Mpeg_Abs_Object
                               $firstFrame->getSamplingFrequency()) / 1000 * 8);
                     }
                 } else {
-                    $this->_estimatedBitrate = ($this->_bytes - $offset) /
+                    $this->_estimatedBitrate = ($this->_bytes - $firstFrame->getOffset()) /
                         $this->_estimatedPlayDuration / 1000 * 8;
                 }
             } else {
@@ -251,7 +249,7 @@ final class Zend_Media_Mpeg_Abs extends Zend_Media_Mpeg_Abs_Object
                 $this->_estimatedBitrate =
                     $this->_cumulativeBitrate / count($this->_frames);
                 $this->_estimatedPlayDuration =
-                    ($this->_bytes - $offset) /
+                    ($this->_bytes - $firstFrame->getOffset()) /
                     ($this->_estimatedBitrate * 1000 / 8);
             }
         } else {

@@ -17,7 +17,7 @@
  * @subpackage ID3
  * @copyright  Copyright (c) 2005-2009 Zend Technologies USA Inc. (http://www.zend.com) 
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
- * @version    $Id: Sylt.php 177 2010-03-09 13:13:34Z svollbehr $
+ * @version    $Id: Sylt.php 273 2012-08-21 17:22:52Z svollbehr $
  */
 
 /**#@+ @ignore */
@@ -43,9 +43,9 @@ require_once 'Zend/Media/Id3/Timing.php';
  * @author     Ryan Butterfield <buttza@gmail.com>
  * @copyright  Copyright (c) 2005-2009 Zend Technologies USA Inc. (http://www.zend.com) 
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
- * @version    $Id: Sylt.php 177 2010-03-09 13:13:34Z svollbehr $
+ * @version    $Id: Sylt.php 273 2012-08-21 17:22:52Z svollbehr $
  */
-final class Zend_Media_Id3_Frame_SYLT extends Zend_Media_Id3_Frame
+final class Zend_Media_Id3_Frame_Sylt extends Zend_Media_Id3_Frame
     implements Zend_Media_Id3_Encoding, Zend_Media_Id3_Language,
         Zend_Media_Id3_Timing
 {
@@ -96,7 +96,7 @@ final class Zend_Media_Id3_Frame_SYLT extends Zend_Media_Id3_Frame
 
         $encoding = $this->_reader->readUInt8();
         $this->_language = strtolower($this->_reader->read(3));
-        if ($this->_language == 'xxx') {
+        if ($this->_language == 'xxx' || trim($this->_language, "\0") == '') {
             $this->_language = 'und';
         }
         $this->_format = $this->_reader->readUInt8();
@@ -110,8 +110,10 @@ final class Zend_Media_Id3_Frame_SYLT extends Zend_Media_Id3_Frame
                 list($this->_description) =
                     $this->_explodeString16
                         ($this->_reader->read($this->_reader->getSize()), 2);
-                $this->_reader->setOffset
-                    ($offset + strlen($this->_description) + 2);
+                if ($this->_reader->getSize() >= $offset + strlen($this->_description) + 2) {
+                    $this->_reader->setOffset
+                        ($offset + strlen($this->_description) + 2);
+                }
                 break;
             case self::UTF8:
                 // break intentionally omitted
@@ -119,12 +121,13 @@ final class Zend_Media_Id3_Frame_SYLT extends Zend_Media_Id3_Frame
                 list($this->_description) =
                     $this->_explodeString8
                         ($this->_reader->read($this->_reader->getSize()), 2);
-                $this->_reader->setOffset
-                    ($offset + strlen($this->_description) + 1);
+                if ($this->_reader->getSize() >= $offset + strlen($this->_description) + 1) {
+                    $this->_reader->setOffset
+                        ($offset + strlen($this->_description) + 1);
+                }
                 break;
         }
-        $this->_description =
-            $this->_convertString($this->_description, $encoding);
+        $this->_description = $this->_convertString($this->_description, $encoding);
 
         while ($this->_reader->available()) {
             $offset = $this->_reader->getOffset();

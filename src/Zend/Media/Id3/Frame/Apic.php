@@ -17,7 +17,7 @@
  * @subpackage ID3
  * @copyright  Copyright (c) 2005-2009 Zend Technologies USA Inc. (http://www.zend.com) 
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
- * @version    $Id: Apic.php 215 2011-04-30 10:37:09Z svollbehr $
+ * @version    $Id: Apic.php 241 2011-06-11 16:46:52Z svollbehr $
  */
 
 /**#@+ @ignore */
@@ -40,7 +40,7 @@ require_once 'Zend/Media/Id3/Encoding.php';
  * @author     Ryan Butterfield <buttza@gmail.com>
  * @copyright  Copyright (c) 2005-2009 Zend Technologies USA Inc. (http://www.zend.com) 
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
- * @version    $Id: Apic.php 215 2011-04-30 10:37:09Z svollbehr $
+ * @version    $Id: Apic.php 241 2011-06-11 16:46:52Z svollbehr $
  */
 final class Zend_Media_Id3_Frame_Apic extends Zend_Media_Id3_Frame
     implements Zend_Media_Id3_Encoding
@@ -84,7 +84,7 @@ final class Zend_Media_Id3_Frame_Apic extends Zend_Media_Id3_Frame
      *
      * @todo  There is the possibility to put only a link to the image file by
      *  using the MIME type '-->' and having a complete URL instead of picture
-     *  data. Support for such needs design considerations.
+     *  data. Support for such needs further design considerations.
      * @param Zend_Io_Reader $reader The reader object.
      * @param Array $options The options array.
      */

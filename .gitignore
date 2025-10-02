@@ -1,0 +1,4 @@
+.svn
+.phpunit.cache
+docs/.phpdoc-cache
+docs/api

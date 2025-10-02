@@ -17,7 +17,7 @@
  * @subpackage ID3
  * @copyright  Copyright (c) 2005-2009 Zend Technologies USA Inc. (http://www.zend.com) 
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
- * @version    $Id: TextFrame.php 203 2010-10-14 05:42:20Z svollbehr $
+ * @version    $Id: TextFrame.php 273 2012-08-21 17:22:52Z svollbehr $
  */
 
 /**#@+ @ignore */
@@ -35,7 +35,7 @@ require_once 'Zend/Media/Id3/Encoding.php';
  * @author     Ryan Butterfield <buttza@gmail.com>
  * @copyright  Copyright (c) 2005-2009 Zend Technologies USA Inc. (http://www.zend.com) 
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
- * @version    $Id: TextFrame.php 203 2010-10-14 05:42:20Z svollbehr $
+ * @version    $Id: TextFrame.php 273 2012-08-21 17:22:52Z svollbehr $
  */
 abstract class Zend_Media_Id3_TextFrame extends Zend_Media_Id3_Frame
     implements Zend_Media_Id3_Encoding
@@ -178,7 +178,7 @@ abstract class Zend_Media_Id3_TextFrame extends Zend_Media_Id3_Frame
                 $count = count($this->_text);
                 for ($i = 0; $i < $count; $i++) {
                     $writer->writeString16
-                        ($text, Zend_Io_Writer::LITTLE_ENDIAN_ORDER,
+                        ($this->_text, Zend_Io_Writer::LITTLE_ENDIAN_ORDER,
                          $i == $count ? null : 1);
                 }
                 break;

@@ -17,7 +17,7 @@
  * @subpackage ISO14496
  * @copyright  Copyright (c) 2005-2009 Zend Technologies USA Inc. (http://www.zend.com) 
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
- * @version    $Id: Iso14496.php 198 2010-06-30 17:11:52Z svollbehr $
+ * @version    $Id: Iso14496.php 260 2012-03-05 19:06:21Z svollbehr $
  */
 
 /**#@+ @ignore */
@@ -249,12 +249,15 @@ require_once 'Zend/Media/Iso14496/Box.php';
  * @author     Sven Vollbehr <sven@vollbehr.eu>
  * @copyright  Copyright (c) 2005-2009 Zend Technologies USA Inc. (http://www.zend.com) 
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
- * @version    $Id: Iso14496.php 198 2010-06-30 17:11:52Z svollbehr $
+ * @version    $Id: Iso14496.php 260 2012-03-05 19:06:21Z svollbehr $
  */
 final class Zend_Media_Iso14496 extends Zend_Media_Iso14496_Box
 {
     /** @var string */
     private $_filename;
+
+    /** @var boolean */
+    private $_autoClose = false;
 
     /**
      * Constructs the Zend_Media_Iso14496 class with given file and options.
@@ -283,6 +286,7 @@ final class Zend_Media_Iso14496 extends Zend_Media_Iso14496_Box
             require_once 'Zend/Io/FileReader.php';
             try {
                 $this->_reader = new Zend_Io_FileReader($filename);
+                $this->_autoClose = true;
             } catch (Zend_Io_Exception $e) {
                 $this->_reader = null;
                 require_once 'Zend/Media/Iso14496/Exception.php';
@@ -298,6 +302,17 @@ final class Zend_Media_Iso14496 extends Zend_Media_Iso14496_Box
         $this->setType('file');
         $this->setContainer(true);
         $this->constructBoxes();
+    }
+
+    /**
+     * Closes down the reader.
+     */
+    public function __destruct()
+    {
+        parent::__destruct();
+        if ($this->_autoClose === true && $this->_reader !== null) {
+            $this->_reader->close();
+        }
     }
 
     /**
