@@ -1,0 +1,24 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Vollbehr\Media\Riff\Chunk;
+
+/**
+ * PHP Reader
+ * @package   \Vollbehr\Media
+ * @copyright (c) 2008-2012 Sven Vollbehr, 2024-2025 Vollbehr Systems AB
+ * @license   BSD-3-Clause
+ */
+
+/**#@+ @ignore */
+
+/**#@-*/
+
+/**
+ * The _Medium_ describes the original subject of the file.
+ * @author Sven Vollbehr
+ */
+final class Imed extends \Vollbehr\Media\Riff\StringChunk
+{
+}
